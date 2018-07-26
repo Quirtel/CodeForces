@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		3FD1A48B2109C8C800AF0B45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A48A2109C8C800AF0B45 /* AppDelegate.swift */; };
-		3FD1A48D2109C8C800AF0B45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A48C2109C8C800AF0B45 /* ViewController.swift */; };
-		3FD1A4902109C8C800AF0B45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A48E2109C8C800AF0B45 /* Main.storyboard */; };
 		3FD1A4922109C8C800AF0B45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A4912109C8C800AF0B45 /* Assets.xcassets */; };
 		3FD1A4952109C8C800AF0B45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A4932109C8C800AF0B45 /* LaunchScreen.storyboard */; };
 		3FD1A4A02109C8C800AF0B45 /* CodeForcesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A49F2109C8C800AF0B45 /* CodeForcesTests.swift */; };
 		3FD1A4AB2109C8C800AF0B45 /* CodeForcesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A4AA2109C8C800AF0B45 /* CodeForcesUITests.swift */; };
+		3FD1A4BF2109D2B600AF0B45 /* ContestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A4BE2109D2B600AF0B45 /* ContestsViewController.swift */; };
+		3FD1A4C12109D2CA00AF0B45 /* Contests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A4C02109D2CA00AF0B45 /* Contests.storyboard */; };
+		3FD1A4C32109D31600AF0B45 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A4C22109D31600AF0B45 /* TasksViewController.swift */; };
+		3FD1A4C52109D32800AF0B45 /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A4C42109D32800AF0B45 /* Tasks.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +38,6 @@
 /* Begin PBXFileReference section */
 		3FD1A4872109C8C800AF0B45 /* CodeForces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeForces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD1A48A2109C8C800AF0B45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3FD1A48C2109C8C800AF0B45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3FD1A48F2109C8C800AF0B45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3FD1A4912109C8C800AF0B45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FD1A4942109C8C800AF0B45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FD1A4962109C8C800AF0B45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +47,10 @@
 		3FD1A4A62109C8C800AF0B45 /* CodeForcesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeForcesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD1A4AA2109C8C800AF0B45 /* CodeForcesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeForcesUITests.swift; sourceTree = "<group>"; };
 		3FD1A4AC2109C8C800AF0B45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FD1A4BE2109D2B600AF0B45 /* ContestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestsViewController.swift; sourceTree = "<group>"; };
+		3FD1A4C02109D2CA00AF0B45 /* Contests.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Contests.storyboard; sourceTree = "<group>"; };
+		3FD1A4C22109D31600AF0B45 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		3FD1A4C42109D32800AF0B45 /* Tasks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tasks.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +101,9 @@
 		3FD1A4892109C8C800AF0B45 /* CodeForces */ = {
 			isa = PBXGroup;
 			children = (
-				3FD1A48A2109C8C800AF0B45 /* AppDelegate.swift */,
-				3FD1A48C2109C8C800AF0B45 /* ViewController.swift */,
-				3FD1A48E2109C8C800AF0B45 /* Main.storyboard */,
-				3FD1A4912109C8C800AF0B45 /* Assets.xcassets */,
-				3FD1A4932109C8C800AF0B45 /* LaunchScreen.storyboard */,
-				3FD1A4962109C8C800AF0B45 /* Info.plist */,
+				3FD1A4B82109D1DD00AF0B45 /* Common */,
+				3FD1A4B92109D1F100AF0B45 /* Internal */,
+				3FD1A4BA2109D21200AF0B45 /* Resources */,
 			);
 			path = CodeForces;
 			sourceTree = "<group>";
@@ -123,6 +124,75 @@
 				3FD1A4AC2109C8C800AF0B45 /* Info.plist */,
 			);
 			path = CodeForcesUITests;
+			sourceTree = "<group>";
+		};
+		3FD1A4B82109D1DD00AF0B45 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		3FD1A4B92109D1F100AF0B45 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				3FD1A4C82109D54C00AF0B45 /* Models */,
+				3FD1A4C72109D53E00AF0B45 /* Network */,
+				3FD1A4BB2109D26800AF0B45 /* UserStories */,
+				3FD1A48A2109C8C800AF0B45 /* AppDelegate.swift */,
+				3FD1A4932109C8C800AF0B45 /* LaunchScreen.storyboard */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		3FD1A4BA2109D21200AF0B45 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3FD1A4912109C8C800AF0B45 /* Assets.xcassets */,
+				3FD1A4962109C8C800AF0B45 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3FD1A4BB2109D26800AF0B45 /* UserStories */ = {
+			isa = PBXGroup;
+			children = (
+				3FD1A4BD2109D28000AF0B45 /* Tasks */,
+				3FD1A4BC2109D27400AF0B45 /* Contests */,
+			);
+			path = UserStories;
+			sourceTree = "<group>";
+		};
+		3FD1A4BC2109D27400AF0B45 /* Contests */ = {
+			isa = PBXGroup;
+			children = (
+				3FD1A4BE2109D2B600AF0B45 /* ContestsViewController.swift */,
+				3FD1A4C02109D2CA00AF0B45 /* Contests.storyboard */,
+			);
+			path = Contests;
+			sourceTree = "<group>";
+		};
+		3FD1A4BD2109D28000AF0B45 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				3FD1A4C22109D31600AF0B45 /* TasksViewController.swift */,
+				3FD1A4C42109D32800AF0B45 /* Tasks.storyboard */,
+			);
+			path = Tasks;
+			sourceTree = "<group>";
+		};
+		3FD1A4C72109D53E00AF0B45 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		3FD1A4C82109D54C00AF0B45 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,8 +300,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FD1A4952109C8C800AF0B45 /* LaunchScreen.storyboard in Resources */,
+				3FD1A4C12109D2CA00AF0B45 /* Contests.storyboard in Resources */,
 				3FD1A4922109C8C800AF0B45 /* Assets.xcassets in Resources */,
-				3FD1A4902109C8C800AF0B45 /* Main.storyboard in Resources */,
+				3FD1A4C52109D32800AF0B45 /* Tasks.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +327,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FD1A48D2109C8C800AF0B45 /* ViewController.swift in Sources */,
+				3FD1A4C32109D31600AF0B45 /* TasksViewController.swift in Sources */,
 				3FD1A48B2109C8C800AF0B45 /* AppDelegate.swift in Sources */,
+				3FD1A4BF2109D2B600AF0B45 /* ContestsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +365,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3FD1A48E2109C8C800AF0B45 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3FD1A48F2109C8C800AF0B45 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3FD1A4932109C8C800AF0B45 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -431,7 +495,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CodeForces/Info.plist;
+				INFOPLIST_FILE = CodeForces/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -448,7 +512,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CodeForces/Info.plist;
+				INFOPLIST_FILE = CodeForces/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
