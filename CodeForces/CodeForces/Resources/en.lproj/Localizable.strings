@@ -2,3 +2,12 @@
   Localizable.strings
   CodeForces
 */
+
+// ContestsVC
+
+"Contests_VC.title" = "Contests";
+
+
+// TasksVC
+
+"Tasks_VC.title" = " Tasks";

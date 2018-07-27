@@ -17,6 +17,9 @@
 		3FD1A4C52109D32800AF0B45 /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A4C42109D32800AF0B45 /* Tasks.storyboard */; };
 		557E3491210ACB8C0057E43A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 557E3493210ACB8C0057E43A /* Localizable.strings */; };
 		557E3495210ACBD80057E43A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E3494210ACBD80057E43A /* LaunchScreen.storyboard */; };
+		557E349C210ACF880057E43A /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E3499210ACF880057E43A /* Assets.swift */; };
+		557E349D210ACF880057E43A /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E349A210ACF880057E43A /* Localization.swift */; };
+		557E349E210ACF880057E43A /* Storyboadrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E349B210ACF880057E43A /* Storyboadrs.swift */; };
 		8847CFE8A488882A3A446D09 /* Pods_CodeForces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0F8FFD70C81CEA996DF9909 /* Pods_CodeForces.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +58,9 @@
 		557E3492210ACB8C0057E43A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		557E3494210ACBD80057E43A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		557E3496210ACBF00057E43A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		557E3499210ACF880057E43A /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		557E349A210ACF880057E43A /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		557E349B210ACF880057E43A /* Storyboadrs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboadrs.swift; sourceTree = "<group>"; };
 		EB418E7CDE4DFA57CFBA253E /* Pods-CodeForces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeForces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodeForces/Pods-CodeForces.debug.xcconfig"; sourceTree = "<group>"; };
 		F0F8FFD70C81CEA996DF9909 /* Pods_CodeForces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeForces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6E8B315AD209EE8465F6BFF /* Pods-CodeForces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeForces.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodeForces/Pods-CodeForces.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +127,7 @@
 			children = (
 				3FD1A4B82109D1DD00AF0B45 /* Common */,
 				3FD1A4B92109D1F100AF0B45 /* Internal */,
+				557E3498210ACF880057E43A /* Generated */,
 				3FD1A4BA2109D21200AF0B45 /* Resources */,
 			);
 			path = CodeForces;
@@ -214,6 +221,16 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		557E3498210ACF880057E43A /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				557E3499210ACF880057E43A /* Assets.swift */,
+				557E349A210ACF880057E43A /* Localization.swift */,
+				557E349B210ACF880057E43A /* Storyboadrs.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 		A4BA15BCBFF1C02121E0E755 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +247,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FD1A4AF2109C8C800AF0B45 /* Build configuration list for PBXNativeTarget "CodeForces" */;
 			buildPhases = (
+				557E3497210ACF1F0057E43A /* SwiftGen */,
 				D632892202F5EBF7C19897E7 /* [CP] Check Pods Manifest.lock */,
 				3FD1A4832109C8C800AF0B45 /* Sources */,
 				3FD1A4842109C8C800AF0B45 /* Frameworks */,
@@ -355,6 +373,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		557E3497210ACF1F0057E43A /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "Pods/SwiftGen/bin/swiftgen storyboards -t swift4 \"CodeForces\" -output \"CodeForces/Generated/Storyboadrs.swift\" --param module=\"CodeForces\"\nPods/SwiftGen/bin/swiftgen xcassets -t swift4 \"CodeForces/Resources/Assets.xcassets\" -output \"CodeForces/Generated/Assets.swift\" --param module=\"CodeForces\"\nPods/SwiftGen/bin/swiftgen strings -t structured-swift4 \"CodeForces/Resources/en.lproj/Localizable.strings\" -output \"CodeForces/Generated/Localization.swift\"";
+		};
 		A168937CBAF61436551482C5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -405,7 +437,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FD1A4C32109D31600AF0B45 /* TasksViewController.swift in Sources */,
+				557E349D210ACF880057E43A /* Localization.swift in Sources */,
+				557E349E210ACF880057E43A /* Storyboadrs.swift in Sources */,
 				3FD1A48B2109C8C800AF0B45 /* AppDelegate.swift in Sources */,
+				557E349C210ACF880057E43A /* Assets.swift in Sources */,
 				3FD1A4BF2109D2B600AF0B45 /* ContestsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,14 +8,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let contestsSB = UIStoryboard(name: "Contests", bundle: nil)
-        let contestsVC = contestsSB.instantiateViewController(withIdentifier: "ContestsViewController")
-        contestsVC.title = "Contests"
+        let contestsVC = StoryboardScene.Contests.contestsViewController.instantiate()
+        contestsVC.title = L10n.ContestsVc.title
         let contestsNC = UINavigationController(rootViewController: contestsVC)
         
-        let tasksSB = UIStoryboard(name: "Tasks", bundle: nil)
-        let tasksVC = tasksSB.instantiateViewController(withIdentifier: "TasksViewController")
-        tasksVC.title = "Tasks"
+        let tasksVC = StoryboardScene.Tasks.tasksViewController.instantiate()
+        tasksVC.title = L10n.TasksVc.title
         let tasksNC = UINavigationController(rootViewController: tasksVC)
         
         let tabBarController = UITabBarController()
