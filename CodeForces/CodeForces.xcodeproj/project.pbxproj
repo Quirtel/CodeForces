@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		3FD1A48B2109C8C800AF0B45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A48A2109C8C800AF0B45 /* AppDelegate.swift */; };
 		3FD1A4922109C8C800AF0B45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A4912109C8C800AF0B45 /* Assets.xcassets */; };
-		3FD1A4952109C8C800AF0B45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A4932109C8C800AF0B45 /* LaunchScreen.storyboard */; };
 		3FD1A4A02109C8C800AF0B45 /* CodeForcesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A49F2109C8C800AF0B45 /* CodeForcesTests.swift */; };
 		3FD1A4AB2109C8C800AF0B45 /* CodeForcesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A4AA2109C8C800AF0B45 /* CodeForcesUITests.swift */; };
 		3FD1A4BF2109D2B600AF0B45 /* ContestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A4BE2109D2B600AF0B45 /* ContestsViewController.swift */; };
 		3FD1A4C12109D2CA00AF0B45 /* Contests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A4C02109D2CA00AF0B45 /* Contests.storyboard */; };
 		3FD1A4C32109D31600AF0B45 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A4C22109D31600AF0B45 /* TasksViewController.swift */; };
 		3FD1A4C52109D32800AF0B45 /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A4C42109D32800AF0B45 /* Tasks.storyboard */; };
+		557E3491210ACB8C0057E43A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 557E3493210ACB8C0057E43A /* Localizable.strings */; };
+		557E3495210ACBD80057E43A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E3494210ACBD80057E43A /* LaunchScreen.storyboard */; };
 		8847CFE8A488882A3A446D09 /* Pods_CodeForces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0F8FFD70C81CEA996DF9909 /* Pods_CodeForces.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +41,6 @@
 		3FD1A4872109C8C800AF0B45 /* CodeForces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeForces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD1A48A2109C8C800AF0B45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FD1A4912109C8C800AF0B45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3FD1A4942109C8C800AF0B45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FD1A4962109C8C800AF0B45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FD1A49B2109C8C800AF0B45 /* CodeForcesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeForcesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD1A49F2109C8C800AF0B45 /* CodeForcesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeForcesTests.swift; sourceTree = "<group>"; };
@@ -52,6 +52,9 @@
 		3FD1A4C02109D2CA00AF0B45 /* Contests.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Contests.storyboard; sourceTree = "<group>"; };
 		3FD1A4C22109D31600AF0B45 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		3FD1A4C42109D32800AF0B45 /* Tasks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tasks.storyboard; sourceTree = "<group>"; };
+		557E3492210ACB8C0057E43A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		557E3494210ACBD80057E43A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		557E3496210ACBF00057E43A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EB418E7CDE4DFA57CFBA253E /* Pods-CodeForces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeForces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodeForces/Pods-CodeForces.debug.xcconfig"; sourceTree = "<group>"; };
 		F0F8FFD70C81CEA996DF9909 /* Pods_CodeForces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeForces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6E8B315AD209EE8465F6BFF /* Pods-CodeForces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeForces.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodeForces/Pods-CodeForces.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,7 +158,7 @@
 				3FD1A4C72109D53E00AF0B45 /* Network */,
 				3FD1A4BB2109D26800AF0B45 /* UserStories */,
 				3FD1A48A2109C8C800AF0B45 /* AppDelegate.swift */,
-				3FD1A4932109C8C800AF0B45 /* LaunchScreen.storyboard */,
+				557E3494210ACBD80057E43A /* LaunchScreen.storyboard */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			children = (
 				3FD1A4912109C8C800AF0B45 /* Assets.xcassets */,
 				3FD1A4962109C8C800AF0B45 /* Info.plist */,
+				557E3493210ACB8C0057E43A /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -307,6 +311,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 3FD1A47E2109C8C800AF0B45;
 			productRefGroup = 3FD1A4882109C8C800AF0B45 /* Products */;
@@ -325,9 +330,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FD1A4952109C8C800AF0B45 /* LaunchScreen.storyboard in Resources */,
+				557E3491210ACB8C0057E43A /* Localizable.strings in Resources */,
 				3FD1A4C12109D2CA00AF0B45 /* Contests.storyboard in Resources */,
 				3FD1A4922109C8C800AF0B45 /* Assets.xcassets in Resources */,
+				557E3495210ACBD80057E43A /* LaunchScreen.storyboard in Resources */,
 				3FD1A4C52109D32800AF0B45 /* Tasks.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,12 +442,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3FD1A4932109C8C800AF0B45 /* LaunchScreen.storyboard */ = {
+		557E3493210ACB8C0057E43A /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3FD1A4942109C8C800AF0B45 /* Base */,
+				557E3492210ACB8C0057E43A /* en */,
+				557E3496210ACBF00057E43A /* ru */,
 			);
-			name = LaunchScreen.storyboard;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -451,6 +458,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -498,7 +506,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -511,6 +519,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -552,7 +561,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;

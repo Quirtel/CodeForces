@@ -10,10 +10,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let contestsSB = UIStoryboard(name: "Contests", bundle: nil)
         let contestsVC = contestsSB.instantiateViewController(withIdentifier: "ContestsViewController")
+        contestsVC.title = "Contests"
         let contestsNC = UINavigationController(rootViewController: contestsVC)
         
         let tasksSB = UIStoryboard(name: "Tasks", bundle: nil)
         let tasksVC = tasksSB.instantiateViewController(withIdentifier: "TasksViewController")
+        tasksVC.title = "Tasks"
         let tasksNC = UINavigationController(rootViewController: tasksVC)
         
         let tabBarController = UITabBarController()
