@@ -13,7 +13,7 @@ enum ContestAPI {
 
 extension ContestAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "http://codeforces.com/api")!
+        return URL(string: "https://codeforces.com/api")!
     }
     
     var path: String {
@@ -32,7 +32,7 @@ extension ContestAPI: TargetType {
     }
     
     var method: Moya.Method {
-        return .post
+        return .get
     }
     
     var sampleData: Data {
@@ -71,6 +71,8 @@ extension ContestAPI: TargetType {
     }
     
     var headers: [String : String]? {
-        return nil
+        return ["accept" : "application/json",
+                "Content-Type" : "application/json"
+        ]
     }
 }
