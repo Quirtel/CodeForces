@@ -1,11 +1,3 @@
-//
-//  CodeForcesTests.swift
-//  CodeForcesTests
-//
-//  Created by student on 26/07/2018.
-//  Copyright © 2018 students. All rights reserved.
-//
-
 import XCTest
 @testable import CodeForces
 
