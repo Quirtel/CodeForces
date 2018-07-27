@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Moya
 @testable import CodeForces
 
 class CodeForcesTests: XCTestCase {
@@ -26,10 +27,16 @@ class CodeForcesTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testContestAPI() {
+        let provider = MoyaProvider<ContestAPI>()
+        provider.request(.list(gym: true)) { result in
+            switch result {
+            case .success(let moyaResponse):
+                print(moyaResponse.statusCode)
+            case .failure(let error):
+                print(error)
+                XCTFail()
+            }
         }
     }
     
