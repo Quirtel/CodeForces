@@ -1,7 +1,7 @@
 import Foundation
 
 enum Result<T: Codable> {
-    case success(Response<T>)
+    case success(T)
     case error(Error)
 }
 

@@ -25,37 +25,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window
         window.makeKeyAndVisible()
         
-        
-        //testing code here
-        
-        let provider = MoyaProvider<ContestAPI>()
-        provider.request(.list(gym: false)) { result in
-            switch result {
-            case .success(let moyaResponse):
-                print("success: \(moyaResponse.description)")
-                do {
-                    let result = try moyaResponse.map(Response<[Contest]>.self)
-                    switch result.status {
-                    case .OK:
-                        if let contests = result.result {
-                            for c in contests {
-                                print("NEW CONTEST: \(c)")
-                            }
-                        }
-                    case .FAILED:
-                        print("Server returned 'FAILED' with comment: \(result.comment ?? "<no-comment>")")
-                    }
-                    
-                } catch {
-                    print("Serialization error \(error)")
-                }
-            case .failure(let error):
-                print("error: \(error)")
-            }
-        }
-        
-        
-        
+        //Example of using provider
+//        let provider = ContentProvider()
+//        provider.getContestList() { result in
+//            print(result)
+//        }
+//
+//        provider.getContestStatus(
+//            contestId: 566,
+//            handle: nil,
+//            from: nil, count: nil) { result in
+//                print(result)
+//        }
         
         return true
     }
