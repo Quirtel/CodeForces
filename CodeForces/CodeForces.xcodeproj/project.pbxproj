@@ -57,6 +57,8 @@
 		557E349E210ACF880057E43A /* Storyboadrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E349B210ACF880057E43A /* Storyboadrs.swift */; };
 		8847CFE8A488882A3A446D09 /* Pods_CodeForces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0F8FFD70C81CEA996DF9909 /* Pods_CodeForces.framework */; };
 		CA6A63CAA16B8F7116EE91BE /* Pods_CodeForcesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10982C0F643B00317B97F5B0 /* Pods_CodeForcesTests.framework */; };
+		EA6D5BD2210C3FAA005CFE07 /* ContestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D5BD0210C3FAA005CFE07 /* ContestCell.swift */; };
+		EA6D5BD3210C3FAA005CFE07 /* ContestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA6D5BD1210C3FAA005CFE07 /* ContestCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +136,8 @@
 		557E349A210ACF880057E43A /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		557E349B210ACF880057E43A /* Storyboadrs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboadrs.swift; sourceTree = "<group>"; };
 		C4B19BDA7383E18C2832D646 /* Pods-CodeForcesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeForcesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodeForcesTests/Pods-CodeForcesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EA6D5BD0210C3FAA005CFE07 /* ContestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContestCell.swift; sourceTree = "<group>"; };
+		EA6D5BD1210C3FAA005CFE07 /* ContestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContestCell.xib; sourceTree = "<group>"; };
 		EB418E7CDE4DFA57CFBA253E /* Pods-CodeForces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeForces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodeForces/Pods-CodeForces.debug.xcconfig"; sourceTree = "<group>"; };
 		F0F8FFD70C81CEA996DF9909 /* Pods_CodeForces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeForces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6E8B315AD209EE8465F6BFF /* Pods-CodeForces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeForces.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodeForces/Pods-CodeForces.release.xcconfig"; sourceTree = "<group>"; };
@@ -326,6 +330,7 @@
 		3FD1A4BC2109D27400AF0B45 /* Contests */ = {
 			isa = PBXGroup;
 			children = (
+				EA6D5BCF210C3FAA005CFE07 /* Cell */,
 				3FD1A4BE2109D2B600AF0B45 /* ContestsViewController.swift */,
 				3FD1A4C02109D2CA00AF0B45 /* Contests.storyboard */,
 			);
@@ -391,6 +396,15 @@
 				F89650B2D6758E3F094A53BA /* Pods-CodeForcesTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		EA6D5BCF210C3FAA005CFE07 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EA6D5BD0210C3FAA005CFE07 /* ContestCell.swift */,
+				EA6D5BD1210C3FAA005CFE07 /* ContestCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,6 +516,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA6D5BD3210C3FAA005CFE07 /* ContestCell.xib in Resources */,
 				557E3491210ACB8C0057E43A /* Localizable.strings in Resources */,
 				3FD1A4C12109D2CA00AF0B45 /* Contests.storyboard in Resources */,
 				3FD1A4922109C8C800AF0B45 /* Assets.xcassets in Resources */,
@@ -613,6 +628,7 @@
 				3F38A129210B1B40008E98C6 /* Submission.swift in Sources */,
 				3F38A131210B1B40008E98C6 /* Phase.swift in Sources */,
 				3F38A135210B1B40008E98C6 /* HackVerdict.swift in Sources */,
+				EA6D5BD2210C3FAA005CFE07 /* ContestCell.swift in Sources */,
 				3FD1A4C32109D31600AF0B45 /* TasksViewController.swift in Sources */,
 				3F38A124210B1B40008E98C6 /* Problem.swift in Sources */,
 				3FED5385210C238100878EAD /* Errors.swift in Sources */,
