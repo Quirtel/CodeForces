@@ -8,5 +8,5 @@ struct RanklistRow: Codable {
     let successfulHackCount: Int
     let unsuccessfulHackCount: Int
     let problemResults: [ProblemResult]
-    let lastSubmissionTimeSeconds: Int
+    let lastSubmissionTimeSeconds: Int?
 }

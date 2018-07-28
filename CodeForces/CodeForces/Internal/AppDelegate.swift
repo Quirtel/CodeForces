@@ -1,11 +1,9 @@
 import UIKit
-import Moya
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -24,20 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.rootViewController = tabBarController
         self.window = window
         window.makeKeyAndVisible()
-        
-        //Example of using provider
-//        let provider = ContentProvider()
-//        provider.getContestList() { result in
-//            print(result)
-//        }
-//
-//        provider.getContestStatus(
-//            contestId: 566,
-//            handle: nil,
-//            from: nil, count: nil) { result in
-//                print(result)
-//        }
-        
+
         return true
     }
 }

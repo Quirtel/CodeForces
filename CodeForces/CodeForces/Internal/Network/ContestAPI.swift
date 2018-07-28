@@ -7,7 +7,7 @@ enum ContestAPI {
     case ratingChanges(contestId: Int)
     case standings(
         contestId: Int, from: Int?, count: Int?,
-        handles: [String]?, room: Int?, showUnofficial: Bool?)
+        handles: [String]?, room: Int?, showUnofficial: Bool)
     case status(contestId: Int, handle: String?, from: Int?, count: Int?)
 }
 

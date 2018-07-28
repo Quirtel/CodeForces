@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F303793210C47F5000B384F /* ContestStandingsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F303792210C47F5000B384F /* ContestStandingsWrapper.swift */; };
 		3F38A123210B1B40008E98C6 /* ProblemResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A109210B1B40008E98C6 /* ProblemResult.swift */; };
 		3F38A124210B1B40008E98C6 /* Problem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A10A210B1B40008E98C6 /* Problem.swift */; };
 		3F38A125210B1B40008E98C6 /* ProblemResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A10B210B1B40008E98C6 /* ProblemResultType.swift */; };
@@ -71,6 +72,7 @@
 
 /* Begin PBXFileReference section */
 		10982C0F643B00317B97F5B0 /* Pods_CodeForcesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeForcesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F303792210C47F5000B384F /* ContestStandingsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestStandingsWrapper.swift; sourceTree = "<group>"; };
 		3F38A109210B1B40008E98C6 /* ProblemResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemResult.swift; sourceTree = "<group>"; };
 		3F38A10A210B1B40008E98C6 /* Problem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Problem.swift; sourceTree = "<group>"; };
 		3F38A10B210B1B40008E98C6 /* ProblemResultType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemResultType.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				3F38A116210B1B40008E98C6 /* RatingChange.swift */,
 				3F38A117210B1B40008E98C6 /* SubmissionVerdict.swift */,
 				3F38A118210B1B40008E98C6 /* Phase.swift */,
+				3F303792210C47F5000B384F /* ContestStandingsWrapper.swift */,
 			);
 			path = Contest;
 			sourceTree = "<group>";
@@ -194,10 +197,10 @@
 		3F38A119210B1B40008E98C6 /* Hack */ = {
 			isa = PBXGroup;
 			children = (
-				3F38A11A210B1B40008E98C6 /* RanklistRow.swift */,
-				3F38A11B210B1B40008E98C6 /* JudgeProtocol.swift */,
 				3F38A11C210B1B40008E98C6 /* Hack.swift */,
 				3F38A11D210B1B40008E98C6 /* HackVerdict.swift */,
+				3F38A11B210B1B40008E98C6 /* JudgeProtocol.swift */,
+				3F38A11A210B1B40008E98C6 /* RanklistRow.swift */,
 			);
 			path = Hack;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				557E349D210ACF880057E43A /* Localization.swift in Sources */,
 				3F38A12C210B1B40008E98C6 /* Party.swift in Sources */,
 				3F38A12D210B1B40008E98C6 /* Contest.swift in Sources */,
+				3F303793210C47F5000B384F /* ContestStandingsWrapper.swift in Sources */,
 				3F38A133210B1B40008E98C6 /* JudgeProtocol.swift in Sources */,
 				557E349E210ACF880057E43A /* Storyboadrs.swift in Sources */,
 				3F38A139210B1B40008E98C6 /* BlogEntry.swift in Sources */,
