@@ -10,6 +10,7 @@
 		3F2D92A4210C5B8400EC6380 /* ContestProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A3210C5B8400EC6380 /* ContestProvider.swift */; };
 		3F2D92A6210C5C0700EC6380 /* ProblemSetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A5210C5C0700EC6380 /* ProblemSetProvider.swift */; };
 		3F2D92A8210C5DEA00EC6380 /* ProblemSetProblemsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A7210C5DEA00EC6380 /* ProblemSetProblemsWrapper.swift */; };
+		3F2D92AA210C60CB00EC6380 /* NetworkProblemSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A9210C60CB00EC6380 /* NetworkProblemSetTests.swift */; };
 		3F303793210C47F5000B384F /* ContestStandingsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F303792210C47F5000B384F /* ContestStandingsWrapper.swift */; };
 		3F303795210C5243000B384F /* ProblemSetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F303794210C5243000B384F /* ProblemSetAPI.swift */; };
 		3F303797210C53AF000B384F /* Optional+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F303796210C53AF000B384F /* Optional+Ext.swift */; };
@@ -39,10 +40,9 @@
 		3F38A13B210B1B4C008E98C6 /* ContestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A13A210B1B4C008E98C6 /* ContestAPI.swift */; };
 		3F38A13D210B2373008E98C6 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A13C210B2373008E98C6 /* Response.swift */; };
 		3F38A13F210B2880008E98C6 /* CodeForcesNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A13E210B2880008E98C6 /* CodeForcesNetworkTests.swift */; };
-		3F7EF935210C587A0085698C /* CodeForceNetworkContestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7EF934210C587A0085698C /* CodeForceNetworkContestTests.swift */; };
 		3FD1A48B2109C8C800AF0B45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A48A2109C8C800AF0B45 /* AppDelegate.swift */; };
 		3FD1A4922109C8C800AF0B45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A4912109C8C800AF0B45 /* Assets.xcassets */; };
-		3FD1A4A02109C8C800AF0B45 /* CodeForcesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A49F2109C8C800AF0B45 /* CodeForcesTests.swift */; };
+		3FD1A4A02109C8C800AF0B45 /* NetworkContestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A49F2109C8C800AF0B45 /* NetworkContestTests.swift */; };
 		3FD1A4AB2109C8C800AF0B45 /* CodeForcesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A4AA2109C8C800AF0B45 /* CodeForcesUITests.swift */; };
 		3FD1A4BF2109D2B600AF0B45 /* ContestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A4BE2109D2B600AF0B45 /* ContestsViewController.swift */; };
 		3FD1A4C12109D2CA00AF0B45 /* Contests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A4C02109D2CA00AF0B45 /* Contests.storyboard */; };
@@ -81,6 +81,7 @@
 		3F2D92A3210C5B8400EC6380 /* ContestProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestProvider.swift; sourceTree = "<group>"; };
 		3F2D92A5210C5C0700EC6380 /* ProblemSetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemSetProvider.swift; sourceTree = "<group>"; };
 		3F2D92A7210C5DEA00EC6380 /* ProblemSetProblemsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemSetProblemsWrapper.swift; sourceTree = "<group>"; };
+		3F2D92A9210C60CB00EC6380 /* NetworkProblemSetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProblemSetTests.swift; sourceTree = "<group>"; };
 		3F303792210C47F5000B384F /* ContestStandingsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestStandingsWrapper.swift; sourceTree = "<group>"; };
 		3F303794210C5243000B384F /* ProblemSetAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemSetAPI.swift; sourceTree = "<group>"; };
 		3F303796210C53AF000B384F /* Optional+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Ext.swift"; sourceTree = "<group>"; };
@@ -110,13 +111,12 @@
 		3F38A13A210B1B4C008E98C6 /* ContestAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContestAPI.swift; sourceTree = "<group>"; };
 		3F38A13C210B2373008E98C6 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		3F38A13E210B2880008E98C6 /* CodeForcesNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeForcesNetworkTests.swift; sourceTree = "<group>"; };
-		3F7EF934210C587A0085698C /* CodeForceNetworkContestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeForceNetworkContestTests.swift; sourceTree = "<group>"; };
 		3FD1A4872109C8C800AF0B45 /* CodeForces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeForces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD1A48A2109C8C800AF0B45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FD1A4912109C8C800AF0B45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FD1A4962109C8C800AF0B45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FD1A49B2109C8C800AF0B45 /* CodeForcesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeForcesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FD1A49F2109C8C800AF0B45 /* CodeForcesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeForcesTests.swift; sourceTree = "<group>"; };
+		3FD1A49F2109C8C800AF0B45 /* NetworkContestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkContestTests.swift; sourceTree = "<group>"; };
 		3FD1A4A12109C8C800AF0B45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FD1A4A62109C8C800AF0B45 /* CodeForcesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeForcesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD1A4AA2109C8C800AF0B45 /* CodeForcesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeForcesUITests.swift; sourceTree = "<group>"; };
@@ -266,9 +266,9 @@
 			isa = PBXGroup;
 			children = (
 				3F38A13E210B2880008E98C6 /* CodeForcesNetworkTests.swift */,
-				3FD1A49F2109C8C800AF0B45 /* CodeForcesTests.swift */,
+				3FD1A49F2109C8C800AF0B45 /* NetworkContestTests.swift */,
+				3F2D92A9210C60CB00EC6380 /* NetworkProblemSetTests.swift */,
 				3FD1A4A12109C8C800AF0B45 /* Info.plist */,
-				3F7EF934210C587A0085698C /* CodeForceNetworkContestTests.swift */,
 			);
 			path = CodeForcesTests;
 			sourceTree = "<group>";
@@ -654,8 +654,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FD1A4A02109C8C800AF0B45 /* CodeForcesTests.swift in Sources */,
-				3F7EF935210C587A0085698C /* CodeForceNetworkContestTests.swift in Sources */,
+				3FD1A4A02109C8C800AF0B45 /* NetworkContestTests.swift in Sources */,
+				3F2D92AA210C60CB00EC6380 /* NetworkProblemSetTests.swift in Sources */,
 				3F38A13F210B2880008E98C6 /* CodeForcesNetworkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

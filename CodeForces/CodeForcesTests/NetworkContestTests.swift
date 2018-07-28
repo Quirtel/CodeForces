@@ -1,4 +1,6 @@
 import XCTest
+import Moya
+
 @testable import CodeForces
 
 class ContestTests: CodeForcesNetworkTests {
