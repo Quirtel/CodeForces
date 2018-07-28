@@ -50,15 +50,7 @@ extension ContestAPI: TargetType {
             params["contestId"] = contestId
             params["from"] = from
             params["count"] = count
-            if let handles = handles {
-                var handlString = ""
-                for (id, handle) in handles.enumerated() {
-                    handlString.append(handle)
-                    if id < handles.count - 1 {
-                        handlString.append(";")
-                    }
-                }
-            }
+            params["handles"] = handles.semicolonSeparated
             params["room"] = room
             params["showUnofficial"] = showUnofficial
         case .status(let contestId, let handle, let from, let count):
