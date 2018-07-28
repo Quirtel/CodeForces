@@ -13,6 +13,7 @@ class ContestCell: UITableViewCell {
     @IBOutlet var status: UILabel!
     @IBOutlet var durationTime: UILabel!
     @IBOutlet var endTime: UILabel!
+    @IBOutlet var remainingLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
