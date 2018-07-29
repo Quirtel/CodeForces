@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,10 +14,20 @@
         <scene sceneID="CyO-Qs-J2E">
             <objects>
                 <viewController storyboardIdentifier="ContestsViewController" id="MHF-OM-zRG" customClass="ContestsViewController" customModule="CodeForces" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ContestsTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="g76-mL-bxo">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ContestsTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="g76-mL-bxo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Fbh-U3-2x9">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fbh-U3-2x9" id="uZX-2y-wQV">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="MHF-OM-zRG" id="HcD-87-tv9"/>
                             <outlet property="delegate" destination="MHF-OM-zRG" id="Tfq-cb-0Vm"/>
@@ -29,6 +40,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gx0-3H-14n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="341.60000000000002" y="-331.48425787106447"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="r2Y-9w-1Rp">
+            <objects>
+                <navigationController id="gdj-6f-6aT" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IJM-Ml-tQh">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="kNu-1Q-gI7" kind="relationship" relationship="rootViewController" id="qc4-dn-soy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RX3-bC-9XS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1232" y="-332"/>
+        </scene>
+        <!--Contest Info View Controller-->
+        <scene sceneID="oEg-cD-SQk">
+            <objects>
+                <viewController storyboardIdentifier="ContestInfoViewController" id="kNu-1Q-gI7" customClass="ContestInfoViewController" customModule="CodeForces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qUt-1r-qeO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="r5c-W2-rPG">
+                                <rect key="frame" x="16" y="84" width="343" height="29"/>
+                                <segments>
+                                    <segment title="Задачи"/>
+                                    <segment title="Статус"/>
+                                    <segment title="Положение"/>
+                                </segments>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f0P-Fz-Wvs">
+                                <rect key="frame" x="0.0" y="132" width="375" height="535"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Uqy-Rk-9y7" firstAttribute="trailing" secondItem="r5c-W2-rPG" secondAttribute="trailing" constant="16" id="0kU-Mo-iP7"/>
+                            <constraint firstItem="r5c-W2-rPG" firstAttribute="leading" secondItem="Uqy-Rk-9y7" secondAttribute="leading" constant="16" id="9hh-SR-RRC"/>
+                            <constraint firstItem="f0P-Fz-Wvs" firstAttribute="bottom" secondItem="Uqy-Rk-9y7" secondAttribute="bottom" id="M7B-lH-v6A"/>
+                            <constraint firstItem="r5c-W2-rPG" firstAttribute="top" secondItem="Uqy-Rk-9y7" secondAttribute="top" constant="20" id="j0i-kE-NCR"/>
+                            <constraint firstItem="f0P-Fz-Wvs" firstAttribute="leading" secondItem="Uqy-Rk-9y7" secondAttribute="leading" id="jAm-hA-9MW"/>
+                            <constraint firstItem="f0P-Fz-Wvs" firstAttribute="top" secondItem="r5c-W2-rPG" secondAttribute="bottom" constant="20" id="jia-m0-PlF"/>
+                            <constraint firstItem="f0P-Fz-Wvs" firstAttribute="trailing" secondItem="Uqy-Rk-9y7" secondAttribute="trailing" id="ssQ-8a-2Fu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Uqy-Rk-9y7"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8Po-5i-aDV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TvT-3Y-iKB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2160.8000000000002" y="-332.38380809595208"/>
         </scene>
     </scenes>
 </document>

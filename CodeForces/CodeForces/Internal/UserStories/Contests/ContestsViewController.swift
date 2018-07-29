@@ -182,6 +182,12 @@ extension ContestsViewController: UITableViewDataSource {
 // -MARK: Delegate
 extension ContestsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let nextViewController = storyboard?.instantiateViewController(withIdentifier: "ContestInfoViewController")
+        
+        if let viewController = nextViewController as? ContestInfoViewController {
+            navigationController?.pushViewController(viewController, animated: true)
+        }
+            
         tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
     }
 }
