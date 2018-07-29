@@ -1,7 +1,7 @@
 import Foundation
 import Moya
 
-class ContentProvider {   
+class Provider {
     func request<Target: TargetType, ResultType: Codable>(
         provider: MoyaProvider<Target>,
         target: Target,
@@ -24,7 +24,7 @@ class ContentProvider {
                             DispatchQueue.main.async {
                                 completion(Result.error(
                                     NetworkErrors.responseStatusFailed(
-                                        comment: response.comment ?? "No comment")))
+                                        comment: response.comment ?? "no comment")))
                             }
                         }
                     } catch {

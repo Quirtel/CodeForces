@@ -11,6 +11,9 @@
 		3F2D92A6210C5C0700EC6380 /* ProblemSetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A5210C5C0700EC6380 /* ProblemSetProvider.swift */; };
 		3F2D92A8210C5DEA00EC6380 /* ProblemSetProblemsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A7210C5DEA00EC6380 /* ProblemSetProblemsWrapper.swift */; };
 		3F2D92AA210C60CB00EC6380 /* NetworkProblemSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A9210C60CB00EC6380 /* NetworkProblemSetTests.swift */; };
+		3F2D92AC210D761A00EC6380 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92AB210D761A00EC6380 /* UserAPI.swift */; };
+		3F2D92AE210D76F500EC6380 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92AD210D76F500EC6380 /* UserProvider.swift */; };
+		3F2D92B0210D7BF700EC6380 /* NetworkUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92AF210D7BF700EC6380 /* NetworkUserTests.swift */; };
 		3F303793210C47F5000B384F /* ContestStandingsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F303792210C47F5000B384F /* ContestStandingsWrapper.swift */; };
 		3F303795210C5243000B384F /* ProblemSetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F303794210C5243000B384F /* ProblemSetAPI.swift */; };
 		3F303797210C53AF000B384F /* Optional+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F303796210C53AF000B384F /* Optional+Ext.swift */; };
@@ -48,7 +51,7 @@
 		3FD1A4C12109D2CA00AF0B45 /* Contests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A4C02109D2CA00AF0B45 /* Contests.storyboard */; };
 		3FD1A4C32109D31600AF0B45 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A4C22109D31600AF0B45 /* TasksViewController.swift */; };
 		3FD1A4C52109D32800AF0B45 /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A4C42109D32800AF0B45 /* Tasks.storyboard */; };
-		3FED5383210C1F6D00878EAD /* ContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED5382210C1F6D00878EAD /* ContentProvider.swift */; };
+		3FED5383210C1F6D00878EAD /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED5382210C1F6D00878EAD /* Provider.swift */; };
 		3FED5385210C238100878EAD /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED5384210C238100878EAD /* Errors.swift */; };
 		557E3491210ACB8C0057E43A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 557E3493210ACB8C0057E43A /* Localizable.strings */; };
 		557E3495210ACBD80057E43A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E3494210ACBD80057E43A /* LaunchScreen.storyboard */; };
@@ -82,6 +85,9 @@
 		3F2D92A5210C5C0700EC6380 /* ProblemSetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemSetProvider.swift; sourceTree = "<group>"; };
 		3F2D92A7210C5DEA00EC6380 /* ProblemSetProblemsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemSetProblemsWrapper.swift; sourceTree = "<group>"; };
 		3F2D92A9210C60CB00EC6380 /* NetworkProblemSetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProblemSetTests.swift; sourceTree = "<group>"; };
+		3F2D92AB210D761A00EC6380 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		3F2D92AD210D76F500EC6380 /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
+		3F2D92AF210D7BF700EC6380 /* NetworkUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUserTests.swift; sourceTree = "<group>"; };
 		3F303792210C47F5000B384F /* ContestStandingsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestStandingsWrapper.swift; sourceTree = "<group>"; };
 		3F303794210C5243000B384F /* ProblemSetAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemSetAPI.swift; sourceTree = "<group>"; };
 		3F303796210C53AF000B384F /* Optional+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Ext.swift"; sourceTree = "<group>"; };
@@ -125,7 +131,7 @@
 		3FD1A4C02109D2CA00AF0B45 /* Contests.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Contests.storyboard; sourceTree = "<group>"; };
 		3FD1A4C22109D31600AF0B45 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		3FD1A4C42109D32800AF0B45 /* Tasks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tasks.storyboard; sourceTree = "<group>"; };
-		3FED5382210C1F6D00878EAD /* ContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentProvider.swift; sourceTree = "<group>"; };
+		3FED5382210C1F6D00878EAD /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		3FED5384210C238100878EAD /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		557E3492210ACB8C0057E43A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		557E3494210ACBD80057E43A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -268,6 +274,7 @@
 				3F38A13E210B2880008E98C6 /* CodeForcesNetworkTests.swift */,
 				3FD1A49F2109C8C800AF0B45 /* NetworkContestTests.swift */,
 				3F2D92A9210C60CB00EC6380 /* NetworkProblemSetTests.swift */,
+				3F2D92AF210D7BF700EC6380 /* NetworkUserTests.swift */,
 				3FD1A4A12109C8C800AF0B45 /* Info.plist */,
 			);
 			path = CodeForcesTests;
@@ -346,6 +353,7 @@
 			children = (
 				3F38A13A210B1B4C008E98C6 /* ContestAPI.swift */,
 				3F303794210C5243000B384F /* ProblemSetAPI.swift */,
+				3F2D92AB210D761A00EC6380 /* UserAPI.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -365,9 +373,10 @@
 		3FED5381210C1EEF00878EAD /* ContentProvider */ = {
 			isa = PBXGroup;
 			children = (
-				3FED5382210C1F6D00878EAD /* ContentProvider.swift */,
+				3FED5382210C1F6D00878EAD /* Provider.swift */,
 				3F2D92A3210C5B8400EC6380 /* ContestProvider.swift */,
 				3F2D92A5210C5C0700EC6380 /* ProblemSetProvider.swift */,
+				3F2D92AD210D76F500EC6380 /* UserProvider.swift */,
 			);
 			path = ContentProvider;
 			sourceTree = "<group>";
@@ -636,16 +645,18 @@
 				3F38A13D210B2373008E98C6 /* Response.swift in Sources */,
 				3F38A12E210B1B40008E98C6 /* Member.swift in Sources */,
 				3F303795210C5243000B384F /* ProblemSetAPI.swift in Sources */,
-				3FED5383210C1F6D00878EAD /* ContentProvider.swift in Sources */,
+				3FED5383210C1F6D00878EAD /* Provider.swift in Sources */,
 				3F38A138210B1B40008E98C6 /* User.swift in Sources */,
 				557E349C210ACF880057E43A /* Assets.swift in Sources */,
 				3F2D92A6210C5C0700EC6380 /* ProblemSetProvider.swift in Sources */,
 				3F38A12A210B1B40008E98C6 /* ParticipantType.swift in Sources */,
+				3F2D92AC210D761A00EC6380 /* UserAPI.swift in Sources */,
 				3F38A134210B1B40008E98C6 /* Hack.swift in Sources */,
 				3F38A123210B1B40008E98C6 /* ProblemResult.swift in Sources */,
 				3FD1A4BF2109D2B600AF0B45 /* ContestsViewController.swift in Sources */,
 				3F38A137210B1B40008E98C6 /* Comment.swift in Sources */,
 				3F38A12F210B1B40008E98C6 /* RatingChange.swift in Sources */,
+				3F2D92AE210D76F500EC6380 /* UserProvider.swift in Sources */,
 				3F38A13B210B1B4C008E98C6 /* ContestAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -655,6 +666,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FD1A4A02109C8C800AF0B45 /* NetworkContestTests.swift in Sources */,
+				3F2D92B0210D7BF700EC6380 /* NetworkUserTests.swift in Sources */,
 				3F2D92AA210C60CB00EC6380 /* NetworkProblemSetTests.swift in Sources */,
 				3F38A13F210B2880008E98C6 /* CodeForcesNetworkTests.swift in Sources */,
 			);

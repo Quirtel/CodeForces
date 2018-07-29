@@ -3,7 +3,7 @@ import Moya
 
 enum ContestAPI {
     case hacks(contestId: Int)
-    case list(gym: Bool)
+    case list(gym: Bool?)
     case ratingChanges(contestId: Int)
     case standings(
         contestId: Int, from: Int?, count: Int?,

@@ -1,11 +1,11 @@
 import Foundation
 import Moya
 
-class ContestProvider: ContentProvider {
+class ContestProvider: Provider {
     private let contestProvider = MoyaProvider<ContestAPI>()
     
     func contestList(
-        gym withGym: Bool = false,
+        gym withGym: Bool?,
         _ completion: @escaping (Result<[Contest]>) -> ()) {
         request(
             provider: contestProvider,

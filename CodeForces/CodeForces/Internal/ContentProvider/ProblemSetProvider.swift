@@ -1,10 +1,10 @@
 import Foundation
 import Moya
 
-class ProblemSetProvider: ContentProvider {
+class ProblemSetProvider: Provider {
     private let problemSetPovider = MoyaProvider<ProblemSetAPI>()
     
-    func problems(
+    func problemsetProblems(
         tags withTags: [String]?, problemsetName withProblemSetname: String?,
         _ completion: @escaping (Result<ProblemSetProblemsWrapper>) -> ()) {
         request(
@@ -17,7 +17,7 @@ class ProblemSetProvider: ContentProvider {
         }
     }
     
-    func recentStatus(
+    func problemsetRecentStatus(
         count withCount: Int, problemsetName withProblemsetName: String?,
         _ completion: @escaping (Result<[Submission]>) -> ()) {
         request(
