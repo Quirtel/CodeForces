@@ -50,7 +50,7 @@ class ContestsViewController: UIViewController {
         
         tableView.tableHeaderView = searchController.searchBar
     }
-
+    
 }
 
 // -MARK: Data Source
@@ -185,9 +185,22 @@ extension ContestsViewController: UITableViewDelegate {
         let nextViewController = storyboard?.instantiateViewController(withIdentifier: "ContestInfoViewController")
         
         if let viewController = nextViewController as? ContestInfoViewController {
+            
+            if searchController.isActive && searchController.searchBar.text != "" {
+                viewController.contestId = filteredContests[indexPath.row].id
+            } else {
+                let sectionName = sectionsNames(rawValue: indexPath.section)!
+                switch sectionName {
+                case .upcoming:
+                    viewController.contestId = upcomingContests[indexPath.row].id
+                case .finished:
+                    viewController.contestId = finishedContests[indexPath.row].id
+                }
+            }
+            
             navigationController?.pushViewController(viewController, animated: true)
         }
-            
+        
         tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
     }
 }

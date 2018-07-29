@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TaskCellReuseID" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCellReuseID" rowHeight="110" id="Gbf-Li-vEt" customClass="TaskCell" customModule="CodeForces" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="110"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gbf-Li-vEt" id="ZPp-HU-7Gr">
+                <rect key="frame" x="0.0" y="0.0" width="500" height="109.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="0Tg-EP-eLT">
+                        <rect key="frame" x="20" y="10" width="460" height="42.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Task name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0a-Dd-osr">
+                                <rect key="frame" x="0.0" y="0.0" width="104.5" height="25.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3S-U9-bBF">
+                                <rect key="frame" x="0.0" y="25.5" width="30.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mtj-0L-cYC">
+                        <rect key="frame" x="20" y="68" width="74" height="31.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Solved count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8l1-OW-bF8">
+                                <rect key="frame" x="0.0" y="0.0" width="74" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6EM-84-rbD">
+                                <rect key="frame" x="0.0" y="14.5" width="74" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcM-a6-c8Y">
+                        <rect key="frame" x="441.5" y="52.5" width="38.5" height="47"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="OcM-a6-c8Y" secondAttribute="bottom" constant="10" id="Enn-7f-C8d"/>
+                    <constraint firstItem="OcM-a6-c8Y" firstAttribute="top" secondItem="0Tg-EP-eLT" secondAttribute="bottom" id="Qwf-ec-1xQ"/>
+                    <constraint firstItem="0Tg-EP-eLT" firstAttribute="top" secondItem="ZPp-HU-7Gr" secondAttribute="top" constant="10" id="Rry-hD-HOp"/>
+                    <constraint firstItem="Mtj-0L-cYC" firstAttribute="leading" secondItem="ZPp-HU-7Gr" secondAttribute="leading" constant="20" id="Smb-wY-Ej5"/>
+                    <constraint firstAttribute="bottom" secondItem="Mtj-0L-cYC" secondAttribute="bottom" constant="10" id="Uye-Ec-QQC"/>
+                    <constraint firstItem="0Tg-EP-eLT" firstAttribute="leading" secondItem="ZPp-HU-7Gr" secondAttribute="leading" constant="20" id="VdF-P1-MJZ"/>
+                    <constraint firstAttribute="trailing" secondItem="OcM-a6-c8Y" secondAttribute="trailing" constant="20" id="i41-Rx-AxZ"/>
+                    <constraint firstAttribute="trailing" secondItem="0Tg-EP-eLT" secondAttribute="trailing" constant="20" id="lxl-Dg-nUK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="countParameter" destination="6EM-84-rbD" id="HiJ-5h-IEc"/>
+                <outlet property="letterTask" destination="OcM-a6-c8Y" id="5fS-X6-vaK"/>
+                <outlet property="solvedCountLabel" destination="8l1-OW-bF8" id="ddz-pd-XLg"/>
+                <outlet property="tags" destination="N3S-U9-bBF" id="XKt-vj-jyU"/>
+                <outlet property="taskName" destination="e0a-Dd-osr" id="swN-gc-y5m"/>
+            </connections>
+            <point key="canvasLocation" x="296" y="86"/>
+        </tableViewCell>
+    </objects>
+</document>
