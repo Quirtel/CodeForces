@@ -17,48 +17,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="prominent" id="UBO-4Q-5gZ">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <scopeButtonTitles>
-                                <string>Title</string>
-                                <string>Title</string>
-                            </scopeButtonTitles>
-                            <connections>
-                                <outlet property="delegate" destination="MHF-OM-zRG" id="V0K-gk-SF6"/>
-                            </connections>
-                        </searchBar>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Mhv-z0-erC">
-                                <rect key="frame" x="0.0" y="111.5" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mhv-z0-erC" id="AHP-zf-7DR">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="MHF-OM-zRG" id="HcD-87-tv9"/>
                             <outlet property="delegate" destination="MHF-OM-zRG" id="Tfq-cb-0Vm"/>
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="searchDisplayController" destination="5eh-q1-YOP" id="GVp-5d-IuR"/>
                         <outlet property="tableView" destination="g76-mL-bxo" id="cUA-OA-AnJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gx0-3H-14n" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="5eh-q1-YOP">
-                    <connections>
-                        <outlet property="delegate" destination="MHF-OM-zRG" id="HWr-zl-rhG"/>
-                        <outlet property="searchBar" destination="UBO-4Q-5gZ" id="C3c-gj-yPO"/>
-                        <outlet property="searchContentsController" destination="MHF-OM-zRG" id="fKs-Sm-XLF"/>
-                        <outlet property="searchResultsDataSource" destination="MHF-OM-zRG" id="o5Y-g8-odn"/>
-                        <outlet property="searchResultsDelegate" destination="MHF-OM-zRG" id="ah3-3v-0r3"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="341.60000000000002" y="-331.48425787106447"/>
         </scene>

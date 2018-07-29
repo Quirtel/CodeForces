@@ -8,15 +8,22 @@ private enum sectionsNames: Int {
 class ContestsViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private var searchBar: UISearchBar!
     
+    var searchController = UISearchController(searchResultsController: nil)
     let contests = ContestProvider()
     var upcomingContests: [Contest] = []
     var finishedContests: [Contest] = []
+    var filteredContests: [Contest] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "ContestCell", bundle: nil),
                            forCellReuseIdentifier: "ContestCellReuseID")
+        
+        self.tableView.tableFooterView = UIView()
+        
+        setupSearchController()
         
         contests.contestList(gym: false, { contestList in
             switch contestList {
@@ -31,11 +38,29 @@ class ContestsViewController: UIViewController {
             }
         })
     }
+    
+    
+    func setupSearchController() {
+        definesPresentationContext = true
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.barTintColor = UIColor(white: 0.9, alpha: 0.9)
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.definesPresentationContext = false
+        
+        tableView.tableHeaderView = searchController.searchBar
+    }
+
 }
 
 // -MARK: Data Source
 extension ContestsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredContests.count
+        }
+        
         let sectionName = sectionsNames(rawValue: section)!
         switch sectionName {
         case .upcoming:
@@ -46,6 +71,10 @@ extension ContestsViewController: UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return 1
+        }
+        
         return 2
     }
     
@@ -53,6 +82,7 @@ extension ContestsViewController: UITableViewDataSource {
         -> UITableViewCell {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "ContestCellReuseID", for: indexPath) as? ContestCell
+            cell?.accessoryType = .disclosureIndicator
             
             let sectionName = sectionsNames(rawValue: indexPath.section)!
             
@@ -65,6 +95,21 @@ extension ContestsViewController: UITableViewDataSource {
             relativeTimeFormatter.doesRelativeDateFormatting = true
             relativeTimeFormatter.dateStyle = .medium
             relativeTimeFormatter.timeStyle = .short
+            
+            // MARK: -Search Bar is Active
+            if searchController.isActive && searchController.searchBar.text != "" {
+                cell?.contestName.text = filteredContests[indexPath.row].name
+                
+                let startTime = Date(timeIntervalSince1970: TimeInterval(filteredContests[indexPath.row].startTimeSeconds!))
+                let duration: TimeInterval = TimeInterval(filteredContests[indexPath.row].durationSeconds)
+                
+                cell?.status.text = relativeTimeFormatter.string(from: startTime)
+                cell?.durationTime.text = formatter.string(from: duration)
+                cell?.endTime.isHidden = true
+                cell?.remainingLabel.isHidden = true
+                
+                return cell!
+            }
             
             switch sectionName {
             case .upcoming:
@@ -108,6 +153,11 @@ extension ContestsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return "Результаты поиска"
+        }
+        
         let sectionName = sectionsNames(rawValue: section)!
         switch sectionName {
         case .upcoming:
@@ -118,10 +168,28 @@ extension ContestsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 135
+        return 120
+    }
+    
+    func filterRowsForSearchedText(_ searchText: String) {
+        filteredContests = finishedContests.filter({( model : Contest) -> Bool in
+            return model.name.lowercased().contains(searchText.lowercased())
+        })
+        tableView.reloadData()
     }
 }
 
+// -MARK: Delegate
 extension ContestsViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
+    }
+}
+
+extension ContestsViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let term = searchController.searchBar.text {
+            filterRowsForSearchedText(term)
+        }
+    }
 }
