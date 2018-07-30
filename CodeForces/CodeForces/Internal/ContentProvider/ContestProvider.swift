@@ -1,29 +1,24 @@
 import Foundation
 import Moya
 
-class ContestProvider: ContentProvider {
+class ContestProvider {
     private let contestProvider = MoyaProvider<ContestAPI>()
     
     func contestList(
-        gym withGym: Bool = false,
+        requestParams: ContestListRequest,
         _ completion: @escaping (Result<[Contest]>) -> ()) {
-        request(
+        Provider.request(
             provider: contestProvider,
-            target: ContestAPI.list(gym: withGym)) { (result: Result<[Contest]>) -> () in
+            target: ContestAPI.list(requestParams: requestParams)) { (result: Result<[Contest]>) -> () in
                 completion(result)
         }
     }
     
     func contestStatus(
-        contestId withContestId: Int, handle withHandle: String?,
-        from: Int?, count: Int?, _ completion: @escaping (Result<[Submission]>) -> ()) {
-        request(
+        requestParams: ContestStatusRequest, _ completion: @escaping (Result<[Submission]>) -> ()) {
+        Provider.request(
             provider: contestProvider,
-            target: ContestAPI.status(
-                contestId: withContestId,
-                handle: withHandle,
-                from: from,
-                count: count)) { (result: Result<[Submission]>) -> () in
+            target: ContestAPI.status(requestParams: requestParams)) { (result: Result<[Submission]>) -> () in
                     completion(result)
         }
     }

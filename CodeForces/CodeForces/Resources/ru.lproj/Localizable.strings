@@ -15,4 +15,5 @@
 
 // TasksVC
 
-"Tasks_VC.title" = " Задачи";
+"Tasks_VC.title" = "Задачи";
+"Tasks_VC.cell.header.solved_count_label.text" = "Решили:";

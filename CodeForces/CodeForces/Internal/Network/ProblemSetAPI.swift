@@ -2,8 +2,8 @@ import Foundation
 import Moya
 
 enum ProblemSetAPI {
-    case problems(tags: [String]?, problemsetName: String?)
-    case recentStatus(count: Int, problemsetName: String?)
+    case problems(requestParams: ProblemSetProblemsRequest)
+    case recentStatus(requestParams: ProblemSetRecentStatusRequest)
 }
 
 extension ProblemSetAPI: TargetType {
@@ -29,16 +29,14 @@ extension ProblemSetAPI: TargetType {
     }
     
     var task: Task {
-        var params: [String: Any] = [:]
         switch self {
-        case .problems(let tags, let problemsetName):
-            params["tags"] = tags.semicolonSeparated
-            params["problemsetName"] = problemsetName
-        case .recentStatus(let count, let problemsetName):
-            params["count"] = count
-            params["problemsetName"] = problemsetName
+        case .problems(let requestParams):
+            return .requestParameters(
+                parameters: requestParams.dictionary, encoding: URLEncoding.queryString)
+        case .recentStatus(let requestParams):
+           return .requestParameters(
+            parameters: requestParams.dictionary, encoding: URLEncoding.queryString)
         }
-        return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
     }
     
     var headers: [String : String]? {
