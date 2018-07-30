@@ -7,6 +7,17 @@ struct ContestStandingsRequest: Codable {
     let handles: [String]?
     let room: Int?
     let showUnofficial: Bool
+    
+    init(
+        contestId: Int, from: Int? = nil, count: Int? = nil,
+        handles: [String]? = nil, room: Int? = nil, showUnofficial: Bool = false) {
+        self.contestId = contestId
+        self.from = from
+        self.count = count
+        self.handles = handles
+        self.room = room
+        self.showUnofficial = showUnofficial
+    }
 }
 
 struct ContestStandings: Codable {
