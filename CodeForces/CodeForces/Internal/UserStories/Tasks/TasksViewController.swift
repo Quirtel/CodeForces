@@ -4,16 +4,34 @@ class TasksViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
+    private let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.separatorStyle = .none
-        tableView.register(cellType: TaskCell.self)
+        configureTableView()
     }
 }
 
 private extension TasksViewController {
+    func configureTableView() {
+        
+        tableView.separatorStyle = .none
+        tableView.register(cellType: TaskCell.self)
+        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(refreshTasksTable(_:)), for: .valueChanged)
+    }
+}
 
+extension TasksViewController {
+    @objc private func refreshTasksTable(_ sender: Any) {
+        fetchTasks()
+    }
+    func fetchTasks() { }
 }
 
 extension TasksViewController: UITableViewDataSource {
