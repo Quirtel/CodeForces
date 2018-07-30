@@ -1,7 +1,7 @@
 import Foundation
 import Moya
 
-final class Provider {
+final class NetworkService {
     private let contestProvider = MoyaProvider<ContestAPI>()
     private let problemSetPovider = MoyaProvider<ProblemSetAPI>()
     private let userProvider = MoyaProvider<UserAPI>()
@@ -54,7 +54,7 @@ final class Provider {
     func contestList(
         requestParams: ContestListRequest,
         _ completion: @escaping (Result<[Contest]>) -> ()) {
-        Provider.request(
+        NetworkService.request(
             provider: contestProvider,
             target: ContestAPI.list(requestParams: requestParams)) { (result: Result<[Contest]>) -> () in
                 completion(result)
@@ -63,7 +63,7 @@ final class Provider {
     
     func contestStatus(
         requestParams: ContestStatusRequest, _ completion: @escaping (Result<[Submission]>) -> ()) {
-        Provider.request(
+        NetworkService.request(
             provider: contestProvider,
             target: ContestAPI.status(requestParams: requestParams)) { (result: Result<[Submission]>) -> () in
                 completion(result)
@@ -73,7 +73,7 @@ final class Provider {
     func problemsetProblems(
         withRequestParams: ProblemSetProblemsRequest,
         _ completion: @escaping (Result<ProblemSetProblems>) -> ()) {
-        Provider.request(
+        NetworkService.request(
             provider: problemSetPovider,
             target: ProblemSetAPI.problems(
                 requestParams: withRequestParams)) {
@@ -85,7 +85,7 @@ final class Provider {
     func problemsetRecentStatus(
         withRequestParams: ProblemSetRecentStatusRequest,
         _ completion: @escaping (Result<[Submission]>) -> ()) {
-        Provider.request(
+        NetworkService.request(
             provider: problemSetPovider,
             target: ProblemSetAPI.recentStatus(
                 requestParams: withRequestParams)) {
@@ -97,7 +97,7 @@ final class Provider {
     func userRating(
         handle withHandle: String,
         _ completion: @escaping (Result<[RatingChange]>) -> ()) {
-        Provider.request(
+        NetworkService.request(
             provider: userProvider,
             target: UserAPI.rating(handle: withHandle)) { (result: Result<[RatingChange]>) -> () in
                 completion(result)
@@ -107,7 +107,7 @@ final class Provider {
     func userStatus(
         handle withHandle: String, from: Int?, count: Int?,
         _ completion: @escaping (Result<[Submission]>) -> ()) {
-        Provider.request(
+        NetworkService.request(
             provider: userProvider,
             target: UserAPI.status(handle: withHandle, from: from, count: count)) {
                 (result: Result<[Submission]>) -> () in

@@ -55,26 +55,6 @@ extension ContestAPI: TargetType {
             return .requestParameters(
                 parameters: requestParams.dictionary, encoding: URLEncoding.queryString)
         }
-        /*
-        var params: [String: Any] = [:]
-        switch self {
-        case .hacks(let contestId), .ratingChanges(let contestId):
-            params["contestId"] = contestId
-        case .list(let requestParams):
-            return .requestParameters(parameters: requestParams.dictionary , encoding: URLEncoding.queryString)
-        case .standings(let requestParams):
-            return .requestParameters(parameters: requestParams.dictionary, encoding: URLEncoding.queryString)
-//            params["contestId"] = contestId
-//            params["from"] = from
-//            params["count"] = count
-//            params["handles"] = handles.semicolonSeparated
-//            params["room"] = room
-//            params["showUnofficial"] = showUnofficial
-        case .status(let requestParams):
-            return .requestParameters(parameters: requestParams.dictionary, encoding: URLEncoding.queryString)
-        }
-        return .requestParameters(parameters: params, encoding: URLEncoding.queryString)*/
-        return .requestPlain
     }
     
     var headers: [String : String]? {
