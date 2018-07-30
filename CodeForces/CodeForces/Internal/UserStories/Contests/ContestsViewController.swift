@@ -123,7 +123,7 @@ extension ContestsViewController: UITableViewDataSource {
                 
                 switch upcomingContests[indexPath.row].phase {
                 case .CODING:
-                    cell?.status.text = "Соревнование идёт"
+                    cell?.status.text = L10n.ContestsVc.TableViewCell.ContestInProgress.text
                     cell?.endTime.text = formatter.string(from: Date(timeIntervalSinceNow: 0), to: endTime)!
                     cell?.endTime.isHidden = false
                     cell?.remainingLabel.isHidden = false

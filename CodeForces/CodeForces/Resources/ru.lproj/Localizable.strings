@@ -8,6 +8,7 @@
 "Contests_VC.title" = "Соревнования";
 "Contests_VC.Upcoming_Events_Section.title" = "Предстоящие или текущие соревнования";
 "Contests_VC.Finished_Events_Section.title" = "Прошедшие соревнования";
+"Contests_VC.Table_View_Cell.Contest_In_Progress.text" = "Соревнование идёт";
 
 // TasksVC
 

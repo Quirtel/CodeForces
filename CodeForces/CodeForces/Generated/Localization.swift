@@ -17,6 +17,14 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "Contests_VC.Finished_Events_Section.title")
     }
 
+    internal enum TableViewCell {
+
+      internal enum ContestInProgress {
+        /// In progress
+        internal static let text = L10n.tr("Localizable", "Contests_VC.Table_View_Cell.Contest_In_Progress.text")
+      }
+    }
+
     internal enum UpcomingEventsSection {
       /// Upcoming contests
       internal static let title = L10n.tr("Localizable", "Contests_VC.Upcoming_Events_Section.title")
