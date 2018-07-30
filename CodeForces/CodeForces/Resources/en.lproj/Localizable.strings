@@ -10,4 +10,7 @@
 
 // TasksVC
 
-"Tasks_VC.title" = " Tasks";
+"Tasks_VC.title" = "Tasks";
+"Tasks_VC.cell.header.solved_count_label.text" = "Solved count:";
+
+
