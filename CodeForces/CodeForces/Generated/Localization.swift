@@ -8,6 +8,19 @@ import Foundation
 // swiftlint:disable explicit_type_interface identifier_name line_length nesting type_body_length type_name
 internal enum L10n {
 
+  internal enum Alert {
+
+    internal enum Action {
+      /// OK
+      internal static let ok = L10n.tr("Localizable", "Alert.Action.ok")
+    }
+
+    internal enum Title {
+      /// Error
+      internal static let error = L10n.tr("Localizable", "Alert.title.error")
+    }
+  }
+
   internal enum ContestsVc {
     /// Contests
     internal static let title = L10n.tr("Localizable", "Contests_VC.title")

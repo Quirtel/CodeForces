@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1605F5838B0792896CB4C213 /* Pods_CodeForces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DD6464DF13E0B904DA16F7 /* Pods_CodeForces.framework */; };
+		3F2432DA210F0CC100B9A00B /* TaskCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2432D9210F0CC100B9A00B /* TaskCellModel.swift */; };
 		3F2D92A4210C5B8400EC6380 /* ContestProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A3210C5B8400EC6380 /* ContestProvider.swift */; };
 		3F2D92A6210C5C0700EC6380 /* ProblemSetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A5210C5C0700EC6380 /* ProblemSetProvider.swift */; };
 		3F2D92A8210C5DEA00EC6380 /* Problems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A7210C5DEA00EC6380 /* Problems.swift */; };
@@ -92,6 +93,7 @@
 /* Begin PBXFileReference section */
 		0444119585D9D8318123B73D /* Pods-CodeForces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeForces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodeForces/Pods-CodeForces.debug.xcconfig"; sourceTree = "<group>"; };
 		10982C0F643B00317B97F5B0 /* Pods_CodeForcesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeForcesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F2432D9210F0CC100B9A00B /* TaskCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCellModel.swift; sourceTree = "<group>"; };
 		3F2D92A3210C5B8400EC6380 /* ContestProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestProvider.swift; sourceTree = "<group>"; };
 		3F2D92A5210C5C0700EC6380 /* ProblemSetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemSetProvider.swift; sourceTree = "<group>"; };
 		3F2D92A7210C5DEA00EC6380 /* Problems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problems.swift; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 			children = (
 				3FE130BA210C4E560087A98E /* Cell */,
 				3FD1A4C22109D31600AF0B45 /* TasksViewController.swift */,
+				3F2432D9210F0CC100B9A00B /* TaskCellModel.swift */,
 				3FD1A4C42109D32800AF0B45 /* Tasks.storyboard */,
 			);
 			path = Tasks;
@@ -715,6 +718,7 @@
 				3F38A126210B1B40008E98C6 /* ProblemStatistics.swift in Sources */,
 				3F38A129210B1B40008E98C6 /* Submission.swift in Sources */,
 				3F38A131210B1B40008E98C6 /* Phase.swift in Sources */,
+				3F2432DA210F0CC100B9A00B /* TaskCellModel.swift in Sources */,
 				3F38A135210B1B40008E98C6 /* HackVerdict.swift in Sources */,
 				3FD1A4C32109D31600AF0B45 /* TasksViewController.swift in Sources */,
 				3FCE7545210AE30F0054FC6C /* TaskCell.swift in Sources */,

@@ -2,6 +2,10 @@
   Localizable.strings
   CodeForces
 */
+// Common
+
+"Alert.title.error" = "Ошибка";
+"Alert.Action.ok" = "ОК";
 
 // ContestsVC
 

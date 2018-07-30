@@ -3,11 +3,11 @@ import Reusable
 
 class TaskCell: UITableViewCell {
     
-    @IBOutlet private var taskName: UILabel!
-    @IBOutlet private var tags: UILabel!
+    @IBOutlet private var taskNameLabel: UILabel!
+    @IBOutlet private var tagsLabel: UILabel!
     @IBOutlet private var solvedCountLabel: UILabel!
-    @IBOutlet private var countParameter: UILabel!
-    @IBOutlet private var letterTask: UILabel!
+    @IBOutlet private var countParameterLabel: UILabel!
+    @IBOutlet private var letterTaskLabel: UILabel!
     
     @IBOutlet private var roundView: UIView!
 
@@ -17,7 +17,11 @@ class TaskCell: UITableViewCell {
         roundView.layer.cornerRadius = ViewConstants.defaultCornerRadius
     }
     
-    func configure(with model: Any) {
+    func configure(with model: TaskCellModel) {    
+        taskNameLabel.text = model.name
+        tagsLabel.text = model.tags.joined(separator: ", ")
+        countParameterLabel.text = model.solvedCount
+        letterTaskLabel.text = model.index
         
     }
 }

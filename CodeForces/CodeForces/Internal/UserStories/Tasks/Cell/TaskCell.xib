@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -84,12 +85,12 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="countParameter" destination="gwS-CI-cQl" id="xNZ-hO-6QJ"/>
-                <outlet property="letterTask" destination="hy1-bD-7py" id="AkE-Tx-6GA"/>
+                <outlet property="countParameterLabel" destination="gwS-CI-cQl" id="6hd-Y5-N1T"/>
+                <outlet property="letterTaskLabel" destination="hy1-bD-7py" id="duU-pa-adG"/>
                 <outlet property="roundView" destination="qnd-ay-JZn" id="xjQ-IC-jPo"/>
                 <outlet property="solvedCountLabel" destination="2gf-4X-vfa" id="0Ig-TJ-EF5"/>
-                <outlet property="tags" destination="UvM-sq-Uls" id="Cwt-rj-za3"/>
-                <outlet property="taskName" destination="Ufp-3A-foC" id="P3l-Wd-AW2"/>
+                <outlet property="tagsLabel" destination="UvM-sq-Uls" id="FH6-TV-rJZ"/>
+                <outlet property="taskNameLabel" destination="Ufp-3A-foC" id="YT4-1I-1QD"/>
             </connections>
             <point key="canvasLocation" x="296" y="120.5"/>
         </tableViewCell>
