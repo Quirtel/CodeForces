@@ -1,6 +1,6 @@
 import Foundation
 
 enum ProblemResultType: String, Codable {
-    case PRELIMINARY
-    case FINAL
+    case prelimenary = "PRELIMINARY"
+    case final = "FINAL"
 }

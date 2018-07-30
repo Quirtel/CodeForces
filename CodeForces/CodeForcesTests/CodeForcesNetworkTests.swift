@@ -21,9 +21,9 @@ class CodeForcesNetworkTests: XCTestCase {
                         do {
                             let response = try moyaResponse.map(CodeForcesResponse<ResultType>.self)
                             switch response.status {
-                            case .OK:
+                            case .ok:
                                 guard response.result != nil else { XCTFail(); break }
-                            case .FAILED:
+                            case .failed:
                                 XCTFail()
                             }
                         } catch {
@@ -40,38 +40,3 @@ class CodeForcesNetworkTests: XCTestCase {
             wait(for: [expectation], timeout: 30.0)
         }
 }
-//
-//extension CodeForcesNetworkTesting {
-//    func testRequest<Target: TargetType, ResultType: Codable>(
-//                provider: MoyaProvider<Target>,
-//                target: Target,
-//                resultType: ResultType.Type) {
-//            let expectation = XCTestExpectation(
-//                description: "Testing \(provider) with target \(target)")
-//            provider.request(target) { result in
-//                switch result {
-//                case let .success(moyaResponse):
-//                    switch moyaResponse.statusCode {
-//                    case 200:
-//                        do {
-//                            let response = try moyaResponse.map(CodeForcesResponse<ResultType>.self)
-//                            switch response.status {
-//                            case .OK:
-//                                guard response.result != nil else { XCTFail(); break }
-//                            case .FAILED:
-//                                XCTFail()
-//                            }
-//                        } catch {
-//                            XCTFail("Decode error catched: \(error)")
-//                        }
-//                    default:
-//                        XCTFail("Bad response status code: \(moyaResponse.statusCode)")
-//                    }
-//                case .failure(let error):
-//                    XCTFail("Moya error: \(error)")
-//                }
-//                expectation.fulfill()
-//            }
-//            wait(for: [expectation], timeout: 30.0)
-//        }
-//}
