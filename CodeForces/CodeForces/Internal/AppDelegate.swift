@@ -5,7 +5,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         let contestsVC = StoryboardScene.Contests.contestsViewController.instantiate()
@@ -23,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.rootViewController = tabBarController
         self.window = window
         window.makeKeyAndVisible()
-        
+
         return true
     }
 }

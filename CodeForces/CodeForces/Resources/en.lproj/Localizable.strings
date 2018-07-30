@@ -6,7 +6,8 @@
 // ContestsVC
 
 "Contests_VC.title" = "Contests";
-
+"Contests_VC.Upcoming_Events_Section.title" = "Upcoming contests";
+"Contests_VC.Finished_Events_Section.title" = "Finished contests";
 
 // TasksVC
 

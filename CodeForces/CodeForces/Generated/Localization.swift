@@ -11,6 +11,16 @@ internal enum L10n {
   internal enum ContestsVc {
     /// Contests
     internal static let title = L10n.tr("Localizable", "Contests_VC.title")
+
+    internal enum FinishedEventsSection {
+      /// Finished contests
+      internal static let title = L10n.tr("Localizable", "Contests_VC.Finished_Events_Section.title")
+    }
+
+    internal enum UpcomingEventsSection {
+      /// Upcoming contests
+      internal static let title = L10n.tr("Localizable", "Contests_VC.Upcoming_Events_Section.title")
+    }
   }
 
   internal enum TasksVc {
