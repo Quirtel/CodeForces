@@ -21,9 +21,9 @@ class CodeForcesNetworkTests: XCTestCase {
                         do {
                             let response = try moyaResponse.map(CodeForcesResponse<ResultType>.self)
                             switch response.status {
-                            case .OK:
+                            case .ok:
                                 guard response.result != nil else { XCTFail(); break }
-                            case .FAILED:
+                            case .failed:
                                 XCTFail()
                             }
                         } catch {

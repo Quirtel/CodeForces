@@ -6,6 +6,7 @@ target 'CodeForces' do
   pod 'SwiftGen', '~> 5.3'
   pod 'Reusable', '~> 4.0'
   pod 'Moya', '~> 11.0'
+  pod 'RealmSwift', '~> 3.7.5'
 
     target 'CodeForcesTests' do
       inherit! :search_paths

@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		3F2D92A4210C5B8400EC6380 /* ContestProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A3210C5B8400EC6380 /* ContestProvider.swift */; };
 		3F2D92A6210C5C0700EC6380 /* ProblemSetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A5210C5C0700EC6380 /* ProblemSetProvider.swift */; };
-		3F2D92A8210C5DEA00EC6380 /* ProblemSetProblemsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A7210C5DEA00EC6380 /* ProblemSetProblemsWrapper.swift */; };
+		3F2D92A8210C5DEA00EC6380 /* Problems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A7210C5DEA00EC6380 /* Problems.swift */; };
 		3F2D92AA210C60CB00EC6380 /* NetworkProblemSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A9210C60CB00EC6380 /* NetworkProblemSetTests.swift */; };
 		3F2D92AC210D761A00EC6380 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92AB210D761A00EC6380 /* UserAPI.swift */; };
 		3F2D92AE210D76F500EC6380 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92AD210D76F500EC6380 /* UserProvider.swift */; };
 		3F2D92B0210D7BF700EC6380 /* NetworkUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92AF210D7BF700EC6380 /* NetworkUserTests.swift */; };
-		3F303793210C47F5000B384F /* ContestStandingsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F303792210C47F5000B384F /* ContestStandingsWrapper.swift */; };
+		3F303793210C47F5000B384F /* Standings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F303792210C47F5000B384F /* Standings.swift */; };
 		3F303795210C5243000B384F /* ProblemSetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F303794210C5243000B384F /* ProblemSetAPI.swift */; };
 		3F303797210C53AF000B384F /* Optional+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F303796210C53AF000B384F /* Optional+Ext.swift */; };
 		3F38A123210B1B40008E98C6 /* ProblemResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A109210B1B40008E98C6 /* ProblemResult.swift */; };
@@ -43,6 +43,12 @@
 		3F38A13B210B1B4C008E98C6 /* ContestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A13A210B1B4C008E98C6 /* ContestAPI.swift */; };
 		3F38A13D210B2373008E98C6 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A13C210B2373008E98C6 /* Response.swift */; };
 		3F38A13F210B2880008E98C6 /* CodeForcesNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A13E210B2880008E98C6 /* CodeForcesNetworkTests.swift */; };
+		3F48B3B2210EE93700F671B3 /* Hacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F48B3B1210EE93700F671B3 /* Hacks.swift */; };
+		3F48B3B4210EF01400F671B3 /* RatingChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F48B3B3210EF01400F671B3 /* RatingChanges.swift */; };
+		3F86EE09210EDC88005099CB /* Encodable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F86EE08210EDC88005099CB /* Encodable+Ext.swift */; };
+		3F86EE0C210EDFBA005099CB /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F86EE0B210EDFBA005099CB /* List.swift */; };
+		3F86EE12210EE139005099CB /* RecentStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F86EE11210EE139005099CB /* RecentStatus.swift */; };
+		3F8C011E210ED64800C761E0 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8C011D210ED64800C761E0 /* Status.swift */; };
 		3FD1A48B2109C8C800AF0B45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A48A2109C8C800AF0B45 /* AppDelegate.swift */; };
 		3FD1A4922109C8C800AF0B45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A4912109C8C800AF0B45 /* Assets.xcassets */; };
 		3FD1A4A02109C8C800AF0B45 /* NetworkContestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A49F2109C8C800AF0B45 /* NetworkContestTests.swift */; };
@@ -83,12 +89,12 @@
 		10982C0F643B00317B97F5B0 /* Pods_CodeForcesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeForcesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F2D92A3210C5B8400EC6380 /* ContestProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestProvider.swift; sourceTree = "<group>"; };
 		3F2D92A5210C5C0700EC6380 /* ProblemSetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemSetProvider.swift; sourceTree = "<group>"; };
-		3F2D92A7210C5DEA00EC6380 /* ProblemSetProblemsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemSetProblemsWrapper.swift; sourceTree = "<group>"; };
+		3F2D92A7210C5DEA00EC6380 /* Problems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problems.swift; sourceTree = "<group>"; };
 		3F2D92A9210C60CB00EC6380 /* NetworkProblemSetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProblemSetTests.swift; sourceTree = "<group>"; };
 		3F2D92AB210D761A00EC6380 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		3F2D92AD210D76F500EC6380 /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
 		3F2D92AF210D7BF700EC6380 /* NetworkUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUserTests.swift; sourceTree = "<group>"; };
-		3F303792210C47F5000B384F /* ContestStandingsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestStandingsWrapper.swift; sourceTree = "<group>"; };
+		3F303792210C47F5000B384F /* Standings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standings.swift; sourceTree = "<group>"; };
 		3F303794210C5243000B384F /* ProblemSetAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemSetAPI.swift; sourceTree = "<group>"; };
 		3F303796210C53AF000B384F /* Optional+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Ext.swift"; sourceTree = "<group>"; };
 		3F38A109210B1B40008E98C6 /* ProblemResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemResult.swift; sourceTree = "<group>"; };
@@ -117,6 +123,12 @@
 		3F38A13A210B1B4C008E98C6 /* ContestAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContestAPI.swift; sourceTree = "<group>"; };
 		3F38A13C210B2373008E98C6 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		3F38A13E210B2880008E98C6 /* CodeForcesNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeForcesNetworkTests.swift; sourceTree = "<group>"; };
+		3F48B3B1210EE93700F671B3 /* Hacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hacks.swift; sourceTree = "<group>"; };
+		3F48B3B3210EF01400F671B3 /* RatingChanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingChanges.swift; sourceTree = "<group>"; };
+		3F86EE08210EDC88005099CB /* Encodable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Ext.swift"; sourceTree = "<group>"; };
+		3F86EE0B210EDFBA005099CB /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		3F86EE11210EE139005099CB /* RecentStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentStatus.swift; sourceTree = "<group>"; };
+		3F8C011D210ED64800C761E0 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		3FD1A4872109C8C800AF0B45 /* CodeForces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeForces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD1A48A2109C8C800AF0B45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FD1A4912109C8C800AF0B45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -182,57 +194,92 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3F38A108210B1B40008E98C6 /* Problem */ = {
+		3F38A108210B1B40008E98C6 /* ProblemSet */ = {
 			isa = PBXGroup;
 			children = (
-				3F38A109210B1B40008E98C6 /* ProblemResult.swift */,
 				3F38A10A210B1B40008E98C6 /* Problem.swift */,
+				3F38A10D210B1B40008E98C6 /* ProblemType.swift */,
+				3F38A109210B1B40008E98C6 /* ProblemResult.swift */,
 				3F38A10B210B1B40008E98C6 /* ProblemResultType.swift */,
 				3F38A10C210B1B40008E98C6 /* ProblemStatistics.swift */,
-				3F38A10D210B1B40008E98C6 /* ProblemType.swift */,
-				3F2D92A7210C5DEA00EC6380 /* ProblemSetProblemsWrapper.swift */,
 			);
-			path = Problem;
+			path = ProblemSet;
 			sourceTree = "<group>";
 		};
 		3F38A10E210B1B40008E98C6 /* Contest */ = {
 			isa = PBXGroup;
 			children = (
-				3F38A10F210B1B40008E98C6 /* TestSet.swift */,
-				3F38A110210B1B40008E98C6 /* Submission.swift */,
-				3F38A111210B1B40008E98C6 /* ParticipantType.swift */,
-				3F38A112210B1B40008E98C6 /* ContestType.swift */,
-				3F38A113210B1B40008E98C6 /* Party.swift */,
 				3F38A114210B1B40008E98C6 /* Contest.swift */,
-				3F38A115210B1B40008E98C6 /* Member.swift */,
-				3F38A116210B1B40008E98C6 /* RatingChange.swift */,
-				3F38A117210B1B40008E98C6 /* SubmissionVerdict.swift */,
+				3F38A112210B1B40008E98C6 /* ContestType.swift */,
 				3F38A118210B1B40008E98C6 /* Phase.swift */,
-				3F303792210C47F5000B384F /* ContestStandingsWrapper.swift */,
 			);
 			path = Contest;
-			sourceTree = "<group>";
-		};
-		3F38A119210B1B40008E98C6 /* Hack */ = {
-			isa = PBXGroup;
-			children = (
-				3F38A11C210B1B40008E98C6 /* Hack.swift */,
-				3F38A11D210B1B40008E98C6 /* HackVerdict.swift */,
-				3F38A11B210B1B40008E98C6 /* JudgeProtocol.swift */,
-				3F38A11A210B1B40008E98C6 /* RanklistRow.swift */,
-			);
-			path = Hack;
 			sourceTree = "<group>";
 		};
 		3F38A11E210B1B40008E98C6 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				3F38A11F210B1B40008E98C6 /* RecentAction.swift */,
-				3F38A120210B1B40008E98C6 /* Comment.swift */,
 				3F38A121210B1B40008E98C6 /* User.swift */,
-				3F38A122210B1B40008E98C6 /* BlogEntry.swift */,
+				3F38A11F210B1B40008E98C6 /* RecentAction.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		3F86EE0A210EDDC2005099CB /* ProblemSet */ = {
+			isa = PBXGroup;
+			children = (
+				3F2D92A7210C5DEA00EC6380 /* Problems.swift */,
+				3F86EE11210EE139005099CB /* RecentStatus.swift */,
+			);
+			path = ProblemSet;
+			sourceTree = "<group>";
+		};
+		3F8C0118210ED26900C761E0 /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				3F8C011C210ED61F00C761E0 /* Contest */,
+				3F86EE0A210EDDC2005099CB /* ProblemSet */,
+			);
+			path = Wrappers;
+			sourceTree = "<group>";
+		};
+		3F8C0119210ED36B00C761E0 /* BlogEntry */ = {
+			isa = PBXGroup;
+			children = (
+				3F38A122210B1B40008E98C6 /* BlogEntry.swift */,
+				3F38A120210B1B40008E98C6 /* Comment.swift */,
+			);
+			path = BlogEntry;
+			sourceTree = "<group>";
+		};
+		3F8C011A210ED43300C761E0 /* Hack */ = {
+			isa = PBXGroup;
+			children = (
+				3F38A11B210B1B40008E98C6 /* JudgeProtocol.swift */,
+				3F38A11C210B1B40008E98C6 /* Hack.swift */,
+				3F38A11D210B1B40008E98C6 /* HackVerdict.swift */,
+				3F38A115210B1B40008E98C6 /* Member.swift */,
+				3F38A113210B1B40008E98C6 /* Party.swift */,
+				3F38A111210B1B40008E98C6 /* ParticipantType.swift */,
+				3F38A11A210B1B40008E98C6 /* RanklistRow.swift */,
+				3F38A116210B1B40008E98C6 /* RatingChange.swift */,
+				3F38A110210B1B40008E98C6 /* Submission.swift */,
+				3F38A117210B1B40008E98C6 /* SubmissionVerdict.swift */,
+				3F38A10F210B1B40008E98C6 /* TestSet.swift */,
+			);
+			path = Hack;
+			sourceTree = "<group>";
+		};
+		3F8C011C210ED61F00C761E0 /* Contest */ = {
+			isa = PBXGroup;
+			children = (
+				3F48B3B1210EE93700F671B3 /* Hacks.swift */,
+				3F86EE0B210EDFBA005099CB /* List.swift */,
+				3F48B3B3210EF01400F671B3 /* RatingChanges.swift */,
+				3F303792210C47F5000B384F /* Standings.swift */,
+				3F8C011D210ED64800C761E0 /* Status.swift */,
+			);
+			path = Contest;
 			sourceTree = "<group>";
 		};
 		3FD1A47E2109C8C800AF0B45 = {
@@ -292,8 +339,10 @@
 		3FD1A4B82109D1DD00AF0B45 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3F38A13C210B2373008E98C6 /* Response.swift */,
 				3FED5384210C238100878EAD /* Errors.swift */,
 				3F303796210C53AF000B384F /* Optional+Ext.swift */,
+				3F86EE08210EDC88005099CB /* Encodable+Ext.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -361,11 +410,12 @@
 		3FD1A4C82109D54C00AF0B45 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3F8C0119210ED36B00C761E0 /* BlogEntry */,
 				3F38A10E210B1B40008E98C6 /* Contest */,
-				3F38A119210B1B40008E98C6 /* Hack */,
-				3F38A108210B1B40008E98C6 /* Problem */,
+				3F8C011A210ED43300C761E0 /* Hack */,
+				3F38A108210B1B40008E98C6 /* ProblemSet */,
 				3F38A11E210B1B40008E98C6 /* User */,
-				3F38A13C210B2373008E98C6 /* Response.swift */,
+				3F8C0118210ED26900C761E0 /* Wrappers */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -559,6 +609,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-CodeForces/Pods-CodeForces-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
 			);
@@ -566,6 +618,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
 			);
@@ -628,16 +682,21 @@
 				3F38A127210B1B40008E98C6 /* ProblemType.swift in Sources */,
 				557E349D210ACF880057E43A /* Localization.swift in Sources */,
 				3F38A12C210B1B40008E98C6 /* Party.swift in Sources */,
+				3F8C011E210ED64800C761E0 /* Status.swift in Sources */,
 				3F38A12D210B1B40008E98C6 /* Contest.swift in Sources */,
-				3F303793210C47F5000B384F /* ContestStandingsWrapper.swift in Sources */,
+				3F303793210C47F5000B384F /* Standings.swift in Sources */,
 				3F38A133210B1B40008E98C6 /* JudgeProtocol.swift in Sources */,
 				557E349E210ACF880057E43A /* Storyboadrs.swift in Sources */,
+				3F48B3B2210EE93700F671B3 /* Hacks.swift in Sources */,
 				3F38A139210B1B40008E98C6 /* BlogEntry.swift in Sources */,
-				3F2D92A8210C5DEA00EC6380 /* ProblemSetProblemsWrapper.swift in Sources */,
+				3F86EE0C210EDFBA005099CB /* List.swift in Sources */,
+				3F48B3B4210EF01400F671B3 /* RatingChanges.swift in Sources */,
+				3F2D92A8210C5DEA00EC6380 /* Problems.swift in Sources */,
 				3F38A12B210B1B40008E98C6 /* ContestType.swift in Sources */,
 				3FD1A48B2109C8C800AF0B45 /* AppDelegate.swift in Sources */,
 				3F303797210C53AF000B384F /* Optional+Ext.swift in Sources */,
 				3F38A130210B1B40008E98C6 /* SubmissionVerdict.swift in Sources */,
+				3F86EE12210EE139005099CB /* RecentStatus.swift in Sources */,
 				3F38A136210B1B40008E98C6 /* RecentAction.swift in Sources */,
 				3F2D92A4210C5B8400EC6380 /* ContestProvider.swift in Sources */,
 				3F38A125210B1B40008E98C6 /* ProblemResultType.swift in Sources */,
@@ -654,6 +713,7 @@
 				3F38A134210B1B40008E98C6 /* Hack.swift in Sources */,
 				3F38A123210B1B40008E98C6 /* ProblemResult.swift in Sources */,
 				3FD1A4BF2109D2B600AF0B45 /* ContestsViewController.swift in Sources */,
+				3F86EE09210EDC88005099CB /* Encodable+Ext.swift in Sources */,
 				3F38A137210B1B40008E98C6 /* Comment.swift in Sources */,
 				3F38A12F210B1B40008E98C6 /* RatingChange.swift in Sources */,
 				3F2D92AE210D76F500EC6380 /* UserProvider.swift in Sources */,
@@ -763,7 +823,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos11.4;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -818,7 +878,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
-				SDKROOT = iphoneos11.4;
+				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
