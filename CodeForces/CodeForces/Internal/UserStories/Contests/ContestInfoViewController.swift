@@ -17,6 +17,7 @@ private enum segmentsNames: Int {
 class ContestInfoViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var segmentIndicator: UISegmentedControl!
     
     //TODO: make array conform to Problems Wrapper
     private var contestProblems: [Problem] = []
@@ -58,6 +59,12 @@ class ContestInfoViewController: UIViewController {
             }
         })
     }
+    
+    // -MARK: Actions
+    @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
+        tableView.reloadData()
+    }
+    
 }
 
 // -MARK: Data Source
@@ -73,11 +80,16 @@ extension ContestInfoViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCellReuseID", for: indexPath) as! TaskCell
         
-        cell.taskName.text = contestProblems[indexPath.row].name
-        cell.letterTask.text = contestProblems[indexPath.row].index
-        cell.tags.text = contestProblems[indexPath.row].tags.joined(separator: ", ")
+        let segIndex = segmentsNames(rawValue: segmentIndicator.selectedSegmentIndex)!
         
-        
+        switch segIndex {
+        case .tasks:
+            cell.taskName.text = contestProblems[indexPath.row].name
+            cell.letterTask.text = contestProblems[indexPath.row].index
+            cell.tags.text = contestProblems[indexPath.row].tags.joined(separator: ", ")
+        case .status, .standings:
+            break
+        }
         return cell
     }
 }

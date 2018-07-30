@@ -62,6 +62,9 @@
                                     <segment title="Статус"/>
                                     <segment title="Положение"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentValueChanged:" destination="kNu-1Q-gI7" eventType="valueChanged" id="mdV-e2-jzr"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f0P-Fz-Wvs">
                                 <rect key="frame" x="0.0" y="132" width="375" height="535"/>
@@ -86,6 +89,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="8Po-5i-aDV"/>
                     <connections>
+                        <outlet property="segmentIndicator" destination="r5c-W2-rPG" id="yaF-YI-hj2"/>
                         <outlet property="tableView" destination="f0P-Fz-Wvs" id="EfH-Kz-Ic1"/>
                     </connections>
                 </viewController>

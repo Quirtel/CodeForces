@@ -53,10 +53,10 @@
 		491A7587210ECFFE00536CE1 /* ContestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A757E210ECFFE00536CE1 /* ContestCell.swift */; };
 		491A7588210ECFFE00536CE1 /* ContestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491A757F210ECFFE00536CE1 /* ContestCell.xib */; };
 		491A7589210ECFFE00536CE1 /* StandingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491A7581210ECFFE00536CE1 /* StandingsCell.xib */; };
-		491A758A210ECFFE00536CE1 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A7583210ECFFE00536CE1 /* TaskCell.swift */; };
-		491A758B210ECFFE00536CE1 /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491A7584210ECFFE00536CE1 /* TaskCell.xib */; };
 		491A758C210ECFFE00536CE1 /* StatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491A7586210ECFFE00536CE1 /* StatusCell.xib */; };
 		491A758E210ED02F00536CE1 /* ContestInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A758D210ED02F00536CE1 /* ContestInfoViewController.swift */; };
+		4946953A210EE586003C5ABE /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49469539210EE586003C5ABE /* StatusCell.swift */; };
+		4946953C210EE595003C5ABE /* StandingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946953B210EE595003C5ABE /* StandingsCell.swift */; };
 		557E3491210ACB8C0057E43A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 557E3493210ACB8C0057E43A /* Localizable.strings */; };
 		557E3495210ACBD80057E43A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E3494210ACBD80057E43A /* LaunchScreen.storyboard */; };
 		557E349C210ACF880057E43A /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E3499210ACF880057E43A /* Assets.swift */; };
@@ -137,10 +137,10 @@
 		491A757E210ECFFE00536CE1 /* ContestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContestCell.swift; sourceTree = "<group>"; };
 		491A757F210ECFFE00536CE1 /* ContestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContestCell.xib; sourceTree = "<group>"; };
 		491A7581210ECFFE00536CE1 /* StandingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandingsCell.xib; sourceTree = "<group>"; };
-		491A7583210ECFFE00536CE1 /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
-		491A7584210ECFFE00536CE1 /* TaskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
 		491A7586210ECFFE00536CE1 /* StatusCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusCell.xib; sourceTree = "<group>"; };
 		491A758D210ED02F00536CE1 /* ContestInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContestInfoViewController.swift; sourceTree = "<group>"; };
+		49469539210EE586003C5ABE /* StatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
+		4946953B210EE595003C5ABE /* StandingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsCell.swift; sourceTree = "<group>"; };
 		557E3492210ACB8C0057E43A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		557E3494210ACBD80057E43A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		557E3496210ACBF00057E43A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -343,7 +343,6 @@
 				491A757D210ECFFE00536CE1 /* Contest */,
 				491A7580210ECFFE00536CE1 /* Standings */,
 				491A7585210ECFFE00536CE1 /* Status */,
-				491A7582210ECFFE00536CE1 /* Task */,
 				3FD1A4BE2109D2B600AF0B45 /* ContestsViewController.swift */,
 				491A758D210ED02F00536CE1 /* ContestInfoViewController.swift */,
 				3FD1A4C02109D2CA00AF0B45 /* Contests.storyboard */,
@@ -404,25 +403,17 @@
 		491A7580210ECFFE00536CE1 /* Standings */ = {
 			isa = PBXGroup;
 			children = (
+				4946953B210EE595003C5ABE /* StandingsCell.swift */,
 				491A7581210ECFFE00536CE1 /* StandingsCell.xib */,
 			);
 			name = Standings;
 			path = Cell/Standings;
 			sourceTree = "<group>";
 		};
-		491A7582210ECFFE00536CE1 /* Task */ = {
-			isa = PBXGroup;
-			children = (
-				491A7583210ECFFE00536CE1 /* TaskCell.swift */,
-				491A7584210ECFFE00536CE1 /* TaskCell.xib */,
-			);
-			name = Task;
-			path = Cell/Task;
-			sourceTree = "<group>";
-		};
 		491A7585210ECFFE00536CE1 /* Status */ = {
 			isa = PBXGroup;
 			children = (
+				49469539210EE586003C5ABE /* StatusCell.swift */,
 				491A7586210ECFFE00536CE1 /* StatusCell.xib */,
 			);
 			name = Status;
@@ -560,7 +551,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				491A758C210ECFFE00536CE1 /* StatusCell.xib in Resources */,
-				491A758B210ECFFE00536CE1 /* TaskCell.xib in Resources */,
 				557E3491210ACB8C0057E43A /* Localizable.strings in Resources */,
 				491A7588210ECFFE00536CE1 /* ContestCell.xib in Resources */,
 				3FD1A4C12109D2CA00AF0B45 /* Contests.storyboard in Resources */,
@@ -690,7 +680,7 @@
 				3FD1A48B2109C8C800AF0B45 /* AppDelegate.swift in Sources */,
 				3F303797210C53AF000B384F /* Optional+Ext.swift in Sources */,
 				3F38A130210B1B40008E98C6 /* SubmissionVerdict.swift in Sources */,
-				491A758A210ECFFE00536CE1 /* TaskCell.swift in Sources */,
+				4946953C210EE595003C5ABE /* StandingsCell.swift in Sources */,
 				3F38A136210B1B40008E98C6 /* RecentAction.swift in Sources */,
 				491A7587210ECFFE00536CE1 /* ContestCell.swift in Sources */,
 				3F2D92A4210C5B8400EC6380 /* ContestProvider.swift in Sources */,
@@ -710,6 +700,7 @@
 				3FD1A4BF2109D2B600AF0B45 /* ContestsViewController.swift in Sources */,
 				3F38A137210B1B40008E98C6 /* Comment.swift in Sources */,
 				3F38A12F210B1B40008E98C6 /* RatingChange.swift in Sources */,
+				4946953A210EE586003C5ABE /* StatusCell.swift in Sources */,
 				3F38A13B210B1B4C008E98C6 /* ContestAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -882,6 +873,7 @@
 			baseConfigurationReference = EB418E7CDE4DFA57CFBA253E /* Pods-CodeForces.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EA3GU7E828;
 				INFOPLIST_FILE = CodeForces/Resources/Info.plist;
@@ -892,6 +884,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.noveogroup.summerschool.CodeForces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -902,6 +895,7 @@
 			baseConfigurationReference = F6E8B315AD209EE8465F6BFF /* Pods-CodeForces.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EA3GU7E828;
 				INFOPLIST_FILE = CodeForces/Resources/Info.plist;
@@ -912,6 +906,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.noveogroup.summerschool.CodeForces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

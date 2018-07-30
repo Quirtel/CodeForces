@@ -44,9 +44,9 @@ class ContestsViewController: UIViewController {
         definesPresentationContext = true
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
-        searchController.searchBar.barTintColor = UIColor(white: 0.9, alpha: 0.9)
+        searchController.searchBar.barTintColor = UIColor(white: 0.9, alpha: 0.3)
         searchController.hidesNavigationBarDuringPresentation = false
-        searchController.definesPresentationContext = false
+        searchController.definesPresentationContext = true
         
         tableView.tableHeaderView = searchController.searchBar
     }
@@ -130,11 +130,11 @@ extension ContestsViewController: UITableViewDataSource {
                 case .BEFORE:
                     cell?.status.text = relativeTimeFormatter.string(from: startTime)
                 case .PENDING_SYSTEM_TEST:
-                    cell?.status.text = "Ожидание тестирования"
+                    cell?.status.text = L10n.ContestsVc.TableViewCell.PendingTest.text
                 case .SYSTEM_TEST:
-                    cell?.status.text = "Идёт системное тестирование"
+                    cell?.status.text = L10n.ContestsVc.TableViewCell.SystemTesting.text
                 case .FINISHED:
-                    cell?.status.text = "Завершено"
+                    cell?.status.text = L10n.ContestsVc.TableViewCell.Finished.text
                 }
                 
             case .finished:

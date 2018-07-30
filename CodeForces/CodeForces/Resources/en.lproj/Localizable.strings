@@ -9,6 +9,10 @@
 "Contests_VC.Upcoming_Events_Section.title" = "Upcoming contests";
 "Contests_VC.Finished_Events_Section.title" = "Finished contests";
 "Contests_VC.Table_View_Cell.Contest_In_Progress.text" = "In progress";
+"Contests_VC.Table_View_Cell.Pending_Test.text" = "Pending test";
+"Contests_VC.Table_View_Cell.System_Testing.text" = "System testing in progress";
+"Contests_VC.Table_View_Cell.Finished.text" = "Finished";
+
 
 // TasksVC
 
