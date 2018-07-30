@@ -2,13 +2,11 @@ import Foundation
 import Moya
 
 enum ContestAPI {
-    case hacks(contestId: Int)
-    case list(gym: Bool)
-    case ratingChanges(contestId: Int)
-    case standings(
-        contestId: Int, from: Int?, count: Int?,
-        handles: [String]?, room: Int?, showUnofficial: Bool)
-    case status(contestId: Int, handle: String?, from: Int?, count: Int?)
+    case hacks(requestParams: ContestHacksRequest)
+    case list(requestParams: ContestListRequest)
+    case ratingChanges(requestParams: ContestRatingChangesRequest)
+    case standings(requestParams: ContestStandingsRequest)
+    case status(requestParams: ContestStatusRequest)
 }
 
 extension ContestAPI: TargetType {
@@ -40,26 +38,43 @@ extension ContestAPI: TargetType {
     }
     
     var task: Task {
+        switch self {
+        case .hacks(let requestParams):
+            return .requestParameters(
+                parameters: requestParams.dictionary, encoding: URLEncoding.queryString)
+        case .list(let requestParams):
+            return .requestParameters(
+                parameters: requestParams.dictionary, encoding: URLEncoding.queryString)
+        case .ratingChanges(let requestParams):
+            return .requestParameters(
+                parameters: requestParams.dictionary, encoding: URLEncoding.queryString)
+        case .standings(let requestParams):
+            return .requestParameters(
+                parameters: requestParams.dictionary, encoding: URLEncoding.queryString)
+        case .status(let requestParams):
+            return .requestParameters(
+                parameters: requestParams.dictionary, encoding: URLEncoding.queryString)
+        }
+        /*
         var params: [String: Any] = [:]
         switch self {
         case .hacks(let contestId), .ratingChanges(let contestId):
             params["contestId"] = contestId
-        case .list(let gym):
-            params["gym"] = gym
-        case .standings(let contestId, let from, let count, let handles, let room, let showUnofficial):
-            params["contestId"] = contestId
-            params["from"] = from
-            params["count"] = count
-            params["handles"] = handles.semicolonSeparated
-            params["room"] = room
-            params["showUnofficial"] = showUnofficial
-        case .status(let contestId, let handle, let from, let count):
-            params["contestId"] = contestId
-            params["handle"] = handle
-            params["from"] = from
-            params["count"] = count
+        case .list(let requestParams):
+            return .requestParameters(parameters: requestParams.dictionary , encoding: URLEncoding.queryString)
+        case .standings(let requestParams):
+            return .requestParameters(parameters: requestParams.dictionary, encoding: URLEncoding.queryString)
+//            params["contestId"] = contestId
+//            params["from"] = from
+//            params["count"] = count
+//            params["handles"] = handles.semicolonSeparated
+//            params["room"] = room
+//            params["showUnofficial"] = showUnofficial
+        case .status(let requestParams):
+            return .requestParameters(parameters: requestParams.dictionary, encoding: URLEncoding.queryString)
         }
-        return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
+        return .requestParameters(parameters: params, encoding: URLEncoding.queryString)*/
+        return .requestPlain
     }
     
     var headers: [String : String]? {

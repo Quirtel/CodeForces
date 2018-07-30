@@ -6,8 +6,8 @@ enum Result<T: Codable> {
 }
 
 enum ResponceStatuses: String, Codable {
-    case OK
-    case FAILED
+    case ok = "OK"
+    case failed = "FAILED"
 }
 
 struct Response<T: Codable>: Codable {

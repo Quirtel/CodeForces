@@ -1,29 +1,28 @@
 import Foundation
 import Moya
 
-class ProblemSetProvider: ContentProvider {
+class ProblemSetProvider {
     private let problemSetPovider = MoyaProvider<ProblemSetAPI>()
     
-    func problems(
-        tags withTags: [String]?, problemsetName withProblemSetname: String?,
-        _ completion: @escaping (Result<ProblemSetProblemsWrapper>) -> ()) {
-        request(
+    func problemsetProblems(
+        withRequestParams: ProblemSetProblemsRequest,
+        _ completion: @escaping (Result<ProblemSetProblems>) -> ()) {
+        Provider.request(
             provider: problemSetPovider,
             target: ProblemSetAPI.problems(
-                tags: withTags,
-                problemsetName: withProblemSetname)) {
-                    (result: Result<ProblemSetProblemsWrapper>) -> () in
+                 requestParams: withRequestParams)) {
+                    (result: Result<ProblemSetProblems>) -> () in
                     completion(result)
         }
     }
     
-    func recentStatus(
-        count withCount: Int, problemsetName withProblemsetName: String?,
+    func problemsetRecentStatus(
+        withRequestParams: ProblemSetRecentStatusRequest,
         _ completion: @escaping (Result<[Submission]>) -> ()) {
-        request(
+        Provider.request(
             provider: problemSetPovider,
             target: ProblemSetAPI.recentStatus(
-                count: withCount, problemsetName: withProblemsetName)) {
+                requestParams: withRequestParams)) {
                     (result: Result<[Submission]>) -> () in
                     completion(result)
         }
