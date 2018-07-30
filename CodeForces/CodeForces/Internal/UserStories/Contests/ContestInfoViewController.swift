@@ -22,6 +22,7 @@ class ContestInfoViewController: UIViewController {
     //TODO: make array conform to Problems Wrapper
     private var contestProblems: [Problem] = []
     private var contestStatus: [Submission] = []
+    private var standingsList: [ContestStandingsWrapper] = []
     var contestId = 0
     
     private var contestProvider = ContestProvider()
@@ -31,6 +32,7 @@ class ContestInfoViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: "TaskCell", bundle: nil), forCellReuseIdentifier: "TaskCellReuseID")
+        
         
         problemSetProvider.problems(tags: nil, problemsetName: nil, {
             result in
@@ -78,18 +80,27 @@ extension ContestInfoViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCellReuseID", for: indexPath) as! TaskCell
+        let cell: UITableViewCell = UITableViewCell()
         
         let segIndex = segmentsNames(rawValue: segmentIndicator.selectedSegmentIndex)!
         
         switch segIndex {
         case .tasks:
-            cell.taskName.text = contestProblems[indexPath.row].name
-            cell.letterTask.text = contestProblems[indexPath.row].index
-            cell.tags.text = contestProblems[indexPath.row].tags.joined(separator: ", ")
-        case .status, .standings:
+//            cell.taskName.text = contestProblems[indexPath.row].name
+//            cell.letterTask.text = contestProblems[indexPath.row].index
+//            cell.tags.text = contestProblems[indexPath.row].tags.joined(separator: ", ")
             break
+        case .status, .standings:
+            tableView.register(StandingsCell.self,
+                               forCellReuseIdentifier: "StandingsCellReuseID")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "StandingsCellReuseID",
+                                                     for: indexPath) as! StandingsCell
+            
+            
+            
+            
         }
+        
         return cell
     }
 }

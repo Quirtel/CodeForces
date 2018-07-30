@@ -9,6 +9,7 @@
 import UIKit
 
 class StatusCell: UITableViewCell {
+    @IBOutlet var participantName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
