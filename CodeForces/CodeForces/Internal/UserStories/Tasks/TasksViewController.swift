@@ -19,7 +19,6 @@ class TasksViewController: UIViewController {
 
 private extension TasksViewController {
     func configureTableView() {
-        
         tableView.separatorStyle = .none
         tableView.register(cellType: TaskCell.self)
         

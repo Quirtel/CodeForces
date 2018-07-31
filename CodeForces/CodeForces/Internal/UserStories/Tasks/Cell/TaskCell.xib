@@ -11,24 +11,35 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TaskCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="179" id="QtW-LZ-ej8" userLabel="TaskCell" customClass="TaskCell" customModule="CodeForces" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="500" height="179"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TaskCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="308" id="QtW-LZ-ej8" userLabel="TaskCell" customClass="TaskCell" customModule="CodeForces" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="760" height="308"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QtW-LZ-ej8" id="AC9-2m-j9m">
-                <rect key="frame" x="0.0" y="0.0" width="500" height="178.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="760" height="307.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qnd-ay-JZn">
-                        <rect key="frame" x="10" y="10" width="480" height="158.5"/>
+                        <rect key="frame" x="10" y="10" width="740" height="288"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hy1-bD-7py">
-                                <rect key="frame" x="436.5" y="81.5" width="38.5" height="72"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="749" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hy1-bD-7py">
+                                <rect key="frame" x="696.5" y="211" width="38.5" height="72"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oCP-XU-FrR">
+                                <rect key="frame" x="5" y="5" width="104.5" height="25.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Task name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ufp-3A-foC">
+                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hZy-gm-7PS">
-                                <rect key="frame" x="5" y="122" width="74" height="31.5"/>
+                                <rect key="frame" x="5" y="251.5" width="74" height="31.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Solved count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gf-4X-vfa">
                                         <rect key="frame" x="0.0" y="0.0" width="74" height="14.5"/>
@@ -38,23 +49,6 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwS-CI-cQl">
                                         <rect key="frame" x="0.0" y="14.5" width="74" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="oCP-XU-FrR">
-                                <rect key="frame" x="5" y="5" width="104.5" height="42.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Task name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ufp-3A-foC">
-                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="25.5"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UvM-sq-Uls">
-                                        <rect key="frame" x="0.0" y="25.5" width="30.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -85,14 +79,14 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="countParameterLabel" destination="gwS-CI-cQl" id="6hd-Y5-N1T"/>
+                <outlet property="countParameterLabel" destination="gwS-CI-cQl" id="Czs-V3-R1c"/>
                 <outlet property="letterTaskLabel" destination="hy1-bD-7py" id="duU-pa-adG"/>
                 <outlet property="roundView" destination="qnd-ay-JZn" id="xjQ-IC-jPo"/>
                 <outlet property="solvedCountLabel" destination="2gf-4X-vfa" id="0Ig-TJ-EF5"/>
-                <outlet property="tagsLabel" destination="UvM-sq-Uls" id="FH6-TV-rJZ"/>
                 <outlet property="taskNameLabel" destination="Ufp-3A-foC" id="YT4-1I-1QD"/>
+                <outlet property="topStackView" destination="oCP-XU-FrR" id="USm-Sv-QM0"/>
             </connections>
-            <point key="canvasLocation" x="296" y="120.5"/>
+            <point key="canvasLocation" x="476" y="124"/>
         </tableViewCell>
     </objects>
 </document>

@@ -335,7 +335,6 @@
 		3FD1A4892109C8C800AF0B45 /* CodeForces */ = {
 			isa = PBXGroup;
 			children = (
-				3FD1A4B82109D1DD00AF0B45 /* Common */,
 				3FD1A4B92109D1F100AF0B45 /* Internal */,
 				557E3498210ACF880057E43A /* Generated */,
 				3FD1A4BA2109D21200AF0B45 /* Resources */,
@@ -402,6 +401,7 @@
 		3FD1A4BB2109D26800AF0B45 /* UserStories */ = {
 			isa = PBXGroup;
 			children = (
+				3FD1A4B82109D1DD00AF0B45 /* Common */,
 				3FD1A4BD2109D28000AF0B45 /* Tasks */,
 				3FD1A4BC2109D27400AF0B45 /* Contests */,
 			);
@@ -692,6 +692,7 @@
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
+				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -701,6 +702,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
