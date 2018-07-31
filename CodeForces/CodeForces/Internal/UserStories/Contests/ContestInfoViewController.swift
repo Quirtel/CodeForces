@@ -23,9 +23,20 @@ class ContestInfoViewController: UIViewController {
     private var problemSetProvider = ProblemSetProvider()
     
     private var shouldFetchStandings = true
+    private var shouldFetchStatus = true
+    
+    let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.separatorStyle = .none
+        
+        if #available(iOS 11.0, *) {
+            navigationItem.largeTitleDisplayMode = .never
+        } else {
+            // Fallback on earlier versions
+        }
         
         tableView.register(cellType: TaskCell.self)
         tableView.register(cellType: StatusCell.self)
@@ -36,16 +47,36 @@ class ContestInfoViewController: UIViewController {
     }
     
     func fetchStatus(offset: Int, count: Int) {
+        let segIndex = SegmentsNames(rawValue: segmentIndicator.selectedSegmentIndex)!
+        
+        if segIndex != .status {
+            return
+        }
+        
+        shouldFetchStatus = false
+        
         contestProvider.contestStatus(
             requestParams: ContestStatusRequest(
-                contestId: contestId, handle: nil, from: offset, count: count), {
-                    result in
+                contestId: contestId, handle: nil, from: offset, count: count), { [weak self] result in
+                    
+                    guard let strongSelf = self else { return }
+                    
                     switch result {
                     case .success(let list):
-                        self.contestStatus.append(contentsOf: list.compactMap({ $0 }))
+                        strongSelf.contestStatus.append(contentsOf: list.compactMap({ $0 }))
+                        
+                        let indexPaths = Array(offset-1..<offset-1+count)
+                            .map({ IndexPath(row: $0, section: 0) })
+                        
+                        strongSelf.tableView.setContentOffset(
+                            strongSelf.tableView.contentOffset, animated: true)
+                        
+                        strongSelf.tableView.insertRows(
+                            at: indexPaths, with: .fade)
                     case .error(let error):
                         print(error)
                     }
+                    strongSelf.shouldFetchStatus = true
         })
     }
     
@@ -90,9 +121,13 @@ class ContestInfoViewController: UIViewController {
         case .standings:
             if ranklistRows.count == 0 {
                 fetchStandings(offset: 1, count: 30)
+                tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             }
         case .status:
-            fetchStatus(offset: currentOffsetStatus + 1, count: 30)
+            if contestStatus.count == 0 {
+                fetchStatus(offset: 1, count: 30)
+                tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            }
         case .tasks:
             break
         }
@@ -128,6 +163,7 @@ extension ContestInfoViewController: UITableViewDataSource {
             return taskCell
         case .standings:
             // -MARK: Standings Cells
+            //TODO: make standingsCell configure using only contestId and model
             let standingsCell = tableView.dequeueReusableCell(for: indexPath) as StandingsCell
             
             let currentRanklistRow = ranklistRows[indexPath.row]
@@ -145,8 +181,8 @@ extension ContestInfoViewController: UITableViewDataSource {
             }
             
             let model = StandingsCellModel(
-                participantName: participantName, rank: currentRanklistRow.rank,
-                points: currentRanklistRow.points, isTeam: participantIsTeam)
+                participantName: participantName, rank: String(currentRanklistRow.rank),
+                points: String(currentRanklistRow.points), isTeam: participantIsTeam)
             
             standingsCell.configure(with: model)
             
@@ -156,31 +192,41 @@ extension ContestInfoViewController: UITableViewDataSource {
             // -MARK: Status Cells
             let statusCell = tableView.dequeueReusableCell(for: indexPath) as StatusCell
             
-            return statusCell
+            let currentSubmission = contestStatus[indexPath.row]
             
+            let model = StatusCellModel(contestId: contestId, submission: currentSubmission)
+            
+            statusCell.configure(with: model)
+            
+            return statusCell
         }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         print(indexPath.row)
         
+        spinner.startAnimating()
+        spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+        
+        tableView.tableFooterView = spinner
+        tableView.tableFooterView?.isHidden = false
+        
         let segIndex = SegmentsNames(rawValue: segmentIndicator.selectedSegmentIndex)!
         switch segIndex {
         case .standings:
             if indexPath.row == ranklistRows.count - 1 && shouldFetchStandings {
-                let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-                spinner.startAnimating()
-                spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
-                
-                tableView.tableFooterView = spinner
-                tableView.tableFooterView?.isHidden = false
-                
-                fetchStandings(offset: ranklistRows.count, count: 30)
+                fetchStandings(offset: ranklistRows.count + 1, count: 30)
+                tableView.tableFooterView?.isHidden = true
             }
-        case .status, .tasks:
-            break
+        case .status:
+            if indexPath.row == contestStatus.count - 1 && shouldFetchStatus {
+                fetchStatus(offset: contestStatus.count + 1, count: 30)
+                tableView.tableFooterView?.isHidden = true
+            }
+            
+        case .tasks:
+            tableView.tableFooterView?.isHidden = true
         }
-        
     }
 }
 

@@ -1,12 +1,12 @@
 import UIKit
 
-class StandingsCellModel {
+struct StandingsCellModel {
     var participantName = String()
-    var rank = 0
-    var points: Float = 0
+    var rank = String()
+    var points = String()
     var isTeam = false
     
-    init(participantName: String, rank: Int, points: Float, isTeam: Bool) {
+    init(participantName: String, rank: String, points: String, isTeam: Bool) {
         self.participantName = participantName
         self.rank = rank
         self.points = points

@@ -28,6 +28,13 @@ class ContestsViewController: UIViewController {
         
         setupSearchController()
         
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+            self.navigationItem.searchController = searchController
+        } else {
+            // Fallback on earlier versions
+        }
+        
         setupFormatters()
         
         contests.contestList(
@@ -51,11 +58,9 @@ class ContestsViewController: UIViewController {
         definesPresentationContext = true
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
-        searchController.searchBar.barTintColor = UIColor(white: 0.9, alpha: 0.3)
-        searchController.hidesNavigationBarDuringPresentation = false
+
+        searchController.hidesNavigationBarDuringPresentation = true
         searchController.definesPresentationContext = true
-        
-        tableView.tableHeaderView = searchController.searchBar
     }
     
     func setupFormatters() {
