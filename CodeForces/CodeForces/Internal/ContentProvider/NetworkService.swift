@@ -6,7 +6,7 @@ final class NetworkService {
     private let problemSetPovider = MoyaProvider<ProblemSetAPI>()
     private let userProvider = MoyaProvider<UserAPI>()
     
-    private static func request<Target: TargetType, ResultType: Codable>(
+    static func request<Target: TargetType, ResultType: Codable>(
         provider: MoyaProvider<Target>,
         target: Target,
         completion: @escaping (Result<ResultType>) -> ()) {

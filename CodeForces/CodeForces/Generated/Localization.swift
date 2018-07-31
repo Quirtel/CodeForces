@@ -14,8 +14,19 @@ internal enum L10n {
   }
 
   internal enum TasksVc {
-    ///  Tasks
+    /// Tasks
     internal static let title = L10n.tr("Localizable", "Tasks_VC.title")
+
+    internal enum Cell {
+
+      internal enum Header {
+
+        internal enum SolvedCountLabel {
+          /// Solved count:
+          internal static let text = L10n.tr("Localizable", "Tasks_VC.cell.header.solved_count_label.text")
+        }
+      }
+    }
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length nesting type_body_length type_name
