@@ -70,6 +70,7 @@
 		491A758E210ED02F00536CE1 /* ContestInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A758D210ED02F00536CE1 /* ContestInfoViewController.swift */; };
 		4946953A210EE586003C5ABE /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49469539210EE586003C5ABE /* StatusCell.swift */; };
 		4946953C210EE595003C5ABE /* StandingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946953B210EE595003C5ABE /* StandingsCell.swift */; };
+		49DA2B3721101C7B001280F8 /* StandingsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DA2B3621101C7B001280F8 /* StandingsCellModel.swift */; };
 		557E3491210ACB8C0057E43A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 557E3493210ACB8C0057E43A /* Localizable.strings */; };
 		557E3495210ACBD80057E43A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E3494210ACBD80057E43A /* LaunchScreen.storyboard */; };
 		557E349C210ACF880057E43A /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E3499210ACF880057E43A /* Assets.swift */; };
@@ -167,6 +168,7 @@
 		491A758D210ED02F00536CE1 /* ContestInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContestInfoViewController.swift; sourceTree = "<group>"; };
 		49469539210EE586003C5ABE /* StatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
 		4946953B210EE595003C5ABE /* StandingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsCell.swift; sourceTree = "<group>"; };
+		49DA2B3621101C7B001280F8 /* StandingsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsCellModel.swift; sourceTree = "<group>"; };
 		557E3492210ACB8C0057E43A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		557E3494210ACBD80057E43A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		557E3496210ACBF00057E43A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -423,6 +425,7 @@
 		3FD1A4BC2109D27400AF0B45 /* Contests */ = {
 			isa = PBXGroup;
 			children = (
+				49DA2B3521101C6F001280F8 /* Models */,
 				491A757D210ECFFE00536CE1 /* Contest */,
 				491A7580210ECFFE00536CE1 /* Standings */,
 				491A7585210ECFFE00536CE1 /* Status */,
@@ -514,6 +517,14 @@
 			);
 			name = Status;
 			path = Cell/Status;
+			sourceTree = "<group>";
+		};
+		49DA2B3521101C6F001280F8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				49DA2B3621101C7B001280F8 /* StandingsCellModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		557E3498210ACF880057E43A /* Generated */ = {
@@ -805,6 +816,7 @@
 				3F2D92A6210C5C0700EC6380 /* ProblemSetProvider.swift in Sources */,
 				3F38A12A210B1B40008E98C6 /* ParticipantType.swift in Sources */,
 				491A758E210ED02F00536CE1 /* ContestInfoViewController.swift in Sources */,
+				49DA2B3721101C7B001280F8 /* StandingsCellModel.swift in Sources */,
 				3F2D92AC210D761A00EC6380 /* UserAPI.swift in Sources */,
 				3F38A134210B1B40008E98C6 /* Hack.swift in Sources */,
 				3F38A123210B1B40008E98C6 /* ProblemResult.swift in Sources */,

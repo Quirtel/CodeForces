@@ -70,6 +70,15 @@ final class Provider {
         }
     }
     
+    func contestStandings(
+        requestParams: ContestStandingsRequest, _ completion: @escaping (Result<ContestStandings>) -> ()) {
+        Provider.request(
+            provider: contestProvider,
+            target: ContestAPI.standings(requestParams: requestParams)) { (result: Result<ContestStandings>) -> () in
+                completion(result)
+        }
+    }
+    
     func problemsetProblems(
         withRequestParams: ProblemSetProblemsRequest,
         _ completion: @escaping (Result<ProblemSetProblems>) -> ()) {

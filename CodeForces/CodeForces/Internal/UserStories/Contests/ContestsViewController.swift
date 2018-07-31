@@ -1,6 +1,6 @@
 import UIKit
 
-private enum sectionsNames: Int {
+private enum SectionsNames: Int {
     case upcoming = 0
     case finished
 }
@@ -10,32 +10,39 @@ class ContestsViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private var searchBar: UISearchBar!
     
-    var searchController = UISearchController(searchResultsController: nil)
-    let contests = ContestProvider()
-    var upcomingContests: [Contest] = []
-    var finishedContests: [Contest] = []
-    var filteredContests: [Contest] = []
+    private var searchController = UISearchController(searchResultsController: nil)
+    private let contests = ContestProvider()
+    private var upcomingContests: [Contest] = []
+    private var finishedContests: [Contest] = []
+    private var filteredContests: [Contest] = []
+    private let relativeTimeFormatter = DateFormatter()
+    private let formatter = DateComponentsFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // TODO: Use reusable
         tableView.register(UINib(nibName: "ContestCell", bundle: nil),
                            forCellReuseIdentifier: "ContestCellReuseID")
         
-        self.tableView.tableFooterView = UIView()
+        tableView.tableFooterView = UIView()
         
         setupSearchController()
         
-        contests.contestList(gym: false, { contestList in
-            switch contestList {
-            case .success(let list):
-                self.upcomingContests = list.compactMap({ $0.phase == .BEFORE || $0.phase == .CODING ? $0 : nil })
-                self.finishedContests = list.compactMap({ $0.phase == .FINISHED ? $0 : nil})
-            case .error(let error):
-                print(error)
-            }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+        setupFormatters()
+        
+        contests.contestList(
+            requestParams: ContestListRequest(gym: false), { [weak self] contestList in
+                guard let sself = self else { return }
+                switch contestList {
+                case .success(let list):
+                    sself.upcomingContests = list.compactMap(
+                        { $0.phase == .before || $0.phase == .coding ? $0 : nil })
+                    sself.finishedContests = list.compactMap(
+                        { $0.phase == .finished ? $0 : nil })
+                case .error(let error):
+                    print(error)
+                }
+                sself.tableView.reloadData()
         })
     }
     
@@ -51,6 +58,17 @@ class ContestsViewController: UIViewController {
         tableView.tableHeaderView = searchController.searchBar
     }
     
+    func setupFormatters() {
+        
+        formatter.unitsStyle = .full
+        formatter.allowedUnits = [.day, .hour, .minute]
+        formatter.zeroFormattingBehavior = [.dropAll]
+        
+        relativeTimeFormatter.doesRelativeDateFormatting = true
+        relativeTimeFormatter.dateStyle = .medium
+        relativeTimeFormatter.timeStyle = .short
+    }
+    
 }
 
 // -MARK: Data Source
@@ -61,7 +79,7 @@ extension ContestsViewController: UITableViewDataSource {
             return filteredContests.count
         }
         
-        let sectionName = sectionsNames(rawValue: section)!
+        let sectionName = SectionsNames(rawValue: section)!
         switch sectionName {
         case .upcoming:
             return upcomingContests.count
@@ -81,20 +99,13 @@ extension ContestsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
         -> UITableViewCell {
             
+            // reusable
             let cell = tableView.dequeueReusableCell(withIdentifier: "ContestCellReuseID", for: indexPath) as? ContestCell
-            cell?.accessoryType = .disclosureIndicator
             
-            let sectionName = sectionsNames(rawValue: indexPath.section)!
             
-            let formatter = DateComponentsFormatter()
-            formatter.unitsStyle = .full
-            formatter.allowedUnits = [.day, .hour, .minute]
-            formatter.zeroFormattingBehavior = [.dropAll]
+            let sectionName = SectionsNames(rawValue: indexPath.section)!
             
-            let relativeTimeFormatter = DateFormatter()
-            relativeTimeFormatter.doesRelativeDateFormatting = true
-            relativeTimeFormatter.dateStyle = .medium
-            relativeTimeFormatter.timeStyle = .short
+            
             
             // MARK: -Search Bar is Active
             if searchController.isActive && searchController.searchBar.text != "" {
@@ -115,33 +126,38 @@ extension ContestsViewController: UITableViewDataSource {
             case .upcoming:
                 cell?.contestName.text = upcomingContests[indexPath.row].name
                 let duration: TimeInterval = TimeInterval(upcomingContests[indexPath.row].durationSeconds)
-                let startTime = Date(timeIntervalSince1970: TimeInterval(upcomingContests[indexPath.row].startTimeSeconds!))
+                let startTime = Date(timeIntervalSince1970:
+                    TimeInterval(upcomingContests[indexPath.row].startTimeSeconds!))
                 
-                let endTime =  Date(timeIntervalSince1970: TimeInterval(upcomingContests[indexPath.row].startTimeSeconds! + upcomingContests[indexPath.row].durationSeconds))
+                let endTime =  Date(timeIntervalSince1970:
+                    TimeInterval(upcomingContests[indexPath.row].startTimeSeconds! + upcomingContests[indexPath.row].durationSeconds))
                 
                 cell?.durationTime.text = formatter.string(from: duration)
                 
                 switch upcomingContests[indexPath.row].phase {
-                case .CODING:
+                case .coding:
                     cell?.status.text = L10n.ContestsVc.TableViewCell.ContestInProgress.text
                     cell?.endTime.text = formatter.string(from: Date(timeIntervalSinceNow: 0), to: endTime)!
                     cell?.endTime.isHidden = false
                     cell?.remainingLabel.isHidden = false
-                case .BEFORE:
+                case .before:
                     cell?.status.text = relativeTimeFormatter.string(from: startTime)
-                case .PENDING_SYSTEM_TEST:
+                case .pendingSystemTest:
                     cell?.status.text = L10n.ContestsVc.TableViewCell.PendingTest.text
-                case .SYSTEM_TEST:
+                case .systemTest:
                     cell?.status.text = L10n.ContestsVc.TableViewCell.SystemTesting.text
-                case .FINISHED:
+                case .finished:
                     cell?.status.text = L10n.ContestsVc.TableViewCell.Finished.text
                 }
                 
             case .finished:
+                cell?.accessoryType = .disclosureIndicator
                 cell?.contestName.text = finishedContests[indexPath.row].name
                 
-                let startTime = Date(timeIntervalSince1970: TimeInterval(finishedContests[indexPath.row].startTimeSeconds!))
-                let duration: TimeInterval = TimeInterval(finishedContests[indexPath.row].durationSeconds)
+                let startTime = Date(timeIntervalSince1970:
+                    TimeInterval(finishedContests[indexPath.row].startTimeSeconds!))
+                let duration: TimeInterval = TimeInterval(
+                    finishedContests[indexPath.row].durationSeconds)
                 
                 cell?.status.text = relativeTimeFormatter.string(from: startTime)
                 cell?.durationTime.text = formatter.string(from: duration)
@@ -158,7 +174,7 @@ extension ContestsViewController: UITableViewDataSource {
             return "Результаты поиска"
         }
         
-        let sectionName = sectionsNames(rawValue: section)!
+        let sectionName = SectionsNames(rawValue: section)!
         switch sectionName {
         case .upcoming:
             return L10n.ContestsVc.UpcomingEventsSection.title
@@ -182,23 +198,23 @@ extension ContestsViewController: UITableViewDataSource {
 // -MARK: Delegate
 extension ContestsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let nextViewController = storyboard?.instantiateViewController(withIdentifier: "ContestInfoViewController")
+        let nextViewController = StoryboardScene.Contests.contestInfoViewController.instantiate()
         
-        if let viewController = nextViewController as? ContestInfoViewController {
-            
+        let sectionName = SectionsNames(rawValue: indexPath.section)!
+        tableView.deselectRow(at: indexPath, animated: true)
+        
             if searchController.isActive && searchController.searchBar.text != "" {
-                viewController.contestId = filteredContests[indexPath.row].id
+                nextViewController.contestId = filteredContests[indexPath.row].id
             } else {
-                let sectionName = sectionsNames(rawValue: indexPath.section)!
                 switch sectionName {
                 case .upcoming:
-                    viewController.contestId = upcomingContests[indexPath.row].id
+                    return
+                        nextViewController.contestId = upcomingContests[indexPath.row].id
                 case .finished:
-                    viewController.contestId = finishedContests[indexPath.row].id
+                    nextViewController.contestId = finishedContests[indexPath.row].id
                 }
-            }
             
-            navigationController?.pushViewController(viewController, animated: true)
+            navigationController?.pushViewController(nextViewController, animated: true)
         }
         
         tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)

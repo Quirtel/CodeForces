@@ -1,12 +1,5 @@
-//
-//  StatusCell.swift
-//  CodeForces
-//
-//  Created by Андрей Митюлин on 30.07.2018.
-//  Copyright © 2018 students. All rights reserved.
-//
-
 import UIKit
+import Reusable
 
 class StatusCell: UITableViewCell {
     @IBOutlet var participantName: UILabel!
@@ -14,4 +7,8 @@ class StatusCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+}
+
+extension StatusCell: NibReusable {
+    
 }

@@ -22,4 +22,13 @@ class ContestProvider {
                     completion(result)
         }
     }
+    
+    func contestStandings(
+        requestParams: ContestStandingsRequest, _ completion: @escaping (Result<ContestStandings>) -> ()) {
+        Provider.request(
+            provider: contestProvider,
+            target: ContestAPI.standings(requestParams: requestParams)) { (result: Result<ContestStandings>) -> () in
+                completion(result)
+        }
+    }
 }
