@@ -56,7 +56,9 @@ final class NetworkService {
         _ completion: @escaping (Result<[Contest]>) -> ()) {
         NetworkService.request(
             provider: contestProvider,
-            target: ContestAPI.list(requestParams: requestParams)) { (result: Result<[Contest]>) -> () in
+            target: ContestAPI.list(
+                requestParams: requestParams)) {
+                    (result: Result<[Contest]>) -> () in
                 completion(result)
         }
     }
@@ -65,16 +67,21 @@ final class NetworkService {
         requestParams: ContestStatusRequest, _ completion: @escaping (Result<[Submission]>) -> ()) {
         NetworkService.request(
             provider: contestProvider,
-            target: ContestAPI.status(requestParams: requestParams)) { (result: Result<[Submission]>) -> () in
+            target: ContestAPI.status(
+                requestParams: requestParams)) {
+                    (result: Result<[Submission]>) -> () in
                 completion(result)
         }
     }
     
     func fetchContestStandings(
-        requestParams: ContestStandingsRequest, _ completion: @escaping (Result<ContestStandings>) -> ()) {
+        requestParams: ContestStandingsRequest,
+        _ completion: @escaping (Result<ContestStandings>) -> ()) {
         NetworkService.request(
             provider: contestProvider,
-            target: ContestAPI.standings(requestParams: requestParams)) { (result: Result<ContestStandings>) -> () in
+            target: ContestAPI.standings(
+                requestParams: requestParams)) {
+                    (result: Result<ContestStandings>) -> () in
                 completion(result)
         }
     }
@@ -87,7 +94,7 @@ final class NetworkService {
             target: ProblemSetAPI.problems(
                 requestParams: withRequestParams)) {
                     (result: Result<ProblemSetProblems>) -> () in
-                    completion(result)
+                completion(result)
         }
     }
     
@@ -99,27 +106,30 @@ final class NetworkService {
             target: ProblemSetAPI.recentStatus(
                 requestParams: withRequestParams)) {
                     (result: Result<[Submission]>) -> () in
-                    completion(result)
+                completion(result)
         }
     }
     
     func fetchUserRating(
-        handle withHandle: String,
+        withRequestParams: UserRatingRequest,
         _ completion: @escaping (Result<[RatingChange]>) -> ()) {
         NetworkService.request(
             provider: userProvider,
-            target: UserAPI.rating(handle: withHandle)) { (result: Result<[RatingChange]>) -> () in
+            target: UserAPI.rating(
+                requestParams: withRequestParams)) {
+                    (result: Result<[RatingChange]>) -> () in
                 completion(result)
         }
     }
     
     func fetchUserStatus(
-        handle withHandle: String, from: Int?, count: Int?,
+        withRequestParams: UserStatusRequest,
         _ completion: @escaping (Result<[Submission]>) -> ()) {
         NetworkService.request(
             provider: userProvider,
-            target: UserAPI.status(handle: withHandle, from: from, count: count)) {
-                (result: Result<[Submission]>) -> () in
+            target: UserAPI.status(
+                requestParams: withRequestParams)) {
+                    (result: Result<[Submission]>) -> () in
                 completion(result)
         }
     }    

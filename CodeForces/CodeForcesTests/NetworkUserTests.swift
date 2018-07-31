@@ -9,24 +9,27 @@ class UserTests: CodeForcesNetworkTests {
     func testRating() {
         testRequest(
             provider: userProvider,
-            target: UserAPI.rating(handle: "Fefer_Ivan"),
+            target: UserAPI.rating(requestParams: UserRatingRequest(handle: "Fefer_Ivan")),
             resultType: [RatingChange].self)
     }
     
     func testStatus() {
         testRequest(
             provider: userProvider,
-            target: UserAPI.status(handle: "Fefer_Ivan", from: nil, count: nil),
+            target: UserAPI.status(
+                requestParams: UserStatusRequest(handle: "Fefer_Ivan", from: nil, count: nil)),
             resultType: [Submission].self)
         
         testRequest(
             provider: userProvider,
-            target: UserAPI.status(handle: "Fefer_Ivan", from: nil, count: 10),
+            target: UserAPI.status(
+                requestParams: UserStatusRequest(handle: "Fefer_Ivan", from: nil, count: 10)),
             resultType: [Submission].self)
         
         testRequest(
             provider: userProvider,
-            target: UserAPI.status(handle: "Fefer_Ivan", from: 1, count: 10),
+            target: UserAPI.status(
+                requestParams: UserStatusRequest(handle: "Fefer_Ivan", from: 1, count: 10)),
             resultType: [Submission].self)
     }
     

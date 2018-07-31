@@ -2,8 +2,8 @@ import Foundation
 import Moya
 
 enum UserAPI {
-    case rating(handle: String)
-    case status(handle: String, from: Int?, count: Int?)
+    case rating(requestParams: UserRatingRequest)
+    case status(requestParams: UserStatusRequest)
 }
 
 extension UserAPI: TargetType {
@@ -29,16 +29,14 @@ extension UserAPI: TargetType {
     }
     
     var task: Task {
-        var params: [String: Any] = [:]
         switch self {
-        case .rating(let handle):
-            params["handle"] = handle
-        case .status(let handle, let from, let count):
-            params["handle"] = handle
-            params["from"] = from
-            params["count"] = count
+        case .rating(let requestParams):
+            return .requestParameters(
+                parameters: requestParams.dictionary, encoding: URLEncoding.queryString)
+        case .status(let requestParams):
+            return .requestParameters(
+                parameters: requestParams.dictionary, encoding: URLEncoding.queryString)
         }
-        return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
     }
     
     var headers: [String : String]? {
