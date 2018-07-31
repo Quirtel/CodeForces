@@ -5,6 +5,9 @@ import RealmSwift
 
 
 final class ContestRealm: Object { 
+	@objc dynamic var gym: Bool = false
+
+
     @objc dynamic var id: Int = 0 
     @objc dynamic var name: String = "" 
     @objc dynamic var type: String! 
@@ -15,7 +18,7 @@ final class ContestRealm: Object {
     let relativeTimeSeconds = RealmOptional<Int>() 
     @objc dynamic var preparedBy: String? = nil 
     @objc dynamic var websiteUrl: String? = nil 
-    @objc dynamic var descr1ption: String? = nil
+    @objc dynamic var descr1ption: String? = nil  
     let difficulty = RealmOptional<Int>() 
     @objc dynamic var kind: String? = nil 
     @objc dynamic var icpcRegion: String? = nil 
@@ -36,7 +39,7 @@ extension ContestRealm: RealmObject {
         }
         
         
-        return Contest(id: id, name: name, type: type, phase: phase, frozen: frozen, durationSeconds: durationSeconds, startTimeSeconds: startTimeSeconds.value, relativeTimeSeconds: relativeTimeSeconds.value, preparedBy: preparedBy, websiteUrl: websiteUrl, description: descr1ption, difficulty: difficulty.value, kind: kind, icpcRegion: icpcRegion, country: country, city: city, season: season)
+        return Contest(id: id, name: name, type: type, phase: phase, frozen: frozen, durationSeconds: durationSeconds, startTimeSeconds: startTimeSeconds.value, relativeTimeSeconds: relativeTimeSeconds.value, preparedBy: preparedBy, websiteUrl: websiteUrl, descr1ption: descr1ption, difficulty: difficulty.value, kind: kind, icpcRegion: icpcRegion, country: country, city: city, season: season)
     }
 
     convenience init(model: Contest) {
@@ -52,7 +55,7 @@ extension ContestRealm: RealmObject {
         self.relativeTimeSeconds.value = model.relativeTimeSeconds        
         self.preparedBy = model.preparedBy        
         self.websiteUrl = model.websiteUrl        
-        self.descr1ption = model.description
+        self.descr1ption = model.descr1ption        
         self.difficulty.value = model.difficulty        
         self.kind = model.kind        
         self.icpcRegion = model.icpcRegion        

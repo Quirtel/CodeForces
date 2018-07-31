@@ -5,6 +5,7 @@ import RealmSwift
 
 
 final class JudgeProtocolRealm: Object { 
+
     @objc dynamic var manual: Bool = false 
     @objc dynamic var protocolDescription: String = "" 
     @objc dynamic var verdictDescription: String = "" 

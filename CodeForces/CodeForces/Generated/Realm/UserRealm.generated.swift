@@ -5,6 +5,7 @@ import RealmSwift
 
 
 final class UserRealm: Object { 
+
     @objc dynamic var handle: String = "" 
     @objc dynamic var email: String? = nil 
     @objc dynamic var vkId: String? = nil 

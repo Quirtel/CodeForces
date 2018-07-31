@@ -4,7 +4,8 @@
 import RealmSwift
 
 
-final class PartyRealm: Object {  
+final class PartyRealm: Object { 
+ 
     let contestId = RealmOptional<Int>()     
     var members = List<MemberRealm>()
     @objc dynamic var participantType: String!  

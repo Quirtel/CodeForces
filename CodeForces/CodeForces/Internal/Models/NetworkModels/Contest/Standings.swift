@@ -20,6 +20,7 @@ struct ContestStandingsRequest: Codable {
     }
 }
 
+//sourcery: RealmPersistable
 struct ContestStandings: Codable {
     let contest: Contest
     let problems: [Problem]

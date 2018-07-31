@@ -5,6 +5,7 @@ import RealmSwift
 
 
 final class RatingChangeRealm: Object { 
+
     @objc dynamic var contestId: Int = 0 
     @objc dynamic var contestName: String = "" 
     @objc dynamic var handle: String = "" 

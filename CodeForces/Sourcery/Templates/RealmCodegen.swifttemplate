@@ -68,6 +68,9 @@ import RealmSwift
 
 
 final class <%= prefixedTypeName(for: type) %>: Object { <% -%>
+<% if type.annotations["additionalField"] != nil { %>
+	@objc dynamic var <%= type.annotations["additionalField"]! %>: <%= type.annotations["additionalFieldType"]! %> = <%= type.annotations["additionalFieldDefaultValue"]! %>
+<% } %>
 <% for variable in type.storedVariables { -%>
 <% if realmOptionalTypes.contains(variable.typeName.name) { %> 
     let <%= variable.name %> = RealmOptional<<%= variable.typeName.unwrappedTypeName %>>() <% -%>

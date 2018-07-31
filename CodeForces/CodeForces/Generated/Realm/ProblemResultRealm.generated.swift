@@ -5,6 +5,7 @@ import RealmSwift
 
 
 final class ProblemResultRealm: Object { 
+
     @objc dynamic var points: Float = 0  
     let penalty = RealmOptional<Int>() 
     @objc dynamic var rejectedAttemptCount: Int = 0 

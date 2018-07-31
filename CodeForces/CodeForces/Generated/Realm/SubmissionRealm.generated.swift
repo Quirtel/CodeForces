@@ -5,6 +5,7 @@ import RealmSwift
 
 
 final class SubmissionRealm: Object { 
+
     @objc dynamic var id: Int = 0  
     let contestId = RealmOptional<Int>() 
     @objc dynamic var creationTimeSeconds: Int = 0 

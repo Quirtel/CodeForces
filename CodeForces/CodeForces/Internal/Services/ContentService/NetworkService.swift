@@ -64,7 +64,8 @@ final class NetworkService {
     }
     
     func fetchContestStatus(
-        requestParams: ContestStatusRequest, _ completion: @escaping (Result<[Submission]>) -> ()) {
+        requestParams: ContestStatusRequest,
+        _ completion: @escaping (Result<[Submission]>) -> ()) {
         NetworkService.request(
             provider: contestProvider,
             target: ContestAPI.status(
@@ -83,6 +84,18 @@ final class NetworkService {
                 requestParams: requestParams)) {
                     (result: Result<ContestStandings>) -> () in
                 completion(result)
+        }
+    }
+    
+    func fetchContestRatingChanges(
+        requestParams: ContestRatingChangesRequest,
+        _ completion: @escaping (Result<[RatingChange]>) -> ()) {
+        NetworkService.request(
+            provider: contestProvider,
+            target: ContestAPI.ratingChanges(
+                requestParams: requestParams)) {
+                    (result: Result<[RatingChange]>) -> () in
+                    completion(result)
         }
     }
     
@@ -132,5 +145,5 @@ final class NetworkService {
                     (result: Result<[Submission]>) -> () in
                 completion(result)
         }
-    }    
+    }
 }

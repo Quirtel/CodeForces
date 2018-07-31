@@ -10,6 +10,7 @@ struct ProblemSetProblemsRequest: Codable {
     }
 }
 
+//sourcery: RealmPersistable
 struct ProblemSetProblems: Codable {
     let problems: [Problem]
     let problemStatistics: [ProblemStatistics]

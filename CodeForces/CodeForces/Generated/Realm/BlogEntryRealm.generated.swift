@@ -5,6 +5,7 @@ import RealmSwift
 
 
 final class BlogEntryRealm: Object { 
+
     @objc dynamic var id: Int = 0 
     @objc dynamic var originalLocale: String = "" 
     @objc dynamic var creationTimeSeconds: Int = 0 

@@ -4,7 +4,8 @@
 import RealmSwift
 
 
-final class ProblemRealm: Object {  
+final class ProblemRealm: Object { 
+ 
     let contestId = RealmOptional<Int>() 
     @objc dynamic var problemsetName: String? = nil 
     @objc dynamic var index: String = "" 

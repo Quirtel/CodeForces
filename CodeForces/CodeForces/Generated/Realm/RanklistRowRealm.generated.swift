@@ -5,6 +5,7 @@ import RealmSwift
 
 
 final class RanklistRowRealm: Object { 
+
     @objc dynamic var party: PartyRealm! 
     @objc dynamic var rank: Int = 0 
     @objc dynamic var points: Float = 0 
