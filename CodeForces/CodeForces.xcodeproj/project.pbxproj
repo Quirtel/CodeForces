@@ -7,21 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F13708A210F4901002776D2 /* RatingChange+RealmStruct.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F13707C210F4900002776D2 /* RatingChange+RealmStruct.generated.swift */; };
-		3F13708B210F4901002776D2 /* Hack+RealmStruct.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F13707D210F4900002776D2 /* Hack+RealmStruct.generated.swift */; };
-		3F13708C210F4901002776D2 /* Problem+RealmStruct.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F13707E210F4900002776D2 /* Problem+RealmStruct.generated.swift */; };
-		3F13708D210F4901002776D2 /* ProblemStatistics+RealmStruct.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F13707F210F4900002776D2 /* ProblemStatistics+RealmStruct.generated.swift */; };
-		3F13708E210F4901002776D2 /* Submission+RealmStruct.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F137080210F4900002776D2 /* Submission+RealmStruct.generated.swift */; };
-		3F13708F210F4901002776D2 /* User+RealmStruct.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F137081210F4900002776D2 /* User+RealmStruct.generated.swift */; };
-		3F137090210F4901002776D2 /* Member+RealmStruct.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F137082210F4900002776D2 /* Member+RealmStruct.generated.swift */; };
-		3F137091210F4901002776D2 /* Party+RealmStruct.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F137083210F4900002776D2 /* Party+RealmStruct.generated.swift */; };
-		3F137092210F4901002776D2 /* ProblemResult+RealmStruct.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F137084210F4900002776D2 /* ProblemResult+RealmStruct.generated.swift */; };
-		3F137093210F4901002776D2 /* BlogEntry+RealmStruct.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F137085210F4900002776D2 /* BlogEntry+RealmStruct.generated.swift */; };
-		3F137094210F4901002776D2 /* Contest+RealmStruct.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F137086210F4900002776D2 /* Contest+RealmStruct.generated.swift */; };
-		3F137095210F4901002776D2 /* RanklistRow+RealmStruct.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F137087210F4900002776D2 /* RanklistRow+RealmStruct.generated.swift */; };
-		3F137096210F4901002776D2 /* Comment+RealmStruct.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F137088210F4900002776D2 /* Comment+RealmStruct.generated.swift */; };
-		3F137097210F4901002776D2 /* RecentAction+RealmStruct.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F137089210F4901002776D2 /* RecentAction+RealmStruct.generated.swift */; };
-		3F137099210F4928002776D2 /* Representable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F137098210F4928002776D2 /* Representable.swift */; };
+		3F137099210F4928002776D2 /* RealmPersistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F137098210F4928002776D2 /* RealmPersistable.swift */; };
 		3F2D92A8210C5DEA00EC6380 /* Problems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A7210C5DEA00EC6380 /* Problems.swift */; };
 		3F2D92AA210C60CB00EC6380 /* NetworkProblemSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A9210C60CB00EC6380 /* NetworkProblemSetTests.swift */; };
 		3F2D92AC210D761A00EC6380 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92AB210D761A00EC6380 /* UserAPI.swift */; };
@@ -72,6 +58,21 @@
 		3FD1A4C52109D32800AF0B45 /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A4C42109D32800AF0B45 /* Tasks.storyboard */; };
 		3FED5383210C1F6D00878EAD /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED5382210C1F6D00878EAD /* NetworkService.swift */; };
 		3FED5385210C238100878EAD /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED5384210C238100878EAD /* Errors.swift */; };
+		3FEE506621102B7A00DAD19D /* ProblemResultRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE505721102B7A00DAD19D /* ProblemResultRealm.generated.swift */; };
+		3FEE506721102B7A00DAD19D /* MemberRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE505821102B7A00DAD19D /* MemberRealm.generated.swift */; };
+		3FEE506821102B7A00DAD19D /* RecentActionRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE505921102B7A00DAD19D /* RecentActionRealm.generated.swift */; };
+		3FEE506921102B7A00DAD19D /* SubmissionRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE505A21102B7A00DAD19D /* SubmissionRealm.generated.swift */; };
+		3FEE506A21102B7A00DAD19D /* UserRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE505B21102B7A00DAD19D /* UserRealm.generated.swift */; };
+		3FEE506B21102B7A00DAD19D /* PartyRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE505C21102B7A00DAD19D /* PartyRealm.generated.swift */; };
+		3FEE506C21102B7A00DAD19D /* CommentRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE505D21102B7A00DAD19D /* CommentRealm.generated.swift */; };
+		3FEE506D21102B7A00DAD19D /* HackRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE505E21102B7A00DAD19D /* HackRealm.generated.swift */; };
+		3FEE506E21102B7A00DAD19D /* JudgeProtocolRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE505F21102B7A00DAD19D /* JudgeProtocolRealm.generated.swift */; };
+		3FEE506F21102B7A00DAD19D /* ProblemStatisticsRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE506021102B7A00DAD19D /* ProblemStatisticsRealm.generated.swift */; };
+		3FEE507021102B7A00DAD19D /* RanklistRowRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE506121102B7A00DAD19D /* RanklistRowRealm.generated.swift */; };
+		3FEE507121102B7A00DAD19D /* RatingChangeRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE506221102B7A00DAD19D /* RatingChangeRealm.generated.swift */; };
+		3FEE507221102B7A00DAD19D /* BlogEntryRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE506321102B7A00DAD19D /* BlogEntryRealm.generated.swift */; };
+		3FEE507321102B7A00DAD19D /* ProblemRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE506421102B7A00DAD19D /* ProblemRealm.generated.swift */; };
+		3FEE507421102B7A00DAD19D /* ContestRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE506521102B7A00DAD19D /* ContestRealm.generated.swift */; };
 		557E3491210ACB8C0057E43A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 557E3493210ACB8C0057E43A /* Localizable.strings */; };
 		557E3495210ACBD80057E43A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E3494210ACBD80057E43A /* LaunchScreen.storyboard */; };
 		557E349C210ACF880057E43A /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E3499210ACF880057E43A /* Assets.swift */; };
@@ -100,21 +101,7 @@
 
 /* Begin PBXFileReference section */
 		10982C0F643B00317B97F5B0 /* Pods_CodeForcesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeForcesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F13707C210F4900002776D2 /* RatingChange+RealmStruct.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RatingChange+RealmStruct.generated.swift"; path = "Generated/RatingChange+RealmStruct.generated.swift"; sourceTree = "<group>"; };
-		3F13707D210F4900002776D2 /* Hack+RealmStruct.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Hack+RealmStruct.generated.swift"; path = "Generated/Hack+RealmStruct.generated.swift"; sourceTree = "<group>"; };
-		3F13707E210F4900002776D2 /* Problem+RealmStruct.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Problem+RealmStruct.generated.swift"; path = "Generated/Problem+RealmStruct.generated.swift"; sourceTree = "<group>"; };
-		3F13707F210F4900002776D2 /* ProblemStatistics+RealmStruct.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ProblemStatistics+RealmStruct.generated.swift"; path = "Generated/ProblemStatistics+RealmStruct.generated.swift"; sourceTree = "<group>"; };
-		3F137080210F4900002776D2 /* Submission+RealmStruct.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Submission+RealmStruct.generated.swift"; path = "Generated/Submission+RealmStruct.generated.swift"; sourceTree = "<group>"; };
-		3F137081210F4900002776D2 /* User+RealmStruct.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "User+RealmStruct.generated.swift"; path = "Generated/User+RealmStruct.generated.swift"; sourceTree = "<group>"; };
-		3F137082210F4900002776D2 /* Member+RealmStruct.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Member+RealmStruct.generated.swift"; path = "Generated/Member+RealmStruct.generated.swift"; sourceTree = "<group>"; };
-		3F137083210F4900002776D2 /* Party+RealmStruct.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Party+RealmStruct.generated.swift"; path = "Generated/Party+RealmStruct.generated.swift"; sourceTree = "<group>"; };
-		3F137084210F4900002776D2 /* ProblemResult+RealmStruct.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ProblemResult+RealmStruct.generated.swift"; path = "Generated/ProblemResult+RealmStruct.generated.swift"; sourceTree = "<group>"; };
-		3F137085210F4900002776D2 /* BlogEntry+RealmStruct.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "BlogEntry+RealmStruct.generated.swift"; path = "Generated/BlogEntry+RealmStruct.generated.swift"; sourceTree = "<group>"; };
-		3F137086210F4900002776D2 /* Contest+RealmStruct.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Contest+RealmStruct.generated.swift"; path = "Generated/Contest+RealmStruct.generated.swift"; sourceTree = "<group>"; };
-		3F137087210F4900002776D2 /* RanklistRow+RealmStruct.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RanklistRow+RealmStruct.generated.swift"; path = "Generated/RanklistRow+RealmStruct.generated.swift"; sourceTree = "<group>"; };
-		3F137088210F4900002776D2 /* Comment+RealmStruct.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Comment+RealmStruct.generated.swift"; path = "Generated/Comment+RealmStruct.generated.swift"; sourceTree = "<group>"; };
-		3F137089210F4901002776D2 /* RecentAction+RealmStruct.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RecentAction+RealmStruct.generated.swift"; path = "Generated/RecentAction+RealmStruct.generated.swift"; sourceTree = "<group>"; };
-		3F137098210F4928002776D2 /* Representable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Representable.swift; sourceTree = "<group>"; };
+		3F137098210F4928002776D2 /* RealmPersistable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPersistable.swift; sourceTree = "<group>"; };
 		3F2D92A7210C5DEA00EC6380 /* Problems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problems.swift; sourceTree = "<group>"; };
 		3F2D92A9210C60CB00EC6380 /* NetworkProblemSetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProblemSetTests.swift; sourceTree = "<group>"; };
 		3F2D92AB210D761A00EC6380 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
@@ -171,6 +158,21 @@
 		3FD1A4C42109D32800AF0B45 /* Tasks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tasks.storyboard; sourceTree = "<group>"; };
 		3FED5382210C1F6D00878EAD /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		3FED5384210C238100878EAD /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		3FEE505721102B7A00DAD19D /* ProblemResultRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemResultRealm.generated.swift; sourceTree = "<group>"; };
+		3FEE505821102B7A00DAD19D /* MemberRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberRealm.generated.swift; sourceTree = "<group>"; };
+		3FEE505921102B7A00DAD19D /* RecentActionRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentActionRealm.generated.swift; sourceTree = "<group>"; };
+		3FEE505A21102B7A00DAD19D /* SubmissionRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmissionRealm.generated.swift; sourceTree = "<group>"; };
+		3FEE505B21102B7A00DAD19D /* UserRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRealm.generated.swift; sourceTree = "<group>"; };
+		3FEE505C21102B7A00DAD19D /* PartyRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyRealm.generated.swift; sourceTree = "<group>"; };
+		3FEE505D21102B7A00DAD19D /* CommentRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentRealm.generated.swift; sourceTree = "<group>"; };
+		3FEE505E21102B7A00DAD19D /* HackRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HackRealm.generated.swift; sourceTree = "<group>"; };
+		3FEE505F21102B7A00DAD19D /* JudgeProtocolRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JudgeProtocolRealm.generated.swift; sourceTree = "<group>"; };
+		3FEE506021102B7A00DAD19D /* ProblemStatisticsRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemStatisticsRealm.generated.swift; sourceTree = "<group>"; };
+		3FEE506121102B7A00DAD19D /* RanklistRowRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RanklistRowRealm.generated.swift; sourceTree = "<group>"; };
+		3FEE506221102B7A00DAD19D /* RatingChangeRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingChangeRealm.generated.swift; sourceTree = "<group>"; };
+		3FEE506321102B7A00DAD19D /* BlogEntryRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogEntryRealm.generated.swift; sourceTree = "<group>"; };
+		3FEE506421102B7A00DAD19D /* ProblemRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemRealm.generated.swift; sourceTree = "<group>"; };
+		3FEE506521102B7A00DAD19D /* ContestRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContestRealm.generated.swift; sourceTree = "<group>"; };
 		557E3492210ACB8C0057E43A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		557E3494210ACBD80057E43A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		557E3496210ACBF00057E43A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -323,7 +325,7 @@
 		3FC4BEFB210F1325000CF527 /* DatabaseModels */ = {
 			isa = PBXGroup;
 			children = (
-				3F137098210F4928002776D2 /* Representable.swift */,
+				3F137098210F4928002776D2 /* RealmPersistable.swift */,
 			);
 			path = DatabaseModels;
 			sourceTree = "<group>";
@@ -472,23 +474,32 @@
 			path = ContentProvider;
 			sourceTree = "<group>";
 		};
+		3FEE505621102B7A00DAD19D /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				3FEE505721102B7A00DAD19D /* ProblemResultRealm.generated.swift */,
+				3FEE505821102B7A00DAD19D /* MemberRealm.generated.swift */,
+				3FEE505921102B7A00DAD19D /* RecentActionRealm.generated.swift */,
+				3FEE505A21102B7A00DAD19D /* SubmissionRealm.generated.swift */,
+				3FEE505B21102B7A00DAD19D /* UserRealm.generated.swift */,
+				3FEE505C21102B7A00DAD19D /* PartyRealm.generated.swift */,
+				3FEE505D21102B7A00DAD19D /* CommentRealm.generated.swift */,
+				3FEE505E21102B7A00DAD19D /* HackRealm.generated.swift */,
+				3FEE505F21102B7A00DAD19D /* JudgeProtocolRealm.generated.swift */,
+				3FEE506021102B7A00DAD19D /* ProblemStatisticsRealm.generated.swift */,
+				3FEE506121102B7A00DAD19D /* RanklistRowRealm.generated.swift */,
+				3FEE506221102B7A00DAD19D /* RatingChangeRealm.generated.swift */,
+				3FEE506321102B7A00DAD19D /* BlogEntryRealm.generated.swift */,
+				3FEE506421102B7A00DAD19D /* ProblemRealm.generated.swift */,
+				3FEE506521102B7A00DAD19D /* ContestRealm.generated.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		557E3498210ACF880057E43A /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				3F137085210F4900002776D2 /* BlogEntry+RealmStruct.generated.swift */,
-				3F137088210F4900002776D2 /* Comment+RealmStruct.generated.swift */,
-				3F137086210F4900002776D2 /* Contest+RealmStruct.generated.swift */,
-				3F13707D210F4900002776D2 /* Hack+RealmStruct.generated.swift */,
-				3F137082210F4900002776D2 /* Member+RealmStruct.generated.swift */,
-				3F137083210F4900002776D2 /* Party+RealmStruct.generated.swift */,
-				3F13707E210F4900002776D2 /* Problem+RealmStruct.generated.swift */,
-				3F137084210F4900002776D2 /* ProblemResult+RealmStruct.generated.swift */,
-				3F13707F210F4900002776D2 /* ProblemStatistics+RealmStruct.generated.swift */,
-				3F137087210F4900002776D2 /* RanklistRow+RealmStruct.generated.swift */,
-				3F13707C210F4900002776D2 /* RatingChange+RealmStruct.generated.swift */,
-				3F137089210F4901002776D2 /* RecentAction+RealmStruct.generated.swift */,
-				3F137080210F4900002776D2 /* Submission+RealmStruct.generated.swift */,
-				3F137081210F4900002776D2 /* User+RealmStruct.generated.swift */,
+				3FEE505621102B7A00DAD19D /* Realm */,
 				557E3499210ACF880057E43A /* Assets.swift */,
 				557E349A210ACF880057E43A /* Localization.swift */,
 				557E349B210ACF880057E43A /* Storyboadrs.swift */,
@@ -726,7 +737,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F13708E210F4901002776D2 /* Submission+RealmStruct.generated.swift in Sources */,
 				3F38A132210B1B40008E98C6 /* RanklistRow.swift in Sources */,
 				3F38A126210B1B40008E98C6 /* ProblemStatistics.swift in Sources */,
 				3F38A129210B1B40008E98C6 /* Submission.swift in Sources */,
@@ -734,58 +744,60 @@
 				3F48B3B7210F02B400F671B3 /* RealmService.swift in Sources */,
 				3F38A135210B1B40008E98C6 /* HackVerdict.swift in Sources */,
 				3FD1A4C32109D31600AF0B45 /* TasksViewController.swift in Sources */,
+				3FEE506921102B7A00DAD19D /* SubmissionRealm.generated.swift in Sources */,
 				3F38A124210B1B40008E98C6 /* Problem.swift in Sources */,
 				3FED5385210C238100878EAD /* Errors.swift in Sources */,
+				3FEE506621102B7A00DAD19D /* ProblemResultRealm.generated.swift in Sources */,
+				3FEE507221102B7A00DAD19D /* BlogEntryRealm.generated.swift in Sources */,
+				3FEE507021102B7A00DAD19D /* RanklistRowRealm.generated.swift in Sources */,
 				3F38A127210B1B40008E98C6 /* ProblemType.swift in Sources */,
-				3F137096210F4901002776D2 /* Comment+RealmStruct.generated.swift in Sources */,
 				557E349D210ACF880057E43A /* Localization.swift in Sources */,
 				3F38A12C210B1B40008E98C6 /* Party.swift in Sources */,
 				3F8C011E210ED64800C761E0 /* Status.swift in Sources */,
+				3FEE507121102B7A00DAD19D /* RatingChangeRealm.generated.swift in Sources */,
 				3F38A12D210B1B40008E98C6 /* Contest.swift in Sources */,
 				3F303793210C47F5000B384F /* Standings.swift in Sources */,
 				3F38A133210B1B40008E98C6 /* JudgeProtocol.swift in Sources */,
-				3F137099210F4928002776D2 /* Representable.swift in Sources */,
-				3F13708D210F4901002776D2 /* ProblemStatistics+RealmStruct.generated.swift in Sources */,
-				3F13708B210F4901002776D2 /* Hack+RealmStruct.generated.swift in Sources */,
+				3F137099210F4928002776D2 /* RealmPersistable.swift in Sources */,
 				557E349E210ACF880057E43A /* Storyboadrs.swift in Sources */,
-				3F137094210F4901002776D2 /* Contest+RealmStruct.generated.swift in Sources */,
 				3F48B3B2210EE93700F671B3 /* Hacks.swift in Sources */,
+				3FEE507421102B7A00DAD19D /* ContestRealm.generated.swift in Sources */,
 				3F38A139210B1B40008E98C6 /* BlogEntry.swift in Sources */,
 				3F86EE0C210EDFBA005099CB /* List.swift in Sources */,
+				3FEE506721102B7A00DAD19D /* MemberRealm.generated.swift in Sources */,
 				3F48B3B4210EF01400F671B3 /* RatingChanges.swift in Sources */,
+				3FEE506E21102B7A00DAD19D /* JudgeProtocolRealm.generated.swift in Sources */,
+				3FEE506F21102B7A00DAD19D /* ProblemStatisticsRealm.generated.swift in Sources */,
+				3FEE506C21102B7A00DAD19D /* CommentRealm.generated.swift in Sources */,
 				3F2D92A8210C5DEA00EC6380 /* Problems.swift in Sources */,
 				3F38A12B210B1B40008E98C6 /* ContestType.swift in Sources */,
 				3FD1A48B2109C8C800AF0B45 /* AppDelegate.swift in Sources */,
 				3F303797210C53AF000B384F /* Optional+Ext.swift in Sources */,
-				3F137095210F4901002776D2 /* RanklistRow+RealmStruct.generated.swift in Sources */,
+				3FEE506D21102B7A00DAD19D /* HackRealm.generated.swift in Sources */,
+				3FEE506B21102B7A00DAD19D /* PartyRealm.generated.swift in Sources */,
 				3F38A130210B1B40008E98C6 /* SubmissionVerdict.swift in Sources */,
-				3F137091210F4901002776D2 /* Party+RealmStruct.generated.swift in Sources */,
 				3F86EE12210EE139005099CB /* RecentStatus.swift in Sources */,
 				3F38A136210B1B40008E98C6 /* RecentAction.swift in Sources */,
 				3F38A125210B1B40008E98C6 /* ProblemResultType.swift in Sources */,
 				3F38A128210B1B40008E98C6 /* TestSet.swift in Sources */,
-				3F13708C210F4901002776D2 /* Problem+RealmStruct.generated.swift in Sources */,
 				3F38A13D210B2373008E98C6 /* Response.swift in Sources */,
-				3F13708F210F4901002776D2 /* User+RealmStruct.generated.swift in Sources */,
 				3F38A12E210B1B40008E98C6 /* Member.swift in Sources */,
+				3FEE507321102B7A00DAD19D /* ProblemRealm.generated.swift in Sources */,
 				3F303795210C5243000B384F /* ProblemSetAPI.swift in Sources */,
+				3FEE506821102B7A00DAD19D /* RecentActionRealm.generated.swift in Sources */,
 				3FED5383210C1F6D00878EAD /* NetworkService.swift in Sources */,
-				3F137092210F4901002776D2 /* ProblemResult+RealmStruct.generated.swift in Sources */,
 				3F38A138210B1B40008E98C6 /* User.swift in Sources */,
 				557E349C210ACF880057E43A /* Assets.swift in Sources */,
 				3F38A12A210B1B40008E98C6 /* ParticipantType.swift in Sources */,
 				3F2D92AC210D761A00EC6380 /* UserAPI.swift in Sources */,
 				3F38A134210B1B40008E98C6 /* Hack.swift in Sources */,
 				3F38A123210B1B40008E98C6 /* ProblemResult.swift in Sources */,
+				3FEE506A21102B7A00DAD19D /* UserRealm.generated.swift in Sources */,
 				3FD1A4BF2109D2B600AF0B45 /* ContestsViewController.swift in Sources */,
 				3F86EE09210EDC88005099CB /* Encodable+Ext.swift in Sources */,
-				3F137090210F4901002776D2 /* Member+RealmStruct.generated.swift in Sources */,
 				3F38A137210B1B40008E98C6 /* Comment.swift in Sources */,
-				3F137093210F4901002776D2 /* BlogEntry+RealmStruct.generated.swift in Sources */,
-				3F137097210F4901002776D2 /* RecentAction+RealmStruct.generated.swift in Sources */,
 				3F38A12F210B1B40008E98C6 /* RatingChange.swift in Sources */,
 				3F38A13B210B1B4C008E98C6 /* ContestAPI.swift in Sources */,
-				3F13708A210F4901002776D2 /* RatingChange+RealmStruct.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

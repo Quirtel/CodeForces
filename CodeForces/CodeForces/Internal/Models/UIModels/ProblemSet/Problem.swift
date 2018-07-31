@@ -1,6 +1,6 @@
 import Foundation
 
-//sourcery: RealmStruct
+//sourcery: RealmPersistable
 struct Problem: Codable {
     let contestId: Int?
     let problemsetName: String?

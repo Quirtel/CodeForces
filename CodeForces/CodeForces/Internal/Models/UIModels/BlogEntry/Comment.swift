@@ -1,6 +1,6 @@
 import Foundation
 
-//sourcery: RealmStruct
+//sourcery: RealmPersistable
 struct Comment: Codable {
     let id: Int
     let creationTimeSeconds: Int

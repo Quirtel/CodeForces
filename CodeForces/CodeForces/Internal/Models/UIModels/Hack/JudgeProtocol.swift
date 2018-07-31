@@ -1,5 +1,6 @@
 import Foundation
 
+//sourcery: RealmPersistable
 struct JudgeProtocol: Codable {
     let manual: Bool
     let protocolDescription: String

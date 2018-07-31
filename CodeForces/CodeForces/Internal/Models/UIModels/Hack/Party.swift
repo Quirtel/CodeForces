@@ -1,6 +1,6 @@
 import Foundation
 
-//sourcery: RealmStruct
+//sourcery: RealmPersistable
 struct Party: Codable {
     let contestId: Int?
     let members: [Member]

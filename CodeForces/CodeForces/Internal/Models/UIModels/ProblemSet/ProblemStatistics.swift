@@ -1,6 +1,6 @@
 import Foundation
 
-//sourcery: RealmStruct
+//sourcery: RealmPersistable
 struct ProblemStatistics: Codable {
     let contestId: Int?
     let index: String //Letter, may be followed by a digit; problem index in a contest.

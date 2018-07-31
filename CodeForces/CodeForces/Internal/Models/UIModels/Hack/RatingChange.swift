@@ -1,6 +1,6 @@
 import Foundation
 
-//sourcery: RealmStruct
+//sourcery: RealmPersistable
 struct RatingChange: Codable {
     let contestId: Int
     let contestName: String

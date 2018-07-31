@@ -1,6 +1,6 @@
 import Foundation
 
-//sourcery: RealmStruct
+//sourcery: RealmPersistable
 struct ProblemResult: Codable {
     let points: Float
     let penalty: Int?

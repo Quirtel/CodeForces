@@ -1,6 +1,6 @@
 import Foundation
 
-//sourcery: RealmStruct
+//sourcery: RealmPersistable
 struct Submission: Codable {
     let id: Int
     let contestId: Int?

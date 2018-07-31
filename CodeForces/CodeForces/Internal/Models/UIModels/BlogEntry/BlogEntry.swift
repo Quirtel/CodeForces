@@ -1,6 +1,6 @@
 import Foundation
 
-//sourcery: RealmStruct
+//sourcery: RealmPersistable
 struct BlogEntry: Codable {
     let id: Int
     let originalLocale: String

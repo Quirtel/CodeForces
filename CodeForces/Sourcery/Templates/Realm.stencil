@@ -1,4 +1,4 @@
-{% for type in types.structs|annotated:"RealmStruct" %}
+{% for type in types.structs|annotated:"RealmPersistable" %}
 // sourcery:file:Generated/{{ type.name }}+RealmStruct
 import RealmSwift
  

@@ -1,6 +1,6 @@
 import Foundation
 
-//sourcery: RealmStruct
+//sourcery: RealmPersistable
 struct RanklistRow: Codable {
     let party: Party
     let rank: Int

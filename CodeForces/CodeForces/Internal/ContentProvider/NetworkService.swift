@@ -51,7 +51,7 @@ final class NetworkService {
         }
     }
     
-    func contestList(
+    func fetchContestList(
         requestParams: ContestListRequest,
         _ completion: @escaping (Result<[Contest]>) -> ()) {
         NetworkService.request(
@@ -61,7 +61,7 @@ final class NetworkService {
         }
     }
     
-    func contestStatus(
+    func fetchContestStatus(
         requestParams: ContestStatusRequest, _ completion: @escaping (Result<[Submission]>) -> ()) {
         NetworkService.request(
             provider: contestProvider,
@@ -70,7 +70,16 @@ final class NetworkService {
         }
     }
     
-    func problemsetProblems(
+    func fetchContestStandings(
+        requestParams: ContestStandingsRequest, _ completion: @escaping (Result<ContestStandings>) -> ()) {
+        NetworkService.request(
+            provider: contestProvider,
+            target: ContestAPI.standings(requestParams: requestParams)) { (result: Result<ContestStandings>) -> () in
+                completion(result)
+        }
+    }
+    
+    func fetchProblemsetProblems(
         withRequestParams: ProblemSetProblemsRequest,
         _ completion: @escaping (Result<ProblemSetProblems>) -> ()) {
         NetworkService.request(
@@ -82,7 +91,7 @@ final class NetworkService {
         }
     }
     
-    func problemsetRecentStatus(
+    func fetchProblemsetRecentStatus(
         withRequestParams: ProblemSetRecentStatusRequest,
         _ completion: @escaping (Result<[Submission]>) -> ()) {
         NetworkService.request(
@@ -94,7 +103,7 @@ final class NetworkService {
         }
     }
     
-    func userRating(
+    func fetchUserRating(
         handle withHandle: String,
         _ completion: @escaping (Result<[RatingChange]>) -> ()) {
         NetworkService.request(
@@ -104,7 +113,7 @@ final class NetworkService {
         }
     }
     
-    func userStatus(
+    func fetchUserStatus(
         handle withHandle: String, from: Int?, count: Int?,
         _ completion: @escaping (Result<[Submission]>) -> ()) {
         NetworkService.request(
@@ -113,7 +122,5 @@ final class NetworkService {
                 (result: Result<[Submission]>) -> () in
                 completion(result)
         }
-    }
-    
-    
+    }    
 }
