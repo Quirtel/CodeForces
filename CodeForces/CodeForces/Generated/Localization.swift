@@ -40,6 +40,16 @@ internal enum L10n {
         }
       }
     }
+
+    internal enum Searchscope {
+
+      internal enum Title {
+        /// Names
+        internal static let name = L10n.tr("Localizable", "Tasks_VC.SearchScope.title.name")
+        /// Tags
+        internal static let tags = L10n.tr("Localizable", "Tasks_VC.SearchScope.title.tags")
+      }
+    }
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length nesting type_body_length type_name

@@ -1,19 +1,41 @@
 import UIKit
 
+fileprivate enum SearchScope: Int {
+    case tags
+    case names
+}
+
+fileprivate extension SearchScope {
+    var title: String {
+        switch self {
+        case .tags:
+            return L10n.TasksVc.Searchscope.Title.tags
+        case .names:
+            return L10n.TasksVc.Searchscope.Title.name
+        }
+    }
+}
+
 
 class TasksViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
+    private let searchController = UISearchController(searchResultsController: nil)
+    
     var context: Provider?
     
     private let refreshControl = UIRefreshControl()
     private var data: [TaskCellModel] = []
+    private var searchActive = false
+    private var filtered: [TaskCellModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureTableView()
         fetchTasks()
+        configureSearchController()
     }
 }
 
@@ -21,13 +43,21 @@ private extension TasksViewController {
     func configureTableView() {
         tableView.separatorStyle = .none
         tableView.register(cellType: TaskCell.self)
-        
-        if #available(iOS 10.0, *) {
-            tableView.refreshControl = refreshControl
-        } else {
-            tableView.addSubview(refreshControl)
-        }
+        tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(refreshTasksTable(_:)), for: .valueChanged)
+    }
+    
+    func configureSearchController() {
+        searchController.searchBar.scopeButtonTitles = [SearchScope.tags.title, SearchScope.names.title]
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        if #available(iOS 11.0, *) {
+            navigationItem.searchController = searchController
+        } else {
+            tableView.tableHeaderView = searchController.searchBar
+        }
+        definesPresentationContext = true
     }
 }
 
@@ -83,14 +113,57 @@ private extension TasksViewController {
     }
 }
 
+extension TasksViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        let scope = SearchScope(rawValue: searchBar.selectedScopeButtonIndex)!
+        searchBark(searchBar, textDidChange: searchBar.text, scope: scope)
+    }
+}
+
+extension TasksViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    fileprivate func searchBark(_ searchBar: UISearchBar, textDidChange searchText: String?, scope: SearchScope) {
+        filtered = data.filter({ model -> Bool in
+            switch scope {
+            case .tags:
+                 return model.tags.contains(searchText!.lowercased())
+            case .names:
+                return model.name?.lowercased().contains((searchText ?? "").lowercased()) ?? false
+            }
+        })
+        self.tableView.reloadData()
+    }
+}
+
 extension TasksViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        if searchActive {
+            return filtered.count
+        } else { return data.count }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath) as TaskCell
-        let model = data[indexPath.row]
+        let model: TaskCellModel
+        if searchActive {
+            model = filtered[indexPath.row]
+        } else { model = data[indexPath.row] }
         cell.configure(with: model)
         return cell
     }
