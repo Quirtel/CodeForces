@@ -22,7 +22,7 @@ class ContestsViewController: UIViewController {
     let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     let alertResponseError = UIAlertController(
         title: "Ошибка",
-        message: "Не удалось получить соревнования. Повторите запрос похже", preferredStyle: .alert)
+        message: "Не удалось получить соревнования. Повторите запрос позже", preferredStyle: .alert)
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()

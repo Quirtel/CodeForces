@@ -36,6 +36,7 @@ class ContestInfoViewController: UIViewController {
     private var shouldFetchStatus = true
     private var canEditSearchBar = true
     private var refresherPulled = false
+    private var currentDataType = SegmentsNames(rawValue: 0)
     
     let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     let alertHandleError = UIAlertController(
@@ -174,23 +175,28 @@ class ContestInfoViewController: UIViewController {
                         let indexPaths = Array(offset-1..<offset-1+list.count)
                             .map({ IndexPath(row: $0, section: 0) })
                         
-                        if handle != nil || strongSelf.refresherPulled {
-                            strongSelf.tableView.reloadData()
-                        } else {
-                            strongSelf.tableView.setContentOffset(
-                                strongSelf.tableView.contentOffset, animated: true)
-                            
-                            strongSelf.tableView.beginUpdates()
-                            strongSelf.tableView.insertRows(
-                                at: indexPaths, with: .fade)
-                            strongSelf.tableView.endUpdates()
-                        }
+//                        if handle != nil || strongSelf.refresherPulled || strongSelf.currentDataType != .status  {
+//                            strongSelf.tableView.reloadData()
+//                        } else {
+//                            strongSelf.tableView.setContentOffset(
+//                                strongSelf.tableView.contentOffset, animated: true)
+//
+//                            strongSelf.tableView.beginUpdates()
+//                            strongSelf.tableView.insertRows(
+//                                at: indexPaths, with: .fade)
+//                            strongSelf.tableView.endUpdates()
+//                        }
                         
+                        strongSelf.tableView.setContentOffset(
+                                strongSelf.tableView.contentOffset, animated: true)
+                        
+                        strongSelf.tableView.reloadData()
                         strongSelf.spinner.isHidden = true
                         
                         if list.count > 0 {
                             strongSelf.shouldFetchStatus = true
                         }
+                        strongSelf.currentDataType = .status
                         strongSelf.refresherPulled = false
                         strongSelf.refreshControl.endRefreshing()
                     case .error(let error):
@@ -239,23 +245,29 @@ class ContestInfoViewController: UIViewController {
                             .map({ IndexPath(row: $0, section: 0) })
                         
                         
-                        if handles != nil || strongSelf.refresherPulled {
-                            strongSelf.tableView.reloadData()
-                        } else {
-                            strongSelf.tableView.setContentOffset(
-                                strongSelf.tableView.contentOffset, animated: true)
-                            
-                            strongSelf.tableView.beginUpdates()
-                            strongSelf.tableView.insertRows(
-                                at: indexPaths, with: .fade)
-                            strongSelf.tableView.endUpdates()
-                        }
+//                        if handles != nil || strongSelf.refresherPulled || strongSelf.currentDataType != .standings {
+//                            strongSelf.tableView.reloadData()
+//                        } else {
+//                            strongSelf.tableView.setContentOffset(
+//                                strongSelf.tableView.contentOffset, animated: true)
+//
+//                            strongSelf.tableView.beginUpdates()
+//                            strongSelf.tableView.insertRows(
+//                                at: indexPaths, with: .fade)
+//                            strongSelf.tableView.endUpdates()
+//                        }
                         
+                        strongSelf.tableView.setContentOffset(
+                            strongSelf.tableView.contentOffset, animated: true)
+                        strongSelf.tableView.reloadData()
+
                         strongSelf.spinner.isHidden = true
                         
                         if list.rows.count > 0 {
                             strongSelf.shouldFetchStandings = true
                         }
+                        
+                        strongSelf.currentDataType = .standings
                         strongSelf.refresherPulled = false
                         strongSelf.refreshControl.endRefreshing()
                     case .error(let error):
@@ -285,21 +297,23 @@ class ContestInfoViewController: UIViewController {
     @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
         let segIndex = SegmentsNames(rawValue: self.segmentIndicator.selectedSegmentIndex)!
         tableView.tableFooterView?.isHidden = false
+        tableView.reloadData()
+        
         switch segIndex {
         case .standings:
             if (filteredRanklistRows.count == 0 && !searchBarIsEmpty()) || refresherPulled {
-                fetchStandings(offset: 1, count: 30, currentSearchQuery.split(separator: ",").map(String.init))
+                fetchStandings(offset: filteredRanklistRows.count + 1, count: 30, currentSearchQuery.split(separator: ",").map(String.init))
                 tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-            } else if ranklistRows.count == 0 || refresherPulled {
-                fetchStandings(offset: 1, count: 30, nil)
+            } else if ranklistRows.count >= 0 || refresherPulled {
+                fetchStandings(offset: ranklistRows.count + 1, count: 30, nil)
                 tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             }
         case .status:
             if (filteredContestStatus.count == 0 && !searchBarIsEmpty()) || refresherPulled {
-                fetchStatus(offset: 1, count: 30, currentSearchQuery)
+                fetchStatus(offset: filteredContestStatus.count + 1, count: 30, currentSearchQuery)
                 tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-            } else if contestStatus.count == 0 || refresherPulled {
-                fetchStatus(offset: 1, count: 30, nil)
+            } else if contestStatus.count >= 0 || refresherPulled {
+                fetchStatus(offset: contestStatus.count + 1, count: 30, nil)
                 tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             }
         case .tasks:
@@ -310,7 +324,6 @@ class ContestInfoViewController: UIViewController {
             } else if contestProblems.count >= 0 || refresherPulled {
                 tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             }
-            tableView.reloadData()
         }
     }
 }
@@ -359,7 +372,8 @@ extension ContestInfoViewController: UITableViewDataSource {
                 currentTask = filteredContestProblems[indexPath.row]
             }
             
-            let model = TaskCellModel(contestId: String(contestId), name: currentTask.name, tags: currentTask.tags, solvedCount: nil, index: currentTask.index)
+            let model = TaskCellModel(
+                contestId: String(contestId), name: currentTask.name, tags: currentTask.tags, solvedCount: nil, index: currentTask.index)
             
             taskCell.configure(with: model)
             
