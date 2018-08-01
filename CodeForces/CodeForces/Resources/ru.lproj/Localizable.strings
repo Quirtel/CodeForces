@@ -3,6 +3,11 @@
   CodeForces
 */
 
+// Common
+
+"Alert.title.error" = "Ошибка";
+"Alert.Action.ok" = "ОК";
+
 // ContestsVC
 
 "Contests_VC.title" = "Соревнования";
@@ -17,3 +22,5 @@
 
 "Tasks_VC.title" = "Задачи";
 "Tasks_VC.cell.header.solved_count_label.text" = "Решили:";
+"Tasks_VC.SearchScope.title.tags" = "Теги";
+"Tasks_VC.SearchScope.title.name" = "Имена";
