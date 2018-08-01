@@ -9,5 +9,4 @@ struct Problem: Codable {
     let type: ProblemType
     let points: Float?
     let tags: [String] //problem tags
-    
 }
