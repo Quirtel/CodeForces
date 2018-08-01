@@ -16,7 +16,6 @@ fileprivate extension SearchScope {
     }
 }
 
-
 class TasksViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
@@ -24,6 +23,8 @@ class TasksViewController: UIViewController {
     private let searchController = UISearchController(searchResultsController: nil)
     
     var context: NetworkService?
+
+    let theme = ThemeManager(preferences: Preferences())
     
     private let refreshControl = UIRefreshControl()
     private var data: [TaskCellModel] = []
@@ -33,9 +34,13 @@ class TasksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.backgroundView = nil
+        tableView.backgroundColor = theme.currentTheme.backgroundColor
+        
         configureTableView()
         fetchTasks()
         configureSearchController()
+       
     }
 }
 
@@ -179,5 +184,12 @@ extension TasksViewController: UITableViewDataSource {
         } else { model = data[indexPath.row] }
         cell.configure(with: model)
         return cell
+    }
+}
+
+extension TasksViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
