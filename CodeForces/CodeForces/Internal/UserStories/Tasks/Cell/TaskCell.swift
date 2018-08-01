@@ -10,18 +10,20 @@ class TaskCell: UITableViewCell {
     @IBOutlet private var countParameterLabel: UILabel!
     @IBOutlet private var letterTaskLabel: UILabel!
     @IBOutlet private var roundView: UIView!
+    @IBOutlet weak var defaultCellBackground: UIImageView!
+    
     private var tagsView: TagListView!
+//TODO context
+    let theme = ThemeManager(preferences: Preferences())
 
     override func awakeFromNib() {
         super.awakeFromNib()
         localizeEverything()
         configureTagView()
-        
+        configureCell()
         topStackView.addArrangedSubview(tagsView)
-        
-        roundView.layer.cornerRadius = ViewConstants.defaultCornerRadius
     }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         tagsView.removeAllTags()
@@ -32,19 +34,42 @@ class TaskCell: UITableViewCell {
         tagsView.addTags(model.tags)
         countParameterLabel.text = model.solvedCount
         letterTaskLabel.text = model.index
-        
-    }
-    
-    func configureTagView() {
-        tagsView = TagListView()
-        tagsView.tagBackgroundColor = UIColor.gray
-        tagsView.cornerRadius = ViewConstants.defaultCornerRadius
     }
 }
 
 extension TaskCell: NibReusable { }
 
 private extension TaskCell {
+    func configureCell() {
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.clear
+        selectedBackgroundView = bgColorView
+        
+        roundView.layer.cornerRadius = ViewConstants.defaultCornerRadius
+        roundView.backgroundColor = theme.currentTheme.cellColor
+        taskNameLabel.textColor = theme.currentTheme.cellTitleColor
+        solvedCountLabel.textColor = theme.currentTheme.cellTitleColor
+        countParameterLabel.textColor = theme.currentTheme.cellTitleColor
+        letterTaskLabel.textColor = theme.currentTheme.cellTextColor
+        
+        switch theme.currentTheme {
+        case .light:
+            defaultCellBackground.image = UIImage(named: "defaultCellBackgroundColorForLightTheme")
+            defaultCellBackground.highlightedImage = UIImage(named: "highlightCellBackgroundColorForLightTheme")
+            
+        case .dark:
+            defaultCellBackground.image = UIImage(named: "defaultCellBackgroundColor")
+            defaultCellBackground.highlightedImage = UIImage(named: "highlightCellBackgroundColor")
+        }
+    }
+    
+    func configureTagView() {
+        tagsView = TagListView()
+        tagsView.tagBackgroundColor = theme.currentTheme.tagsColor
+        tagsView.tagHighlightedBackgroundColor = theme.currentTheme.tagsColor
+        tagsView.cornerRadius = ViewConstants.defaultCornerRadius
+    }
+    
     func localizeEverything() {
         solvedCountLabel.text = L10n.TasksVc.Cell.Header.SolvedCountLabel.text
     }
