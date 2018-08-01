@@ -1,4 +1,5 @@
 import UIKit
+import Reusable
 
 class ContestCell: UITableViewCell {
     @IBOutlet var contestName: UILabel!
@@ -10,4 +11,8 @@ class ContestCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+}
+
+extension ContestCell: NibReusable {
+    
 }

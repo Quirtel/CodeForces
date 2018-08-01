@@ -6,15 +6,34 @@ private enum SegmentsNames: Int {
     case standings
 }
 
+class CustomSearchBar: UISearchBar {
+    override var showsScopeBar: Bool {
+        get {
+            return true
+        }
+        set {
+            
+        }
+    }
+}
+
 class ContestInfoViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var segmentIndicator: UISegmentedControl!
     
+    private var searchController = UISearchController(searchResultsController: nil)
+    
     //TODO: make array varform to Problems Wrapper
     private var contestProblems: [Problem] = []
+    private var filteredContestProblems: [Problem] = []
+    
     private var contestStatus: [Submission] = []
+    private var filteredContestStatus: [Submission] = []
+    
     private var ranklistRows: [RanklistRow] = []
+    private var filteredRanklistRows: [RanklistRow] = []
+    
     var contestId = 0
     var currentOffsetStandings = 0
     var currentOffsetStatus = 0
@@ -24,6 +43,7 @@ class ContestInfoViewController: UIViewController {
     
     private var shouldFetchStandings = true
     private var shouldFetchStatus = true
+    private var canEditSearchBar = true
     
     let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     
@@ -34,9 +54,13 @@ class ContestInfoViewController: UIViewController {
         
         if #available(iOS 11.0, *) {
             navigationItem.largeTitleDisplayMode = .never
+            navigationItem.searchController = searchController
+            navigationItem.searchController?.searchBar.delegate = self
         } else {
             // Fallback on earlier versions
         }
+        
+        setupSearchController()
         
         tableView.register(cellType: TaskCell.self)
         tableView.register(cellType: StatusCell.self)
@@ -47,7 +71,14 @@ class ContestInfoViewController: UIViewController {
     }
     
     func fetchStatus(offset: Int, count: Int) {
-        let segIndex = SegmentsNames(rawValue: segmentIndicator.selectedSegmentIndex)!
+        var segIndex: SegmentsNames
+        
+        if #available(iOS 11.0, *) {
+            segIndex = SegmentsNames(
+                rawValue: (navigationItem.searchController?.searchBar.selectedScopeButtonIndex)!)!
+        } else {
+            segIndex = SegmentsNames(rawValue: self.segmentIndicator.selectedSegmentIndex)!
+        }
         
         if segIndex != .status {
             return
@@ -65,7 +96,7 @@ class ContestInfoViewController: UIViewController {
                     case .success(let list):
                         strongSelf.contestStatus.append(contentsOf: list.compactMap({ $0 }))
                         
-                        let indexPaths = Array(offset-1..<offset-1+count)
+                        let indexPaths = Array(offset-1..<offset-1+list.count)
                             .map({ IndexPath(row: $0, section: 0) })
                         
                         strongSelf.tableView.setContentOffset(
@@ -73,15 +104,22 @@ class ContestInfoViewController: UIViewController {
                         
                         strongSelf.tableView.insertRows(
                             at: indexPaths, with: .fade)
+                        
+                        if list.count > 0 {
+                            strongSelf.shouldFetchStatus = true
+                        }
                     case .error(let error):
                         print(error)
                     }
-                    strongSelf.shouldFetchStatus = true
+                    
         })
     }
     
     func fetchStandings(offset: Int, count: Int) {
-        let segIndex = SegmentsNames(rawValue: segmentIndicator.selectedSegmentIndex)!
+        
+        var segIndex: SegmentsNames
+        
+            segIndex = SegmentsNames(rawValue: self.segmentIndicator.selectedSegmentIndex)!
         
         if segIndex != .standings {
             return
@@ -99,23 +137,50 @@ class ContestInfoViewController: UIViewController {
                     switch result {
                     case .success(let list):
                         strongSelf.ranklistRows.append(contentsOf: list.rows)
-                        let indexPaths = Array(offset-1..<offset-1+count)
+                        let indexPaths = Array(offset-1..<offset-1+list.rows.count)
                             .map({ IndexPath(row: $0, section: 0) })
                     
                         strongSelf.tableView.setContentOffset(
                             strongSelf.tableView.contentOffset, animated: true)
                         strongSelf.tableView.insertRows(
                             at: indexPaths, with: .fade)
+                        
+                        if list.rows.count > 0 {
+                            strongSelf.shouldFetchStandings = true
+                        }
                     case .error(let error):
                         print(error)
                     }
-                    strongSelf.shouldFetchStandings = true
+                    
         })
     }
     
+    func setupSearchController() {
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
+        
+        if #available(iOS 11.0, *) {
+            
+        } else {
+            tableView.tableHeaderView = searchController.searchBar
+        }
+        
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.definesPresentationContext = false
+    }
+    
+    
     // -MARK: Actions
+    
     @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
-        let segIndex = SegmentsNames(rawValue: segmentIndicator.selectedSegmentIndex)!
+        var segIndex: SegmentsNames
+        
+        if #available(iOS 11.0, *) {
+            segIndex = SegmentsNames(
+                rawValue: (navigationItem.searchController?.searchBar.selectedScopeButtonIndex)!)!
+        } else {
+            segIndex = SegmentsNames(rawValue: self.segmentIndicator.selectedSegmentIndex)!
+        }
         
         switch segIndex {
         case .standings:
@@ -134,13 +199,13 @@ class ContestInfoViewController: UIViewController {
         
         tableView.reloadData()
     }
-    
 }
 
 // -MARK: Data Source
 extension ContestInfoViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let segIndex = SegmentsNames(rawValue: segmentIndicator.selectedSegmentIndex)!
+        var segIndex: SegmentsNames
+        segIndex = SegmentsNames(rawValue: self.segmentIndicator.selectedSegmentIndex)!
         
         switch segIndex {
         case .standings:
@@ -154,7 +219,14 @@ extension ContestInfoViewController: UITableViewDataSource {
     
     func tableView(
         _ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let segIndex = SegmentsNames(rawValue: segmentIndicator.selectedSegmentIndex)!
+        var segIndex: SegmentsNames
+        
+        if #available(iOS 11.0, *) {
+            segIndex = SegmentsNames(
+                rawValue: (navigationItem.searchController?.searchBar.selectedScopeButtonIndex)!)!
+        } else {
+            segIndex = SegmentsNames(rawValue: self.segmentIndicator.selectedSegmentIndex)!
+        }
         
         switch segIndex {
         case .tasks:
@@ -206,12 +278,16 @@ extension ContestInfoViewController: UITableViewDataSource {
         print(indexPath.row)
         
         spinner.startAnimating()
-        spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+        spinner.frame = CGRect(
+            x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
         
         tableView.tableFooterView = spinner
         tableView.tableFooterView?.isHidden = false
         
-        let segIndex = SegmentsNames(rawValue: segmentIndicator.selectedSegmentIndex)!
+        var segIndex: SegmentsNames
+        
+        segIndex = SegmentsNames(rawValue: self.segmentIndicator.selectedSegmentIndex)!
+        
         switch segIndex {
         case .standings:
             if indexPath.row == ranklistRows.count - 1 && shouldFetchStandings {
@@ -228,11 +304,69 @@ extension ContestInfoViewController: UITableViewDataSource {
             tableView.tableFooterView?.isHidden = true
         }
     }
+    
+    func filterRowsForSearchedText(_ searchText: String) {
+        
+        
+        
+        tableView.reloadData()
+    }
+    
 }
 
 // -MARK: Delegate
 extension ContestInfoViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension ContestInfoViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let term = searchController.searchBar.text {
+            filterRowsForSearchedText(term)
+        }
+    }
+}
+
+extension ContestInfoViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        let segIndex = SegmentsNames(rawValue: selectedScope)!
+        
+        switch segIndex {
+        case .standings:
+            if ranklistRows.count == 0 {
+                fetchStandings(offset: 1, count: 30)
+                tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            }
+        case .status:
+            if contestStatus.count == 0 {
+                fetchStatus(offset: 1, count: 30)
+                tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            }
+        case .tasks:
+            break
+        }
+        
+        tableView.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
+    }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text!.isEmpty {
+            view.endEditing(true)
+            searchBar.resignFirstResponder()
+//            UIApplication.sharedApplication().sendAction("resignFirstResponder", to:nil, from:nil, forEvent:nil)
+
+        }
     }
 }
