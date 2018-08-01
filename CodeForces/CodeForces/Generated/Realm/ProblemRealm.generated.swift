@@ -6,14 +6,24 @@ import RealmSwift
 
 final class ProblemRealm: Object { 
  
-    let contestId = RealmOptional<Int>() 
-    @objc dynamic var problemsetName: String? = nil 
-    @objc dynamic var index: String = "" 
-    @objc dynamic var name: String = "" 
-    @objc dynamic var type: String!  
-    let points = RealmOptional<Float>()     
-    var tags = List<String>()
+    let contestId = RealmOptional<Int>() // contestId.value ?? 0
+    @objc dynamic var problemsetName: String? = nil // problemsetName ?? ""
+    @objc dynamic var index: String = "" // ""
+    @objc dynamic var name: String = "" // ""
+    @objc dynamic var type: String! // type 
+    let points = RealmOptional<Float>() // points.value ?? 0    
+    var tags = List<String>()// tags.customHash
 
+    func getRealmId() -> Int {
+        return "\(contestId.value ?? 0)\("")\(type)".hash
+    }
+
+    @objc dynamic var realmId: Int = 0
+
+    override static func primaryKey() -> String? {
+        return "realmId"
+    }
+    
 }
 
 extension ProblemRealm: RealmObject {

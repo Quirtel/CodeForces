@@ -6,14 +6,16 @@ import RealmSwift
 
 final class RanklistRowRealm: Object { 
 
-    @objc dynamic var party: PartyRealm! 
-    @objc dynamic var rank: Int = 0 
-    @objc dynamic var points: Float = 0 
-    @objc dynamic var penalty: Int = 0 
-    @objc dynamic var successfulHackCount: Int = 0 
-    @objc dynamic var unsuccessfulHackCount: Int = 0     
-    var problemResults = List<ProblemResultRealm>() 
-    let lastSubmissionTimeSeconds = RealmOptional<Int>() 
+    @objc dynamic var party: PartyRealm! // ""
+    @objc dynamic var rank: Int = 0 // Int(rank)
+    @objc dynamic var points: Float = 0 // Int(points)
+    @objc dynamic var penalty: Int = 0 // Int(penalty)
+    @objc dynamic var successfulHackCount: Int = 0 // Int(successfulHackCount)
+    @objc dynamic var unsuccessfulHackCount: Int = 0 // Int(unsuccessfulHackCount)    
+    var problemResults = List<ProblemResultRealm>()// problemResults.customHash 
+    let lastSubmissionTimeSeconds = RealmOptional<Int>() // lastSubmissionTimeSeconds.value ?? 0
+
+    
 
 }
 

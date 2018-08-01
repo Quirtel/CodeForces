@@ -6,19 +6,21 @@ import RealmSwift
 
 final class HackRealm: Object { 
 
-    @objc dynamic var id: Int = 0 
-    @objc dynamic var creationTimeSeconds: Int = 0 
-    @objc dynamic var hacker: PartyRealm! 
-    @objc dynamic var defender: PartyRealm! 
-    @objc dynamic var verdict: String?
-    @objc dynamic var problem: ProblemRealm! 
-    @objc dynamic var test: String? = nil 
-    @objc dynamic var judgeProtocol: JudgeProtocolRealm? = nil 
+    @objc dynamic var id: Int = 0 // Int(id)
+    @objc dynamic var creationTimeSeconds: Int = 0 // Int(creationTimeSeconds)
+    @objc dynamic var hacker: PartyRealm! // ""
+    @objc dynamic var defender: PartyRealm! // ""
+    @objc dynamic var verdict: String?// ""
+    @objc dynamic var problem: ProblemRealm! // ""
+    @objc dynamic var test: String? = nil // test ?? ""
+    @objc dynamic var judgeProtocol: JudgeProtocolRealm? = nil // ""
 
-    override static func primaryKey() -> String? {
-        return "id"
-    }
     
+        override static func primaryKey() -> String? {
+            return "id"
+        }
+        
+
 }
 
 extension HackRealm: RealmObject {

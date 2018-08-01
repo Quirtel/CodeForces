@@ -6,14 +6,16 @@ import RealmSwift
 
 final class PartyRealm: Object { 
  
-    let contestId = RealmOptional<Int>()     
-    var members = List<MemberRealm>()
-    @objc dynamic var participantType: String!  
-    let teamId = RealmOptional<Int>() 
-    @objc dynamic var teamName: String? = nil 
-    @objc dynamic var ghost: Bool = false  
-    let room = RealmOptional<Int>()  
-    let startTimeSeconds = RealmOptional<Int>() 
+    let contestId = RealmOptional<Int>() // contestId.value ?? 0    
+    var members = List<MemberRealm>()// members.customHash
+    @objc dynamic var participantType: String! // participantType 
+    let teamId = RealmOptional<Int>() // teamId.value ?? 0
+    @objc dynamic var teamName: String? = nil // teamName ?? ""
+    @objc dynamic var ghost: Bool = false // "" 
+    let room = RealmOptional<Int>() // room.value ?? 0 
+    let startTimeSeconds = RealmOptional<Int>() // startTimeSeconds.value ?? 0
+
+    
 
 }
 

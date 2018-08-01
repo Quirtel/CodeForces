@@ -8,28 +8,30 @@ final class ContestRealm: Object {
 	@objc dynamic var gym: Bool = false
 
 
-    @objc dynamic var id: Int = 0 
-    @objc dynamic var name: String = "" 
-    @objc dynamic var type: String! 
-    @objc dynamic var phase: String! 
-    @objc dynamic var frozen: Bool = false 
-    @objc dynamic var durationSeconds: Int = 0  
-    let startTimeSeconds = RealmOptional<Int>()  
-    let relativeTimeSeconds = RealmOptional<Int>() 
-    @objc dynamic var preparedBy: String? = nil 
-    @objc dynamic var websiteUrl: String? = nil 
-    @objc dynamic var descr1ption: String? = nil  
-    let difficulty = RealmOptional<Int>() 
-    @objc dynamic var kind: String? = nil 
-    @objc dynamic var icpcRegion: String? = nil 
-    @objc dynamic var country: String? = nil 
-    @objc dynamic var city: String? = nil 
-    @objc dynamic var season: String? = nil 
+    @objc dynamic var id: Int = 0 // Int(id)
+    @objc dynamic var name: String = "" // ""
+    @objc dynamic var type: String! // type
+    @objc dynamic var phase: String! // phase
+    @objc dynamic var frozen: Bool = false // ""
+    @objc dynamic var durationSeconds: Int = 0 // Int(durationSeconds) 
+    let startTimeSeconds = RealmOptional<Int>() // startTimeSeconds.value ?? 0 
+    let relativeTimeSeconds = RealmOptional<Int>() // relativeTimeSeconds.value ?? 0
+    @objc dynamic var preparedBy: String? = nil // preparedBy ?? ""
+    @objc dynamic var websiteUrl: String? = nil // websiteUrl ?? ""
+    @objc dynamic var descr1ption: String? = nil // descr1ption ?? "" 
+    let difficulty = RealmOptional<Int>() // difficulty.value ?? 0
+    @objc dynamic var kind: String? = nil // kind ?? ""
+    @objc dynamic var icpcRegion: String? = nil // icpcRegion ?? ""
+    @objc dynamic var country: String? = nil // country ?? ""
+    @objc dynamic var city: String? = nil // city ?? ""
+    @objc dynamic var season: String? = nil // season ?? ""
 
-    override static func primaryKey() -> String? {
-        return "id"
-    }
     
+        override static func primaryKey() -> String? {
+            return "id"
+        }
+        
+
 }
 
 extension ContestRealm: RealmObject {

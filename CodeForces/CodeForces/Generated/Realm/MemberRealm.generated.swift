@@ -6,7 +6,9 @@ import RealmSwift
 
 final class MemberRealm: Object { 
 
-    @objc dynamic var handle: String = "" 
+    @objc dynamic var handle: String = "" // ""
+
+    
 
 }
 

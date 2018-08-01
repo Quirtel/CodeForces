@@ -60,6 +60,42 @@ func outputTransform(variable: Variable, realmOptional: String = "", customPersi
     return ""
 }
 
+func defaultValue(forOptional optional: Variable) -> String {
+    let result = optional.name
+    if optional.typeName.unwrappedTypeName == "String" {
+        return result + " ?? \"\""
+    } else if numericTypes.contains(optional.typeName.unwrappedTypeName) {
+        return result + ".value ?? 0"
+    } else if optional.typeName.unwrappedTypeName == "Bool" {
+        return result + " ?? false"
+    } else if optional.typeName.unwrappedTypeName == "Date" {
+        return result + " ?? Date()"
+    }
+    return "\"\""
+}
+
+func getHashValue(_ variable: Variable) -> String {
+    if variable.isOptional {
+        return defaultValue(forOptional: variable)
+    } else if variable.isArray {
+        return variable.name + ".customHash"
+    } else if variable.type is Enum {
+        return variable.name //+ ".rawValue"
+    } else if numericTypes.contains(variable.typeName.unwrappedTypeName) {
+        return "Int(\(variable.name))"
+    }
+    return "\"\""
+}
+
+func getHashString(variables: [Variable]) -> String {
+    var resultingString = "\""
+    for varr in variables {
+        resultingString.append("\\(\(getHashValue(varr)))")
+    }
+    resultingString.append("\".hash")
+    return resultingString
+}
+
 %>
 
 <% for type in types.structs where type.annotations["RealmPersistable"] != nil { %>
@@ -81,13 +117,26 @@ final class <%= prefixedTypeName(for: type) %>: Object { <% -%>
 <% } else { %>
     @objc dynamic var <%= variable.name %>: <%= customTypeName(for: variable.type, typeName: variable.typeName) %><%= defaultValue(variable) -%> <% -%>
 <% } -%>
+// <%= getHashValue(variable) -%>
 <% } -%>
 
-<% for variable in type.storedVariables where variable.annotations["id"] != nil || variable.name == "id" { %>
-    override static func primaryKey() -> String? {
-        return "<%= variable.name %>"
+<% if type.annotations["NeedRealmId"] != nil { %>
+    func getRealmId() -> Int {
+        return <%= getHashString(variables: type.variables.filter{ $0.annotations["Hashsource"] != nil}) %>
     }
-    <% break %>
+
+    @objc dynamic var realmId: Int = 0
+
+    override static func primaryKey() -> String? {
+        return "realmId"
+    }
+    <% } else { %>
+    <% for variable in type.variables where variable.annotations["id"] != nil || variable.name == "id" || variable.name == "realmId" { %>
+        override static func primaryKey() -> String? {
+            return "<%= variable.name %>"
+        }
+        <% break %>
+    <% } %>
 <% } %>
 }
 

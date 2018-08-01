@@ -3,18 +3,63 @@ import RealmSwift
 
 final class RealmService {
     private let realm = try! Realm()
-
-    private func requestList<Element: Object & RealmObject>(
-        _ requestType: Element.Type) -> [Element.S] {
-        let realmObjects = realm.objects(Element.self)
-        return realmObjects.map { $0.model }
+    
+    //reading operations
+    
+    func contestList(withRequestParams: ContestListRequest) -> Result<[Contest]> {
+        let realmObjects = realm.objects(ContestRealm.self)
+            .filter{ $0.gym == withRequestParams.gym }
+        return Result.success(realmObjects.map{ $0.model })
     }
     
-//    //withGym: Bool, not used, default is false
-//    func contestList() -> Result<[Contest]> {
-//        return Result.success(requestList(ContestRealm.self))
+    //Warning: `param` **withRequestParams** is not used.
+    //Just gives the first existing ProblemSetProblems object
+    func problemsetProblems(
+        /*withRequestParams: ProblemSetProblemsRequest*/) -> Result<ProblemSetProblems> {
+        if let problems = realm.objects(ProblemSetProblemsRealm.self).first?.model {
+            return Result.success(problems)
+        } else {
+            return Result.error(RealmErrors.realmNotFoundError)
+        }
+    }
+    
+    //writing operations
+    func saveContestList(
+            _ list: [Contest], withRequestParams: ContestListRequest) -> Result<[Contest]> {
+        do {
+            try realm.write {
+                for contest in list {
+                    let contestRealm = contest.persistenceObject
+                    contestRealm.gym = withRequestParams.gym
+                    realm.create(ContestRealm.self, value: contestRealm, update: true)
+                }
+            }
+            return Result.success(list)
+        } catch {
+            return Result.error(RealmErrors.realmCannotSaveError)
+        }
+    }
+    
+    func saveProblemSetProblems(_ problems: ProblemSetProblems) -> Result<ProblemSetProblems> {
+        do {
+            try realm.write {
+                let problemsRealm = problems.persistenceObject
+                problemsRealm.realmId = problemsRealm.getRealmId()
+                realm.add(problemsRealm, update: true)
+            }
+            return Result.success(problems)
+        } catch {
+            return Result.error(RealmErrors.realmCannotSaveError)
+        }
+    }
+    
+    
+//    private func requestList<Element: Object & RealmObject>(
+//        _ requestType: Element.Type) -> [Element.S] {
+//        let realmObjects = realm.objects(Element.self).filter{ $0 }
+//        return realmObjects.map { $0.model }
 //    }
-//
+
 //    //handle: String?,
 //    func contestStatus(withRequestParams: ContestStatusRequest) -> Result<[Submission]> {
 //        let submissions = requestList(
@@ -24,7 +69,7 @@ final class RealmService {
 //        }
 //        return Result.success(submissions)
 //    }
-//
+
 //    func fetchContestStandings() -> Result<ContestStandings> {
 //        if let standings = realm.objects(ContestStandingsRealm.self).first?.model {
 //            return Result.success(standings)
@@ -32,17 +77,9 @@ final class RealmService {
 //            return Result.error(CommonErrors.realmNotFoundError)
 //        }
 //    }
-//
+
 //    func fetchContestRatingChanges() -> [RatingChange] {
 //        return requestList(RatingChangeRealm.self)
-//    }
-//
-//    func fetchProblemsetProblems() -> Result<ProblemSetProblems> {
-//        if let problems = realm.objects(ProblemSetProblemsRealm.self).first?.model {
-//            return Result.success(problems)
-//        } else {
-//            return Result.error(CommonErrors.realmNotFoundError)
-//        }
 //    }
     
 //    func fetchProblemsetRecentStatus(

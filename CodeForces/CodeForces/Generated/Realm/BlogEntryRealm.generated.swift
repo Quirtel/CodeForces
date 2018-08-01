@@ -6,22 +6,24 @@ import RealmSwift
 
 final class BlogEntryRealm: Object { 
 
-    @objc dynamic var id: Int = 0 
-    @objc dynamic var originalLocale: String = "" 
-    @objc dynamic var creationTimeSeconds: Int = 0 
-    @objc dynamic var authorHandle: String = "" 
-    @objc dynamic var title: String = "" 
-    @objc dynamic var content: String? = nil 
-    @objc dynamic var locale: String = "" 
-    @objc dynamic var modificationTimeSeconds: Int = 0 
-    @objc dynamic var allowViewHistory: Bool = false     
-    var tags = List<String>()
-    @objc dynamic var rating: Int = 0 
+    @objc dynamic var id: Int = 0 // Int(id)
+    @objc dynamic var originalLocale: String = "" // ""
+    @objc dynamic var creationTimeSeconds: Int = 0 // Int(creationTimeSeconds)
+    @objc dynamic var authorHandle: String = "" // ""
+    @objc dynamic var title: String = "" // ""
+    @objc dynamic var content: String? = nil // content ?? ""
+    @objc dynamic var locale: String = "" // ""
+    @objc dynamic var modificationTimeSeconds: Int = 0 // Int(modificationTimeSeconds)
+    @objc dynamic var allowViewHistory: Bool = false // ""    
+    var tags = List<String>()// tags.customHash
+    @objc dynamic var rating: Int = 0 // Int(rating)
 
-    override static func primaryKey() -> String? {
-        return "id"
-    }
     
+        override static func primaryKey() -> String? {
+            return "id"
+        }
+        
+
 }
 
 extension BlogEntryRealm: RealmObject {

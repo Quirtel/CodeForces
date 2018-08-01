@@ -6,9 +6,11 @@ import RealmSwift
 
 final class RecentActionRealm: Object { 
 
-    @objc dynamic var timeSeconds: Int = 0 
-    @objc dynamic var blogEntry: BlogEntryRealm? = nil 
-    @objc dynamic var comment: CommentRealm? = nil 
+    @objc dynamic var timeSeconds: Int = 0 // Int(timeSeconds)
+    @objc dynamic var blogEntry: BlogEntryRealm? = nil // ""
+    @objc dynamic var comment: CommentRealm? = nil // ""
+
+    
 
 }
 

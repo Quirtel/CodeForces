@@ -6,9 +6,11 @@ import RealmSwift
 
 final class ContestStandingsRealm: Object { 
 
-    @objc dynamic var contest: ContestRealm!     
-    var problems = List<ProblemRealm>()    
-    var rows = List<RanklistRowRealm>()
+    @objc dynamic var contest: ContestRealm! // ""    
+    var problems = List<ProblemRealm>()// problems.customHash    
+    var rows = List<RanklistRowRealm>()// rows.customHash
+
+    
 
 }
 

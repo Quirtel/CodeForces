@@ -6,10 +6,20 @@ import RealmSwift
 
 final class ProblemStatisticsRealm: Object { 
  
-    let contestId = RealmOptional<Int>() 
-    @objc dynamic var index: String = "" 
-    @objc dynamic var solvedCount: Int = 0 
+    let contestId = RealmOptional<Int>() // contestId.value ?? 0
+    @objc dynamic var index: String = "" // ""
+    @objc dynamic var solvedCount: Int = 0 // Int(solvedCount)
 
+    func getRealmId() -> Int {
+        return "\("")".hash
+    }
+
+    @objc dynamic var realmId: Int = 0
+
+    override static func primaryKey() -> String? {
+        return "realmId"
+    }
+    
 }
 
 extension ProblemStatisticsRealm: RealmObject {
