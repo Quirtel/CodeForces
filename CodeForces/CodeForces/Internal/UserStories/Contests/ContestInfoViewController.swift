@@ -98,6 +98,7 @@ class ContestInfoViewController: UIViewController {
         segmentValueChanged(segmentIndicator)
     }
     
+    // -MARK: Fetch Status
     func fetchStatus(offset: Int, count: Int, _ handle: String?) {
         let segIndex = SegmentsNames(rawValue: self.segmentIndicator.selectedSegmentIndex)!
         
@@ -155,10 +156,10 @@ class ContestInfoViewController: UIViewController {
                     case .error(let error):
                         print(error)
                     }
-                    
         })
     }
     
+    // -MARK: Fetch Standings
     func fetchStandings(offset: Int, count: Int, _ handles: [String]?) {
         
         let segIndex = SegmentsNames(rawValue: self.segmentIndicator.selectedSegmentIndex)!
@@ -196,7 +197,6 @@ class ContestInfoViewController: UIViewController {
                         
                         let indexPaths = Array(offset-1..<offset-1+list.rows.count)
                             .map({ IndexPath(row: $0, section: 0) })
-                        
                         
                         
                         if handles != nil || strongSelf.refresherPulled {
@@ -313,7 +313,6 @@ extension ContestInfoViewController: UITableViewDataSource {
             }
             
             let model = StandingsCellModel(currentRanklistRow)
-            
             standingsCell.configure(with: model)
             
             return standingsCell
@@ -331,7 +330,6 @@ extension ContestInfoViewController: UITableViewDataSource {
             }
             
             let model = StatusCellModel(contestId: contestId, submission: currentSubmission)
-            
             statusCell.configure(with: model)
             
             return statusCell
@@ -428,10 +426,6 @@ extension ContestInfoViewController: UISearchResultsUpdating {
 }
 
 extension ContestInfoViewController: UISearchBarDelegate {
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        
-    }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         shouldFetchStatus = true
