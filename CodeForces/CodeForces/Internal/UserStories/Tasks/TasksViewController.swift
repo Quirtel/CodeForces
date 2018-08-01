@@ -117,7 +117,8 @@ extension TasksViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         let scope = SearchScope(rawValue: searchBar.selectedScopeButtonIndex)!
-        searchBark(searchBar, textDidChange: searchBar.text, scope: scope)
+        
+        searchBarFilter(searchBar, textDidChange: searchBar.text, scope: scope)
     }
 }
 
@@ -138,11 +139,23 @@ extension TasksViewController: UISearchBarDelegate {
         searchActive = false
     }
     
-    fileprivate func searchBark(_ searchBar: UISearchBar, textDidChange searchText: String?, scope: SearchScope) {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        let scope = SearchScope(rawValue: selectedScope)!
+        searchBarFilter(searchBar, textDidChange: searchBar.text, scope: scope)
+    }
+    
+    fileprivate func searchBarFilter(_ searchBar: UISearchBar, textDidChange searchText: String?, scope: SearchScope) {
         filtered = data.filter({ model -> Bool in
             switch scope {
             case .tags:
-                 return model.tags.contains(searchText!.lowercased())
+                var flag = false
+                for tag in model.tags {
+                    if tag.lowercased().contains((searchText ?? "").lowercased()) {
+                        flag = true
+                        break
+                    }
+                }
+                return flag
             case .names:
                 return model.name?.lowercased().contains((searchText ?? "").lowercased()) ?? false
             }
