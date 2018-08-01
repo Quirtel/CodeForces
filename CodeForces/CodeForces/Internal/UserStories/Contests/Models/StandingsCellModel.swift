@@ -6,10 +6,22 @@ struct StandingsCellModel {
     var points = String()
     var isTeam = false
     
-    init(participantName: String, rank: String, points: String, isTeam: Bool) {
+    init(_ ranklistRow: RanklistRow) {
+        var participantName = String()
+        
+        var participantIsTeam: Bool = false
+        
+        if let teamName = ranklistRow.party.teamName {
+            participantName = teamName
+            participantIsTeam = true
+        } else if let handle = ranklistRow.party.members.first {
+            participantName = handle.handle
+            participantIsTeam = false
+        }
+        
         self.participantName = participantName
-        self.rank = rank
-        self.points = points
-        self.isTeam = isTeam
+        self.rank = String(ranklistRow.rank)
+        self.points = String(ranklistRow.points)
+        self.isTeam = participantIsTeam
     }
 }

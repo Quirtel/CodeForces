@@ -12,7 +12,7 @@ class ContestsViewController: UIViewController {
     @IBOutlet private var searchBar: UISearchBar!
     
     private var searchController = UISearchController(searchResultsController: nil)
-    private let contests = ContestProvider()
+    private var context = NetworkService()
     private var upcomingContests: [Contest] = []
     private var finishedContests: [Contest] = []
     private var filteredContests: [Contest] = []
@@ -55,12 +55,11 @@ class ContestsViewController: UIViewController {
         
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
-            navigationItem.hidesSearchBarWhenScrolling = false
+            navigationItem.hidesSearchBarWhenScrolling = true
             self.navigationItem.searchController = searchController
         } else {
             // Fallback on earlier versions
         }
-        
         setupFormatters()
         
         fetchContestList()
@@ -97,7 +96,7 @@ class ContestsViewController: UIViewController {
     }
     
     func fetchContestList() {
-        contests.contestList(
+        context.fetchContestList(
             requestParams: ContestListRequest(gym: false), { [weak self] contestList in
                 guard let sself = self else { return }
                 switch contestList {

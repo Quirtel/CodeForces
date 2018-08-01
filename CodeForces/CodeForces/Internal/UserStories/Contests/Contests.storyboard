@@ -102,6 +102,7 @@
                     <navigationItem key="navigationItem" id="8Po-5i-aDV"/>
                     <connections>
                         <outlet property="segmentIndicator" destination="r5c-W2-rPG" id="yaF-YI-hj2"/>
+                        <outlet property="segmentView" destination="R6q-Uh-rat" id="gkC-Px-cGc"/>
                         <outlet property="tableView" destination="f0P-Fz-Wvs" id="EfH-Kz-Ic1"/>
                         <outlet property="view" destination="qUt-1r-qeO" id="xv8-AQ-WnC"/>
                     </connections>
