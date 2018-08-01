@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1605F5838B0792896CB4C213 /* Pods_CodeForces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DD6464DF13E0B904DA16F7 /* Pods_CodeForces.framework */; };
-		3F2D92A4210C5B8400EC6380 /* ContestProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A3210C5B8400EC6380 /* ContestProvider.swift */; };
-		3F2D92A6210C5C0700EC6380 /* ProblemSetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A5210C5C0700EC6380 /* ProblemSetProvider.swift */; };
+		3F0B067421104743003AB9F1 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0B067221104743003AB9F1 /* TaskCell.swift */; };
+		3F0B067521104743003AB9F1 /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F0B067321104743003AB9F1 /* TaskCell.xib */; };
+		3F0B067921105F7C003AB9F1 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0B067821105F7C003AB9F1 /* Context.swift */; };
+		3F0B067C21105F97003AB9F1 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0B067B21105F97003AB9F1 /* Preferences.swift */; };
+		3F137099210F4928002776D2 /* RealmPersistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F137098210F4928002776D2 /* RealmPersistable.swift */; };
 		3F2D92A8210C5DEA00EC6380 /* Problems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A7210C5DEA00EC6380 /* Problems.swift */; };
 		3F2D92AA210C60CB00EC6380 /* NetworkProblemSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A9210C60CB00EC6380 /* NetworkProblemSetTests.swift */; };
 		3F2D92AC210D761A00EC6380 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92AB210D761A00EC6380 /* UserAPI.swift */; };
-		3F2D92AE210D76F500EC6380 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92AD210D76F500EC6380 /* UserProvider.swift */; };
 		3F2D92B0210D7BF700EC6380 /* NetworkUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92AF210D7BF700EC6380 /* NetworkUserTests.swift */; };
 		3F303793210C47F5000B384F /* Standings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F303792210C47F5000B384F /* Standings.swift */; };
 		3F303795210C5243000B384F /* ProblemSetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F303794210C5243000B384F /* ProblemSetAPI.swift */; };
@@ -32,7 +34,7 @@
 		3F38A12E210B1B40008E98C6 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A115210B1B40008E98C6 /* Member.swift */; };
 		3F38A12F210B1B40008E98C6 /* RatingChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A116210B1B40008E98C6 /* RatingChange.swift */; };
 		3F38A130210B1B40008E98C6 /* SubmissionVerdict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A117210B1B40008E98C6 /* SubmissionVerdict.swift */; };
-		3F38A131210B1B40008E98C6 /* Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A118210B1B40008E98C6 /* Phase.swift */; };
+		3F38A131210B1B40008E98C6 /* PhaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A118210B1B40008E98C6 /* PhaseType.swift */; };
 		3F38A132210B1B40008E98C6 /* RanklistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A11A210B1B40008E98C6 /* RanklistRow.swift */; };
 		3F38A133210B1B40008E98C6 /* JudgeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A11B210B1B40008E98C6 /* JudgeProtocol.swift */; };
 		3F38A134210B1B40008E98C6 /* Hack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A11C210B1B40008E98C6 /* Hack.swift */; };
@@ -47,12 +49,28 @@
 		3F38EB4C210EE074006A5AAD /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38EB4B210EE074006A5AAD /* ViewConstants.swift */; };
 		3F48B3B2210EE93700F671B3 /* Hacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F48B3B1210EE93700F671B3 /* Hacks.swift */; };
 		3F48B3B4210EF01400F671B3 /* RatingChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F48B3B3210EF01400F671B3 /* RatingChanges.swift */; };
+		3F48B3B7210F02B400F671B3 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F48B3B6210F02B400F671B3 /* RealmService.swift */; };
 		3F86EE09210EDC88005099CB /* Encodable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F86EE08210EDC88005099CB /* Encodable+Ext.swift */; };
 		3F86EE0C210EDFBA005099CB /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F86EE0B210EDFBA005099CB /* List.swift */; };
 		3F86EE12210EE139005099CB /* RecentStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F86EE11210EE139005099CB /* RecentStatus.swift */; };
-		3F8C011E210ED64800C761E0 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8C011D210ED64800C761E0 /* Status.swift */; };
-		3FCE7545210AE30F0054FC6C /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCE7543210AE30F0054FC6C /* TaskCell.swift */; };
-		3FCE7546210AE30F0054FC6C /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FCE7544210AE30F0054FC6C /* TaskCell.xib */; };
+		3F8C011E210ED64800C761E0 /* CStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8C011D210ED64800C761E0 /* CStatus.swift */; };
+		3F8EDBB9211070D4009F0ED1 /* RanklistRowRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EDBAA211070D3009F0ED1 /* RanklistRowRealm.generated.swift */; };
+		3F8EDBBA211070D4009F0ED1 /* UserRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EDBAB211070D3009F0ED1 /* UserRealm.generated.swift */; };
+		3F8EDBBB211070D4009F0ED1 /* BlogEntryRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EDBAC211070D3009F0ED1 /* BlogEntryRealm.generated.swift */; };
+		3F8EDBBC211070D4009F0ED1 /* RatingChangeRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EDBAD211070D3009F0ED1 /* RatingChangeRealm.generated.swift */; };
+		3F8EDBBD211070D4009F0ED1 /* ProblemRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EDBAE211070D3009F0ED1 /* ProblemRealm.generated.swift */; };
+		3F8EDBBE211070D4009F0ED1 /* SubmissionRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EDBAF211070D3009F0ED1 /* SubmissionRealm.generated.swift */; };
+		3F8EDBBF211070D4009F0ED1 /* ProblemResultRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EDBB0211070D4009F0ED1 /* ProblemResultRealm.generated.swift */; };
+		3F8EDBC0211070D4009F0ED1 /* RecentActionRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EDBB1211070D4009F0ED1 /* RecentActionRealm.generated.swift */; };
+		3F8EDBC1211070D4009F0ED1 /* JudgeProtocolRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EDBB2211070D4009F0ED1 /* JudgeProtocolRealm.generated.swift */; };
+		3F8EDBC2211070D4009F0ED1 /* PartyRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EDBB3211070D4009F0ED1 /* PartyRealm.generated.swift */; };
+		3F8EDBC3211070D4009F0ED1 /* MemberRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EDBB4211070D4009F0ED1 /* MemberRealm.generated.swift */; };
+		3F8EDBC4211070D4009F0ED1 /* ProblemStatisticsRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EDBB5211070D4009F0ED1 /* ProblemStatisticsRealm.generated.swift */; };
+		3F8EDBC5211070D4009F0ED1 /* CommentRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EDBB6211070D4009F0ED1 /* CommentRealm.generated.swift */; };
+		3F8EDBC6211070D4009F0ED1 /* ContestRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EDBB7211070D4009F0ED1 /* ContestRealm.generated.swift */; };
+		3F8EDBC7211070D4009F0ED1 /* HackRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EDBB8211070D4009F0ED1 /* HackRealm.generated.swift */; };
+		3F8EDBCA211073B9009F0ED1 /* ContestStandingsRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EDBC8211073B9009F0ED1 /* ContestStandingsRealm.generated.swift */; };
+		3F8EDBCB211073B9009F0ED1 /* ProblemSetProblemsRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EDBC9211073B9009F0ED1 /* ProblemSetProblemsRealm.generated.swift */; };
 		3FD1A48B2109C8C800AF0B45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A48A2109C8C800AF0B45 /* AppDelegate.swift */; };
 		3FD1A4922109C8C800AF0B45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A4912109C8C800AF0B45 /* Assets.xcassets */; };
 		3FD1A4A02109C8C800AF0B45 /* NetworkContestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A49F2109C8C800AF0B45 /* NetworkContestTests.swift */; };
@@ -61,8 +79,10 @@
 		3FD1A4C12109D2CA00AF0B45 /* Contests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A4C02109D2CA00AF0B45 /* Contests.storyboard */; };
 		3FD1A4C32109D31600AF0B45 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A4C22109D31600AF0B45 /* TasksViewController.swift */; };
 		3FD1A4C52109D32800AF0B45 /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A4C42109D32800AF0B45 /* Tasks.storyboard */; };
-		3FED5383210C1F6D00878EAD /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED5382210C1F6D00878EAD /* Provider.swift */; };
+		3FED5383210C1F6D00878EAD /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED5382210C1F6D00878EAD /* NetworkService.swift */; };
 		3FED5385210C238100878EAD /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED5384210C238100878EAD /* Errors.swift */; };
+		3FEE50772110311D00DAD19D /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE50762110311D00DAD19D /* Rating.swift */; };
+		3FEE5079211031E800DAD19D /* UStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE5078211031E800DAD19D /* UStatus.swift */; };
 		557E3491210ACB8C0057E43A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 557E3493210ACB8C0057E43A /* Localizable.strings */; };
 		557E3495210ACBD80057E43A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E3494210ACBD80057E43A /* LaunchScreen.storyboard */; };
 		557E349C210ACF880057E43A /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E3499210ACF880057E43A /* Assets.swift */; };
@@ -92,12 +112,14 @@
 /* Begin PBXFileReference section */
 		0444119585D9D8318123B73D /* Pods-CodeForces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeForces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodeForces/Pods-CodeForces.debug.xcconfig"; sourceTree = "<group>"; };
 		10982C0F643B00317B97F5B0 /* Pods_CodeForcesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeForcesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F2D92A3210C5B8400EC6380 /* ContestProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestProvider.swift; sourceTree = "<group>"; };
-		3F2D92A5210C5C0700EC6380 /* ProblemSetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemSetProvider.swift; sourceTree = "<group>"; };
+		3F0B067221104743003AB9F1 /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		3F0B067321104743003AB9F1 /* TaskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
+		3F0B067821105F7C003AB9F1 /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
+		3F0B067B21105F97003AB9F1 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		3F137098210F4928002776D2 /* RealmPersistable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPersistable.swift; sourceTree = "<group>"; };
 		3F2D92A7210C5DEA00EC6380 /* Problems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problems.swift; sourceTree = "<group>"; };
 		3F2D92A9210C60CB00EC6380 /* NetworkProblemSetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProblemSetTests.swift; sourceTree = "<group>"; };
 		3F2D92AB210D761A00EC6380 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
-		3F2D92AD210D76F500EC6380 /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
 		3F2D92AF210D7BF700EC6380 /* NetworkUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUserTests.swift; sourceTree = "<group>"; };
 		3F303792210C47F5000B384F /* Standings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standings.swift; sourceTree = "<group>"; };
 		3F303794210C5243000B384F /* ProblemSetAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemSetAPI.swift; sourceTree = "<group>"; };
@@ -116,7 +138,7 @@
 		3F38A115210B1B40008E98C6 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		3F38A116210B1B40008E98C6 /* RatingChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingChange.swift; sourceTree = "<group>"; };
 		3F38A117210B1B40008E98C6 /* SubmissionVerdict.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmissionVerdict.swift; sourceTree = "<group>"; };
-		3F38A118210B1B40008E98C6 /* Phase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phase.swift; sourceTree = "<group>"; };
+		3F38A118210B1B40008E98C6 /* PhaseType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhaseType.swift; sourceTree = "<group>"; };
 		3F38A11A210B1B40008E98C6 /* RanklistRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RanklistRow.swift; sourceTree = "<group>"; };
 		3F38A11B210B1B40008E98C6 /* JudgeProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JudgeProtocol.swift; sourceTree = "<group>"; };
 		3F38A11C210B1B40008E98C6 /* Hack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hack.swift; sourceTree = "<group>"; };
@@ -131,12 +153,28 @@
 		3F38EB4B210EE074006A5AAD /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
 		3F48B3B1210EE93700F671B3 /* Hacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hacks.swift; sourceTree = "<group>"; };
 		3F48B3B3210EF01400F671B3 /* RatingChanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingChanges.swift; sourceTree = "<group>"; };
+		3F48B3B6210F02B400F671B3 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		3F86EE08210EDC88005099CB /* Encodable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Ext.swift"; sourceTree = "<group>"; };
 		3F86EE0B210EDFBA005099CB /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		3F86EE11210EE139005099CB /* RecentStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentStatus.swift; sourceTree = "<group>"; };
-		3F8C011D210ED64800C761E0 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
-		3FCE7543210AE30F0054FC6C /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
-		3FCE7544210AE30F0054FC6C /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
+		3F8C011D210ED64800C761E0 /* CStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CStatus.swift; sourceTree = "<group>"; };
+		3F8EDBAA211070D3009F0ED1 /* RanklistRowRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RanklistRowRealm.generated.swift; sourceTree = "<group>"; };
+		3F8EDBAB211070D3009F0ED1 /* UserRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRealm.generated.swift; sourceTree = "<group>"; };
+		3F8EDBAC211070D3009F0ED1 /* BlogEntryRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogEntryRealm.generated.swift; sourceTree = "<group>"; };
+		3F8EDBAD211070D3009F0ED1 /* RatingChangeRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingChangeRealm.generated.swift; sourceTree = "<group>"; };
+		3F8EDBAE211070D3009F0ED1 /* ProblemRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemRealm.generated.swift; sourceTree = "<group>"; };
+		3F8EDBAF211070D3009F0ED1 /* SubmissionRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmissionRealm.generated.swift; sourceTree = "<group>"; };
+		3F8EDBB0211070D4009F0ED1 /* ProblemResultRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemResultRealm.generated.swift; sourceTree = "<group>"; };
+		3F8EDBB1211070D4009F0ED1 /* RecentActionRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentActionRealm.generated.swift; sourceTree = "<group>"; };
+		3F8EDBB2211070D4009F0ED1 /* JudgeProtocolRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JudgeProtocolRealm.generated.swift; sourceTree = "<group>"; };
+		3F8EDBB3211070D4009F0ED1 /* PartyRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyRealm.generated.swift; sourceTree = "<group>"; };
+		3F8EDBB4211070D4009F0ED1 /* MemberRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberRealm.generated.swift; sourceTree = "<group>"; };
+		3F8EDBB5211070D4009F0ED1 /* ProblemStatisticsRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemStatisticsRealm.generated.swift; sourceTree = "<group>"; };
+		3F8EDBB6211070D4009F0ED1 /* CommentRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentRealm.generated.swift; sourceTree = "<group>"; };
+		3F8EDBB7211070D4009F0ED1 /* ContestRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContestRealm.generated.swift; sourceTree = "<group>"; };
+		3F8EDBB8211070D4009F0ED1 /* HackRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HackRealm.generated.swift; sourceTree = "<group>"; };
+		3F8EDBC8211073B9009F0ED1 /* ContestStandingsRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContestStandingsRealm.generated.swift; sourceTree = "<group>"; };
+		3F8EDBC9211073B9009F0ED1 /* ProblemSetProblemsRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemSetProblemsRealm.generated.swift; sourceTree = "<group>"; };
 		3FD1A4872109C8C800AF0B45 /* CodeForces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeForces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD1A48A2109C8C800AF0B45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FD1A4912109C8C800AF0B45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -151,8 +189,10 @@
 		3FD1A4C02109D2CA00AF0B45 /* Contests.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Contests.storyboard; sourceTree = "<group>"; };
 		3FD1A4C22109D31600AF0B45 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		3FD1A4C42109D32800AF0B45 /* Tasks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tasks.storyboard; sourceTree = "<group>"; };
-		3FED5382210C1F6D00878EAD /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		3FED5382210C1F6D00878EAD /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		3FED5384210C238100878EAD /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		3FEE50762110311D00DAD19D /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		3FEE5078211031E800DAD19D /* UStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UStatus.swift; sourceTree = "<group>"; };
 		557E3492210ACB8C0057E43A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		557E3494210ACBD80057E43A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		557E3496210ACBF00057E43A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -212,6 +252,33 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3F0B067621105EFF003AB9F1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3F0B067A21105F8D003AB9F1 /* Preferences */,
+				3FED5381210C1EEF00878EAD /* ContentService */,
+				3FD1A4C72109D53E00AF0B45 /* Network */,
+				3F0B067721105F5B003AB9F1 /* Context */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3F0B067721105F5B003AB9F1 /* Context */ = {
+			isa = PBXGroup;
+			children = (
+				3F0B067821105F7C003AB9F1 /* Context.swift */,
+			);
+			path = Context;
+			sourceTree = "<group>";
+		};
+		3F0B067A21105F8D003AB9F1 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				3F0B067B21105F97003AB9F1 /* Preferences.swift */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
 		3F38A108210B1B40008E98C6 /* ProblemSet */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,7 +296,7 @@
 			children = (
 				3F38A114210B1B40008E98C6 /* Contest.swift */,
 				3F38A112210B1B40008E98C6 /* ContestType.swift */,
-				3F38A118210B1B40008E98C6 /* Phase.swift */,
+				3F38A118210B1B40008E98C6 /* PhaseType.swift */,
 			);
 			path = Contest;
 			sourceTree = "<group>";
@@ -260,13 +327,13 @@
 			path = ProblemSet;
 			sourceTree = "<group>";
 		};
-		3F8C0118210ED26900C761E0 /* Wrappers */ = {
+		3F8C0118210ED26900C761E0 /* NetworkModels */ = {
 			isa = PBXGroup;
 			children = (
 				3F8C011C210ED61F00C761E0 /* Contest */,
 				3F86EE0A210EDDC2005099CB /* ProblemSet */,
 			);
-			path = Wrappers;
+			path = NetworkModels;
 			sourceTree = "<group>";
 		};
 		3F8C0119210ED36B00C761E0 /* BlogEntry */ = {
@@ -303,9 +370,29 @@
 				3F86EE0B210EDFBA005099CB /* List.swift */,
 				3F48B3B3210EF01400F671B3 /* RatingChanges.swift */,
 				3F303792210C47F5000B384F /* Standings.swift */,
-				3F8C011D210ED64800C761E0 /* Status.swift */,
+				3F8C011D210ED64800C761E0 /* CStatus.swift */,
 			);
 			path = Contest;
+			sourceTree = "<group>";
+		};
+		3FC4BEFA210F130C000CF527 /* UIModels */ = {
+			isa = PBXGroup;
+			children = (
+				3F8C0119210ED36B00C761E0 /* BlogEntry */,
+				3F38A10E210B1B40008E98C6 /* Contest */,
+				3F8C011A210ED43300C761E0 /* Hack */,
+				3F38A108210B1B40008E98C6 /* ProblemSet */,
+				3F38A11E210B1B40008E98C6 /* User */,
+			);
+			path = UIModels;
+			sourceTree = "<group>";
+		};
+		3FC4BEFB210F1325000CF527 /* DatabaseModels */ = {
+			isa = PBXGroup;
+			children = (
+				3F137098210F4928002776D2 /* RealmPersistable.swift */,
+			);
+			path = DatabaseModels;
 			sourceTree = "<group>";
 		};
 		3FD1A47E2109C8C800AF0B45 = {
@@ -378,8 +465,7 @@
 			children = (
 				3F38EB4A210EE05E006A5AAD /* Utils */,
 				3FD1A4C82109D54C00AF0B45 /* Models */,
-				3FD1A4C72109D53E00AF0B45 /* Network */,
-				3FED5381210C1EEF00878EAD /* ContentProvider */,
+				3F0B067621105EFF003AB9F1 /* Services */,
 				3FD1A4BB2109D26800AF0B45 /* UserStories */,
 				3FD1A48A2109C8C800AF0B45 /* AppDelegate.swift */,
 				557E3494210ACBD80057E43A /* LaunchScreen.storyboard */,
@@ -438,12 +524,10 @@
 		3FD1A4C82109D54C00AF0B45 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3F8C0119210ED36B00C761E0 /* BlogEntry */,
-				3F38A10E210B1B40008E98C6 /* Contest */,
-				3F8C011A210ED43300C761E0 /* Hack */,
-				3F38A108210B1B40008E98C6 /* ProblemSet */,
-				3F38A11E210B1B40008E98C6 /* User */,
-				3F8C0118210ED26900C761E0 /* Wrappers */,
+				3FC4BEFA210F130C000CF527 /* UIModels */,
+				3F8C0118210ED26900C761E0 /* NetworkModels */,
+				3FEE50752110310900DAD19D /* User */,
+				3FC4BEFB210F1325000CF527 /* DatabaseModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -451,26 +535,58 @@
 		3FE130BA210C4E560087A98E /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				3FCE7543210AE30F0054FC6C /* TaskCell.swift */,
-				3FCE7544210AE30F0054FC6C /* TaskCell.xib */,
+				3F0B067221104743003AB9F1 /* TaskCell.swift */,
+				3F0B067321104743003AB9F1 /* TaskCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		3FED5381210C1EEF00878EAD /* ContentProvider */ = {
+		3FED5381210C1EEF00878EAD /* ContentService */ = {
 			isa = PBXGroup;
 			children = (
-				3FED5382210C1F6D00878EAD /* Provider.swift */,
-				3F2D92A3210C5B8400EC6380 /* ContestProvider.swift */,
-				3F2D92A5210C5C0700EC6380 /* ProblemSetProvider.swift */,
-				3F2D92AD210D76F500EC6380 /* UserProvider.swift */,
+				3FED5382210C1F6D00878EAD /* NetworkService.swift */,
+				3F48B3B6210F02B400F671B3 /* RealmService.swift */,
 			);
-			path = ContentProvider;
+			path = ContentService;
+			sourceTree = "<group>";
+		};
+		3FEE505621102B7A00DAD19D /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				3F8EDBC8211073B9009F0ED1 /* ContestStandingsRealm.generated.swift */,
+				3F8EDBC9211073B9009F0ED1 /* ProblemSetProblemsRealm.generated.swift */,
+				3F8EDBAC211070D3009F0ED1 /* BlogEntryRealm.generated.swift */,
+				3F8EDBB6211070D4009F0ED1 /* CommentRealm.generated.swift */,
+				3F8EDBB7211070D4009F0ED1 /* ContestRealm.generated.swift */,
+				3F8EDBB8211070D4009F0ED1 /* HackRealm.generated.swift */,
+				3F8EDBB2211070D4009F0ED1 /* JudgeProtocolRealm.generated.swift */,
+				3F8EDBB4211070D4009F0ED1 /* MemberRealm.generated.swift */,
+				3F8EDBB3211070D4009F0ED1 /* PartyRealm.generated.swift */,
+				3F8EDBAE211070D3009F0ED1 /* ProblemRealm.generated.swift */,
+				3F8EDBB0211070D4009F0ED1 /* ProblemResultRealm.generated.swift */,
+				3F8EDBB5211070D4009F0ED1 /* ProblemStatisticsRealm.generated.swift */,
+				3F8EDBAA211070D3009F0ED1 /* RanklistRowRealm.generated.swift */,
+				3F8EDBAD211070D3009F0ED1 /* RatingChangeRealm.generated.swift */,
+				3F8EDBB1211070D4009F0ED1 /* RecentActionRealm.generated.swift */,
+				3F8EDBAF211070D3009F0ED1 /* SubmissionRealm.generated.swift */,
+				3F8EDBAB211070D3009F0ED1 /* UserRealm.generated.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		3FEE50752110310900DAD19D /* User */ = {
+			isa = PBXGroup;
+			children = (
+				3FEE50762110311D00DAD19D /* Rating.swift */,
+				3FEE5078211031E800DAD19D /* UStatus.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		557E3498210ACF880057E43A /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				3FEE505621102B7A00DAD19D /* Realm */,
 				557E3499210ACF880057E43A /* Assets.swift */,
 				557E349A210ACF880057E43A /* Localization.swift */,
 				557E349B210ACF880057E43A /* Storyboadrs.swift */,
@@ -501,6 +617,7 @@
 				C6D4053E33319B8927543B62 /* [CP] Check Pods Manifest.lock */,
 				D632892202F5EBF7C19897E7 /* [CP] Embed Pods Frameworks */,
 				557E3497210ACF1F0057E43A /* SwiftGen */,
+				3F8EDBCC21109861009F0ED1 /* ShellScript */,
 				3FD1A4832109C8C800AF0B45 /* Sources */,
 				3FD1A4842109C8C800AF0B45 /* Frameworks */,
 				3FD1A4852109C8C800AF0B45 /* Resources */,
@@ -604,7 +721,7 @@
 				3FD1A4C12109D2CA00AF0B45 /* Contests.storyboard in Resources */,
 				3FD1A4922109C8C800AF0B45 /* Assets.xcassets in Resources */,
 				557E3495210ACBD80057E43A /* LaunchScreen.storyboard in Resources */,
-				3FCE7546210AE30F0054FC6C /* TaskCell.xib in Resources */,
+				3F0B067521104743003AB9F1 /* TaskCell.xib in Resources */,
 				3FD1A4C52109D32800AF0B45 /* Tasks.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -626,6 +743,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3F8EDBCC21109861009F0ED1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Sourcery/bin/sourcery\" --sources \"${SRCROOT}/CodeForces/Internal/Models/\" --templates \"${SRCROOT}/Sourcery/Templates/RealmCodegen.swifttemplate\" --output \"${SRCROOT}/CodeForces/Generated/Realm/\"";
+		};
 		557E3497210ACF1F0057E43A /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -712,22 +842,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F38A132210B1B40008E98C6 /* RanklistRow.swift in Sources */,
+				3F8EDBC2211070D4009F0ED1 /* PartyRealm.generated.swift in Sources */,
 				3F38A126210B1B40008E98C6 /* ProblemStatistics.swift in Sources */,
 				3F38A129210B1B40008E98C6 /* Submission.swift in Sources */,
-				3F38A131210B1B40008E98C6 /* Phase.swift in Sources */,
+				3F0B067921105F7C003AB9F1 /* Context.swift in Sources */,
+				3F38A131210B1B40008E98C6 /* PhaseType.swift in Sources */,
+				3F48B3B7210F02B400F671B3 /* RealmService.swift in Sources */,
 				3F38A135210B1B40008E98C6 /* HackVerdict.swift in Sources */,
+				3F8EDBC0211070D4009F0ED1 /* RecentActionRealm.generated.swift in Sources */,
 				3FD1A4C32109D31600AF0B45 /* TasksViewController.swift in Sources */,
-				3FCE7545210AE30F0054FC6C /* TaskCell.swift in Sources */,
 				3F38A124210B1B40008E98C6 /* Problem.swift in Sources */,
+				3F8EDBC4211070D4009F0ED1 /* ProblemStatisticsRealm.generated.swift in Sources */,
 				3FED5385210C238100878EAD /* Errors.swift in Sources */,
 				3F38A127210B1B40008E98C6 /* ProblemType.swift in Sources */,
+				3FEE50772110311D00DAD19D /* Rating.swift in Sources */,
 				557E349D210ACF880057E43A /* Localization.swift in Sources */,
+				3F8EDBC1211070D4009F0ED1 /* JudgeProtocolRealm.generated.swift in Sources */,
 				3F38A12C210B1B40008E98C6 /* Party.swift in Sources */,
-				3F8C011E210ED64800C761E0 /* Status.swift in Sources */,
+				3F8C011E210ED64800C761E0 /* CStatus.swift in Sources */,
+				3F8EDBC6211070D4009F0ED1 /* ContestRealm.generated.swift in Sources */,
+				3F8EDBCB211073B9009F0ED1 /* ProblemSetProblemsRealm.generated.swift in Sources */,
 				3F38A12D210B1B40008E98C6 /* Contest.swift in Sources */,
 				3F303793210C47F5000B384F /* Standings.swift in Sources */,
 				3F38A133210B1B40008E98C6 /* JudgeProtocol.swift in Sources */,
+				3F137099210F4928002776D2 /* RealmPersistable.swift in Sources */,
+				3F8EDBBF211070D4009F0ED1 /* ProblemResultRealm.generated.swift in Sources */,
+				3FEE5079211031E800DAD19D /* UStatus.swift in Sources */,
 				557E349E210ACF880057E43A /* Storyboadrs.swift in Sources */,
+				3F0B067421104743003AB9F1 /* TaskCell.swift in Sources */,
 				3F48B3B2210EE93700F671B3 /* Hacks.swift in Sources */,
 				3F38A139210B1B40008E98C6 /* BlogEntry.swift in Sources */,
 				3F86EE0C210EDFBA005099CB /* List.swift in Sources */,
@@ -739,27 +881,35 @@
 				3F38A130210B1B40008E98C6 /* SubmissionVerdict.swift in Sources */,
 				3F86EE12210EE139005099CB /* RecentStatus.swift in Sources */,
 				3F38A136210B1B40008E98C6 /* RecentAction.swift in Sources */,
-				3F2D92A4210C5B8400EC6380 /* ContestProvider.swift in Sources */,
+				3F8EDBB9211070D4009F0ED1 /* RanklistRowRealm.generated.swift in Sources */,
+				3F8EDBC3211070D4009F0ED1 /* MemberRealm.generated.swift in Sources */,
 				3F38A125210B1B40008E98C6 /* ProblemResultType.swift in Sources */,
+				3F8EDBBD211070D4009F0ED1 /* ProblemRealm.generated.swift in Sources */,
 				3F38A128210B1B40008E98C6 /* TestSet.swift in Sources */,
 				3F38A13D210B2373008E98C6 /* Response.swift in Sources */,
 				3F38A12E210B1B40008E98C6 /* Member.swift in Sources */,
 				3F303795210C5243000B384F /* ProblemSetAPI.swift in Sources */,
-				3FED5383210C1F6D00878EAD /* Provider.swift in Sources */,
+				3F8EDBBC211070D4009F0ED1 /* RatingChangeRealm.generated.swift in Sources */,
+				3F8EDBBA211070D4009F0ED1 /* UserRealm.generated.swift in Sources */,
+				3FED5383210C1F6D00878EAD /* NetworkService.swift in Sources */,
+				3F8EDBC5211070D4009F0ED1 /* CommentRealm.generated.swift in Sources */,
 				3F38A138210B1B40008E98C6 /* User.swift in Sources */,
 				557E349C210ACF880057E43A /* Assets.swift in Sources */,
+				3F8EDBCA211073B9009F0ED1 /* ContestStandingsRealm.generated.swift in Sources */,
 				3F38EB4C210EE074006A5AAD /* ViewConstants.swift in Sources */,
-				3F2D92A6210C5C0700EC6380 /* ProblemSetProvider.swift in Sources */,
 				3F38A12A210B1B40008E98C6 /* ParticipantType.swift in Sources */,
 				3F2D92AC210D761A00EC6380 /* UserAPI.swift in Sources */,
+				3F8EDBBE211070D4009F0ED1 /* SubmissionRealm.generated.swift in Sources */,
 				3F38A134210B1B40008E98C6 /* Hack.swift in Sources */,
 				3F38A123210B1B40008E98C6 /* ProblemResult.swift in Sources */,
 				3FD1A4BF2109D2B600AF0B45 /* ContestsViewController.swift in Sources */,
 				3F86EE09210EDC88005099CB /* Encodable+Ext.swift in Sources */,
+				3F0B067C21105F97003AB9F1 /* Preferences.swift in Sources */,
 				3F38A137210B1B40008E98C6 /* Comment.swift in Sources */,
+				3F8EDBC7211070D4009F0ED1 /* HackRealm.generated.swift in Sources */,
 				3F38A12F210B1B40008E98C6 /* RatingChange.swift in Sources */,
-				3F2D92AE210D76F500EC6380 /* UserProvider.swift in Sources */,
 				3F38A13B210B1B4C008E98C6 /* ContestAPI.swift in Sources */,
+				3F8EDBBB211070D4009F0ED1 /* BlogEntryRealm.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
