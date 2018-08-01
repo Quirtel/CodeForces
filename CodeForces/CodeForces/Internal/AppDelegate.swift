@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let tasksVC = StoryboardScene.Tasks.tasksViewController.instantiate()
         tasksVC.title = L10n.TasksVc.title
-        tasksVC.context = Provider()
+        tasksVC.context = NetworkService()
         let tasksNC = UINavigationController(rootViewController: tasksVC)
         
         let tabBarController = UITabBarController()

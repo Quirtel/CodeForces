@@ -23,7 +23,7 @@ class TasksViewController: UIViewController {
     
     private let searchController = UISearchController(searchResultsController: nil)
     
-    var context: Provider?
+    var context: NetworkService?
     
     private let refreshControl = UIRefreshControl()
     private var data: [TaskCellModel] = []
@@ -67,9 +67,9 @@ private extension TasksViewController {
     }
     
     func fetchTasks() {
-        let request = ProblemSetProblemsRequest(tags: nil, problemsetName: nil)
+        let request = ProblemSetProblemsRequest()
         refreshControl.beginRefreshing()
-        context?.problemsetProblems(withRequestParams: request, { [weak self] result in
+        context?.fetchProblemsetProblems(withRequestParams: request, { [weak self] result in
             guard let sself = self else { return }
             sself.refreshControl.endRefreshing()
             switch result {

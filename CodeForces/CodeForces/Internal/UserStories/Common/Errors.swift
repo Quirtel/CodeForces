@@ -10,4 +10,5 @@ enum CommonErrors: Error {
     case error(description: String)
     case fatalError(description: String)
     case serializationError
+    case realmNotFoundError
 }
