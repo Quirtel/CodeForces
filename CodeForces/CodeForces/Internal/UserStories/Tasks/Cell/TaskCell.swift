@@ -29,6 +29,20 @@ class TaskCell: UITableViewCell {
         tagsView.removeAllTags()
     }
     
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        tagsView.tagViews.forEach { tag in
+            tag.isHighlighted = highlighted
+        }
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        tagsView.tagViews.forEach { tag in
+            tag.isSelected = selected
+        }
+    }
+    
     func configure(with model: TaskCellModel) {
         taskNameLabel.text = model.name
         tagsView.addTags(model.tags)
@@ -67,6 +81,7 @@ private extension TaskCell {
         tagsView = TagListView()
         tagsView.tagBackgroundColor = theme.currentTheme.tagsColor
         tagsView.tagHighlightedBackgroundColor = theme.currentTheme.tagsColor
+        tagsView.tagSelectedBackgroundColor = theme.currentTheme.tagsColor
         tagsView.cornerRadius = ViewConstants.defaultCornerRadius
     }
     
