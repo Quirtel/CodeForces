@@ -35,14 +35,34 @@ class ContestInfoViewController: UIViewController {
     private var shouldFetchStandings = true
     private var shouldFetchStatus = true
     private var canEditSearchBar = true
+    private var refresherPulled = false
     
     let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    let alertHandleError = UIAlertController(
+        title: "Ошибка",
+        message: "Хэндл содержит недопустимые символы", preferredStyle: .alert)
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(self.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.red
+        
+        return refreshControl
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        alertHandleError.addAction(UIAlertAction(title: "OK" , style: .default,
+                                                 handler: { _ in}))
+        
         tableView.separatorStyle = .none
         tableView.tableFooterView = spinner
+        //tableView.refreshControl = refreshControl
+        tableView.addSubview(refreshControl)
+        //extendedLayoutIncludesOpaqueBars = true
         
         segmentView.layer.borderColor = UIColor.groupTableViewBackground.cgColor
         segmentView.layer.borderWidth = 1
@@ -73,6 +93,11 @@ class ContestInfoViewController: UIViewController {
         return (searchController.searchBar.text?.isEmpty ?? true)
     }
     
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        refresherPulled = true
+        segmentValueChanged(segmentIndicator)
+    }
+    
     func fetchStatus(offset: Int, count: Int, _ handle: String?) {
         let segIndex = SegmentsNames(rawValue: self.segmentIndicator.selectedSegmentIndex)!
         
@@ -92,23 +117,30 @@ class ContestInfoViewController: UIViewController {
                     case .success(let list):
                         
                         if handle != nil {
+                            if strongSelf.refresherPulled {
+                                strongSelf.filteredContestStatus.removeAll()
+                            }
+                            
                             if !handle!.isEmpty {
                                 strongSelf.filteredContestStatus.append(contentsOf: list.compactMap({ $0 }))
                             }
                         } else {
-                            strongSelf.filteredContestStatus.removeAll()
+                            if strongSelf.refresherPulled {
+                                strongSelf.contestStatus.removeAll()
+                            }
+                            
                             strongSelf.contestStatus.append(contentsOf: list.compactMap({ $0 }))
                         }
                         
                         let indexPaths = Array(offset-1..<offset-1+list.count)
                             .map({ IndexPath(row: $0, section: 0) })
                         
-                        strongSelf.tableView.setContentOffset(
-                            strongSelf.tableView.contentOffset, animated: true)
-                        
-                        if handle != nil {
+                        if handle != nil || strongSelf.refresherPulled {
                             strongSelf.tableView.reloadData()
                         } else {
+                            strongSelf.tableView.setContentOffset(
+                                strongSelf.tableView.contentOffset, animated: true)
+                            
                             strongSelf.tableView.insertRows(
                                 at: indexPaths, with: .fade)
                         }
@@ -118,7 +150,8 @@ class ContestInfoViewController: UIViewController {
                         if list.count > 0 {
                             strongSelf.shouldFetchStatus = true
                         }
-                        
+                        strongSelf.refresherPulled = false
+                        strongSelf.refreshControl.endRefreshing()
                     case .error(let error):
                         print(error)
                     }
@@ -146,22 +179,32 @@ class ContestInfoViewController: UIViewController {
                     case .success(let list):
                         
                         if handles != nil {
+                            if strongSelf.refresherPulled {
+                                strongSelf.filteredRanklistRows.removeAll()
+                            }
+                            
                             if !handles!.isEmpty {
                                 strongSelf.filteredRanklistRows.append(contentsOf: list.rows)
                             }
                         } else {
-                            strongSelf.ranklistRows.append(contentsOf: list.rows)
+                            if strongSelf.refresherPulled {
+                                strongSelf.ranklistRows.removeAll()
+                            } else {
+                                strongSelf.ranklistRows.append(contentsOf: list.rows)
+                            }
                         }
                         
                         let indexPaths = Array(offset-1..<offset-1+list.rows.count)
                             .map({ IndexPath(row: $0, section: 0) })
                         
-                        strongSelf.tableView.setContentOffset(
-                            strongSelf.tableView.contentOffset, animated: true)
                         
-                        if handles != nil {
+                        
+                        if handles != nil || strongSelf.refresherPulled {
                             strongSelf.tableView.reloadData()
                         } else {
+                            strongSelf.tableView.setContentOffset(
+                                strongSelf.tableView.contentOffset, animated: true)
+                            
                             strongSelf.tableView.insertRows(
                                 at: indexPaths, with: .fade)
                         }
@@ -171,6 +214,8 @@ class ContestInfoViewController: UIViewController {
                         if list.rows.count > 0 {
                             strongSelf.shouldFetchStandings = true
                         }
+                        strongSelf.refresherPulled = false
+                        strongSelf.refreshControl.endRefreshing()
                     case .error(let error):
                         print(error)
                     }
@@ -200,23 +245,19 @@ class ContestInfoViewController: UIViewController {
         tableView.tableFooterView?.isHidden = false
         switch segIndex {
         case .standings:
-            if filteredRanklistRows.count == 0 && !searchBarIsEmpty() {
+            if (filteredRanklistRows.count == 0 && !searchBarIsEmpty()) || refresherPulled {
                 fetchStandings(offset: 1, count: 30, currentSearchQuery.split(separator: ",").map(String.init))
                 tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-                return
-            }
-            
-            if ranklistRows.count == 0 {
+            } else if ranklistRows.count == 0 || refresherPulled {
                 fetchStandings(offset: 1, count: 30, nil)
                 tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             }
+            
         case .status:
-            if filteredContestStatus.count == 0 && !searchBarIsEmpty() {
+            if (filteredContestStatus.count == 0 && !searchBarIsEmpty()) || refresherPulled {
                 fetchStatus(offset: 1, count: 30, currentSearchQuery)
                 tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-            }
-            
-            if contestStatus.count == 0 {
+            } else if contestStatus.count == 0 || refresherPulled {
                 fetchStatus(offset: 1, count: 30, nil)
                 tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             }
@@ -347,7 +388,14 @@ extension ContestInfoViewController: UITableViewDataSource {
                 return model.name.lowercased().contains(searchText.lowercased())
             })
         case .status:
-            fetchStatus(offset: 1, count: 30, currentSearchQuery)
+            let charset = CharacterSet.punctuationCharacters
+            
+            if currentSearchQuery.lowercased().rangeOfCharacter(from: charset) == nil {
+                fetchStatus(offset: 1, count: 30, currentSearchQuery)
+            } else {
+                self.present(alertHandleError, animated: true)
+            }
+            
         case .standings:
             fetchStandings(offset: 1, count: 30, currentSearchQuery.split(separator: ",").map(String.init))
         }
@@ -388,7 +436,8 @@ extension ContestInfoViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         shouldFetchStatus = true
         shouldFetchStandings = true
-        searchBar.text?.removeAll()
+        searchBar.text? = ""
+        currentSearchQuery = ""
         tableView.reloadData()
     }
     
