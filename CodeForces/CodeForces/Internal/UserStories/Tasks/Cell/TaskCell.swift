@@ -46,7 +46,12 @@ class TaskCell: UITableViewCell {
     func configure(with model: TaskCellModel) {
         taskNameLabel.text = model.name
         tagsView.addTags(model.tags)
-        countParameterLabel.text = model.solvedCount
+        if let solvedCount = model.solvedCount {
+            countParameterLabel.text = solvedCount
+        } else {
+            solvedCountLabel.isHidden = true
+            countParameterLabel.text = ""
+        }
         letterTaskLabel.text = model.index
     }
 }

@@ -85,6 +85,7 @@ class ContestInfoViewController: UIViewController {
         tableView.register(cellType: StatusCell.self)
         tableView.register(cellType: StandingsCell.self)
         
+        fetchTasks()
         fetchStatus(offset: 1, count: 30, nil)
         fetchStandings(offset: 1, count: 30, nil)
     }
@@ -96,6 +97,43 @@ class ContestInfoViewController: UIViewController {
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         refresherPulled = true
         segmentValueChanged(segmentIndicator)
+    }
+    
+    // -MARK: Fetch Tasks
+    
+    func fetchTasks() {
+        let segIndex = SegmentsNames(rawValue: self.segmentIndicator.selectedSegmentIndex)!
+        
+        if segIndex != .tasks {
+            return
+        }
+        
+        context.fetchContestStandings(
+            requestParams: ContestStandingsRequest(
+                contestId: contestId, from: 1, count: 1,
+                handles: nil, room: nil, showUnofficial: false), {[weak self] result in
+                    
+                    guard let strongSelf = self else { return }
+                    
+                    switch result {
+                    case .success(let list):
+                        
+                        strongSelf.contestProblems = list.problems
+                        
+                        strongSelf.tableView.setContentOffset(
+                            strongSelf.tableView.contentOffset, animated: true)
+                        
+                        strongSelf.spinner.isHidden = true
+                        
+                        strongSelf.refresherPulled = false
+                        strongSelf.refreshControl.endRefreshing()
+                        
+                        strongSelf.tableView.reloadData()
+                    case .error(let error):
+                        print(error)
+                    }
+                    
+        })
     }
     
     // -MARK: Fetch Status
@@ -142,8 +180,10 @@ class ContestInfoViewController: UIViewController {
                             strongSelf.tableView.setContentOffset(
                                 strongSelf.tableView.contentOffset, animated: true)
                             
+                            strongSelf.tableView.beginUpdates()
                             strongSelf.tableView.insertRows(
                                 at: indexPaths, with: .fade)
+                            strongSelf.tableView.endUpdates()
                         }
                         
                         strongSelf.spinner.isHidden = true
@@ -205,8 +245,10 @@ class ContestInfoViewController: UIViewController {
                             strongSelf.tableView.setContentOffset(
                                 strongSelf.tableView.contentOffset, animated: true)
                             
+                            strongSelf.tableView.beginUpdates()
                             strongSelf.tableView.insertRows(
                                 at: indexPaths, with: .fade)
+                            strongSelf.tableView.endUpdates()
                         }
                         
                         strongSelf.spinner.isHidden = true
@@ -252,7 +294,6 @@ class ContestInfoViewController: UIViewController {
                 fetchStandings(offset: 1, count: 30, nil)
                 tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             }
-            
         case .status:
             if (filteredContestStatus.count == 0 && !searchBarIsEmpty()) || refresherPulled {
                 fetchStatus(offset: 1, count: 30, currentSearchQuery)
@@ -262,10 +303,15 @@ class ContestInfoViewController: UIViewController {
                 tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             }
         case .tasks:
-            break
+            refreshControl.endRefreshing()
+            if (filteredContestProblems.count == 0 && !searchBarIsEmpty()) || refresherPulled {
+                filterRowsForSearchedText(currentSearchQuery)
+                tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            } else if contestProblems.count >= 0 || refresherPulled {
+                tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            }
+            tableView.reloadData()
         }
-        
-        tableView.reloadData()
     }
 }
 
@@ -288,7 +334,11 @@ extension ContestInfoViewController: UITableViewDataSource {
                 return filteredContestStatus.count
             }
         case .tasks:
-            return 1
+            if searchBarIsEmpty()  {
+                return contestProblems.count
+            } else {
+                return filteredContestProblems.count
+            }
         }
     }
     
@@ -300,6 +350,19 @@ extension ContestInfoViewController: UITableViewDataSource {
         case .tasks:
             // -MARK: Tasks Cells
             let taskCell = tableView.dequeueReusableCell(for: indexPath) as TaskCell
+            
+            let currentTask: Problem
+            
+            if searchBarIsEmpty() {
+                currentTask = contestProblems[indexPath.row]
+            } else {
+                currentTask = filteredContestProblems[indexPath.row]
+            }
+            
+            let model = TaskCellModel(contestId: String(contestId), name: currentTask.name, tags: currentTask.tags, solvedCount: nil, index: currentTask.index)
+            
+            taskCell.configure(with: model)
+            
             return taskCell
         case .standings:
             // -MARK: Standings Cells
@@ -420,6 +483,7 @@ extension ContestInfoViewController: UISearchResultsUpdating {
             if let term = searchController.searchBar.text {
                 self.currentSearchQuery = term
                 filterRowsForSearchedText(term)
+                tableView.reloadData()
             }
         }
     }
