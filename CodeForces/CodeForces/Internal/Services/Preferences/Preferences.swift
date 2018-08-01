@@ -2,7 +2,6 @@ import Foundation
 
 class Preferences {
     private static let lastUpdatedDateKey: String = "UpdatedDate"
-    
 
     var lastUpdated: Date {
         set {

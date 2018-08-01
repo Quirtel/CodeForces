@@ -7,41 +7,19 @@ protocol Contextual {
 // 'ServiceLocator' pattern
 class Context {
     let preferences: Preferences
-    let networkService: NetworkService
-    let realmService: RealmService
-    
-    let dayTime = TimeInterval(exactly: 60*60*24)!
+    let contentService: ContentService
 
-    private init(preferences: Preferences,
-                 networkService: NetworkService,
-                 realmService: RealmService) {
+    private init(
+            preferences: Preferences,
+            contentService: ContentService) {
         self.preferences = preferences
-        self.networkService = networkService
-        self.realmService = realmService
+        self.contentService = contentService
     }
-    
-    
-    
-    
 }
-
-
-
-
 extension Context {
     
-    static func createFileContext() -> Context? {
-        let prefs = Preferences()
-        let context = Context(
-            preferences: prefs,
-            networkService: NetworkService(),
-            realmService: RealmService()
-        )
-        
-        //force-updating data using NetworkService
-        
-        
-        
+    static func createContext() -> Context? {
+        let context = Context(preferences: Preferences(), contentService: ContentService())
         return context
     }
 }

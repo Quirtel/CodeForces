@@ -6,7 +6,7 @@ final class NetworkService {
     private let problemSetPovider = MoyaProvider<ProblemSetAPI>()
     private let userProvider = MoyaProvider<UserAPI>()
     
-    static func request<Target: TargetType, ResultType: Codable>(
+    private static func request<Target: TargetType, ResultType: Codable>(
         provider: MoyaProvider<Target>,
         target: Target,
         completion: @escaping (Result<ResultType>) -> ()) {
@@ -100,48 +100,48 @@ final class NetworkService {
     }
     
     func fetchProblemsetProblems(
-        withRequestParams: ProblemSetProblemsRequest,
+        requestParams: ProblemSetProblemsRequest,
         _ completion: @escaping (Result<ProblemSetProblems>) -> ()) {
         NetworkService.request(
             provider: problemSetPovider,
             target: ProblemSetAPI.problems(
-                requestParams: withRequestParams)) {
+                requestParams: requestParams)) {
                     (result: Result<ProblemSetProblems>) -> () in
                 completion(result)
         }
     }
     
     func fetchProblemsetRecentStatus(
-        withRequestParams: ProblemSetRecentStatusRequest,
+        requestParams: ProblemSetRecentStatusRequest,
         _ completion: @escaping (Result<[Submission]>) -> ()) {
         NetworkService.request(
             provider: problemSetPovider,
             target: ProblemSetAPI.recentStatus(
-                requestParams: withRequestParams)) {
+                requestParams: requestParams)) {
                     (result: Result<[Submission]>) -> () in
                 completion(result)
         }
     }
     
     func fetchUserRating(
-        withRequestParams: UserRatingRequest,
+        requestParams: UserRatingRequest,
         _ completion: @escaping (Result<[RatingChange]>) -> ()) {
         NetworkService.request(
             provider: userProvider,
             target: UserAPI.rating(
-                requestParams: withRequestParams)) {
+                requestParams: requestParams)) {
                     (result: Result<[RatingChange]>) -> () in
                 completion(result)
         }
     }
     
     func fetchUserStatus(
-        withRequestParams: UserStatusRequest,
+        requestParams: UserStatusRequest,
         _ completion: @escaping (Result<[Submission]>) -> ()) {
         NetworkService.request(
             provider: userProvider,
             target: UserAPI.status(
-                requestParams: withRequestParams)) {
+                requestParams: requestParams)) {
                     (result: Result<[Submission]>) -> () in
                 completion(result)
         }

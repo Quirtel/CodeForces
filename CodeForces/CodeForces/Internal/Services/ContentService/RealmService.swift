@@ -12,8 +12,8 @@ final class RealmService {
         return Result.success(realmObjects.map{ $0.model })
     }
     
-    //Warning: `param` **withRequestParams** is not used.
-    //Just gives the first existing ProblemSetProblems object
+    ///Warning: `param` **withRequestParams** is not used.
+    ///Just gives the first existing ProblemSetProblems object
     func problemsetProblems(
         /*withRequestParams: ProblemSetProblemsRequest*/) -> Result<ProblemSetProblems> {
         if let problems = realm.objects(ProblemSetProblemsRealm.self).first?.model {

@@ -83,6 +83,7 @@
 		3FED5385210C238100878EAD /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED5384210C238100878EAD /* Errors.swift */; };
 		3FEE50772110311D00DAD19D /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE50762110311D00DAD19D /* Rating.swift */; };
 		3FEE5079211031E800DAD19D /* UStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE5078211031E800DAD19D /* UStatus.swift */; };
+		3FFBDFCC2111D4A800ABD8A0 /* ContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFBDFCB2111D4A800ABD8A0 /* ContentService.swift */; };
 		557E3491210ACB8C0057E43A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 557E3493210ACB8C0057E43A /* Localizable.strings */; };
 		557E3495210ACBD80057E43A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E3494210ACBD80057E43A /* LaunchScreen.storyboard */; };
 		557E349C210ACF880057E43A /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E3499210ACF880057E43A /* Assets.swift */; };
@@ -193,6 +194,7 @@
 		3FED5384210C238100878EAD /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		3FEE50762110311D00DAD19D /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		3FEE5078211031E800DAD19D /* UStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UStatus.swift; sourceTree = "<group>"; };
+		3FFBDFCB2111D4A800ABD8A0 /* ContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentService.swift; sourceTree = "<group>"; };
 		557E3492210ACB8C0057E43A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		557E3494210ACBD80057E43A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		557E3496210ACBF00057E43A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -546,6 +548,7 @@
 			children = (
 				3FED5382210C1F6D00878EAD /* NetworkService.swift */,
 				3F48B3B6210F02B400F671B3 /* RealmService.swift */,
+				3FFBDFCB2111D4A800ABD8A0 /* ContentService.swift */,
 			);
 			path = ContentService;
 			sourceTree = "<group>";
@@ -850,6 +853,7 @@
 				3F48B3B7210F02B400F671B3 /* RealmService.swift in Sources */,
 				3F38A135210B1B40008E98C6 /* HackVerdict.swift in Sources */,
 				3F8EDBC0211070D4009F0ED1 /* RecentActionRealm.generated.swift in Sources */,
+				3FFBDFCC2111D4A800ABD8A0 /* ContentService.swift in Sources */,
 				3FD1A4C32109D31600AF0B45 /* TasksViewController.swift in Sources */,
 				3F38A124210B1B40008E98C6 /* Problem.swift in Sources */,
 				3F8EDBC4211070D4009F0ED1 /* ProblemStatisticsRealm.generated.swift in Sources */,
