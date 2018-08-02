@@ -10,6 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, Contextual {
         
         let contestsVC = StoryboardScene.Contests.contestsViewController.instantiate()
         contestsVC.title = L10n.ContestsVc.title
+        contestsVC.context = context
         let contestsNC = CustomNavigationController(rootViewController: contestsVC)
         if #available(iOS 11.0, *) {
             contestsNC.navigationBar.prefersLargeTitles = true

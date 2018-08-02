@@ -18,9 +18,18 @@ class StatusCell: UITableViewCell {
         roundView.layer.cornerRadius = ViewConstants.defaultCornerRadius
     }
     
-    func configure(with model: StatusCellModel) {
+    func configure(with model: StatusCellModel, theme: Theme) {
         participantName.text = model.participantName
         taskNameLabel.text = model.taskIndex + " - " + model.taskName
+        
+        taskNameLabel.textColor = theme.cellTitleColor
+        sentTimeLabel.textColor = theme.cellTextColor
+        languageLabel.textColor = theme.cellTextColor
+        verdictLabel.textColor = theme.cellTextColor
+        timeConsumptionLabel.textColor = theme.cellTextColor
+        memoryConsumptionLabel.textColor = theme.cellTextColor
+        
+        roundView.backgroundColor = theme.cellColor
         
         if let verdict = model.verdict {
             switch verdict {
