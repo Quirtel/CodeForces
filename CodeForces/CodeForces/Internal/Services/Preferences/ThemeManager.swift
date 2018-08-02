@@ -156,7 +156,7 @@ extension Theme {
     var separatorColor: UIColor {
         switch self {
         case .light:
-            return .colorFromHexString("289bff")
+            return .colorFromHexString("cbcacc")
         case .dark:
             return .colorFromHexString("161c24")
         }

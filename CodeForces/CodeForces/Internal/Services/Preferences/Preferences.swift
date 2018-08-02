@@ -2,6 +2,10 @@ import Foundation
 import SwiftyUserDefaults
 
 
+extension Notification.Name {
+    static let preferencesChangeTheme = Notification.Name("CFPreferencesChangeThemeNotofication")
+}
+
 class Preferences {
     private let settings = Defaults
     
@@ -17,6 +21,7 @@ class Preferences {
     var selectedTheme: Theme {
         set {
             settings[.selectedThemeKey] = newValue.rawValue
+            NotificationCenter.default.post(name: .preferencesChangeTheme, object: nil)
         }
         get {
             if let theme = Theme(rawValue: settings[.selectedThemeKey]) {

@@ -29,6 +29,20 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         tableView.register(cellType: SettingsCell.self)
         
+        subscribeOnThemeChange()
+        applyTheme()
+    }
+    
+    private func subscribeOnThemeChange() {
+        NotificationCenter.default.addObserver(
+        forName: .preferencesChangeTheme, object: nil, queue: nil) { [weak self] _ in
+            self?.applyTheme()
+            self?.tableView.reloadData()
+            // TODO: use context for fix navbar
+        }
+    }
+    
+    private func applyTheme() {
         tableView.backgroundView = nil
         tableView.backgroundColor = theme.currentTheme.backgroundColor
         tableView.separatorColor = theme.currentTheme.separatorColor
