@@ -12,7 +12,7 @@ enum CacheTime: Int {
         case .never:
             return 0
         case .oneDay:
-            return 1 * 60 * 60
+            return 1 * 30
         case .twoDays:
             return 2 * 60 * 60
         case .threeDays:

@@ -1,13 +1,12 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate, Contextual {
+    
+    let context = Context.createContext()
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        let context = Context.createContext()
         
         let contestsVC = StoryboardScene.Contests.contestsViewController.instantiate()
         contestsVC.title = L10n.ContestsVc.title
@@ -41,6 +40,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.makeKeyAndVisible()
 
         return true
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        context?.contentService.updateDatabaseIfNeeded()
     }
 }
 

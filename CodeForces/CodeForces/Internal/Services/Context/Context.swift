@@ -1,7 +1,7 @@
 import Foundation
 
 protocol Contextual {
-    var context: Context? { get set }
+    var context: Context? { get }
 }
 
 // 'ServiceLocator' pattern
