@@ -176,9 +176,6 @@ class ContestInfoViewController: UIViewController {
                     switch result {
                     case .success(let list):
                         
-                        if strongSelf.refresherPulled {
-                            strongSelf.contestStatus.removeAll()
-                        }
                         
                         if let handle = handleToSearch {
                             if strongSelf.refresherPulled {
@@ -187,6 +184,9 @@ class ContestInfoViewController: UIViewController {
                             
                             strongSelf.filteredContestStatus.append(contentsOf: list.compactMap({ $0 }))
                         } else {
+                            if strongSelf.refresherPulled {
+                                strongSelf.contestStatus.removeAll()
+                            }
                             strongSelf.contestStatus.append(contentsOf: list.compactMap({ $0 }))
                         }
                         
@@ -254,9 +254,6 @@ class ContestInfoViewController: UIViewController {
                     switch result {
                     case .success(let list):
                         
-                        if strongSelf.refresherPulled {
-                            strongSelf.ranklistRows.removeAll()
-                        }
                         
                         if let handles = handlesArrayToSearch {
                             if strongSelf.refresherPulled {
@@ -266,6 +263,11 @@ class ContestInfoViewController: UIViewController {
                             strongSelf.filteredRanklistRows.append(contentsOf: list.rows)
                             
                         } else {
+                            
+                            if strongSelf.refresherPulled {
+                                strongSelf.ranklistRows.removeAll()
+                            }
+                            
                             strongSelf.ranklistRows.append(contentsOf: list.rows)
                         }
                         
@@ -331,7 +333,11 @@ class ContestInfoViewController: UIViewController {
         switch segIndex {
         case .standings:
             if (filteredRanklistRows.count == 0 && !searchBarIsEmpty()) || refresherPulled {
-                fetchStandings(offset: filteredRanklistRows.count + 1, count: 30, currentSearchQuery.split(separator: ",").map(String.init))
+                if refresherPulled {
+                    fetchStandings(offset: 1, count: 30, currentSearchQuery.split(separator: ",").map(String.init))
+                } else {
+                    fetchStandings(offset: filteredRanklistRows.count + 1, count: 30, currentSearchQuery.split(separator: ",").map(String.init))
+                }
                 
                 if filteredRanklistRows.count > 0 {
                     tableView.scrollToRow(
@@ -349,7 +355,11 @@ class ContestInfoViewController: UIViewController {
             
         case .status:
             if (filteredContestStatus.count == 0 && !searchBarIsEmpty()) || refresherPulled {
-                fetchStatus(offset: filteredContestStatus.count + 1, count: 30, currentSearchQuery)
+                if refresherPulled {
+                    fetchStatus(offset: 1, count: 30, currentSearchQuery)
+                } else {
+                    fetchStatus(offset: filteredContestStatus.count + 1, count: 30, currentSearchQuery)
+                }
                 
                 if filteredContestStatus.count > 0 {
                     tableView.scrollToRow(
