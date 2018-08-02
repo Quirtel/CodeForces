@@ -10,8 +10,10 @@ struct ProblemSetProblemsRequest: Codable {
     }
 }
 
-//sourcery: RealmPersistable
+//sourcery: RealmPersistable, NeedRealmId
 struct ProblemSetProblems: Codable {
+    //sourcery: Hashsource
     let problems: [Problem]
+    //sourcery: Hashsource
     let problemStatistics: [ProblemStatistics]
 }

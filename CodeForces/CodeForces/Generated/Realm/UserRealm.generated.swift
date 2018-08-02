@@ -26,6 +26,8 @@ final class UserRealm: Object {
     @objc dynamic var avatar: String = "" 
     @objc dynamic var titlePhoto: String = "" 
 
+    
+
 }
 
 extension UserRealm: RealmObject {

@@ -7,41 +7,33 @@ protocol Contextual {
 // 'ServiceLocator' pattern
 class Context {
     let preferences: Preferences
-    let networkService: NetworkService
-    let realmService: RealmService
-    let themeManager: ThemeManager
-    let dayTime = TimeInterval(exactly: 60*60*24)!
+    let contentService: ContentService
 
-    private init(preferences: Preferences,
-                 networkService: NetworkService,
-                 realmService: RealmService,
-                 themeManager: ThemeManager) {
+    private init(
+            preferences: Preferences,
+            contentService: ContentService) {
         self.preferences = preferences
-        self.networkService = networkService
-        self.realmService = realmService
-        self.themeManager = themeManager
+        self.contentService = contentService
+        
+        ThemeManager.applyTheme(theme: preferences.selectedTheme)
+        subscribeOnThemeChange()
     }
     
-    
+    private func subscribeOnThemeChange() {
+        NotificationCenter.default.addObserver(
+        forName: .preferencesChangeTheme, object: nil, queue: nil) { [weak self] _ in
+            if let theme =  self?.preferences.selectedTheme {
+                ThemeManager.applyTheme(theme: theme)
+            }
+        }
+    }
 }
-
-
-
 
 extension Context {
     
-    static func createFileContext() -> Context? {
-        let prefs = Preferences()
-        let themeManager = ThemeManager(preferences: prefs)
-        let context = Context(
-            preferences: prefs,
-            networkService: NetworkService(),
-            realmService: RealmService(),
-            themeManager: themeManager
-        )
-        //force-updating data using NetworkService
-        
-        
+    static func createContext() -> Context? {
+        let preferences = Preferences()
+        let context = Context(preferences: preferences, contentService: ContentService())
         return context
     }
 }

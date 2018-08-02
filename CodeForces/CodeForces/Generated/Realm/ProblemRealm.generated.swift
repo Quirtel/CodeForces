@@ -14,6 +14,16 @@ final class ProblemRealm: Object {
     let points = RealmOptional<Float>()     
     var tags = List<String>()
 
+    func getRealmId() -> Int {
+        return "\(contestId.value ?? 0)\(problemsetName ?? "")\(index)\(name)".hash
+    }
+
+    @objc dynamic var realmId: Int = 0
+
+    override static func primaryKey() -> String? {
+        return "realmId"
+    }
+    
 }
 
 extension ProblemRealm: RealmObject {

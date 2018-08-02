@@ -26,10 +26,12 @@ final class ContestRealm: Object {
     @objc dynamic var city: String? = nil 
     @objc dynamic var season: String? = nil 
 
-    override static func primaryKey() -> String? {
-        return "id"
-    }
     
+        override static func primaryKey() -> String? {
+            return "id"
+        }
+        
+
 }
 
 extension ContestRealm: RealmObject {

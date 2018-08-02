@@ -18,10 +18,12 @@ final class BlogEntryRealm: Object {
     var tags = List<String>()
     @objc dynamic var rating: Int = 0 
 
-    override static func primaryKey() -> String? {
-        return "id"
-    }
     
+        override static func primaryKey() -> String? {
+            return "id"
+        }
+        
+
 }
 
 extension BlogEntryRealm: RealmObject {

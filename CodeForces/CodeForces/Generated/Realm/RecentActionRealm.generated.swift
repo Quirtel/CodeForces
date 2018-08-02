@@ -10,6 +10,8 @@ final class RecentActionRealm: Object {
     @objc dynamic var blogEntry: BlogEntryRealm? = nil 
     @objc dynamic var comment: CommentRealm? = nil 
 
+    
+
 }
 
 extension RecentActionRealm: RealmObject {

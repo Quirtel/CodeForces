@@ -12,6 +12,8 @@ final class ProblemResultRealm: Object {
     @objc dynamic var type: String!  
     let bestSubmissionTimeSeconds = RealmOptional<Int>() 
 
+    
+
 }
 
 extension ProblemResultRealm: RealmObject {

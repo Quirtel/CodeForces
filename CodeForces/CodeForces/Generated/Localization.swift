@@ -59,6 +59,38 @@ internal enum L10n {
     }
   }
 
+  internal enum SettingsVc {
+    /// Settings
+    internal static let title = L10n.tr("Localizable", "Settings_VC.title")
+
+    internal enum Cache {
+      /// Cache time:
+      internal static let title = L10n.tr("Localizable", "Settings_VC.cache.title")
+
+      internal enum Time {
+        /// Never
+        internal static let never = L10n.tr("Localizable", "Settings_VC.cache.time.never")
+        /// One day
+        internal static let oneday = L10n.tr("Localizable", "Settings_VC.cache.time.oneday")
+        /// Three days
+        internal static let threedays = L10n.tr("Localizable", "Settings_VC.cache.time.threedays")
+        /// Two days
+        internal static let twodays = L10n.tr("Localizable", "Settings_VC.cache.time.twodays")
+        /// Week
+        internal static let week = L10n.tr("Localizable", "Settings_VC.cache.time.week")
+      }
+    }
+
+    internal enum Theme {
+      /// Dark
+      internal static let dark = L10n.tr("Localizable", "Settings_VC.theme.dark")
+      /// Light
+      internal static let light = L10n.tr("Localizable", "Settings_VC.theme.light")
+      /// Theme:
+      internal static let title = L10n.tr("Localizable", "Settings_VC.theme.title")
+    }
+  }
+
   internal enum TasksVc {
     /// Tasks
     internal static let title = L10n.tr("Localizable", "Tasks_VC.title")

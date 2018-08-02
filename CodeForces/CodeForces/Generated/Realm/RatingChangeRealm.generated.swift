@@ -12,7 +12,9 @@ final class RatingChangeRealm: Object {
     @objc dynamic var rank: Int = 0 
     @objc dynamic var ratingUpdateTimeSeconds: Int = 0 
     @objc dynamic var oldRating: Int = 0 
-    @objc dynamic var newRating: Int = 0 
+    @objc dynamic var rating: Int = 0 
+
+    
 
 }
 
@@ -21,7 +23,7 @@ extension RatingChangeRealm: RealmObject {
         
         
         
-        return RatingChange(contestId: contestId, contestName: contestName, handle: handle, rank: rank, ratingUpdateTimeSeconds: ratingUpdateTimeSeconds, oldRating: oldRating, newRating: newRating)
+        return RatingChange(contestId: contestId, contestName: contestName, handle: handle, rank: rank, ratingUpdateTimeSeconds: ratingUpdateTimeSeconds, oldRating: oldRating, rating: rating)
     }
 
     convenience init(model: RatingChange) {
@@ -33,7 +35,7 @@ extension RatingChangeRealm: RealmObject {
         self.rank = model.rank        
         self.ratingUpdateTimeSeconds = model.ratingUpdateTimeSeconds        
         self.oldRating = model.oldRating        
-        self.newRating = model.newRating        
+        self.rating = model.rating        
     }
 }
 

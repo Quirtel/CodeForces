@@ -10,5 +10,9 @@ enum CommonErrors: Error {
     case error(description: String)
     case fatalError(description: String)
     case serializationError
+}
+
+enum RealmErrors: Error {
     case realmNotFoundError
+    case realmCannotSaveError
 }

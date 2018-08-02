@@ -24,3 +24,18 @@
 "Tasks_VC.cell.header.solved_count_label.text" = "Решили:";
 "Tasks_VC.SearchScope.title.tags" = "Теги";
 "Tasks_VC.SearchScope.title.name" = "Имена";
+
+
+// SettingsVC
+
+"Settings_VC.title" = "Настройки";
+"Settings_VC.theme.title" = "Цветовая тема:";
+"Settings_VC.theme.light" = "Светлая";
+"Settings_VC.theme.dark" = "Темная";
+"Settings_VC.cache.title" = "Кэшировать:";
+"Settings_VC.cache.time.never" = "Никогда";
+"Settings_VC.cache.time.oneday" = "Один день";
+"Settings_VC.cache.time.twodays" = "Два дня";
+"Settings_VC.cache.time.threedays" = "Три дня";
+"Settings_VC.cache.time.week" = "Неделю";
+

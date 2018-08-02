@@ -22,25 +22,52 @@ class TasksViewController: UIViewController {
     
     private let searchController = UISearchController(searchResultsController: nil)
     
-    var context: NetworkService?
-
-    let theme = ThemeManager(preferences: Preferences())
+    var context: Context?
     
-    private let refreshControl = UIRefreshControl()
+    private lazy var refreshControl: UIRefreshControl = {
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(refreshTasksTable(_:)), for: .valueChanged)
+        return refresh
+    }()
+    private var isFetchingData = false
     private var data: [TaskCellModel] = []
-    private var searchActive = false
+    private var isSearchActive = false {
+        didSet {
+            if isSearchActive == oldValue {
+                return
+            }
+            if isSearchActive {
+                removeRefreshControl()
+            } else {
+                addRefreshControl()
+            }
+        }
+    }
     private var filtered: [TaskCellModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.backgroundView = nil
-        tableView.backgroundColor = theme.currentTheme.backgroundColor
-        
+        subscribeOnThemeChange()
         configureTableView()
-        fetchTasks()
         configureSearchController()
-       
+        applyTheme()
+        fetchTasks()
+    }
+    
+    private func subscribeOnThemeChange() {
+        NotificationCenter.default.addObserver(
+        forName: .preferencesChangeTheme, object: nil, queue: nil) { [weak self] _ in
+            self?.applyTheme()
+            self?.tableView.reloadData()
+        }
+    }
+    
+    private func applyTheme() {
+        if let context = self.context {
+            tableView.backgroundView = nil
+            tableView.backgroundColor = context.preferences.selectedTheme.backgroundColor
+        }
     }
 }
 
@@ -48,13 +75,15 @@ private extension TasksViewController {
     func configureTableView() {
         tableView.separatorStyle = .none
         tableView.register(cellType: TaskCell.self)
-        tableView.addSubview(refreshControl)
-        refreshControl.addTarget(self, action: #selector(refreshTasksTable(_:)), for: .valueChanged)
+
+        addRefreshControl()
     }
     
     func configureSearchController() {
         searchController.searchBar.scopeButtonTitles = [SearchScope.tags.title, SearchScope.names.title]
-        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.dimsBackgroundDuringPresentation = false
+        
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         if #available(iOS 11.0, *) {
@@ -63,6 +92,14 @@ private extension TasksViewController {
             tableView.tableHeaderView = searchController.searchBar
         }
         definesPresentationContext = true
+    }
+    
+    func addRefreshControl() {
+        tableView.addSubview(refreshControl)
+    }
+    
+    func removeRefreshControl() {
+        refreshControl.removeFromSuperview()
     }
 }
 
@@ -73,14 +110,17 @@ private extension TasksViewController {
     
     func fetchTasks() {
         let request = ProblemSetProblemsRequest()
+        isFetchingData = true
         refreshControl.beginRefreshing()
-        context?.fetchProblemsetProblems(withRequestParams: request, { [weak self] result in
+        context?.contentService.fetchProblemSetProblems(withRequestParams: request, { [weak self] result in
             guard let sself = self else { return }
+            sself.isFetchingData = false
             sself.refreshControl.endRefreshing()
             switch result {
             case .success(let problems): sself.updateTableView(withProblems: problems)
             case .error(let error): sself.showError(error)
             }
+
         })
     }
     
@@ -122,26 +162,25 @@ extension TasksViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         let scope = SearchScope(rawValue: searchBar.selectedScopeButtonIndex)!
-        
         searchBarFilter(searchBar, textDidChange: searchBar.text, scope: scope)
     }
 }
 
 extension TasksViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchActive = true
+        isSearchActive = true
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchActive = false
+        isSearchActive = false
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false
+        isSearchActive = false
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false
+        isSearchActive = false
     }
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
@@ -171,7 +210,7 @@ extension TasksViewController: UISearchBarDelegate {
 
 extension TasksViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchActive {
+        if isSearchActive {
             return filtered.count
         } else { return data.count }
     }
@@ -179,10 +218,10 @@ extension TasksViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath) as TaskCell
         let model: TaskCellModel
-        if searchActive {
+        if isSearchActive {
             model = filtered[indexPath.row]
         } else { model = data[indexPath.row] }
-        cell.configure(with: model)
+        cell.configure(with: model, theme: context?.preferences.selectedTheme ?? .light)
         return cell
     }
 }

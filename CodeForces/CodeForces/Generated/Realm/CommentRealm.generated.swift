@@ -14,10 +14,12 @@ final class CommentRealm: Object {
     let parentCommentId = RealmOptional<Int>() 
     @objc dynamic var rating: Int = 0 
 
-    override static func primaryKey() -> String? {
-        return "id"
-    }
     
+        override static func primaryKey() -> String? {
+            return "id"
+        }
+        
+
 }
 
 extension CommentRealm: RealmObject {
