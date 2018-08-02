@@ -6,6 +6,10 @@
 
 "Alert.title.error" = "Error";
 "Alert.Action.ok" = "OK";
+"Error.Network.message" = "Network error";
+"Error.Common.message" = "Unknown error";
+"Error.Realm.NotFound.message" = "Database read error";
+"Error.Realm.CannotSave.message" = "Database write error";
 
 // ContestsVC
 

@@ -59,6 +59,32 @@ internal enum L10n {
     }
   }
 
+  internal enum Error {
+
+    internal enum Common {
+      /// Unknown error
+      internal static let message = L10n.tr("Localizable", "Error.Common.message")
+    }
+
+    internal enum Network {
+      /// Network error
+      internal static let message = L10n.tr("Localizable", "Error.Network.message")
+    }
+
+    internal enum Realm {
+
+      internal enum Cannotsave {
+        /// Database write error
+        internal static let message = L10n.tr("Localizable", "Error.Realm.CannotSave.message")
+      }
+
+      internal enum Notfound {
+        /// Database read error
+        internal static let message = L10n.tr("Localizable", "Error.Realm.NotFound.message")
+      }
+    }
+  }
+
   internal enum SettingsVc {
     /// Settings
     internal static let title = L10n.tr("Localizable", "Settings_VC.title")

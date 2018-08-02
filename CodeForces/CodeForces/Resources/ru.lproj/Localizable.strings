@@ -2,11 +2,14 @@
   Localizable.strings
   CodeForces
 */
-
 // Common
 
 "Alert.title.error" = "Ошибка";
 "Alert.Action.ok" = "ОК";
+"Error.Network.message" = "Ошибка сети";
+"Error.Common.message" = "Неизвестная ошибка";
+"Error.Realm.NotFound.message" = "Ошибка чтения из базы данных";
+"Error.Realm.CannotSave.message" = "Ошибка сохранения в базу данных";
 
 // ContestsVC
 

@@ -45,7 +45,7 @@ final class NetworkService {
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                    completion(Result.error(NetworkErrors.connectionError(moyaError: error)))
+                    completion(Result.error(NetworkErrors.connectionError))
                 }
             }
         }
