@@ -88,9 +88,7 @@
 		3FEE5079211031E800DAD19D /* UStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE5078211031E800DAD19D /* UStatus.swift */; };
 		3FF1C50721116FEE00B13FA3 /* PhaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A118210B1B40008E98C6 /* PhaseType.swift */; };
 		3FF1C5092111776500B13FA3 /* DefaultsKeys+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF1C5082111776500B13FA3 /* DefaultsKeys+Extension.swift */; };
-<<<<<<< HEAD
 		3FFBDFCC2111D4A800ABD8A0 /* ContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFBDFCB2111D4A800ABD8A0 /* ContentService.swift */; };
-=======
 		491A7587210ECFFE00536CE1 /* ContestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A757E210ECFFE00536CE1 /* ContestCell.swift */; };
 		491A7588210ECFFE00536CE1 /* ContestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491A757F210ECFFE00536CE1 /* ContestCell.xib */; };
 		491A7589210ECFFE00536CE1 /* StandingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491A7581210ECFFE00536CE1 /* StandingsCell.xib */; };
@@ -100,7 +98,6 @@
 		4946953C210EE595003C5ABE /* StandingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946953B210EE595003C5ABE /* StandingsCell.swift */; };
 		49DA2B3721101C7B001280F8 /* StandingsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DA2B3621101C7B001280F8 /* StandingsCellModel.swift */; };
 		49DA2B3921103B88001280F8 /* StatusCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DA2B3821103B88001280F8 /* StatusCellModel.swift */; };
->>>>>>> 1e7d3ebc9136e3f2810a1de7e464545b4d14c155
 		557E3491210ACB8C0057E43A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 557E3493210ACB8C0057E43A /* Localizable.strings */; };
 		557E3495210ACBD80057E43A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E3494210ACBD80057E43A /* LaunchScreen.storyboard */; };
 		557E349C210ACF880057E43A /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E3499210ACF880057E43A /* Assets.swift */; };
@@ -216,9 +213,7 @@
 		3FEE50762110311D00DAD19D /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		3FEE5078211031E800DAD19D /* UStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UStatus.swift; sourceTree = "<group>"; };
 		3FF1C5082111776500B13FA3 /* DefaultsKeys+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultsKeys+Extension.swift"; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		3FFBDFCB2111D4A800ABD8A0 /* ContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentService.swift; sourceTree = "<group>"; };
-=======
 		491A757E210ECFFE00536CE1 /* ContestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContestCell.swift; sourceTree = "<group>"; };
 		491A757F210ECFFE00536CE1 /* ContestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContestCell.xib; sourceTree = "<group>"; };
 		491A7581210ECFFE00536CE1 /* StandingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandingsCell.xib; sourceTree = "<group>"; };
@@ -228,7 +223,6 @@
 		4946953B210EE595003C5ABE /* StandingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsCell.swift; sourceTree = "<group>"; };
 		49DA2B3621101C7B001280F8 /* StandingsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsCellModel.swift; sourceTree = "<group>"; };
 		49DA2B3821103B88001280F8 /* StatusCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCellModel.swift; sourceTree = "<group>"; };
->>>>>>> 1e7d3ebc9136e3f2810a1de7e464545b4d14c155
 		557E3492210ACB8C0057E43A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		557E3494210ACBD80057E43A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		557E3496210ACBF00057E43A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
