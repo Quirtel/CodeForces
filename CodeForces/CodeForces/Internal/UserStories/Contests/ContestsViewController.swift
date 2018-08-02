@@ -12,7 +12,7 @@ class ContestsViewController: UIViewController {
     @IBOutlet private var searchBar: UISearchBar!
     
     private var searchController = UISearchController(searchResultsController: nil)
-    private var context = NetworkService()
+     var context: Context?
     private var upcomingContests: [Contest] = []
     private var finishedContests: [Contest] = []
     private var filteredContests: [Contest] = []
@@ -40,8 +40,25 @@ class ContestsViewController: UIViewController {
         setupSearchController()
         setupFormatters()
         fetchContestList()
+        
+        subscribeOnThemeChange()
+        applyTheme()
     }
     
+    private func subscribeOnThemeChange() {
+        NotificationCenter.default.addObserver(
+        forName: .preferencesChangeTheme, object: nil, queue: nil) { [weak self] _ in
+            self?.applyTheme()
+            self?.tableView.reloadData()
+        }
+    }
+    
+    private func applyTheme() {
+        if let context = self.context {
+            tableView.backgroundView = nil
+            tableView.backgroundColor = context.preferences.selectedTheme.backgroundColor
+        }
+    }
     
     func setupTableView() {
         tableView.register(cellType: ContestCell.self)
@@ -89,8 +106,8 @@ class ContestsViewController: UIViewController {
     }
     
     func fetchContestList() {
-        context.fetchContestList(
-            requestParams: ContestListRequest(gym: false), { [weak self] contestList in
+        context?.contentService.fetchContestList(
+            withRequestParams: ContestListRequest(gym: false), force: true, { [weak self] contestList in
                 guard let sself = self else { return }
                 switch contestList {
                 case .success(let list):
@@ -133,11 +150,13 @@ extension ContestsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(for: indexPath) as ContestCell
-            
+            cell.configure(theme: context?.preferences.selectedTheme ?? .light)
+        
             let sectionName = SectionsNames(rawValue: indexPath.section)!
             
             if searchController.isActive && searchController.searchBar.text != "" {
                 cell.contestName.text = filteredContests[indexPath.row].name
+                
                 
                 let startTime = Date(timeIntervalSince1970: TimeInterval(filteredContests[indexPath.row].startTimeSeconds!))
                 let duration = TimeInterval(filteredContests[indexPath.row].durationSeconds)

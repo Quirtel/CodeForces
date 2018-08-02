@@ -92,6 +92,24 @@ class ContestInfoViewController: UIViewController {
         fetchTasks()
         fetchStatus(offset: 1, count: 30, nil)
         fetchStandings(offset: 1, count: 30, nil)
+        
+        subscribeOnThemeChange()
+        applyTheme()
+    }
+    
+    private func subscribeOnThemeChange() {
+        NotificationCenter.default.addObserver(
+        forName: .preferencesChangeTheme, object: nil, queue: nil) { [weak self] _ in
+            self?.applyTheme()
+            self?.tableView.reloadData()
+        }
+    }
+    
+    private func applyTheme() {
+        if let context = self.context {
+            tableView.backgroundView = nil
+            tableView.backgroundColor = context.preferences.selectedTheme.backgroundColor
+        }
     }
     
     func searchBarIsEmpty() -> Bool {
@@ -471,7 +489,7 @@ extension ContestInfoViewController: UITableViewDataSource {
             
             let model = StatusCellModel(
                 contestId: contestId, submission: currentSubmission, formatterRef: relativeTimeFormatter)
-            statusCell.configure(with: model)
+            statusCell.configure(with: model, theme: context?.preferences.selectedTheme ?? .light)
             
             return statusCell
         }
