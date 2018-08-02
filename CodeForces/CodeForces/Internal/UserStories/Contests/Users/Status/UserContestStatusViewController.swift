@@ -12,6 +12,7 @@ class UserContestStatusViewController: UIViewController {
     private var users: Party? = nil
     private var tasks: [TaskCellModel] = []
     private var currentRanklist: RanklistRow? = nil
+    var context: Context?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class UserContestStatusViewController: UIViewController {
         for it in 0..<tasks.count {
             self.tasks.append(TaskCellModel(contestId: contestId, name: tasks[it].name, tags: tasks[it].tags, solvedCount: nil, index: tasks[it].index, rejectedAttemptCount: String(ranklistRow.problemResults[it].rejectedAttemptCount), points: String(ranklistRow.problemResults[it].points.rounded())))
         }
+        
     }
     
     func setupTableView() {
@@ -70,10 +72,12 @@ extension UserContestStatusViewController: UITableViewDataSource {
         case .party:
             let cell = tableView.dequeueReusableCell(for: indexPath) as UserInfoCell
             
+            cell.configure(with: UserInfoCellModel((users?.members[indexPath.row].handle)!))
+            
             return cell
         case .tasks:
             let cell = tableView.dequeueReusableCell(for: indexPath) as TaskCell
-            cell.configure(with: tasks[indexPath.row])
+            cell.configure(with: tasks[indexPath.row], theme: context!.preferences.selectedTheme)
             return cell
         }
         

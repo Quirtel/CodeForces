@@ -1,7 +1,9 @@
 import Foundation
 
 class UserInfoCellModel {
-    init(_ user: User) {
-        
+    var handle = String()
+    
+    init(_ handle: String) {
+        self.handle = handle
     }
 }

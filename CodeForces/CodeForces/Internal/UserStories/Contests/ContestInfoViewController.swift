@@ -30,7 +30,7 @@ class ContestInfoViewController: UIViewController {
     var currentOffsetStatus = 0
     var currentSearchQuery = String()
     
-    private var context: Context?
+    var context: Context?
     
     private var shouldFetchStandings = true
     private var shouldFetchStatus = true
@@ -565,6 +565,7 @@ extension ContestInfoViewController: UITableViewDelegate {
             StoryboardScene.UserContestStatusViewController.initialScene.instantiate()
             
             nextVC.configure(contestId: String(contestId), ranklistRow: currentStanding, tasks: tasks)
+            nextVC.context = context
             
             self.navigationController?.pushViewController(nextVC, animated: true)
         default:

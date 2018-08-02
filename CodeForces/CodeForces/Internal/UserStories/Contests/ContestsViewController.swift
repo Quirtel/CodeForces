@@ -12,7 +12,7 @@ class ContestsViewController: UIViewController {
     @IBOutlet private var searchBar: UISearchBar!
     
     private var searchController = UISearchController(searchResultsController: nil)
-    private var context = NetworkService()
+    var context: Context?
     private var upcomingContests: [Contest] = []
     private var finishedContests: [Contest] = []
     private var filteredContests: [Contest] = []
@@ -33,7 +33,7 @@ class ContestsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         extendedLayoutIncludesOpaqueBars = true
         
         setupTableView()
@@ -89,8 +89,8 @@ class ContestsViewController: UIViewController {
     }
     
     func fetchContestList() {
-        context.fetchContestList(
-            requestParams: ContestListRequest(gym: false), { [weak self] contestList in
+        context?.contentService.fetchContestList(
+            withRequestParams: ContestListRequest(gym: false), force: true, { [weak self] contestList in
                 guard let sself = self else { return }
                 switch contestList {
                 case .success(let list):
@@ -103,8 +103,7 @@ class ContestsViewController: UIViewController {
                     sself.present(sself.alertResponseError, animated: true)
                 }
                 sself.refreshControl.endRefreshing()
-                sself.tableView.reloadData()
-        })
+                sself.tableView.reloadData()})
     }
 }
 
@@ -132,70 +131,70 @@ extension ContestsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(for: indexPath) as ContestCell
+        let cell = tableView.dequeueReusableCell(for: indexPath) as ContestCell
+        
+        let sectionName = SectionsNames(rawValue: indexPath.section)!
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            cell.contestName.text = filteredContests[indexPath.row].name
             
-            let sectionName = SectionsNames(rawValue: indexPath.section)!
+            let startTime = Date(
+                timeIntervalSince1970: TimeInterval(filteredContests[indexPath.row].startTimeSeconds!))
+            let duration = TimeInterval(filteredContests[indexPath.row].durationSeconds)
             
-            if searchController.isActive && searchController.searchBar.text != "" {
-                cell.contestName.text = filteredContests[indexPath.row].name
-                
-                let startTime = Date(
-                    timeIntervalSince1970: TimeInterval(filteredContests[indexPath.row].startTimeSeconds!))
-                let duration = TimeInterval(filteredContests[indexPath.row].durationSeconds)
-                
-                cell.status.text = relativeTimeFormatter.string(from: startTime)
-                cell.durationTime.text = formatter.string(from: duration)
-                cell.endTime.isHidden = true
-                cell.remainingLabel.isHidden = true
-                
-                return cell
-            }
-            
-            switch sectionName {
-            case .upcoming:
-                cell.accessoryType = .none
-                cell.contestName.text = upcomingContests[indexPath.row].name
-                let duration = TimeInterval(upcomingContests[indexPath.row].durationSeconds)
-                let startTime = Date(timeIntervalSince1970:
-                    TimeInterval(upcomingContests[indexPath.row].startTimeSeconds!))
-                
-                let endTime =  Date(timeIntervalSince1970:
-                    TimeInterval(upcomingContests[indexPath.row].startTimeSeconds! + upcomingContests[indexPath.row].durationSeconds))
-                
-                cell.durationTime.text = formatter.string(from: duration)
-                
-                switch upcomingContests[indexPath.row].phase {
-                case .coding:
-                    cell.status.text = L10n.ContestsVc.TableViewCell.ContestInProgress.text
-                    cell.endTime.text = formatter.string(from: Date(timeIntervalSinceNow: 0), to: endTime)!
-                    cell.endTime.isHidden = false
-                    cell.remainingLabel.isHidden = false
-                case .before:
-                    cell.status.text = relativeTimeFormatter.string(from: startTime)
-                case .pendingSystemTest:
-                    cell.status.text = L10n.ContestsVc.TableViewCell.PendingTest.text
-                case .systemTest:
-                    cell.status.text = L10n.ContestsVc.TableViewCell.SystemTesting.text
-                case .finished:
-                    cell.status.text = L10n.ContestsVc.TableViewCell.Finished.text
-                }
-                
-            case .finished:
-                cell.accessoryType = .disclosureIndicator
-                cell.contestName.text = finishedContests[indexPath.row].name
-                
-                let startTime = Date(timeIntervalSince1970:
-                    TimeInterval(finishedContests[indexPath.row].startTimeSeconds!))
-                let duration: TimeInterval = TimeInterval(
-                    finishedContests[indexPath.row].durationSeconds)
-                
-                cell.status.text = relativeTimeFormatter.string(from: startTime)
-                cell.durationTime.text = formatter.string(from: duration)
-                cell.endTime.isHidden = true
-                cell.remainingLabel.isHidden = true
-            }
+            cell.status.text = relativeTimeFormatter.string(from: startTime)
+            cell.durationTime.text = formatter.string(from: duration)
+            cell.endTime.isHidden = true
+            cell.remainingLabel.isHidden = true
             
             return cell
+        }
+        
+        switch sectionName {
+        case .upcoming:
+            cell.accessoryType = .none
+            cell.contestName.text = upcomingContests[indexPath.row].name
+            let duration = TimeInterval(upcomingContests[indexPath.row].durationSeconds)
+            let startTime = Date(timeIntervalSince1970:
+                TimeInterval(upcomingContests[indexPath.row].startTimeSeconds!))
+            
+            let endTime =  Date(timeIntervalSince1970:
+                TimeInterval(upcomingContests[indexPath.row].startTimeSeconds! + upcomingContests[indexPath.row].durationSeconds))
+            
+            cell.durationTime.text = formatter.string(from: duration)
+            
+            switch upcomingContests[indexPath.row].phase {
+            case .coding:
+                cell.status.text = L10n.ContestsVc.TableViewCell.ContestInProgress.text
+                cell.endTime.text = formatter.string(from: Date(timeIntervalSinceNow: 0), to: endTime)!
+                cell.endTime.isHidden = false
+                cell.remainingLabel.isHidden = false
+            case .before:
+                cell.status.text = relativeTimeFormatter.string(from: startTime)
+            case .pendingSystemTest:
+                cell.status.text = L10n.ContestsVc.TableViewCell.PendingTest.text
+            case .systemTest:
+                cell.status.text = L10n.ContestsVc.TableViewCell.SystemTesting.text
+            case .finished:
+                cell.status.text = L10n.ContestsVc.TableViewCell.Finished.text
+            }
+            
+        case .finished:
+            cell.accessoryType = .disclosureIndicator
+            cell.contestName.text = finishedContests[indexPath.row].name
+            
+            let startTime = Date(timeIntervalSince1970:
+                TimeInterval(finishedContests[indexPath.row].startTimeSeconds!))
+            let duration: TimeInterval = TimeInterval(
+                finishedContests[indexPath.row].durationSeconds)
+            
+            cell.status.text = relativeTimeFormatter.string(from: startTime)
+            cell.durationTime.text = formatter.string(from: duration)
+            cell.endTime.isHidden = true
+            cell.remainingLabel.isHidden = true
+        }
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -240,7 +239,7 @@ extension ContestsViewController: UITableViewDelegate {
                 nextViewController.contestId = finishedContests[indexPath.row].id
             }
         }
-        
+        nextViewController.context = context
         navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
