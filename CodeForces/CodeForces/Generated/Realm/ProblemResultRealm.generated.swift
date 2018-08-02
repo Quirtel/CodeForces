@@ -6,11 +6,11 @@ import RealmSwift
 
 final class ProblemResultRealm: Object { 
 
-    @objc dynamic var points: Float = 0 // Int(points) 
-    let penalty = RealmOptional<Int>() // penalty.value ?? 0
-    @objc dynamic var rejectedAttemptCount: Int = 0 // Int(rejectedAttemptCount)
-    @objc dynamic var type: String! // type 
-    let bestSubmissionTimeSeconds = RealmOptional<Int>() // bestSubmissionTimeSeconds.value ?? 0
+    @objc dynamic var points: Float = 0  
+    let penalty = RealmOptional<Int>() 
+    @objc dynamic var rejectedAttemptCount: Int = 0 
+    @objc dynamic var type: String!  
+    let bestSubmissionTimeSeconds = RealmOptional<Int>() 
 
     
 

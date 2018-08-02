@@ -2,7 +2,7 @@ import Foundation
 
 //sourcery: RealmPersistable, NeedRealmId
 struct ProblemStatistics: Codable {
-    //vbnmvbnmvsourcery: Hashsource
+    //sourcery: Hashsource
     let contestId: Int?
     //sourcery: Hashsource
     let index: String //Letter, may be followed by a digit; problem index in a contest.

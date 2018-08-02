@@ -6,8 +6,8 @@ import RealmSwift
 
 final class ProblemSetProblemsRealm: Object { 
     
-    var problems = List<ProblemRealm>()// problems.customHash    
-    var problemStatistics = List<ProblemStatisticsRealm>()// problemStatistics.customHash
+    var problems = List<ProblemRealm>()    
+    var problemStatistics = List<ProblemStatisticsRealm>()
 
     func getRealmId() -> Int {
         return "\(problems.customHash)\(problemStatistics.customHash)".hash

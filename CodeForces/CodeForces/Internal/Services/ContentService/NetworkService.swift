@@ -99,7 +99,7 @@ final class NetworkService {
         }
     }
     
-    func fetchProblemsetProblems(
+    func fetchProblemSetProblems(
         requestParams: ProblemSetProblemsRequest,
         _ completion: @escaping (Result<ProblemSetProblems>) -> ()) {
         NetworkService.request(
@@ -111,7 +111,7 @@ final class NetworkService {
         }
     }
     
-    func fetchProblemsetRecentStatus(
+    func fetchProblemSetRecentStatus(
         requestParams: ProblemSetRecentStatusRequest,
         _ completion: @escaping (Result<[Submission]>) -> ()) {
         NetworkService.request(

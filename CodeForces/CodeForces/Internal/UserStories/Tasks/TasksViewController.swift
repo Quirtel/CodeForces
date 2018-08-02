@@ -74,7 +74,7 @@ private extension TasksViewController {
     func fetchTasks() {
         let request = ProblemSetProblemsRequest()
         refreshControl.beginRefreshing()
-        context?.fetchProblemsetProblems(withRequestParams: request, { [weak self] result in
+        context?.fetchProblemSetProblems(requestParams: request, { [weak self] result in
             guard let sself = self else { return }
             sself.refreshControl.endRefreshing()
             switch result {

@@ -80,9 +80,11 @@ func getHashValue(_ variable: Variable) -> String {
     } else if variable.isArray {
         return variable.name + ".customHash"
     } else if variable.type is Enum {
-        return variable.name //+ ".rawValue"
+        return variable.name
     } else if numericTypes.contains(variable.typeName.unwrappedTypeName) {
         return "Int(\(variable.name))"
+    } else if variable.type is String! {
+        return variable.name
     }
     return "\"\""
 }
@@ -117,7 +119,6 @@ final class <%= prefixedTypeName(for: type) %>: Object { <% -%>
 <% } else { %>
     @objc dynamic var <%= variable.name %>: <%= customTypeName(for: variable.type, typeName: variable.typeName) %><%= defaultValue(variable) -%> <% -%>
 <% } -%>
-// <%= getHashValue(variable) -%>
 <% } -%>
 
 <% if type.annotations["NeedRealmId"] != nil { %>

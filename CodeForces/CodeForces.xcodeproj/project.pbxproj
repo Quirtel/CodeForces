@@ -52,6 +52,7 @@
 		3F48B3B2210EE93700F671B3 /* Hacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F48B3B1210EE93700F671B3 /* Hacks.swift */; };
 		3F48B3B4210EF01400F671B3 /* RatingChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F48B3B3210EF01400F671B3 /* RatingChanges.swift */; };
 		3F48B3B7210F02B400F671B3 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F48B3B6210F02B400F671B3 /* RealmService.swift */; };
+		3F4A58F62112B1A900A2141D /* CodeForcesDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4A58F52112B1A900A2141D /* CodeForcesDatabaseTests.swift */; };
 		3F86EE09210EDC88005099CB /* Encodable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F86EE08210EDC88005099CB /* Encodable+Ext.swift */; };
 		3F86EE0C210EDFBA005099CB /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F86EE0B210EDFBA005099CB /* List.swift */; };
 		3F86EE12210EE139005099CB /* RecentStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F86EE11210EE139005099CB /* RecentStatus.swift */; };
@@ -85,9 +86,9 @@
 		3FED5385210C238100878EAD /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED5384210C238100878EAD /* Errors.swift */; };
 		3FEE50772110311D00DAD19D /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE50762110311D00DAD19D /* Rating.swift */; };
 		3FEE5079211031E800DAD19D /* UStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE5078211031E800DAD19D /* UStatus.swift */; };
-		3FFBDFCC2111D4A800ABD8A0 /* ContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFBDFCB2111D4A800ABD8A0 /* ContentService.swift */; };
 		3FF1C50721116FEE00B13FA3 /* PhaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A118210B1B40008E98C6 /* PhaseType.swift */; };
 		3FF1C5092111776500B13FA3 /* DefaultsKeys+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF1C5082111776500B13FA3 /* DefaultsKeys+Extension.swift */; };
+		3FFBDFCC2111D4A800ABD8A0 /* ContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFBDFCB2111D4A800ABD8A0 /* ContentService.swift */; };
 		557E3491210ACB8C0057E43A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 557E3493210ACB8C0057E43A /* Localizable.strings */; };
 		557E3495210ACBD80057E43A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E3494210ACBD80057E43A /* LaunchScreen.storyboard */; };
 		557E349C210ACF880057E43A /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E3499210ACF880057E43A /* Assets.swift */; };
@@ -162,6 +163,7 @@
 		3F48B3B1210EE93700F671B3 /* Hacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hacks.swift; sourceTree = "<group>"; };
 		3F48B3B3210EF01400F671B3 /* RatingChanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingChanges.swift; sourceTree = "<group>"; };
 		3F48B3B6210F02B400F671B3 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		3F4A58F52112B1A900A2141D /* CodeForcesDatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeForcesDatabaseTests.swift; sourceTree = "<group>"; };
 		3F86EE08210EDC88005099CB /* Encodable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Ext.swift"; sourceTree = "<group>"; };
 		3F86EE0B210EDFBA005099CB /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		3F86EE11210EE139005099CB /* RecentStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentStatus.swift; sourceTree = "<group>"; };
@@ -201,8 +203,8 @@
 		3FED5384210C238100878EAD /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		3FEE50762110311D00DAD19D /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		3FEE5078211031E800DAD19D /* UStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UStatus.swift; sourceTree = "<group>"; };
-		3FFBDFCB2111D4A800ABD8A0 /* ContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentService.swift; sourceTree = "<group>"; };
 		3FF1C5082111776500B13FA3 /* DefaultsKeys+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultsKeys+Extension.swift"; sourceTree = "<group>"; };
+		3FFBDFCB2111D4A800ABD8A0 /* ContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentService.swift; sourceTree = "<group>"; };
 		557E3492210ACB8C0057E43A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		557E3494210ACBD80057E43A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		557E3496210ACBF00057E43A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 				3FD1A49F2109C8C800AF0B45 /* NetworkContestTests.swift */,
 				3F2D92A9210C60CB00EC6380 /* NetworkProblemSetTests.swift */,
 				3F2D92AF210D7BF700EC6380 /* NetworkUserTests.swift */,
+				3F4A58F52112B1A900A2141D /* CodeForcesDatabaseTests.swift */,
 				3FD1A4A12109C8C800AF0B45 /* Info.plist */,
 			);
 			path = CodeForcesTests;
@@ -942,6 +945,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FD1A4A02109C8C800AF0B45 /* NetworkContestTests.swift in Sources */,
+				3F4A58F62112B1A900A2141D /* CodeForcesDatabaseTests.swift in Sources */,
 				3F2D92B0210D7BF700EC6380 /* NetworkUserTests.swift in Sources */,
 				3F2D92AA210C60CB00EC6380 /* NetworkProblemSetTests.swift in Sources */,
 				3F38A13F210B2880008E98C6 /* CodeForcesNetworkTests.swift in Sources */,

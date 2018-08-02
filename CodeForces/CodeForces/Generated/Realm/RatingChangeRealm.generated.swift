@@ -6,13 +6,13 @@ import RealmSwift
 
 final class RatingChangeRealm: Object { 
 
-    @objc dynamic var contestId: Int = 0 // Int(contestId)
-    @objc dynamic var contestName: String = "" // ""
-    @objc dynamic var handle: String = "" // ""
-    @objc dynamic var rank: Int = 0 // Int(rank)
-    @objc dynamic var ratingUpdateTimeSeconds: Int = 0 // Int(ratingUpdateTimeSeconds)
-    @objc dynamic var oldRating: Int = 0 // Int(oldRating)
-    @objc dynamic var rating: Int = 0 // Int(rating)
+    @objc dynamic var contestId: Int = 0 
+    @objc dynamic var contestName: String = "" 
+    @objc dynamic var handle: String = "" 
+    @objc dynamic var rank: Int = 0 
+    @objc dynamic var ratingUpdateTimeSeconds: Int = 0 
+    @objc dynamic var oldRating: Int = 0 
+    @objc dynamic var rating: Int = 0 
 
     
 

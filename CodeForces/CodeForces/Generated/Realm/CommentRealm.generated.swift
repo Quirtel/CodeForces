@@ -6,13 +6,13 @@ import RealmSwift
 
 final class CommentRealm: Object { 
 
-    @objc dynamic var id: Int = 0 // Int(id)
-    @objc dynamic var creationTimeSeconds: Int = 0 // Int(creationTimeSeconds)
-    @objc dynamic var commentatorHandle: String = "" // ""
-    @objc dynamic var locale: String = "" // ""
-    @objc dynamic var text: String = "" // "" 
-    let parentCommentId = RealmOptional<Int>() // parentCommentId.value ?? 0
-    @objc dynamic var rating: Int = 0 // Int(rating)
+    @objc dynamic var id: Int = 0 
+    @objc dynamic var creationTimeSeconds: Int = 0 
+    @objc dynamic var commentatorHandle: String = "" 
+    @objc dynamic var locale: String = "" 
+    @objc dynamic var text: String = ""  
+    let parentCommentId = RealmOptional<Int>() 
+    @objc dynamic var rating: Int = 0 
 
     
         override static func primaryKey() -> String? {

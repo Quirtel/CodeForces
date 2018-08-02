@@ -13,18 +13,18 @@ class ContentService {
         
         if diff > dayTime {
             //need to update
-            fetchProblemsetProblems(
+            fetchProblemSetProblems(
             withRequestParams: ProblemSetProblemsRequest(
                 tags: nil, problemsetName: nil), force: true) { [weak self] result in
                 if case .success(let problems) = result {
-                    _ = self?.realmService.saveProblemSetProblems(problems)
+                    _ = self?.realmService.addProblemSetProblems(problems)
                 }
             }
             let gymFalseParams = ContestListRequest(gym: false)
             fetchContestList(
             withRequestParams: gymFalseParams, force: true) { [weak self] result in
                 if case .success(let contests) = result {
-                    _ = self?.realmService.saveContestList(
+                    _ = self?.realmService.addContestList(
                         contests, withRequestParams: gymFalseParams)
                 }
             }
@@ -33,10 +33,11 @@ class ContentService {
             fetchContestList(
             withRequestParams: gymTrueParams, force: true) { [weak self] result in
                 if case .success(let contests) = result {
-                    _ = self?.realmService.saveContestList(
+                    _ = self?.realmService.addContestList(
                         contests, withRequestParams: gymTrueParams)
                 }
             }
+            preferences.lastUpdated = now
         }
     }
     
@@ -47,30 +48,30 @@ class ContentService {
             networkService.fetchContestList(
             requestParams: withRequestParams) { [weak self] result in
                 if case .success(let list) = result {
-                    _ = self?.realmService.saveContestList(
+                    _ = self?.realmService.addContestList(
                         list, withRequestParams: withRequestParams)
                 }
                 completion(result)
             }
         } else {
-            completion(realmService.contestList(withRequestParams: withRequestParams))
+            completion(realmService.getContestList(withRequestParams: withRequestParams))
         }
     }
     
-    func fetchProblemsetProblems(
+    func fetchProblemSetProblems(
         withRequestParams: ProblemSetProblemsRequest, force: Bool = false,
         _ completion: @escaping (Result<ProblemSetProblems>) -> ()) {
         if force {
-            networkService.fetchProblemsetProblems(
+            networkService.fetchProblemSetProblems(
             requestParams: withRequestParams) { [weak self] result in
                 if case .success(let problems) = result {
-                    _ = self?.realmService.saveProblemSetProblems(
+                    _ = self?.realmService.addProblemSetProblems(
                     problems)
                 }
                 completion(result)
             }
         } else {
-            completion(realmService.problemsetProblems())
+            completion(realmService.getProblemSetProblems())
         }
     }
     
@@ -106,10 +107,10 @@ class ContentService {
     
     ///Warning: `param` **force** is not used.
     ///Just gives data from the Internet (like *force* is set to **true**)
-    func fetchProblemsetRecentStatus(
+    func fetchProblemSetRecentStatus(
         withRequestParams: ProblemSetRecentStatusRequest,  force: Bool = false,
         _ completion: @escaping (Result<[Submission]>) -> ()) {
-        networkService.fetchProblemsetRecentStatus(requestParams: withRequestParams) { result in
+        networkService.fetchProblemSetRecentStatus(requestParams: withRequestParams) { result in
             completion(result)
         }
     }

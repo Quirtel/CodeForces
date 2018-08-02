@@ -6,18 +6,18 @@ import RealmSwift
 
 final class SubmissionRealm: Object { 
 
-    @objc dynamic var id: Int = 0 // Int(id) 
-    let contestId = RealmOptional<Int>() // contestId.value ?? 0
-    @objc dynamic var creationTimeSeconds: Int = 0 // Int(creationTimeSeconds)
-    @objc dynamic var relativeTimeSeconds: Int = 0 // Int(relativeTimeSeconds)
-    @objc dynamic var problem: ProblemRealm! // ""
-    @objc dynamic var author: PartyRealm! // ""
-    @objc dynamic var programmingLanguage: String = "" // ""
-    @objc dynamic var verdict: String?// ""
-    @objc dynamic var testset: String! // testset
-    @objc dynamic var passedTestCount: Int = 0 // Int(passedTestCount)
-    @objc dynamic var timeConsumedMillis: Int = 0 // Int(timeConsumedMillis)
-    @objc dynamic var memoryConsumedBytes: Int = 0 // Int(memoryConsumedBytes)
+    @objc dynamic var id: Int = 0  
+    let contestId = RealmOptional<Int>() 
+    @objc dynamic var creationTimeSeconds: Int = 0 
+    @objc dynamic var relativeTimeSeconds: Int = 0 
+    @objc dynamic var problem: ProblemRealm! 
+    @objc dynamic var author: PartyRealm! 
+    @objc dynamic var programmingLanguage: String = "" 
+    @objc dynamic var verdict: String?
+    @objc dynamic var testset: String! 
+    @objc dynamic var passedTestCount: Int = 0 
+    @objc dynamic var timeConsumedMillis: Int = 0 
+    @objc dynamic var memoryConsumedBytes: Int = 0 
 
     
         override static func primaryKey() -> String? {
