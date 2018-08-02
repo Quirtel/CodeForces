@@ -18,12 +18,11 @@ fileprivate extension SearchScope {
 
 class TasksViewController: UIViewController {
     
-    @IBOutlet private weak var tableView: UITableView!
-    
-    private let searchController = UISearchController(searchResultsController: nil)
-    
     var context: Context?
     
+    @IBOutlet private weak var tableView: UITableView!
+    private let searchController = UISearchController(searchResultsController: nil)
+    private var isKeyboardShown = false
     private lazy var refreshControl: UIRefreshControl = {
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(refreshTasksTable(_:)), for: .valueChanged)
@@ -40,6 +39,11 @@ class TasksViewController: UIViewController {
                 removeRefreshControl()
             } else {
                 addRefreshControl()
+                if data.count > 0 {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                    }
+                }
             }
         }
     }
@@ -53,6 +57,10 @@ class TasksViewController: UIViewController {
         configureSearchController()
         applyTheme()
         fetchTasks()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         NotificationCenter.default.addObserver(
             self, selector: #selector(storyboardWillShow), name: .UIKeyboardWillShow, object: nil)
@@ -60,29 +68,40 @@ class TasksViewController: UIViewController {
             self, selector: #selector(storyboardDidHide), name: .UIKeyboardDidHide, object: nil)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardDidHide, object: nil)
+    }
+    
     @objc private func storyboardWillShow(notification: Notification) {
+        if isKeyboardShown {
+            return
+        }
+        isKeyboardShown = true
+        
+        var adjustedContentInset: UIEdgeInsets = UIEdgeInsets()
         if #available(iOS 11.0, *) {
-            let u = tableView.adjustedContentInset
+            adjustedContentInset = tableView.adjustedContentInset
         }
         
         guard let userInfo = notification.userInfo else { return }
-        guard let value =
-            (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue) else { return }
+        guard let value = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue) else { return }
         let keyboardFrame = view.convert(value.cgRectValue, from: nil)
         let tableViewFrame = tableView.frame
         let hiddenTableViewRect = tableViewFrame.intersection(keyboardFrame)
-        let contentInsets = UIEdgeInsetsMake(0, 0, hiddenTableViewRect.size.height, 0)
-        //contentInset.bottom = keyboardFrame.size.height
+        let contentInsets = UIEdgeInsetsMake(0, 0, hiddenTableViewRect.size.height - adjustedContentInset.bottom, 0)
 
         tableView.contentInset = contentInsets
         tableView.scrollIndicatorInsets = contentInsets
-        
     }
     
     @objc private func storyboardDidHide(notification: Notification) {
         let contentInset = UIEdgeInsets.zero
         tableView.contentInset = contentInset
         tableView.scrollIndicatorInsets = contentInset
+        isKeyboardShown = false
     }
     
     private func subscribeOnThemeChange() {
@@ -201,15 +220,7 @@ extension TasksViewController: UISearchBarDelegate {
         isSearchActive = true
     }
     
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        isSearchActive = false
-    }
-    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        isSearchActive = false
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         isSearchActive = false
     }
     
