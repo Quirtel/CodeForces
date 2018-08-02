@@ -11,6 +11,8 @@ class SettingsCell: UITableViewCell {
         contentView.backgroundColor = theme.cellColor
         backgroundColor = theme.cellColor
         
+        tintColor = theme.cellTintColor
+        
         let bgColorView = UIView()
         bgColorView.backgroundColor = theme.highlightedCellColor
         selectedBackgroundView = bgColorView

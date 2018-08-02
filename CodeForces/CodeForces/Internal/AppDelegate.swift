@@ -11,7 +11,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let contestsVC = StoryboardScene.Contests.contestsViewController.instantiate()
         contestsVC.title = L10n.ContestsVc.title
-        let contestsNC = UINavigationController(rootViewController: contestsVC)
+        let contestsNC = CustomNavigationController(rootViewController: contestsVC)
         if #available(iOS 11.0, *) {
             contestsNC.navigationBar.prefersLargeTitles = true
         }
@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tasksVC = StoryboardScene.Tasks.tasksViewController.instantiate()
         tasksVC.title = L10n.TasksVc.title
         tasksVC.context = context
-        let tasksNC = UINavigationController(rootViewController: tasksVC)
+        let tasksNC = CustomNavigationController(rootViewController: tasksVC)
         if #available(iOS 11.0, *) {
             tasksNC.navigationBar.prefersLargeTitles = true
         }
@@ -27,12 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settingsVC = StoryboardScene.Settings.settingsViewController.instantiate()
         settingsVC.title = L10n.SettingsVc.title
         settingsVC.context = context
-        let settingsNC = UINavigationController(rootViewController: settingsVC)
+        let settingsNC = CustomNavigationController(rootViewController: settingsVC)
         if #available(iOS 11.0, *) {
             settingsNC.navigationBar.prefersLargeTitles = true
         }
         
-        let tabBarController = UITabBarController()
+        let tabBarController = CustomTabBarController()
         tabBarController.setViewControllers([contestsNC, tasksNC, settingsNC], animated: false)
         
         let window = UIWindow(frame: UIScreen.main.bounds)

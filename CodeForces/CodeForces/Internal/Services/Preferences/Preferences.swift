@@ -23,7 +23,7 @@ class Preferences {
     var selectedTheme: Theme {
         set {
             settings[.selectedThemeKey] = newValue.rawValue
-            NotificationCenter.default.post(name: .preferencesChangeTheme, object: nil)
+            NotificationCenter.default.post(name: .preferencesChangeTheme, object: newValue)
         }
         get {
             if let theme = Theme(rawValue: settings[.selectedThemeKey]) {
