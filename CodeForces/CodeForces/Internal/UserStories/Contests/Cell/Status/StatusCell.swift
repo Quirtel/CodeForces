@@ -31,7 +31,7 @@ class StatusCell: UITableViewCell {
             case .crashed, .runtimeError:
                 verdictLabel.text = "Ошибка времени выполнения"
             case .failed, .wrongAnswer:
-                verdictLabel.text = "Неправильный ответ на одном из тестов"
+                verdictLabel.text = "Неправильный ответ на тесте \(model.passedTestCount)"
             case .testing:
                 verdictLabel.text = "Идёт тестирование"
             case .security_Violated:
