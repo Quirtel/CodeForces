@@ -15,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tasksVC.title = L10n.TasksVc.title
         tasksVC.context = NetworkService()
         let tasksNC = UINavigationController(rootViewController: tasksVC)
+        if #available(iOS 11.0, *) {
+            tasksNC.navigationBar.prefersLargeTitles = true
+        }
         
         let tabBarController = UITabBarController()
         tabBarController.setViewControllers([contestsNC, tasksNC], animated: false)
