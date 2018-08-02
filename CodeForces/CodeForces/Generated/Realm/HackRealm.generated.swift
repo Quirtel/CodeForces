@@ -15,10 +15,12 @@ final class HackRealm: Object {
     @objc dynamic var test: String? = nil 
     @objc dynamic var judgeProtocol: JudgeProtocolRealm? = nil 
 
-    override static func primaryKey() -> String? {
-        return "id"
-    }
     
+        override static func primaryKey() -> String? {
+            return "id"
+        }
+        
+
 }
 
 extension HackRealm: RealmObject {

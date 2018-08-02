@@ -19,10 +19,12 @@ final class SubmissionRealm: Object {
     @objc dynamic var timeConsumedMillis: Int = 0 
     @objc dynamic var memoryConsumedBytes: Int = 0 
 
-    override static func primaryKey() -> String? {
-        return "id"
-    }
     
+        override static func primaryKey() -> String? {
+            return "id"
+        }
+        
+
 }
 
 extension SubmissionRealm: RealmObject {

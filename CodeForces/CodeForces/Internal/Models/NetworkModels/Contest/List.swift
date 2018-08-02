@@ -1,9 +1,9 @@
 import Foundation
 
 struct ContestListRequest: Codable {
-    let gym: Bool?
+    let gym: Bool
     
-    init(gym: Bool? = nil) {
+    init(gym: Bool = false) {
         self.gym = gym
     }
 }

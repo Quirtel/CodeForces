@@ -11,7 +11,12 @@
 // ContestsVC
 
 "Contests_VC.title" = "Соревнования";
-
+"Contests_VC.Upcoming_Events_Section.title" = "Предстоящие или текущие соревнования";
+"Contests_VC.Finished_Events_Section.title" = "Прошедшие соревнования";
+"Contests_VC.Table_View_Cell.Contest_In_Progress.text" = "Соревнование идёт";
+"Contests_VC.Table_View_Cell.Pending_Test.text" = "Ожидание тестирования";
+"Contests_VC.Table_View_Cell.System_Testing.text" = "Системное тестирование";
+"Contests_VC.Table_View_Cell.Finished.text" = "Завершено";
 
 // TasksVC
 

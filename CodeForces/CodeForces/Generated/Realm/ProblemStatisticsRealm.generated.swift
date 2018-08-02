@@ -10,6 +10,16 @@ final class ProblemStatisticsRealm: Object {
     @objc dynamic var index: String = "" 
     @objc dynamic var solvedCount: Int = 0 
 
+    func getRealmId() -> Int {
+        return "\(contestId.value ?? 0)\(index)".hash
+    }
+
+    @objc dynamic var realmId: Int = 0
+
+    override static func primaryKey() -> String? {
+        return "realmId"
+    }
+    
 }
 
 extension ProblemStatisticsRealm: RealmObject {

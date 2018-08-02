@@ -8,6 +8,8 @@ final class MemberRealm: Object {
 
     @objc dynamic var handle: String = "" 
 
+    
+
 }
 
 extension MemberRealm: RealmObject {

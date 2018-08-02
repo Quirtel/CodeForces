@@ -7,6 +7,8 @@ extension Notification.Name {
 }
 
 class Preferences {
+    private static let lastUpdatedDateKey: String = "UpdatedDate"
+
     private let settings = Defaults
     
     var lastUpdated: Date {

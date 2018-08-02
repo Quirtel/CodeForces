@@ -10,6 +10,8 @@ final class ContestStandingsRealm: Object {
     var problems = List<ProblemRealm>()    
     var rows = List<RanklistRowRealm>()
 
+    
+
 }
 
 extension ContestStandingsRealm: RealmObject {

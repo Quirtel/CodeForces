@@ -15,6 +15,8 @@ final class PartyRealm: Object {
     let room = RealmOptional<Int>()  
     let startTimeSeconds = RealmOptional<Int>() 
 
+    
+
 }
 
 extension PartyRealm: RealmObject {

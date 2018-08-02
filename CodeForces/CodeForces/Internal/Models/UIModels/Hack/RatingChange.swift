@@ -8,5 +8,16 @@ struct RatingChange: Codable {
     let rank: Int
     let ratingUpdateTimeSeconds: Int
     let oldRating: Int
-    let newRating: Int
+    let rating: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case rating = "newRating"
+        
+        case contestId
+        case contestName
+        case handle
+        case rank
+        case ratingUpdateTimeSeconds
+        case oldRating
+    }
 }

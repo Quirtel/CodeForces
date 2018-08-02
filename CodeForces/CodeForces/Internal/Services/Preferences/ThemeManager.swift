@@ -97,7 +97,7 @@ extension Theme {
     
     //TabBar
     
-    var tapBarTintColor: UIColor {
+    var tabBarTintColor: UIColor {
         switch self {
         case .light:
             return .colorFromHexString("289bff")
@@ -106,7 +106,7 @@ extension Theme {
         }
     }
     
-    var tapBarBarTintColor: UIColor {
+    var tabBarBarTintColor: UIColor {
         switch self {
         case .light:
             return .colorFromHexString("ffffff")
@@ -186,9 +186,9 @@ class ThemeManager {
         UINavigationBar.appearance().barTintColor = theme.navigationBarBarTintColor
         UINavigationBar.appearance().tintColor = theme.navigationBarTintColor
         
-        UITabBar.appearance().tintColor = theme.tapBarTintColor
-        UITabBar.appearance().barTintColor = theme.tapBarBarTintColor
-        
+
+        UITabBar.appearance().tintColor = theme.tabBarTintColor
+        UITabBar.appearance().barTintColor = theme.tabBarBarTintColor      
         UITableViewCell.appearance().tintColor = theme.checkmarkColor
 
     }

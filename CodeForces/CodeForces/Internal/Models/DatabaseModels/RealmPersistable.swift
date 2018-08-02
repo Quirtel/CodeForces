@@ -32,6 +32,27 @@ extension Array where Element: RealmCollectionValue {
     }
 }
 
+extension Array where Element: Hashable {
+    var customHash: Int {
+        var result = 0
+        for varr in self {
+            result ^= varr.hashValue
+        }
+        return result
+    }
+}
+
+extension List where Element: RealmObject & Hashable {
+    var customHash: Int {
+        var result = 0
+        for varr in (self.array as [Element]) {
+            result ^= varr.hashValue
+        }
+        return result
+    }
+}
+
+
 extension Array where Element: RealmRepresentable, Element.PersistingObjectType: RealmCollectionValue, Element.PersistingObjectType.S == Element {
     var realmList: List<Element.PersistingObjectType> {
         let x = self.map { Element.PersistingObjectType.init(model: $0) }
@@ -56,4 +77,10 @@ protocol RealmRefined {
     var persistableValue: PersistableType { get }
     
     init(persistedValue: PersistableType)
+}
+
+extension Int {
+    init(_ bool: Bool) {
+        self = bool ? 1 : 0
+    }
 }

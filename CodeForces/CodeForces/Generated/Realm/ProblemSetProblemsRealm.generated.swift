@@ -9,6 +9,16 @@ final class ProblemSetProblemsRealm: Object {
     var problems = List<ProblemRealm>()    
     var problemStatistics = List<ProblemStatisticsRealm>()
 
+    func getRealmId() -> Int {
+        return "\(problems.customHash)\(problemStatistics.customHash)".hash
+    }
+
+    @objc dynamic var realmId: Int = 0
+
+    override static func primaryKey() -> String? {
+        return "realmId"
+    }
+    
 }
 
 extension ProblemSetProblemsRealm: RealmObject {

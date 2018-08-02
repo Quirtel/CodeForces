@@ -10,6 +10,8 @@ final class JudgeProtocolRealm: Object {
     @objc dynamic var protocolDescription: String = "" 
     @objc dynamic var verdictDescription: String = "" 
 
+    
+
 }
 
 extension JudgeProtocolRealm: RealmObject {

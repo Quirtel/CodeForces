@@ -15,6 +15,8 @@ final class RanklistRowRealm: Object {
     var problemResults = List<ProblemResultRealm>() 
     let lastSubmissionTimeSeconds = RealmOptional<Int>() 
 
+    
+
 }
 
 extension RanklistRowRealm: RealmObject {
