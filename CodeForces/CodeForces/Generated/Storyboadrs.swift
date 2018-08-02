@@ -63,6 +63,11 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<UIViewController>(storyboard: LaunchScreen.self)
   }
+  internal enum Settings: StoryboardType {
+    internal static let storyboardName = "Settings"
+
+    internal static let settingsViewController = SceneType<CodeForces.SettingsViewController>(storyboard: Settings.self, identifier: "SettingsViewController")
+  }
   internal enum Tasks: StoryboardType {
     internal static let storyboardName = "Tasks"
 

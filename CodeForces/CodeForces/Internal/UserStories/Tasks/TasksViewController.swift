@@ -48,6 +48,7 @@ private extension TasksViewController {
     func configureTableView() {
         tableView.separatorStyle = .none
         tableView.register(cellType: TaskCell.self)
+        
         tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(refreshTasksTable(_:)), for: .valueChanged)
     }
@@ -122,7 +123,6 @@ extension TasksViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         let scope = SearchScope(rawValue: searchBar.selectedScopeButtonIndex)!
-        
         searchBarFilter(searchBar, textDidChange: searchBar.text, scope: scope)
     }
 }

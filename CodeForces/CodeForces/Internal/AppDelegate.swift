@@ -16,8 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tasksVC.context = NetworkService()
         let tasksNC = UINavigationController(rootViewController: tasksVC)
         
+        let settingsVC = StoryboardScene.Settings.settingsViewController.instantiate()
+        settingsVC.title = L10n.SettingsVc.title
+        let settingsNC = UINavigationController(rootViewController: settingsVC)
+        
         let tabBarController = UITabBarController()
-        tabBarController.setViewControllers([contestsNC, tasksNC], animated: false)
+        tabBarController.setViewControllers([contestsNC, tasksNC, settingsNC], animated: false)
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = tabBarController

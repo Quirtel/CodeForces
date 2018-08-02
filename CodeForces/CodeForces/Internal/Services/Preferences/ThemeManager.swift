@@ -7,6 +7,29 @@ enum Theme: Int {
     case light
     case dark
     
+    var index: Int {
+        switch self {
+        case .light:
+            return 0
+        case .dark:
+            return 1
+
+        }
+    }
+    
+    init(index: Int) {
+        switch index {
+        case 0:
+            self = .light
+        case 1:
+            self = .dark
+        default:
+            self = .dark
+        }
+    }
+}
+
+extension Theme {
     var mainColor: UIColor {
         switch self {
         case .light:
@@ -28,9 +51,18 @@ enum Theme: Int {
     var cellColor: UIColor {
         switch self {
         case .light:
-            return .colorFromHexString("ffffff")
+            return .colorFromHexString("edecee")
         case .dark:
-            return .colorFromHexString("171f27")
+            return .colorFromHexString("161d23")
+        }
+    }
+    
+    var highlightedCellColor: UIColor {
+        switch self {
+        case .light:
+            return .colorFromHexString("cbcacc")
+        case .dark:
+            return .colorFromHexString("353f4b")
         }
     }
     
@@ -111,7 +143,26 @@ enum Theme: Int {
             return .colorFromHexString("289bff")
         }
     }
+    
+    var checkmarkColor: UIColor {
+        switch self {
+        case .light:
+            return .colorFromHexString("289bff")
+        case .dark:
+            return .colorFromHexString("289bff")
+        }
+    }
+    
+    var separatorColor: UIColor {
+        switch self {
+        case .light:
+            return .colorFromHexString("289bff")
+        case .dark:
+            return .colorFromHexString("161c24")
+        }
+    }
 }
+
 
 class ThemeManager {
     
@@ -137,7 +188,8 @@ class ThemeManager {
         
         UITabBar.appearance().tintColor = theme.tapBarTintColor
         UITabBar.appearance().barTintColor = theme.tapBarBarTintColor
-
+        
+        UITableViewCell.appearance().tintColor = theme.checkmarkColor
 
     }
 }

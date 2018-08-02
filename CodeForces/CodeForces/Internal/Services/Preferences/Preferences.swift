@@ -25,4 +25,16 @@ class Preferences {
             return .light
         }
     }
+    
+    var selectedCacheTime: CacheTime {
+        set {
+            settings[.cacheTimeKey] = newValue.rawValue
+        }
+        get {
+            if let cacheTime = CacheTime(rawValue: settings[.cacheTimeKey]) {
+                return cacheTime
+            }
+            return .never
+        }
+    }
 }
