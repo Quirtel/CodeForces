@@ -22,9 +22,7 @@ class TasksViewController: UIViewController {
     
     private let searchController = UISearchController(searchResultsController: nil)
     
-    var context: NetworkService?
-
-    let theme = ThemeManager(preferences: Preferences())
+    var context: Context?
     
     private lazy var refreshControl: UIRefreshControl = {
         let refresh = UIRefreshControl()
@@ -50,11 +48,10 @@ class TasksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.backgroundView = nil
-        tableView.backgroundColor = theme.currentTheme.backgroundColor
-        
+        subscribeOnThemeChange()
         configureTableView()
         configureSearchController()
+        applyTheme()
         fetchTasks()
         
         NotificationCenter.default.addObserver(
@@ -87,12 +84,28 @@ class TasksViewController: UIViewController {
         tableView.contentInset = contentInset
         tableView.scrollIndicatorInsets = contentInset
     }
+    
+    private func subscribeOnThemeChange() {
+        NotificationCenter.default.addObserver(
+        forName: .preferencesChangeTheme, object: nil, queue: nil) { [weak self] _ in
+            self?.applyTheme()
+            self?.tableView.reloadData()
+        }
+    }
+    
+    private func applyTheme() {
+        if let context = self.context {
+            tableView.backgroundView = nil
+            tableView.backgroundColor = context.preferences.selectedTheme.backgroundColor
+        }
+    }
 }
 
 private extension TasksViewController {
     func configureTableView() {
         tableView.separatorStyle = .none
         tableView.register(cellType: TaskCell.self)
+
         addRefreshControl()
     }
     
@@ -129,7 +142,7 @@ private extension TasksViewController {
         let request = ProblemSetProblemsRequest()
         isFetchingData = true
         refreshControl.beginRefreshing()
-        context?.fetchProblemSetProblems(requestParams: request, { [weak self] result in
+        context?.contentService.fetchProblemSetProblems(withRequestParams: request, { [weak self] result in
             guard let sself = self else { return }
             sself.isFetchingData = false
             sself.refreshControl.endRefreshing()
@@ -137,6 +150,7 @@ private extension TasksViewController {
             case .success(let problems): sself.updateTableView(withProblems: problems)
             case .error(let error): sself.showError(error)
             }
+
         })
     }
     
@@ -178,7 +192,6 @@ extension TasksViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         let scope = SearchScope(rawValue: searchBar.selectedScopeButtonIndex)!
-        
         searchBarFilter(searchBar, textDidChange: searchBar.text, scope: scope)
     }
 }
@@ -238,7 +251,7 @@ extension TasksViewController: UITableViewDataSource {
         if isSearchActive {
             model = filtered[indexPath.row]
         } else { model = data[indexPath.row] }
-        cell.configure(with: model)
+        cell.configure(with: model, theme: context?.preferences.selectedTheme ?? .light)
         return cell
     }
 }

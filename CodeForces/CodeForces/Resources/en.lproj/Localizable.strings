@@ -26,4 +26,19 @@
 "Tasks_VC.SearchScope.title.name" = "Names";
 
 
+// SettingsVC
+
+"Settings_VC.title" = "Settings";
+"Settings_VC.theme.title" = "Theme:";
+"Settings_VC.theme.light" = "Light";
+"Settings_VC.theme.dark" = "Dark";
+"Settings_VC.cache.title" = "Cache time:";
+"Settings_VC.cache.time.never" = "Never";
+"Settings_VC.cache.time.oneday" = "One day";
+"Settings_VC.cache.time.twodays" = "Two days";
+"Settings_VC.cache.time.threedays" = "Three days";
+"Settings_VC.cache.time.week" = "Week";
+
+
+
 

@@ -74,6 +74,7 @@
 		3F8EDBC7211070D4009F0ED1 /* HackRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EDBB8211070D4009F0ED1 /* HackRealm.generated.swift */; };
 		3F8EDBCA211073B9009F0ED1 /* ContestStandingsRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EDBC8211073B9009F0ED1 /* ContestStandingsRealm.generated.swift */; };
 		3F8EDBCB211073B9009F0ED1 /* ProblemSetProblemsRealm.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EDBC9211073B9009F0ED1 /* ProblemSetProblemsRealm.generated.swift */; };
+		3F93B5C92112BCB500437582 /* CacheTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F93B5C82112BCB500437582 /* CacheTime.swift */; };
 		3FD1A48B2109C8C800AF0B45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A48A2109C8C800AF0B45 /* AppDelegate.swift */; };
 		3FD1A4922109C8C800AF0B45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A4912109C8C800AF0B45 /* Assets.xcassets */; };
 		3FD1A4A02109C8C800AF0B45 /* NetworkContestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A49F2109C8C800AF0B45 /* NetworkContestTests.swift */; };
@@ -82,6 +83,11 @@
 		3FD1A4C12109D2CA00AF0B45 /* Contests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A4C02109D2CA00AF0B45 /* Contests.storyboard */; };
 		3FD1A4C32109D31600AF0B45 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A4C22109D31600AF0B45 /* TasksViewController.swift */; };
 		3FD1A4C52109D32800AF0B45 /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1A4C42109D32800AF0B45 /* Tasks.storyboard */; };
+		3FED51D72111CB1800B0D3CA /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FED51D62111CB1800B0D3CA /* Settings.storyboard */; };
+		3FED51DB2111CBC600B0D3CA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED51DA2111CBC600B0D3CA /* SettingsViewController.swift */; };
+		3FED51DE2111CD0E00B0D3CA /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED51DD2111CD0E00B0D3CA /* SettingsCell.swift */; };
+		3FED51E02111CD5600B0D3CA /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FED51DF2111CD5600B0D3CA /* SettingsCell.xib */; };
+		3FED51E22111D2AA00B0D3CA /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED51E12111D2AA00B0D3CA /* SettingsModel.swift */; };
 		3FED5383210C1F6D00878EAD /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED5382210C1F6D00878EAD /* NetworkService.swift */; };
 		3FED5385210C238100878EAD /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED5384210C238100878EAD /* Errors.swift */; };
 		3FEE50772110311D00DAD19D /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE50762110311D00DAD19D /* Rating.swift */; };
@@ -194,6 +200,7 @@
 		3F8EDBB8211070D4009F0ED1 /* HackRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HackRealm.generated.swift; sourceTree = "<group>"; };
 		3F8EDBC8211073B9009F0ED1 /* ContestStandingsRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContestStandingsRealm.generated.swift; sourceTree = "<group>"; };
 		3F8EDBC9211073B9009F0ED1 /* ProblemSetProblemsRealm.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemSetProblemsRealm.generated.swift; sourceTree = "<group>"; };
+		3F93B5C82112BCB500437582 /* CacheTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheTime.swift; sourceTree = "<group>"; };
 		3FD1A4872109C8C800AF0B45 /* CodeForces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeForces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD1A48A2109C8C800AF0B45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FD1A4912109C8C800AF0B45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -208,6 +215,11 @@
 		3FD1A4C02109D2CA00AF0B45 /* Contests.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Contests.storyboard; sourceTree = "<group>"; };
 		3FD1A4C22109D31600AF0B45 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		3FD1A4C42109D32800AF0B45 /* Tasks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tasks.storyboard; sourceTree = "<group>"; };
+		3FED51D62111CB1800B0D3CA /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		3FED51DA2111CBC600B0D3CA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		3FED51DD2111CD0E00B0D3CA /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		3FED51DF2111CD5600B0D3CA /* SettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
+		3FED51E12111D2AA00B0D3CA /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		3FED5382210C1F6D00878EAD /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		3FED5384210C238100878EAD /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		3FEE50762110311D00DAD19D /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
@@ -307,6 +319,7 @@
 				3F0B067B21105F97003AB9F1 /* Preferences.swift */,
 				3FF1C5082111776500B13FA3 /* DefaultsKeys+Extension.swift */,
 				3F1ACA16211178CA00C86460 /* ThemeManager.swift */,
+				3F93B5C82112BCB500437582 /* CacheTime.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -520,6 +533,8 @@
 		3FD1A4BB2109D26800AF0B45 /* UserStories */ = {
 			isa = PBXGroup;
 			children = (
+				3FED51D52111CAEC00B0D3CA /* Settings */,
+				3FD1A4B82109D1DD00AF0B45 /* Common */,
 				3FD1A4BD2109D28000AF0B45 /* Tasks */,
 				3FD1A4BC2109D27400AF0B45 /* Contests */,
 			);
@@ -577,6 +592,26 @@
 				3F2432D9210F0CC100B9A00B /* TaskCellModel.swift */,
 				3F0B067221104743003AB9F1 /* TaskCell.swift */,
 				3F0B067321104743003AB9F1 /* TaskCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3FED51D52111CAEC00B0D3CA /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3FED51DC2111CCA000B0D3CA /* Cell */,
+				3FED51DA2111CBC600B0D3CA /* SettingsViewController.swift */,
+				3FED51D62111CB1800B0D3CA /* Settings.storyboard */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		3FED51DC2111CCA000B0D3CA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3FED51E12111D2AA00B0D3CA /* SettingsModel.swift */,
+				3FED51DD2111CD0E00B0D3CA /* SettingsCell.swift */,
+				3FED51DF2111CD5600B0D3CA /* SettingsCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -806,6 +841,8 @@
 				557E3495210ACBD80057E43A /* LaunchScreen.storyboard in Resources */,
 				3F0B067521104743003AB9F1 /* TaskCell.xib in Resources */,
 				3FD1A4C52109D32800AF0B45 /* Tasks.storyboard in Resources */,
+				3FED51E02111CD5600B0D3CA /* SettingsCell.xib in Resources */,
+				3FED51D72111CB1800B0D3CA /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -944,17 +981,20 @@
 				3F8EDBC4211070D4009F0ED1 /* ProblemStatisticsRealm.generated.swift in Sources */,
 				3F1ACA1921117D2F00C86460 /* UIColor+Extension.swift in Sources */,
 				3FED5385210C238100878EAD /* Errors.swift in Sources */,
+				3FED51DE2111CD0E00B0D3CA /* SettingsCell.swift in Sources */,
 				3F38A127210B1B40008E98C6 /* ProblemType.swift in Sources */,
 				3FEE50772110311D00DAD19D /* Rating.swift in Sources */,
 				557E349D210ACF880057E43A /* Localization.swift in Sources */,
 				3F8EDBC1211070D4009F0ED1 /* JudgeProtocolRealm.generated.swift in Sources */,
 				3F38A12C210B1B40008E98C6 /* Party.swift in Sources */,
+				3FED51E22111D2AA00B0D3CA /* SettingsModel.swift in Sources */,
 				3F8C011E210ED64800C761E0 /* CStatus.swift in Sources */,
 				3F8EDBC6211070D4009F0ED1 /* ContestRealm.generated.swift in Sources */,
 				3F8EDBCB211073B9009F0ED1 /* ProblemSetProblemsRealm.generated.swift in Sources */,
 				3F38A12D210B1B40008E98C6 /* Contest.swift in Sources */,
 				3F303793210C47F5000B384F /* Standings.swift in Sources */,
 				3F38A133210B1B40008E98C6 /* JudgeProtocol.swift in Sources */,
+				3FED51DB2111CBC600B0D3CA /* SettingsViewController.swift in Sources */,
 				3F137099210F4928002776D2 /* RealmPersistable.swift in Sources */,
 				3F8EDBBF211070D4009F0ED1 /* ProblemResultRealm.generated.swift in Sources */,
 				3FEE5079211031E800DAD19D /* UStatus.swift in Sources */,
@@ -979,6 +1019,7 @@
 				3F8EDBBD211070D4009F0ED1 /* ProblemRealm.generated.swift in Sources */,
 				3FF1C5092111776500B13FA3 /* DefaultsKeys+Extension.swift in Sources */,
 				3F38A128210B1B40008E98C6 /* TestSet.swift in Sources */,
+				3F93B5C92112BCB500437582 /* CacheTime.swift in Sources */,
 				3F38A13D210B2373008E98C6 /* Response.swift in Sources */,
 				3F38A12E210B1B40008E98C6 /* Member.swift in Sources */,
 				3F303795210C5243000B384F /* ProblemSetAPI.swift in Sources */,

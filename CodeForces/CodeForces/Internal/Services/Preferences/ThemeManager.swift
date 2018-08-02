@@ -7,6 +7,29 @@ enum Theme: Int {
     case light
     case dark
     
+    var index: Int {
+        switch self {
+        case .light:
+            return 0
+        case .dark:
+            return 1
+
+        }
+    }
+    
+    init(index: Int) {
+        switch index {
+        case 0:
+            self = .light
+        case 1:
+            self = .dark
+        default:
+            self = .dark
+        }
+    }
+}
+
+extension Theme {
     var mainColor: UIColor {
         switch self {
         case .light:
@@ -28,9 +51,18 @@ enum Theme: Int {
     var cellColor: UIColor {
         switch self {
         case .light:
-            return .colorFromHexString("ffffff")
+            return .colorFromHexString("edecee")
         case .dark:
-            return .colorFromHexString("171f27")
+            return .colorFromHexString("161d23")
+        }
+    }
+    
+    var highlightedCellColor: UIColor {
+        switch self {
+        case .light:
+            return .colorFromHexString("cbcacc")
+        case .dark:
+            return .colorFromHexString("353f4b")
         }
     }
     
@@ -111,23 +143,30 @@ enum Theme: Int {
             return .colorFromHexString("289bff")
         }
     }
+    
+    var cellTintColor: UIColor {
+        switch self {
+        case .light:
+            return .colorFromHexString("289bff")
+        case .dark:
+            return .colorFromHexString("289bff")
+        }
+    }
+    
+    var separatorColor: UIColor {
+        switch self {
+        case .light:
+            return .colorFromHexString("cbcacc")
+        case .dark:
+            return .colorFromHexString("161c24")
+        }
+    }
 }
+
 
 class ThemeManager {
     
-    private let preferences: Preferences
-    var currentTheme: Theme {
-        return preferences.selectedTheme
-    }
-    
-    init(preferences: Preferences) {
-        self.preferences = preferences
-        applyTheme(theme: preferences.selectedTheme)
-    }
-    
-    func applyTheme(theme: Theme) {
-        preferences.selectedTheme = theme
-        
+    static func applyTheme(theme: Theme) {
         let sharedApplication = UIApplication.shared
         sharedApplication.delegate?.window??.tintColor = theme.mainColor
         
@@ -135,11 +174,68 @@ class ThemeManager {
         UINavigationBar.appearance().barTintColor = theme.navigationBarBarTintColor
         UINavigationBar.appearance().tintColor = theme.navigationBarTintColor
         
+
         UITabBar.appearance().tintColor = theme.tabBarTintColor
         UITabBar.appearance().barTintColor = theme.tabBarBarTintColor
-
-
+        
+        UITableViewCell.appearance().tintColor = theme.cellTintColor
     }
 }
 
+class CustomNavigationController: UINavigationController {
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        self.subscribeOnThemeChange()
+    }
+    
+    override init(rootViewController: UIViewController) {
+        super.init(rootViewController: rootViewController)
+        
+        self.subscribeOnThemeChange()
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+         self.subscribeOnThemeChange()
+    }
+    
+    private func subscribeOnThemeChange() {
+        NotificationCenter.default.addObserver(
+        forName: .preferencesChangeTheme, object: nil, queue: nil) { [weak self] notif in
+            if let theme = notif.object as? Theme {
+                self?.navigationBar.barStyle = theme.barStyle
+                self?.navigationBar.barTintColor = theme.navigationBarBarTintColor
+                self?.navigationBar.tintColor = theme.navigationBarTintColor
+            }
+        }
+    }
+}
+
+class CustomTabBarController: UITabBarController {
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        self.subscribeOnThemeChange()
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+
+        self.subscribeOnThemeChange()
+    }
+    
+    private func subscribeOnThemeChange() {
+        NotificationCenter.default.addObserver(
+        forName: .preferencesChangeTheme, object: nil, queue: nil) { [weak self] notif in
+            if let theme = notif.object as? Theme {
+                self?.tabBar.tintColor = theme.tabBarTintColor
+                self?.tabBar.barTintColor = theme.tabBarBarTintColor
+            }
+        }
+    }
+}
 

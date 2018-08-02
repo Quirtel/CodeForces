@@ -30,7 +30,7 @@ class ContestInfoViewController: UIViewController {
     var currentOffsetStatus = 0
     var currentSearchQuery = String()
     
-    private var context = NetworkService()
+    private var context: Context?
     
     private var shouldFetchStandings = true
     private var shouldFetchStatus = true
@@ -118,31 +118,30 @@ class ContestInfoViewController: UIViewController {
             return
         }
         
-        context.fetchContestStandings(
-            requestParams: ContestStandingsRequest(
-                contestId: contestId, from: 1, count: 1,
-                handles: nil, room: nil, showUnofficial: false), {[weak self] result in
+        let request = ContestStandingsRequest(
+            contestId: contestId, from: 1, count: 1,
+            handles: nil, room: nil, showUnofficial: false)
+        
+        context?.contentService.fetchContestStandings(
+            withRequestParams: request, { [weak self] result in
+                guard let strongSelf = self else { return }
+                
+                switch result {
+                case .success(let list):
+                    strongSelf.contestProblems = list.problems
                     
-                    guard let strongSelf = self else { return }
+                    strongSelf.tableView.setContentOffset(
+                        strongSelf.tableView.contentOffset, animated: true)
                     
-                    switch result {
-                    case .success(let list):
-                        
-                        strongSelf.contestProblems = list.problems
-                        
-                        strongSelf.tableView.setContentOffset(
-                            strongSelf.tableView.contentOffset, animated: true)
-                        
-                        strongSelf.spinner.isHidden = true
-                        
-                        strongSelf.refresherPulled = false
-                        strongSelf.refreshControl.endRefreshing()
-                        
-                        strongSelf.tableView.reloadData()
-                    case .error(let error):
-                        print(error)
-                    }
+                    strongSelf.spinner.isHidden = true
                     
+                    strongSelf.refresherPulled = false
+                    strongSelf.refreshControl.endRefreshing()
+                    
+                    strongSelf.tableView.reloadData()
+                case .error(let error):
+                    print(error)
+                }
         })
     }
     
@@ -166,16 +165,15 @@ class ContestInfoViewController: UIViewController {
             }
         }
         
-        
-        context.fetchContestStatus(
-            requestParams: ContestStatusRequest(
-                contestId: contestId, handle: handleToSearch, from: offset, count: count), { [weak self] result in
+        let request = ContestStatusRequest(
+            contestId: contestId, handle: handleToSearch, from: offset, count: count)
+        context?.contentService.fetchContestStatus(
+            withRequestParams: request, { [weak self] result in
                     
                     guard let strongSelf = self else { return }
                     
                     switch result {
                     case .success(let list):
-                        
                         
                         if let handle = handleToSearch {
                             if strongSelf.refresherPulled {
@@ -244,17 +242,17 @@ class ContestInfoViewController: UIViewController {
         }
         
         shouldFetchStandings = false
-        context.fetchContestStandings(
-            requestParams: ContestStandingsRequest(
-                contestId: contestId, from: offset, count: count,
-                handles: handlesArrayToSearch, room: nil, showUnofficial: false), {[weak self] result in
+        let request = ContestStandingsRequest(
+            contestId: contestId, from: offset, count: count,
+            handles: handlesArrayToSearch, room: nil, showUnofficial: false)
+        
+        context?.contentService.fetchContestStandings(
+            withRequestParams: request, {[weak self] result in
                     
                     guard let strongSelf = self else { return }
                     
                     switch result {
                     case .success(let list):
-                        
-                        
                         if let handles = handlesArrayToSearch {
                             if strongSelf.refresherPulled {
                                 strongSelf.filteredRanklistRows.removeAll()
@@ -304,7 +302,6 @@ class ContestInfoViewController: UIViewController {
                         print(error)
                         strongSelf.tableView.reloadData()
                     }
-                    
         })
     }
     
@@ -441,7 +438,7 @@ extension ContestInfoViewController: UITableViewDataSource {
             let model = TaskCellModel(
                 contestId: String(contestId), name: currentTask.name, tags: currentTask.tags, solvedCount: nil, index: currentTask.index)
             
-            taskCell.configure(with: model)
+            taskCell.configure(with: model, theme: context?.preferences.selectedTheme ?? .light)
             
             return taskCell
         case .standings:
