@@ -56,6 +56,36 @@ class TasksViewController: UIViewController {
         configureTableView()
         configureSearchController()
         fetchTasks()
+        
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(storyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(storyboardDidHide), name: .UIKeyboardDidHide, object: nil)
+    }
+    
+    @objc private func storyboardWillShow(notification: Notification) {
+        if #available(iOS 11.0, *) {
+            let u = tableView.adjustedContentInset
+        }
+        
+        guard let userInfo = notification.userInfo else { return }
+        guard let value =
+            (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue) else { return }
+        let keyboardFrame = view.convert(value.cgRectValue, from: nil)
+        let tableViewFrame = tableView.frame
+        let hiddenTableViewRect = tableViewFrame.intersection(keyboardFrame)
+        let contentInsets = UIEdgeInsetsMake(0, 0, hiddenTableViewRect.size.height, 0)
+        //contentInset.bottom = keyboardFrame.size.height
+
+        tableView.contentInset = contentInsets
+        tableView.scrollIndicatorInsets = contentInsets
+        
+    }
+    
+    @objc private func storyboardDidHide(notification: Notification) {
+        let contentInset = UIEdgeInsets.zero
+        tableView.contentInset = contentInset
+        tableView.scrollIndicatorInsets = contentInset
     }
 }
 
