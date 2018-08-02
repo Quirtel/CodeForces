@@ -10,7 +10,7 @@ final class NetworkService {
         provider: MoyaProvider<Target>,
         target: Target,
         completion: @escaping (Result<ResultType>) -> ()) {
-        provider.request(target) { result in
+        provider.request(target, callbackQueue: DispatchQueue.global()) { result in
             switch result {
             case let .success(moyaResponse):
                 switch moyaResponse.statusCode {
