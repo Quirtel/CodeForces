@@ -7,4 +7,6 @@ struct TaskCellModel {
     let tags: [String]
     let solvedCount: String?
     let index: String
+    let rejectedAttemptCount: String?
+    let points: String?
 }

@@ -124,7 +124,7 @@ private extension TasksViewController {
     func configureTableView() {
         tableView.separatorStyle = .none
         tableView.register(cellType: TaskCell.self)
-
+        
         addRefreshControl()
     }
     
@@ -161,7 +161,8 @@ private extension TasksViewController {
         let request = ProblemSetProblemsRequest()
         isFetchingData = true
         refreshControl.beginRefreshing()
-        context?.contentService.fetchProblemSetProblems(withRequestParams: request, { [weak self] result in
+        context?.contentService.fetchProblemSetProblems(withRequestParams: request, force: true, {
+            [weak self] result in
             guard let sself = self else { return }
             sself.isFetchingData = false
             sself.refreshControl.endRefreshing()
@@ -169,7 +170,7 @@ private extension TasksViewController {
             case .success(let problems): sself.updateTableView(withProblems: problems)
             case .error(let error): sself.showError(error)
             }
-
+            
         })
     }
     
@@ -199,7 +200,7 @@ private extension TasksViewController {
                 name: problem.name,
                 tags: problem.tags,
                 solvedCount: solvedCount,
-                index: problem.index)
+                index: problem.index, rejectedAttemptCount: nil, points: nil)
             
             return model
         }

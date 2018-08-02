@@ -77,6 +77,11 @@ internal enum StoryboardScene {
 
     internal static let tasksViewController = SceneType<CodeForces.TasksViewController>(storyboard: Tasks.self, identifier: "TasksViewController")
   }
+  internal enum UserContestStatusViewController: StoryboardType {
+    internal static let storyboardName = "UserContestStatusViewController"
+
+    internal static let initialScene = InitialSceneType<CodeForces.UserContestStatusViewController>(storyboard: UserContestStatusViewController.self)
+  }
 }
 
 internal enum StoryboardSegue {
