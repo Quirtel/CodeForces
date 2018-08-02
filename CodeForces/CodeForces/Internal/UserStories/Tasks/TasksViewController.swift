@@ -56,7 +56,7 @@ class TasksViewController: UIViewController {
         configureTableView()
         configureSearchController()
         applyTheme()
-        fetchTasks()
+        fetchTasks(force: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -154,14 +154,14 @@ private extension TasksViewController {
 
 private extension TasksViewController {
     @objc private func refreshTasksTable(_ sender: Any) {
-        fetchTasks()
+        fetchTasks(force: true)
     }
     
-    func fetchTasks() {
+    func fetchTasks(force: Bool) {
         let request = ProblemSetProblemsRequest()
         isFetchingData = true
         refreshControl.beginRefreshing()
-        context?.contentService.fetchProblemSetProblems(withRequestParams: request, force: true, {
+        context?.contentService.fetchProblemSetProblems(withRequestParams: request, force: force, {
             [weak self] result in
             guard let sself = self else { return }
             sself.isFetchingData = false
