@@ -26,16 +26,24 @@ class ContestsViewController: UIViewController {
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action:
-            #selector(self.handleRefresh(_:)),
-                                 for: UIControlEvents.valueChanged)
-        refreshControl.tintColor = UIColor.red
-        
+        refreshControl.addTarget(
+            self, action: #selector(self.handleRefresh(_:)), for: UIControlEvents.valueChanged)
         return refreshControl
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        extendedLayoutIncludesOpaqueBars = true
+        
+        setupTableView()
+        setupSearchController()
+        setupFormatters()
+        fetchContestList()
+    }
+    
+    
+    func setupTableView() {
         tableView.register(cellType: ContestCell.self)
         
         spinner.startAnimating()
@@ -45,40 +53,25 @@ class ContestsViewController: UIViewController {
             self.tableView.tableFooterView?.isHidden = true
         }))
         
+        tableView.separatorStyle = .none
         tableView.tableFooterView = spinner
         tableView.tableFooterView?.isHidden = false
-        
         tableView.refreshControl = refreshControl
-        self.extendedLayoutIncludesOpaqueBars = true
-        
-        setupSearchController()
-        
-        if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.prefersLargeTitles = true
-            navigationItem.hidesSearchBarWhenScrolling = true
-            self.navigationItem.searchController = searchController
-        } else {
-            // Fallback on earlier versions
-        }
-        setupFormatters()
-        
-        fetchContestList()
     }
     
     func setupSearchController() {
-        definesPresentationContext = true
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
-        
         searchController.hidesNavigationBarDuringPresentation = true
         
         if #available(iOS 11.0, *) {
-            
+            navigationItem.searchController = searchController
         } else {
             tableView.tableHeaderView = searchController.searchBar
         }
         
         searchController.definesPresentationContext = true
+        definesPresentationContext = true
     }
     
     func setupFormatters() {
@@ -138,18 +131,16 @@ extension ContestsViewController: UITableViewDataSource {
         return 2
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
-        -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(for: indexPath) as ContestCell
             
             let sectionName = SectionsNames(rawValue: indexPath.section)!
             
-            // MARK: -Search Bar is Active
             if searchController.isActive && searchController.searchBar.text != "" {
                 cell.contestName.text = filteredContests[indexPath.row].name
                 
                 let startTime = Date(timeIntervalSince1970: TimeInterval(filteredContests[indexPath.row].startTimeSeconds!))
-                let duration: TimeInterval = TimeInterval(filteredContests[indexPath.row].durationSeconds)
+                let duration = TimeInterval(filteredContests[indexPath.row].durationSeconds)
                 
                 cell.status.text = relativeTimeFormatter.string(from: startTime)
                 cell.durationTime.text = formatter.string(from: duration)
@@ -161,8 +152,9 @@ extension ContestsViewController: UITableViewDataSource {
             
             switch sectionName {
             case .upcoming:
+                cell.accessoryType = .none
                 cell.contestName.text = upcomingContests[indexPath.row].name
-                let duration: TimeInterval = TimeInterval(upcomingContests[indexPath.row].durationSeconds)
+                let duration = TimeInterval(upcomingContests[indexPath.row].durationSeconds)
                 let startTime = Date(timeIntervalSince1970:
                     TimeInterval(upcomingContests[indexPath.row].startTimeSeconds!))
                 
@@ -220,10 +212,6 @@ extension ContestsViewController: UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
-    }
-    
     func filterRowsForSearchedText(_ searchText: String) {
         filteredContests = finishedContests.filter({( model : Contest) -> Bool in
             return model.name.lowercased().contains(searchText.lowercased())
@@ -253,8 +241,6 @@ extension ContestsViewController: UITableViewDelegate {
         }
         
         navigationController?.pushViewController(nextViewController, animated: true)
-        
-        tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
     }
 }
 

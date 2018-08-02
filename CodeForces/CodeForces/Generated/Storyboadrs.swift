@@ -56,7 +56,7 @@ internal enum StoryboardScene {
   internal enum Contests: StoryboardType {
     internal static let storyboardName = "Contests"
 
-    internal static let initialScene = InitialSceneType<UINavigationController>(storyboard: Contests.self)
+    internal static let initialScene = InitialSceneType<CodeForces.ContestsViewController>(storyboard: Contests.self)
 
     internal static let contestInfoViewController = SceneType<CodeForces.ContestInfoViewController>(storyboard: Contests.self, identifier: "ContestInfoViewController")
 
