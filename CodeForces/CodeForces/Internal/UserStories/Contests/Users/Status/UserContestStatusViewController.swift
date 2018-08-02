@@ -25,7 +25,6 @@ class UserContestStatusViewController: UIViewController {
         for it in 0..<tasks.count {
             self.tasks.append(TaskCellModel(contestId: contestId, name: tasks[it].name, tags: tasks[it].tags, solvedCount: nil, index: tasks[it].index, rejectedAttemptCount: String(ranklistRow.problemResults[it].rejectedAttemptCount), points: String(ranklistRow.problemResults[it].points.rounded())))
         }
-        
     }
     
     func setupTableView() {
@@ -62,6 +61,17 @@ extension UserContestStatusViewController: UITableViewDataSource {
         }
         
         return 0
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Пользователи"
+        }
+        if section == 1 {
+            return "Задачи"
+        }
+        
+        return ""
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
