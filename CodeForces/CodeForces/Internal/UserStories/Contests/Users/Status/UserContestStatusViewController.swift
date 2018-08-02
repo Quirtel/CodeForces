@@ -1,5 +1,7 @@
 import UIKit
+import WebKit
 import Reusable
+import SwiftSoup
 
 private enum sectionsNames: Int {
     case party = 0
@@ -17,7 +19,6 @@ class UserContestStatusViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        
     }
     
     func configure(contestId: String, ranklistRow: RanklistRow, tasks: [Problem]) {
@@ -31,17 +32,17 @@ class UserContestStatusViewController: UIViewController {
         tableView.register(cellType: TaskCell.self)
         tableView.register(cellType: UserInfoCell.self)
         
-//        spinner.startAnimating()
-//        spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
-//
-//        alertResponseError.addAction(UIAlertAction(title: "OK" , style: .default, handler: { _ in
-//            self.tableView.tableFooterView?.isHidden = true
-//        }))
-//
-//        tableView.separatorStyle = .none
-//        tableView.tableFooterView = spinner
-//        tableView.tableFooterView?.isHidden = false
-//        tableView.refreshControl = refreshControl
+        //        spinner.startAnimating()
+        //        spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+        //
+        //        alertResponseError.addAction(UIAlertAction(title: "OK" , style: .default, handler: { _ in
+        //            self.tableView.tableFooterView?.isHidden = true
+        //        }))
+        //
+        //        tableView.separatorStyle = .none
+        //        tableView.tableFooterView = spinner
+        //        tableView.tableFooterView?.isHidden = false
+        //        tableView.refreshControl = refreshControl
     }
 }
 
@@ -73,7 +74,7 @@ extension UserContestStatusViewController: UITableViewDataSource {
         
         return ""
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let currentSection = sectionsNames(rawValue: indexPath.section)!
@@ -91,5 +92,22 @@ extension UserContestStatusViewController: UITableViewDataSource {
             return cell
         }
         
+    }
+}
+
+extension UserContestStatusViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            
+            let nextVC =
+                StoryboardScene.ProblemViewController.problemViewController.instantiate()
+            
+            nextVC.configure(with: tasks[indexPath.row])
+            
+            navigationController?.pushViewController(nextVC, animated: true)
+            
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

@@ -14,6 +14,7 @@ class TaskCell: UITableViewCell {
     
     
     private var tagsView: TagListView!
+    private var contestId = String()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -65,6 +66,7 @@ class TaskCell: UITableViewCell {
         }
         
         letterTaskLabel.text = model.index
+        contestId = model.contestId
         
         configureCell(theme: theme)
     }

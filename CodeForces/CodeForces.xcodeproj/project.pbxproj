@@ -95,6 +95,8 @@
 		3FF1C50721116FEE00B13FA3 /* PhaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A118210B1B40008E98C6 /* PhaseType.swift */; };
 		3FF1C5092111776500B13FA3 /* DefaultsKeys+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF1C5082111776500B13FA3 /* DefaultsKeys+Extension.swift */; };
 		3FFBDFCC2111D4A800ABD8A0 /* ContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFBDFCB2111D4A800ABD8A0 /* ContentService.swift */; };
+		49061EC5211337A000C2D550 /* ProblemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49061EC4211337A000C2D550 /* ProblemViewController.swift */; };
+		49061EC7211337B700C2D550 /* ProblemViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49061EC6211337B700C2D550 /* ProblemViewController.storyboard */; };
 		491A7587210ECFFE00536CE1 /* ContestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A757E210ECFFE00536CE1 /* ContestCell.swift */; };
 		491A7588210ECFFE00536CE1 /* ContestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491A757F210ECFFE00536CE1 /* ContestCell.xib */; };
 		491A7589210ECFFE00536CE1 /* StandingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491A7581210ECFFE00536CE1 /* StandingsCell.xib */; };
@@ -232,6 +234,8 @@
 		3FEE5078211031E800DAD19D /* UStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UStatus.swift; sourceTree = "<group>"; };
 		3FF1C5082111776500B13FA3 /* DefaultsKeys+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultsKeys+Extension.swift"; sourceTree = "<group>"; };
 		3FFBDFCB2111D4A800ABD8A0 /* ContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentService.swift; sourceTree = "<group>"; };
+		49061EC4211337A000C2D550 /* ProblemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemViewController.swift; sourceTree = "<group>"; };
+		49061EC6211337B700C2D550 /* ProblemViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProblemViewController.storyboard; sourceTree = "<group>"; };
 		491A757E210ECFFE00536CE1 /* ContestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContestCell.swift; sourceTree = "<group>"; };
 		491A757F210ECFFE00536CE1 /* ContestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContestCell.xib; sourceTree = "<group>"; };
 		491A7581210ECFFE00536CE1 /* StandingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandingsCell.xib; sourceTree = "<group>"; };
@@ -555,6 +559,7 @@
 		3FD1A4BC2109D27400AF0B45 /* Contests */ = {
 			isa = PBXGroup;
 			children = (
+				49061EC32113377D00C2D550 /* Browser */,
 				493D4E322112E52000EC9863 /* Users */,
 				49DA2B3521101C6F001280F8 /* Models */,
 				491A757D210ECFFE00536CE1 /* Contest */,
@@ -669,6 +674,15 @@
 				3FEE5078211031E800DAD19D /* UStatus.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		49061EC32113377D00C2D550 /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				49061EC4211337A000C2D550 /* ProblemViewController.swift */,
+				49061EC6211337B700C2D550 /* ProblemViewController.storyboard */,
+			);
+			path = Browser;
 			sourceTree = "<group>";
 		};
 		491A757D210ECFFE00536CE1 /* Contest */ = {
@@ -889,6 +903,7 @@
 				493D4E3E2112E8C600EC9863 /* UserContestStatusViewController.storyboard in Resources */,
 				491A7589210ECFFE00536CE1 /* StandingsCell.xib in Resources */,
 				557E3495210ACBD80057E43A /* LaunchScreen.storyboard in Resources */,
+				49061EC7211337B700C2D550 /* ProblemViewController.storyboard in Resources */,
 				493D4E3A2112E67F00EC9863 /* UserInfoCell.xib in Resources */,
 				3F0B067521104743003AB9F1 /* TaskCell.xib in Resources */,
 				3FD1A4C52109D32800AF0B45 /* Tasks.storyboard in Resources */,
@@ -990,6 +1005,7 @@
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
 			);
@@ -1001,6 +1017,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
 			);
@@ -1021,6 +1038,7 @@
 				493D4E402112EB3900EC9863 /* UserInfoCellModel.swift in Sources */,
 				3F38A126210B1B40008E98C6 /* ProblemStatistics.swift in Sources */,
 				3F38A129210B1B40008E98C6 /* Submission.swift in Sources */,
+				49061EC5211337A000C2D550 /* ProblemViewController.swift in Sources */,
 				49DA2B3921103B88001280F8 /* StatusCellModel.swift in Sources */,
 				3F2432DA210F0CC100B9A00B /* TaskCellModel.swift in Sources */,
 				3F0B067921105F7C003AB9F1 /* Context.swift in Sources */,
@@ -1280,6 +1298,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EA3GU7E828;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = CodeForces/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1302,6 +1321,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EA3GU7E828;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = CodeForces/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

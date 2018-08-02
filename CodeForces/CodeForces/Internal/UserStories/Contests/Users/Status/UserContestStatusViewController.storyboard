@@ -13,7 +13,7 @@
         <!--User Contest Status View Controller-->
         <scene sceneID="4h3-9h-JYe">
             <objects>
-                <viewController id="0wf-yE-Rlw" customClass="UserContestStatusViewController" customModule="CodeForces" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserContestStatusViewController" id="0wf-yE-Rlw" customClass="UserContestStatusViewController" customModule="CodeForces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bQe-QS-HSS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,7 +37,7 @@
                         <viewLayoutGuide key="safeArea" id="kkB-dh-75H"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="sCF-iG-wKX" id="b8e-ps-a8x"/>
+                        <outlet property="tableView" destination="sCF-iG-wKX" id="gdr-BI-3Ej"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r2U-Xc-0iC" userLabel="First Responder" sceneMemberID="firstResponder"/>
