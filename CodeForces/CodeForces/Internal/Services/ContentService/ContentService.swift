@@ -1,7 +1,7 @@
 import Foundation
 
 class ContentService {
-    private let dayTime = TimeInterval(exactly: 60*60*24)!
+    private let timeToUpdate = TimeInterval(exactly: 60*60*24)!
     private let networkService = NetworkService()
     private let realmService = RealmService()
     
@@ -11,21 +11,21 @@ class ContentService {
         let preferences = Preferences()
         let diff = now.timeIntervalSince(preferences.lastUpdated)
         
-        if diff > dayTime {
+        if diff > timeToUpdate {
             //need to update
             fetchProblemSetProblems(
             withRequestParams: ProblemSetProblemsRequest(
                 tags: nil, problemsetName: nil), force: true) { [weak self] result in
                 if case .success(let problems) = result {
-                    _ = self?.realmService.addProblemSetProblems(problems)
+                    self?.realmService.addProblemSetProblems(problems) { _ in }
                 }
             }
             let gymFalseParams = ContestListRequest(gym: false)
             fetchContestList(
             withRequestParams: gymFalseParams, force: true) { [weak self] result in
                 if case .success(let contests) = result {
-                    _ = self?.realmService.addContestList(
-                        contests, withRequestParams: gymFalseParams)
+                    self?.realmService.addContestList(
+                        contests, withRequestParams: gymFalseParams) { _ in }
                 }
             }
             
@@ -33,8 +33,8 @@ class ContentService {
             fetchContestList(
             withRequestParams: gymTrueParams, force: true) { [weak self] result in
                 if case .success(let contests) = result {
-                    _ = self?.realmService.addContestList(
-                        contests, withRequestParams: gymTrueParams)
+                    self?.realmService.addContestList(
+                        contests, withRequestParams: gymTrueParams) { _ in }
                 }
             }
             preferences.lastUpdated = now
@@ -48,13 +48,15 @@ class ContentService {
             networkService.fetchContestList(
             requestParams: withRequestParams) { [weak self] result in
                 if case .success(let list) = result {
-                    _ = self?.realmService.addContestList(
-                        list, withRequestParams: withRequestParams)
+                    self?.realmService.addContestList(
+                        list, withRequestParams: withRequestParams) { _ in }
                 }
                 completion(result)
             }
         } else {
-            completion(realmService.getContestList(withRequestParams: withRequestParams))
+            realmService.getContestList(withRequestParams: withRequestParams) { result in
+                completion(result)
+            }
         }
     }
     
@@ -65,13 +67,14 @@ class ContentService {
             networkService.fetchProblemSetProblems(
             requestParams: withRequestParams) { [weak self] result in
                 if case .success(let problems) = result {
-                    _ = self?.realmService.addProblemSetProblems(
-                    problems)
+                    self?.realmService.addProblemSetProblems(problems) { _ in }
                 }
                 completion(result)
             }
         } else {
-            completion(realmService.getProblemSetProblems())
+            realmService.getProblemSetProblems() { result in
+                completion(result)
+            }
         }
     }
     
