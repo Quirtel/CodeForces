@@ -22,8 +22,12 @@ internal enum L10n {
   }
 
   internal enum ContestsVc {
+    /// Tasks
+    internal static let tasks = L10n.tr("Localizable", "Contests_VC.tasks")
     /// Contests
     internal static let title = L10n.tr("Localizable", "Contests_VC.title")
+    /// Users
+    internal static let users = L10n.tr("Localizable", "Contests_VC.users")
 
     internal enum FinishedEventsSection {
       /// Finished contests
@@ -122,6 +126,10 @@ internal enum L10n {
     internal static let title = L10n.tr("Localizable", "Tasks_VC.title")
 
     internal enum Cell {
+      /// Attempts
+      internal static let attempts = L10n.tr("Localizable", "Tasks_VC.cell.attempts")
+      /// Points
+      internal static let points = L10n.tr("Localizable", "Tasks_VC.cell.points")
 
       internal enum Header {
 
