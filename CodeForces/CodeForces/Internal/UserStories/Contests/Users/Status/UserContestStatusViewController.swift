@@ -83,10 +83,10 @@ extension UserContestStatusViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "Пользователи"
+            return L10n.ContestsVc.users
         }
         if section == 1 {
-            return "Задачи"
+            return L10n.ContestsVc.tasks
         }
         
         return ""

@@ -40,7 +40,7 @@ class ContestsViewController: UIViewController {
         setupTableView()
         setupSearchController()
         setupFormatters()
-        fetchContestList()
+        fetchContestList(force: false)
         
         subscribeOnThemeChange()
         applyTheme()
@@ -104,12 +104,12 @@ class ContestsViewController: UIViewController {
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-        fetchContestList()
+        fetchContestList(force: true)
     }
     
-    func fetchContestList() {
+    func fetchContestList(force: Bool) {
         context?.contentService.fetchContestList(
-            withRequestParams: ContestListRequest(gym: false), force: true, { [weak self] contestList in
+            withRequestParams: ContestListRequest(gym: false), force: force, { [weak self] contestList in
                 guard let sself = self else { return }
                 switch contestList {
                 case .success(let list):

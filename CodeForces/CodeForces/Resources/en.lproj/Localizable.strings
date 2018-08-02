@@ -6,10 +6,16 @@
 
 "Alert.title.error" = "Error";
 "Alert.Action.ok" = "OK";
+"Error.Network.message" = "Network error";
+"Error.Common.message" = "Unknown error";
+"Error.Realm.NotFound.message" = "Database read error";
+"Error.Realm.CannotSave.message" = "Database write error";
 
 // ContestsVC
 
 "Contests_VC.title" = "Contests";
+"Contests_VC.users" = "Users";
+"Contests_VC.tasks" = "Tasks";
 "Contests_VC.Upcoming_Events_Section.title" = "Upcoming contests";
 "Contests_VC.Finished_Events_Section.title" = "Finished contests";
 "Contests_VC.Table_View_Cell.Contest_In_Progress.text" = "In progress";
@@ -36,6 +42,8 @@
 // TasksVC
 
 "Tasks_VC.title" = "Tasks";
+"Tasks_VC.cell.points" = "Points";
+"Tasks_VC.cell.attempts" = "Attempts";
 "Tasks_VC.cell.header.solved_count_label.text" = "Solved count:";
 "Tasks_VC.SearchScope.title.tags" = "Tags";
 "Tasks_VC.SearchScope.title.name" = "Names";

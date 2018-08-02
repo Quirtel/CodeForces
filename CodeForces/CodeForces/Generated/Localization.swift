@@ -22,8 +22,12 @@ internal enum L10n {
   }
 
   internal enum ContestsVc {
+    /// Tasks
+    internal static let tasks = L10n.tr("Localizable", "Contests_VC.tasks")
     /// Contests
     internal static let title = L10n.tr("Localizable", "Contests_VC.title")
+    /// Users
+    internal static let users = L10n.tr("Localizable", "Contests_VC.users")
 
     internal enum AlertHandleError {
       /// Handle contains invalid characters
@@ -97,6 +101,32 @@ internal enum L10n {
     }
   }
 
+  internal enum Error {
+
+    internal enum Common {
+      /// Unknown error
+      internal static let message = L10n.tr("Localizable", "Error.Common.message")
+    }
+
+    internal enum Network {
+      /// Network error
+      internal static let message = L10n.tr("Localizable", "Error.Network.message")
+    }
+
+    internal enum Realm {
+
+      internal enum Cannotsave {
+        /// Database write error
+        internal static let message = L10n.tr("Localizable", "Error.Realm.CannotSave.message")
+      }
+
+      internal enum Notfound {
+        /// Database read error
+        internal static let message = L10n.tr("Localizable", "Error.Realm.NotFound.message")
+      }
+    }
+  }
+
   internal enum SettingsVc {
     /// Settings
     internal static let title = L10n.tr("Localizable", "Settings_VC.title")
@@ -134,6 +164,10 @@ internal enum L10n {
     internal static let title = L10n.tr("Localizable", "Tasks_VC.title")
 
     internal enum Cell {
+      /// Attempts
+      internal static let attempts = L10n.tr("Localizable", "Tasks_VC.cell.attempts")
+      /// Points
+      internal static let points = L10n.tr("Localizable", "Tasks_VC.cell.points")
 
       internal enum Header {
 

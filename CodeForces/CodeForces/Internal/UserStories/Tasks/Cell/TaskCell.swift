@@ -60,8 +60,8 @@ class TaskCell: UITableViewCell {
         
         if let pointsCount = model.points, let attempts = model.rejectedAttemptCount {
             solvedCountLabel.isHidden = true
-            countParameterLabel.text = "Очков:" + " \(pointsCount), " +
-                "попыток:" + " \(attempts)"
+            countParameterLabel.text = L10n.TasksVc.Cell.points + ": \(pointsCount), " +
+                L10n.TasksVc.Cell.attempts + ": \(attempts)"
         }
         
         letterTaskLabel.text = model.index

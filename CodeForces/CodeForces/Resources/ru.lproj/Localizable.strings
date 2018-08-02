@@ -2,15 +2,20 @@
   Localizable.strings
   CodeForces
 */
-
 // Common
 
 "Alert.title.error" = "Ошибка";
 "Alert.Action.ok" = "ОК";
+"Error.Network.message" = "Ошибка сети";
+"Error.Common.message" = "Неизвестная ошибка";
+"Error.Realm.NotFound.message" = "Ошибка чтения из базы данных";
+"Error.Realm.CannotSave.message" = "Ошибка сохранения в базу данных";
 
 // ContestsVC
 
 "Contests_VC.title" = "Соревнования";
+"Contests_VC.users" = "Пользователи";
+"Contests_VC.tasks" = "Задачи";
 "Contests_VC.Upcoming_Events_Section.title" = "Предстоящие или текущие соревнования";
 "Contests_VC.Finished_Events_Section.title" = "Прошедшие соревнования";
 "Contests_VC.Table_View_Cell.Contest_In_Progress.text" = "Соревнование идёт";
@@ -34,6 +39,8 @@
 // TasksVC
 
 "Tasks_VC.title" = "Задачи";
+"Tasks_VC.cell.points" = "очков";
+"Tasks_VC.cell.attempts" = "попыток";
 "Tasks_VC.cell.header.solved_count_label.text" = "Решили:";
 "Tasks_VC.SearchScope.title.tags" = "Теги";
 "Tasks_VC.SearchScope.title.name" = "Имена";
