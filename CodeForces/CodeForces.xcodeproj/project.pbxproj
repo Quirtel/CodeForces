@@ -92,6 +92,12 @@
 		491A7589210ECFFE00536CE1 /* StandingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491A7581210ECFFE00536CE1 /* StandingsCell.xib */; };
 		491A758C210ECFFE00536CE1 /* StatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491A7586210ECFFE00536CE1 /* StatusCell.xib */; };
 		491A758E210ED02F00536CE1 /* ContestInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A758D210ED02F00536CE1 /* ContestInfoViewController.swift */; };
+		493D4E362112E65C00EC9863 /* UserContestStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493D4E352112E65C00EC9863 /* UserContestStatusViewController.swift */; };
+		493D4E3A2112E67F00EC9863 /* UserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493D4E392112E67F00EC9863 /* UserInfoCell.xib */; };
+		493D4E3C2112E68C00EC9863 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493D4E3B2112E68C00EC9863 /* UserInfoViewController.swift */; };
+		493D4E3E2112E8C600EC9863 /* UserContestStatusViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493D4E3D2112E8C600EC9863 /* UserContestStatusViewController.storyboard */; };
+		493D4E402112EB3900EC9863 /* UserInfoCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493D4E3F2112EB3900EC9863 /* UserInfoCellModel.swift */; };
+		493D4E432112EB9000EC9863 /* UserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493D4E422112EB9000EC9863 /* UserInfoCell.swift */; };
 		4946953A210EE586003C5ABE /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49469539210EE586003C5ABE /* StatusCell.swift */; };
 		4946953C210EE595003C5ABE /* StandingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946953B210EE595003C5ABE /* StandingsCell.swift */; };
 		49DA2B3721101C7B001280F8 /* StandingsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DA2B3621101C7B001280F8 /* StandingsCellModel.swift */; };
@@ -215,6 +221,12 @@
 		491A7581210ECFFE00536CE1 /* StandingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandingsCell.xib; sourceTree = "<group>"; };
 		491A7586210ECFFE00536CE1 /* StatusCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusCell.xib; sourceTree = "<group>"; };
 		491A758D210ED02F00536CE1 /* ContestInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContestInfoViewController.swift; sourceTree = "<group>"; };
+		493D4E352112E65C00EC9863 /* UserContestStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserContestStatusViewController.swift; sourceTree = "<group>"; };
+		493D4E392112E67F00EC9863 /* UserInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoCell.xib; sourceTree = "<group>"; };
+		493D4E3B2112E68C00EC9863 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		493D4E3D2112E8C600EC9863 /* UserContestStatusViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserContestStatusViewController.storyboard; sourceTree = "<group>"; };
+		493D4E3F2112EB3900EC9863 /* UserInfoCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCellModel.swift; sourceTree = "<group>"; };
+		493D4E422112EB9000EC9863 /* UserInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCell.swift; sourceTree = "<group>"; };
 		49469539210EE586003C5ABE /* StatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
 		4946953B210EE595003C5ABE /* StandingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsCell.swift; sourceTree = "<group>"; };
 		49DA2B3621101C7B001280F8 /* StandingsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsCellModel.swift; sourceTree = "<group>"; };
@@ -524,6 +536,7 @@
 		3FD1A4BC2109D27400AF0B45 /* Contests */ = {
 			isa = PBXGroup;
 			children = (
+				493D4E322112E52000EC9863 /* Users */,
 				49DA2B3521101C6F001280F8 /* Models */,
 				491A757D210ECFFE00536CE1 /* Contest */,
 				491A7580210ECFFE00536CE1 /* Standings */,
@@ -648,11 +661,48 @@
 			path = Cell/Status;
 			sourceTree = "<group>";
 		};
+		493D4E322112E52000EC9863 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				493D4E342112E56200EC9863 /* Info */,
+				493D4E332112E55800EC9863 /* Status */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		493D4E332112E55800EC9863 /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				493D4E352112E65C00EC9863 /* UserContestStatusViewController.swift */,
+				493D4E3D2112E8C600EC9863 /* UserContestStatusViewController.storyboard */,
+			);
+			path = Status;
+			sourceTree = "<group>";
+		};
+		493D4E342112E56200EC9863 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				493D4E412112EB8000EC9863 /* Cell */,
+				493D4E3B2112E68C00EC9863 /* UserInfoViewController.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		493D4E412112EB8000EC9863 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				493D4E392112E67F00EC9863 /* UserInfoCell.xib */,
+				493D4E422112EB9000EC9863 /* UserInfoCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		49DA2B3521101C6F001280F8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				49DA2B3621101C7B001280F8 /* StandingsCellModel.swift */,
 				49DA2B3821103B88001280F8 /* StatusCellModel.swift */,
+				493D4E3F2112EB3900EC9863 /* UserInfoCellModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -796,8 +846,10 @@
 				491A7588210ECFFE00536CE1 /* ContestCell.xib in Resources */,
 				3FD1A4C12109D2CA00AF0B45 /* Contests.storyboard in Resources */,
 				3FD1A4922109C8C800AF0B45 /* Assets.xcassets in Resources */,
+				493D4E3E2112E8C600EC9863 /* UserContestStatusViewController.storyboard in Resources */,
 				491A7589210ECFFE00536CE1 /* StandingsCell.xib in Resources */,
 				557E3495210ACBD80057E43A /* LaunchScreen.storyboard in Resources */,
+				493D4E3A2112E67F00EC9863 /* UserInfoCell.xib in Resources */,
 				3F0B067521104743003AB9F1 /* TaskCell.xib in Resources */,
 				3FD1A4C52109D32800AF0B45 /* Tasks.storyboard in Resources */,
 			);
@@ -924,6 +976,7 @@
 			files = (
 				3F38A132210B1B40008E98C6 /* RanklistRow.swift in Sources */,
 				3F8EDBC2211070D4009F0ED1 /* PartyRealm.generated.swift in Sources */,
+				493D4E402112EB3900EC9863 /* UserInfoCellModel.swift in Sources */,
 				3F38A126210B1B40008E98C6 /* ProblemStatistics.swift in Sources */,
 				3F38A129210B1B40008E98C6 /* Submission.swift in Sources */,
 				49DA2B3921103B88001280F8 /* StatusCellModel.swift in Sources */,
@@ -940,6 +993,7 @@
 				3F38A127210B1B40008E98C6 /* ProblemType.swift in Sources */,
 				3FEE50772110311D00DAD19D /* Rating.swift in Sources */,
 				557E349D210ACF880057E43A /* Localization.swift in Sources */,
+				493D4E362112E65C00EC9863 /* UserContestStatusViewController.swift in Sources */,
 				3F8EDBC1211070D4009F0ED1 /* JudgeProtocolRealm.generated.swift in Sources */,
 				3F38A12C210B1B40008E98C6 /* Party.swift in Sources */,
 				3F8C011E210ED64800C761E0 /* CStatus.swift in Sources */,
@@ -965,6 +1019,7 @@
 				4946953C210EE595003C5ABE /* StandingsCell.swift in Sources */,
 				3F86EE12210EE139005099CB /* RecentStatus.swift in Sources */,
 				3F38A136210B1B40008E98C6 /* RecentAction.swift in Sources */,
+				493D4E3C2112E68C00EC9863 /* UserInfoViewController.swift in Sources */,
 				491A7587210ECFFE00536CE1 /* ContestCell.swift in Sources */,
 				3F8EDBB9211070D4009F0ED1 /* RanklistRowRealm.generated.swift in Sources */,
 				3F8EDBC3211070D4009F0ED1 /* MemberRealm.generated.swift in Sources */,
@@ -975,6 +1030,7 @@
 				3F38A13D210B2373008E98C6 /* Response.swift in Sources */,
 				3F38A12E210B1B40008E98C6 /* Member.swift in Sources */,
 				3F303795210C5243000B384F /* ProblemSetAPI.swift in Sources */,
+				493D4E432112EB9000EC9863 /* UserInfoCell.swift in Sources */,
 				3F8EDBBC211070D4009F0ED1 /* RatingChangeRealm.generated.swift in Sources */,
 				3F8EDBBA211070D4009F0ED1 /* UserRealm.generated.swift in Sources */,
 				3FED5383210C1F6D00878EAD /* NetworkService.swift in Sources */,

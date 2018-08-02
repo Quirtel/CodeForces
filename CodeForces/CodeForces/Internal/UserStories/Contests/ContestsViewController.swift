@@ -139,7 +139,8 @@ extension ContestsViewController: UITableViewDataSource {
             if searchController.isActive && searchController.searchBar.text != "" {
                 cell.contestName.text = filteredContests[indexPath.row].name
                 
-                let startTime = Date(timeIntervalSince1970: TimeInterval(filteredContests[indexPath.row].startTimeSeconds!))
+                let startTime = Date(
+                    timeIntervalSince1970: TimeInterval(filteredContests[indexPath.row].startTimeSeconds!))
                 let duration = TimeInterval(filteredContests[indexPath.row].durationSeconds)
                 
                 cell.status.text = relativeTimeFormatter.string(from: startTime)

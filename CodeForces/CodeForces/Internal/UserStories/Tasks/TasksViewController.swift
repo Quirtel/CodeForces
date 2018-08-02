@@ -110,7 +110,7 @@ private extension TasksViewController {
                 name: problem.name,
                 tags: problem.tags,
                 solvedCount: solvedCount,
-                index: problem.index)
+                index: problem.index, rejectedAttemptCount: nil, points: nil)
             
             return model
         }

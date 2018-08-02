@@ -439,7 +439,7 @@ extension ContestInfoViewController: UITableViewDataSource {
             }
             
             let model = TaskCellModel(
-                contestId: String(contestId), name: currentTask.name, tags: currentTask.tags, solvedCount: nil, index: currentTask.index)
+                contestId: String(contestId), name: currentTask.name, tags: currentTask.tags, solvedCount: nil, index: currentTask.index, rejectedAttemptCount: nil, points: nil)
             
             taskCell.configure(with: model)
             
@@ -548,6 +548,33 @@ extension ContestInfoViewController: UITableViewDataSource {
 // -MARK: Delegate
 extension ContestInfoViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let segIndex = SegmentsNames(
+            rawValue: self.segmentIndicator.selectedSegmentIndex)!
+        
+        switch segIndex {
+        case .standings:
+            let currentStanding: RanklistRow
+            let tasks: [Problem]
+            
+            if (currentSearchQuery.isEmpty) {
+                currentStanding = ranklistRows[indexPath.row]
+                tasks = contestProblems
+            } else {
+                currentStanding = filteredRanklistRows[indexPath.row]
+                tasks = filteredContestProblems
+            }
+            
+            let nextVC =
+            StoryboardScene.UserContestStatusViewController.initialScene.instantiate()
+            
+            nextVC.configure(contestId: String(contestId), ranklistRow: currentStanding, tasks: tasks)
+            
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        default:
+            break
+        }
+        
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
