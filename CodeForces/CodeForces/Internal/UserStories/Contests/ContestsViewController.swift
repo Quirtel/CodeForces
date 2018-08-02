@@ -22,8 +22,8 @@ class ContestsViewController: UIViewController {
     
     let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     let alertResponseError = UIAlertController(
-        title: "Ошибка",
-        message: "Не удалось получить соревнования. Повторите запрос позже", preferredStyle: .alert)
+        title: L10n.Alert.Title.error,
+        message: L10n.ContestsVc.AlertResponseError.message, preferredStyle: .alert)
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -58,6 +58,7 @@ class ContestsViewController: UIViewController {
         if let context = self.context {
             tableView.backgroundView = nil
             tableView.backgroundColor = context.preferences.selectedTheme.backgroundColor
+            spinner.color = context.preferences.selectedTheme.spinnerColor
         }
     }
     

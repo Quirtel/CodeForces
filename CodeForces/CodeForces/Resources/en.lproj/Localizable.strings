@@ -16,6 +16,21 @@
 "Contests_VC.Table_View_Cell.Pending_Test.text" = "Pending test";
 "Contests_VC.Table_View_Cell.System_Testing.text" = "System testing in progress";
 "Contests_VC.Table_View_Cell.Finished.text" = "Finished";
+"Contests_VC.Alert_Response_Error.message" = "Failed to get the contests. Please try again later";
+"Contests_VC.Alert_Handle_Error.message" = "Handle contains invalid characters";
+
+"Contests_VC.Status_Cell.verdict.ok" = "OK";
+"Contests_VC.Status_Cell.verdict.Compilation_Error" = "Compilation error";
+"Contests_VC.Status_Cell.verdict.Runtime_Error" = "Runtime error";
+"Contests_VC.Status_Cell.verdict.Wrong_Answer" = "Wrong answer on test";
+"Contests_VC.Status_Cell.verdict.testing" = "Testing";
+"Contests_VC.Status_Cell.verdict.Security_Violated" = "Security violated";
+"Contests_VC.Status_Cell.verdict.Rejected" = "Rejected";
+"Contests_VC.Status_Cell.verdict.Time_Limit_Exceeded" = "Time limit exceeded";
+"Contests_VC.Status_Cell.verdict.Memory_Limit_Exceeded" = "Memory limit exceeded";
+"Contests_VC.Status_Cell.Time_Consumption_Label" = " ms";
+"Contests_VC.Status_Cell.Memory_Consumption_Label" = " KB";
+
 
 
 // TasksVC

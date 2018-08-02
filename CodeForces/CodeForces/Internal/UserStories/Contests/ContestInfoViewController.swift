@@ -41,8 +41,8 @@ class ContestInfoViewController: UIViewController {
     
     let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     let alertHandleError = UIAlertController(
-        title: "Ошибка",
-        message: "Хэндл содержит недопустимые символы", preferredStyle: .alert)
+        title: L10n.Alert.Title.error,
+        message: L10n.ContestsVc.AlertHandleError.message, preferredStyle: .alert)
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -67,7 +67,6 @@ class ContestInfoViewController: UIViewController {
         tableView.addSubview(refreshControl)
         //extendedLayoutIncludesOpaqueBars = true
         
-        segmentView.layer.borderColor = UIColor.groupTableViewBackground.cgColor
         segmentView.layer.borderWidth = 1
         
         navigationController?.navigationBar.isTranslucent = false
@@ -110,6 +109,9 @@ class ContestInfoViewController: UIViewController {
         if let context = self.context {
             tableView.backgroundView = nil
             tableView.backgroundColor = context.preferences.selectedTheme.backgroundColor
+            segmentView.backgroundColor = context.preferences.selectedTheme.backgroundColor
+            spinner.color = context.preferences.selectedTheme.spinnerColor
+            segmentView.layer.borderColor = context.preferences.selectedTheme.backgroundColor.cgColor
         }
     }
     
@@ -477,7 +479,7 @@ extension ContestInfoViewController: UITableViewDataSource {
             }
             
             let model = StandingsCellModel(currentRanklistRow)
-            standingsCell.configure(with: model)
+            standingsCell.configure(with: model, theme: context?.preferences.selectedTheme ?? .light)
             
             tableView.tableFooterView?.isHidden = true
             return standingsCell

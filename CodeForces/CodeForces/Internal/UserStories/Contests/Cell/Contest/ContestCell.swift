@@ -10,7 +10,7 @@ class ContestCell: UITableViewCell {
     @IBOutlet var endTime: UILabel!
     @IBOutlet var remainingLabel: UILabel!
     @IBOutlet var durability: UILabel!
-    @IBOutlet weak var defaultCellBackground: UIImageView!
+    @IBOutlet private weak var defaultCellBackground: UIImageView!
     
     // TODO: Localize strings
     override func awakeFromNib() {

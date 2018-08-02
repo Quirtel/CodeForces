@@ -18,9 +18,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="539" height="121.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBC-0V-wnr">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBC-0V-wnr">
                         <rect key="frame" x="10" y="10" width="519" height="101.5"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HyI-ZT-RSl">
+                                <rect key="frame" x="0.0" y="0.0" width="519" height="101.5"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Participant name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpc-dm-EYg">
                                 <rect key="frame" x="5" y="5" width="190.5" height="32.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
@@ -67,7 +70,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.65745855499999994" blue="0.66919753859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="jfk-ih-k6U" firstAttribute="baseline" secondItem="FAg-6c-e5Y" secondAttribute="baseline" id="0AD-xW-Iw4"/>
                             <constraint firstItem="tk8-6K-WPr" firstAttribute="baseline" secondItem="jfk-ih-k6U" secondAttribute="baseline" id="4qY-Sh-9tV"/>
@@ -75,14 +78,18 @@
                             <constraint firstItem="FAg-6c-e5Y" firstAttribute="top" secondItem="VRV-3z-sKZ" secondAttribute="bottom" constant="20" id="78g-Bd-wha"/>
                             <constraint firstItem="tk8-6K-WPr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WBm-nd-dGu" secondAttribute="bottom" constant="5" id="9d6-Tf-fWd"/>
                             <constraint firstAttribute="bottom" secondItem="FAg-6c-e5Y" secondAttribute="bottom" constant="5" id="Im6-QH-Azp"/>
+                            <constraint firstItem="HyI-ZT-RSl" firstAttribute="top" secondItem="nBC-0V-wnr" secondAttribute="top" id="J9J-pe-Uuw"/>
                             <constraint firstItem="VRV-3z-sKZ" firstAttribute="top" secondItem="kpc-dm-EYg" secondAttribute="bottom" constant="5" id="N8b-vb-4yy"/>
                             <constraint firstAttribute="trailing" secondItem="dFJ-UM-mBK" secondAttribute="trailing" constant="5" id="Ouu-qu-9wB"/>
                             <constraint firstItem="kpc-dm-EYg" firstAttribute="leading" secondItem="nBC-0V-wnr" secondAttribute="leading" constant="5" id="UmO-Dc-cuQ"/>
                             <constraint firstItem="FAg-6c-e5Y" firstAttribute="leading" secondItem="VRV-3z-sKZ" secondAttribute="leading" id="ZBJ-GL-pp8"/>
                             <constraint firstItem="WBm-nd-dGu" firstAttribute="baseline" secondItem="VRV-3z-sKZ" secondAttribute="baseline" id="bZ2-W1-mrH"/>
+                            <constraint firstAttribute="trailing" secondItem="HyI-ZT-RSl" secondAttribute="trailing" id="fJU-Ml-uRD"/>
                             <constraint firstItem="dFJ-UM-mBK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kpc-dm-EYg" secondAttribute="trailing" constant="10" id="gFE-td-8WW"/>
                             <constraint firstItem="tk8-6K-WPr" firstAttribute="leading" secondItem="jfk-ih-k6U" secondAttribute="trailing" constant="5" id="jh8-Tp-dFv"/>
                             <constraint firstItem="dFJ-UM-mBK" firstAttribute="baseline" secondItem="kpc-dm-EYg" secondAttribute="baseline" id="lWH-WV-OjC"/>
+                            <constraint firstAttribute="bottom" secondItem="HyI-ZT-RSl" secondAttribute="bottom" id="ldR-aC-4VR"/>
+                            <constraint firstItem="HyI-ZT-RSl" firstAttribute="leading" secondItem="nBC-0V-wnr" secondAttribute="leading" id="nBk-ED-3EH"/>
                             <constraint firstItem="VRV-3z-sKZ" firstAttribute="leading" secondItem="kpc-dm-EYg" secondAttribute="leading" id="uDX-dT-3jX"/>
                             <constraint firstItem="WBm-nd-dGu" firstAttribute="trailing" secondItem="dFJ-UM-mBK" secondAttribute="trailing" id="wnG-Ih-Fr6"/>
                             <constraint firstItem="jfk-ih-k6U" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FAg-6c-e5Y" secondAttribute="trailing" constant="10" id="y07-mV-55n"/>
@@ -91,6 +98,8 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="nBC-0V-wnr" secondAttribute="trailing" constant="10" id="TGf-gG-OJF"/>
                     <constraint firstItem="nBC-0V-wnr" firstAttribute="leading" secondItem="AOt-Iq-Rh0" secondAttribute="leading" constant="10" id="WvN-ZP-yrF"/>
@@ -98,7 +107,10 @@
                     <constraint firstItem="nBC-0V-wnr" firstAttribute="top" secondItem="AOt-Iq-Rh0" secondAttribute="top" constant="10" id="q4B-a1-cKx"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="defaultCellBackground" destination="HyI-ZT-RSl" id="bTf-dR-Smf"/>
                 <outlet property="languageLabel" destination="WBm-nd-dGu" id="XIO-s5-yIM"/>
                 <outlet property="memoryConsumptionLabel" destination="jfk-ih-k6U" id="3UL-am-Tks"/>
                 <outlet property="participantName" destination="kpc-dm-EYg" id="G7a-Bd-ywm"/>
