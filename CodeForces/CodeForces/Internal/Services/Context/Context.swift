@@ -16,6 +16,7 @@ class Context {
         self.contentService = contentService
     }
 }
+
 extension Context {
     
     static func createContext() -> Context? {
@@ -23,3 +24,4 @@ extension Context {
         return context
     }
 }
+

@@ -13,6 +13,9 @@
 		3F0B067921105F7C003AB9F1 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0B067821105F7C003AB9F1 /* Context.swift */; };
 		3F0B067C21105F97003AB9F1 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0B067B21105F97003AB9F1 /* Preferences.swift */; };
 		3F137099210F4928002776D2 /* RealmPersistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F137098210F4928002776D2 /* RealmPersistable.swift */; };
+		3F1ACA17211178CA00C86460 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1ACA16211178CA00C86460 /* ThemeManager.swift */; };
+		3F1ACA1921117D2F00C86460 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1ACA1821117D2F00C86460 /* UIColor+Extension.swift */; };
+		3F2432DA210F0CC100B9A00B /* TaskCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2432D9210F0CC100B9A00B /* TaskCellModel.swift */; };
 		3F2D92A8210C5DEA00EC6380 /* Problems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A7210C5DEA00EC6380 /* Problems.swift */; };
 		3F2D92AA210C60CB00EC6380 /* NetworkProblemSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92A9210C60CB00EC6380 /* NetworkProblemSetTests.swift */; };
 		3F2D92AC210D761A00EC6380 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D92AB210D761A00EC6380 /* UserAPI.swift */; };
@@ -34,7 +37,6 @@
 		3F38A12E210B1B40008E98C6 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A115210B1B40008E98C6 /* Member.swift */; };
 		3F38A12F210B1B40008E98C6 /* RatingChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A116210B1B40008E98C6 /* RatingChange.swift */; };
 		3F38A130210B1B40008E98C6 /* SubmissionVerdict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A117210B1B40008E98C6 /* SubmissionVerdict.swift */; };
-		3F38A131210B1B40008E98C6 /* PhaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A118210B1B40008E98C6 /* PhaseType.swift */; };
 		3F38A132210B1B40008E98C6 /* RanklistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A11A210B1B40008E98C6 /* RanklistRow.swift */; };
 		3F38A133210B1B40008E98C6 /* JudgeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A11B210B1B40008E98C6 /* JudgeProtocol.swift */; };
 		3F38A134210B1B40008E98C6 /* Hack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A11C210B1B40008E98C6 /* Hack.swift */; };
@@ -84,6 +86,8 @@
 		3FEE50772110311D00DAD19D /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE50762110311D00DAD19D /* Rating.swift */; };
 		3FEE5079211031E800DAD19D /* UStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE5078211031E800DAD19D /* UStatus.swift */; };
 		3FFBDFCC2111D4A800ABD8A0 /* ContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFBDFCB2111D4A800ABD8A0 /* ContentService.swift */; };
+		3FF1C50721116FEE00B13FA3 /* PhaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A118210B1B40008E98C6 /* PhaseType.swift */; };
+		3FF1C5092111776500B13FA3 /* DefaultsKeys+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF1C5082111776500B13FA3 /* DefaultsKeys+Extension.swift */; };
 		557E3491210ACB8C0057E43A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 557E3493210ACB8C0057E43A /* Localizable.strings */; };
 		557E3495210ACBD80057E43A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E3494210ACBD80057E43A /* LaunchScreen.storyboard */; };
 		557E349C210ACF880057E43A /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E3499210ACF880057E43A /* Assets.swift */; };
@@ -118,6 +122,9 @@
 		3F0B067821105F7C003AB9F1 /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		3F0B067B21105F97003AB9F1 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		3F137098210F4928002776D2 /* RealmPersistable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPersistable.swift; sourceTree = "<group>"; };
+		3F1ACA16211178CA00C86460 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		3F1ACA1821117D2F00C86460 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		3F2432D9210F0CC100B9A00B /* TaskCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCellModel.swift; sourceTree = "<group>"; };
 		3F2D92A7210C5DEA00EC6380 /* Problems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problems.swift; sourceTree = "<group>"; };
 		3F2D92A9210C60CB00EC6380 /* NetworkProblemSetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProblemSetTests.swift; sourceTree = "<group>"; };
 		3F2D92AB210D761A00EC6380 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
@@ -195,6 +202,7 @@
 		3FEE50762110311D00DAD19D /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		3FEE5078211031E800DAD19D /* UStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UStatus.swift; sourceTree = "<group>"; };
 		3FFBDFCB2111D4A800ABD8A0 /* ContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentService.swift; sourceTree = "<group>"; };
+		3FF1C5082111776500B13FA3 /* DefaultsKeys+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultsKeys+Extension.swift"; sourceTree = "<group>"; };
 		557E3492210ACB8C0057E43A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		557E3494210ACBD80057E43A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		557E3496210ACBF00057E43A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -277,6 +285,8 @@
 			isa = PBXGroup;
 			children = (
 				3F0B067B21105F97003AB9F1 /* Preferences.swift */,
+				3FF1C5082111776500B13FA3 /* DefaultsKeys+Extension.swift */,
+				3F1ACA16211178CA00C86460 /* ThemeManager.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -316,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				3F38EB4B210EE074006A5AAD /* ViewConstants.swift */,
+				3F1ACA1821117D2F00C86460 /* UIColor+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -422,7 +433,6 @@
 		3FD1A4892109C8C800AF0B45 /* CodeForces */ = {
 			isa = PBXGroup;
 			children = (
-				3FD1A4B82109D1DD00AF0B45 /* Common */,
 				3FD1A4B92109D1F100AF0B45 /* Internal */,
 				557E3498210ACF880057E43A /* Generated */,
 				3FD1A4BA2109D21200AF0B45 /* Resources */,
@@ -488,6 +498,7 @@
 		3FD1A4BB2109D26800AF0B45 /* UserStories */ = {
 			isa = PBXGroup;
 			children = (
+				3FD1A4B82109D1DD00AF0B45 /* Common */,
 				3FD1A4BD2109D28000AF0B45 /* Tasks */,
 				3FD1A4BC2109D27400AF0B45 /* Contests */,
 			);
@@ -537,6 +548,7 @@
 		3FE130BA210C4E560087A98E /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				3F2432D9210F0CC100B9A00B /* TaskCellModel.swift */,
 				3F0B067221104743003AB9F1 /* TaskCell.swift */,
 				3F0B067321104743003AB9F1 /* TaskCell.xib */,
 			);
@@ -822,6 +834,8 @@
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
+				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -831,6 +845,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -848,8 +864,8 @@
 				3F8EDBC2211070D4009F0ED1 /* PartyRealm.generated.swift in Sources */,
 				3F38A126210B1B40008E98C6 /* ProblemStatistics.swift in Sources */,
 				3F38A129210B1B40008E98C6 /* Submission.swift in Sources */,
+				3F2432DA210F0CC100B9A00B /* TaskCellModel.swift in Sources */,
 				3F0B067921105F7C003AB9F1 /* Context.swift in Sources */,
-				3F38A131210B1B40008E98C6 /* PhaseType.swift in Sources */,
 				3F48B3B7210F02B400F671B3 /* RealmService.swift in Sources */,
 				3F38A135210B1B40008E98C6 /* HackVerdict.swift in Sources */,
 				3F8EDBC0211070D4009F0ED1 /* RecentActionRealm.generated.swift in Sources */,
@@ -857,6 +873,7 @@
 				3FD1A4C32109D31600AF0B45 /* TasksViewController.swift in Sources */,
 				3F38A124210B1B40008E98C6 /* Problem.swift in Sources */,
 				3F8EDBC4211070D4009F0ED1 /* ProblemStatisticsRealm.generated.swift in Sources */,
+				3F1ACA1921117D2F00C86460 /* UIColor+Extension.swift in Sources */,
 				3FED5385210C238100878EAD /* Errors.swift in Sources */,
 				3F38A127210B1B40008E98C6 /* ProblemType.swift in Sources */,
 				3FEE50772110311D00DAD19D /* Rating.swift in Sources */,
@@ -889,6 +906,7 @@
 				3F8EDBC3211070D4009F0ED1 /* MemberRealm.generated.swift in Sources */,
 				3F38A125210B1B40008E98C6 /* ProblemResultType.swift in Sources */,
 				3F8EDBBD211070D4009F0ED1 /* ProblemRealm.generated.swift in Sources */,
+				3FF1C5092111776500B13FA3 /* DefaultsKeys+Extension.swift in Sources */,
 				3F38A128210B1B40008E98C6 /* TestSet.swift in Sources */,
 				3F38A13D210B2373008E98C6 /* Response.swift in Sources */,
 				3F38A12E210B1B40008E98C6 /* Member.swift in Sources */,
@@ -903,6 +921,7 @@
 				3F38EB4C210EE074006A5AAD /* ViewConstants.swift in Sources */,
 				3F38A12A210B1B40008E98C6 /* ParticipantType.swift in Sources */,
 				3F2D92AC210D761A00EC6380 /* UserAPI.swift in Sources */,
+				3F1ACA17211178CA00C86460 /* ThemeManager.swift in Sources */,
 				3F8EDBBE211070D4009F0ED1 /* SubmissionRealm.generated.swift in Sources */,
 				3F38A134210B1B40008E98C6 /* Hack.swift in Sources */,
 				3F38A123210B1B40008E98C6 /* ProblemResult.swift in Sources */,
@@ -912,6 +931,7 @@
 				3F38A137210B1B40008E98C6 /* Comment.swift in Sources */,
 				3F8EDBC7211070D4009F0ED1 /* HackRealm.generated.swift in Sources */,
 				3F38A12F210B1B40008E98C6 /* RatingChange.swift in Sources */,
+				3FF1C50721116FEE00B13FA3 /* PhaseType.swift in Sources */,
 				3F38A13B210B1B4C008E98C6 /* ContestAPI.swift in Sources */,
 				3F8EDBBB211070D4009F0ED1 /* BlogEntryRealm.generated.swift in Sources */,
 			);

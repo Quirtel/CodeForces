@@ -1,18 +1,30 @@
 import Foundation
+import SwiftyUserDefaults
+
 
 class Preferences {
     private static let lastUpdatedDateKey: String = "UpdatedDate"
 
+    private let settings = Defaults
+    
     var lastUpdated: Date {
         set {
-            UserDefaults.standard.set(Date(), forKey: Preferences.lastUpdatedDateKey)
+            settings[.updatedDate] = newValue
         }
         get {
-            let value = UserDefaults.standard.object(forKey: Preferences.lastUpdatedDateKey)
-            guard let lastUpdated = value as? Date else {
-                return Date(timeIntervalSince1970: 0)
+            return settings[.updatedDate]
+        }
+    }
+    
+    var selectedTheme: Theme {
+        set {
+            settings[.selectedThemeKey] = newValue.rawValue
+        }
+        get {
+            if let theme = Theme(rawValue: settings[.selectedThemeKey]) {
+                return theme
             }
-            return lastUpdated
+            return .light
         }
     }
 }
