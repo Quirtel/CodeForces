@@ -17,8 +17,7 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let preferences = Preferences()
-    let theme = ThemeManager(preferences: Preferences())
+    var context: Context?
     
     private var selectedTheme = Theme.light
     private var selectedCacheTime = CacheTime.oneDay
@@ -38,17 +37,18 @@ class SettingsViewController: UIViewController {
         forName: .preferencesChangeTheme, object: nil, queue: nil) { [weak self] _ in
             self?.applyTheme()
             self?.tableView.reloadData()
-            // TODO: use context for fix navbar
         }
     }
     
     private func applyTheme() {
-        tableView.backgroundView = nil
-        tableView.backgroundColor = theme.currentTheme.backgroundColor
-        tableView.separatorColor = theme.currentTheme.separatorColor
-        
-        selectedTheme = preferences.selectedTheme
-        selectedCacheTime = preferences.selectedCacheTime
+        if let context = self.context {
+            tableView.backgroundView = nil
+            tableView.backgroundColor = context.preferences.selectedTheme.backgroundColor
+            tableView.separatorColor = context.preferences.selectedTheme.separatorColor
+            
+            selectedTheme = context.preferences.selectedTheme
+            selectedCacheTime = context.preferences.selectedCacheTime
+        }
     }
 }
 
@@ -76,7 +76,7 @@ extension SettingsViewController: UITableViewDataSource {
         switch tableData.data[indexPath.section].rowData {
         case .theme(let rows):
             let model = rows[indexPath.row].title
-            cell.configure(with: model)
+            cell.configure(with: model, theme: context?.preferences.selectedTheme ?? .light)
             if selectedTheme.index == indexPath.row {
                 cell.accessoryType = .checkmark
             } else {
@@ -84,7 +84,7 @@ extension SettingsViewController: UITableViewDataSource {
             }
         case .cacheTime(let rows):
             let model = rows[indexPath.row].title
-            cell.configure(with: model)
+            cell.configure(with: model, theme: context?.preferences.selectedTheme ?? .light)
             if selectedCacheTime.rawValue == indexPath.row {
                 cell.accessoryType = .checkmark
             } else {
@@ -109,7 +109,7 @@ extension SettingsViewController: UITableViewDelegate {
             cell?.accessoryType = .checkmark
             
             selectedTheme = Theme(index: indexPath.row)
-            preferences.selectedTheme = selectedTheme
+            context?.preferences.selectedTheme = selectedTheme
         case .cacheTime:
             let prevCell = tableView.cellForRow(
                 at: IndexPath(row: selectedCacheTime.rawValue, section: indexPath.section))
@@ -119,8 +119,7 @@ extension SettingsViewController: UITableViewDelegate {
             cell?.accessoryType = .checkmark
             
             selectedCacheTime = CacheTime(rawValue: indexPath.row)!
-            preferences.selectedCacheTime = selectedCacheTime
+            context?.preferences.selectedCacheTime = selectedCacheTime
         }
-        
     }
 }

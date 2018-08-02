@@ -166,19 +166,7 @@ extension Theme {
 
 class ThemeManager {
     
-    private let preferences: Preferences
-    var currentTheme: Theme {
-        return preferences.selectedTheme
-    }
-    
-    init(preferences: Preferences) {
-        self.preferences = preferences
-        applyTheme(theme: preferences.selectedTheme)
-    }
-    
-    func applyTheme(theme: Theme) {
-        preferences.selectedTheme = theme
-        
+    static func applyTheme(theme: Theme) {
         let sharedApplication = UIApplication.shared
         sharedApplication.delegate?.window??.tintColor = theme.mainColor
         

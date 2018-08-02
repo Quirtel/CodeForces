@@ -5,19 +5,14 @@ class SettingsCell: UITableViewCell {
     
     @IBOutlet weak var cellLabel: UILabel!
     
-    let theme = ThemeManager(preferences: Preferences())
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    func configure(with name: String) {
+    func configure(with name: String, theme: Theme) {
         cellLabel.text = name
-        cellLabel.textColor = theme.currentTheme.cellTitleColor
-        contentView.backgroundColor = theme.currentTheme.cellColor
-        backgroundColor = theme.currentTheme.cellColor
+        cellLabel.textColor = theme.cellTitleColor
+        contentView.backgroundColor = theme.cellColor
+        backgroundColor = theme.cellColor
         
         let bgColorView = UIView()
-        bgColorView.backgroundColor = theme.currentTheme.highlightedCellColor
+        bgColorView.backgroundColor = theme.highlightedCellColor
         selectedBackgroundView = bgColorView
     }
 }
