@@ -87,6 +87,15 @@
 		3FEE5079211031E800DAD19D /* UStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE5078211031E800DAD19D /* UStatus.swift */; };
 		3FF1C50721116FEE00B13FA3 /* PhaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38A118210B1B40008E98C6 /* PhaseType.swift */; };
 		3FF1C5092111776500B13FA3 /* DefaultsKeys+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF1C5082111776500B13FA3 /* DefaultsKeys+Extension.swift */; };
+		491A7587210ECFFE00536CE1 /* ContestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A757E210ECFFE00536CE1 /* ContestCell.swift */; };
+		491A7588210ECFFE00536CE1 /* ContestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491A757F210ECFFE00536CE1 /* ContestCell.xib */; };
+		491A7589210ECFFE00536CE1 /* StandingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491A7581210ECFFE00536CE1 /* StandingsCell.xib */; };
+		491A758C210ECFFE00536CE1 /* StatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491A7586210ECFFE00536CE1 /* StatusCell.xib */; };
+		491A758E210ED02F00536CE1 /* ContestInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A758D210ED02F00536CE1 /* ContestInfoViewController.swift */; };
+		4946953A210EE586003C5ABE /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49469539210EE586003C5ABE /* StatusCell.swift */; };
+		4946953C210EE595003C5ABE /* StandingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946953B210EE595003C5ABE /* StandingsCell.swift */; };
+		49DA2B3721101C7B001280F8 /* StandingsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DA2B3621101C7B001280F8 /* StandingsCellModel.swift */; };
+		49DA2B3921103B88001280F8 /* StatusCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DA2B3821103B88001280F8 /* StatusCellModel.swift */; };
 		557E3491210ACB8C0057E43A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 557E3493210ACB8C0057E43A /* Localizable.strings */; };
 		557E3495210ACBD80057E43A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E3494210ACBD80057E43A /* LaunchScreen.storyboard */; };
 		557E349C210ACF880057E43A /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E3499210ACF880057E43A /* Assets.swift */; };
@@ -201,6 +210,15 @@
 		3FEE50762110311D00DAD19D /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		3FEE5078211031E800DAD19D /* UStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UStatus.swift; sourceTree = "<group>"; };
 		3FF1C5082111776500B13FA3 /* DefaultsKeys+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultsKeys+Extension.swift"; sourceTree = "<group>"; };
+		491A757E210ECFFE00536CE1 /* ContestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContestCell.swift; sourceTree = "<group>"; };
+		491A757F210ECFFE00536CE1 /* ContestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContestCell.xib; sourceTree = "<group>"; };
+		491A7581210ECFFE00536CE1 /* StandingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandingsCell.xib; sourceTree = "<group>"; };
+		491A7586210ECFFE00536CE1 /* StatusCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusCell.xib; sourceTree = "<group>"; };
+		491A758D210ED02F00536CE1 /* ContestInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContestInfoViewController.swift; sourceTree = "<group>"; };
+		49469539210EE586003C5ABE /* StatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
+		4946953B210EE595003C5ABE /* StandingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsCell.swift; sourceTree = "<group>"; };
+		49DA2B3621101C7B001280F8 /* StandingsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsCellModel.swift; sourceTree = "<group>"; };
+		49DA2B3821103B88001280F8 /* StatusCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCellModel.swift; sourceTree = "<group>"; };
 		557E3492210ACB8C0057E43A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		557E3494210ACBD80057E43A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		557E3496210ACBF00057E43A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -506,7 +524,12 @@
 		3FD1A4BC2109D27400AF0B45 /* Contests */ = {
 			isa = PBXGroup;
 			children = (
+				49DA2B3521101C6F001280F8 /* Models */,
+				491A757D210ECFFE00536CE1 /* Contest */,
+				491A7580210ECFFE00536CE1 /* Standings */,
+				491A7585210ECFFE00536CE1 /* Status */,
 				3FD1A4BE2109D2B600AF0B45 /* ContestsViewController.swift */,
+				491A758D210ED02F00536CE1 /* ContestInfoViewController.swift */,
 				3FD1A4C02109D2CA00AF0B45 /* Contests.storyboard */,
 			);
 			path = Contests;
@@ -593,6 +616,45 @@
 				3FEE5078211031E800DAD19D /* UStatus.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		491A757D210ECFFE00536CE1 /* Contest */ = {
+			isa = PBXGroup;
+			children = (
+				491A757E210ECFFE00536CE1 /* ContestCell.swift */,
+				491A757F210ECFFE00536CE1 /* ContestCell.xib */,
+			);
+			name = Contest;
+			path = Cell/Contest;
+			sourceTree = "<group>";
+		};
+		491A7580210ECFFE00536CE1 /* Standings */ = {
+			isa = PBXGroup;
+			children = (
+				4946953B210EE595003C5ABE /* StandingsCell.swift */,
+				491A7581210ECFFE00536CE1 /* StandingsCell.xib */,
+			);
+			name = Standings;
+			path = Cell/Standings;
+			sourceTree = "<group>";
+		};
+		491A7585210ECFFE00536CE1 /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				49469539210EE586003C5ABE /* StatusCell.swift */,
+				491A7586210ECFFE00536CE1 /* StatusCell.xib */,
+			);
+			name = Status;
+			path = Cell/Status;
+			sourceTree = "<group>";
+		};
+		49DA2B3521101C6F001280F8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				49DA2B3621101C7B001280F8 /* StandingsCellModel.swift */,
+				49DA2B3821103B88001280F8 /* StatusCellModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		557E3498210ACF880057E43A /* Generated */ = {
@@ -729,9 +791,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				491A758C210ECFFE00536CE1 /* StatusCell.xib in Resources */,
 				557E3491210ACB8C0057E43A /* Localizable.strings in Resources */,
+				491A7588210ECFFE00536CE1 /* ContestCell.xib in Resources */,
 				3FD1A4C12109D2CA00AF0B45 /* Contests.storyboard in Resources */,
 				3FD1A4922109C8C800AF0B45 /* Assets.xcassets in Resources */,
+				491A7589210ECFFE00536CE1 /* StandingsCell.xib in Resources */,
 				557E3495210ACBD80057E43A /* LaunchScreen.storyboard in Resources */,
 				3F0B067521104743003AB9F1 /* TaskCell.xib in Resources */,
 				3FD1A4C52109D32800AF0B45 /* Tasks.storyboard in Resources */,
@@ -861,6 +926,7 @@
 				3F8EDBC2211070D4009F0ED1 /* PartyRealm.generated.swift in Sources */,
 				3F38A126210B1B40008E98C6 /* ProblemStatistics.swift in Sources */,
 				3F38A129210B1B40008E98C6 /* Submission.swift in Sources */,
+				49DA2B3921103B88001280F8 /* StatusCellModel.swift in Sources */,
 				3F2432DA210F0CC100B9A00B /* TaskCellModel.swift in Sources */,
 				3F0B067921105F7C003AB9F1 /* Context.swift in Sources */,
 				3F48B3B7210F02B400F671B3 /* RealmService.swift in Sources */,
@@ -896,8 +962,10 @@
 				3FD1A48B2109C8C800AF0B45 /* AppDelegate.swift in Sources */,
 				3F303797210C53AF000B384F /* Optional+Ext.swift in Sources */,
 				3F38A130210B1B40008E98C6 /* SubmissionVerdict.swift in Sources */,
+				4946953C210EE595003C5ABE /* StandingsCell.swift in Sources */,
 				3F86EE12210EE139005099CB /* RecentStatus.swift in Sources */,
 				3F38A136210B1B40008E98C6 /* RecentAction.swift in Sources */,
+				491A7587210ECFFE00536CE1 /* ContestCell.swift in Sources */,
 				3F8EDBB9211070D4009F0ED1 /* RanklistRowRealm.generated.swift in Sources */,
 				3F8EDBC3211070D4009F0ED1 /* MemberRealm.generated.swift in Sources */,
 				3F38A125210B1B40008E98C6 /* ProblemResultType.swift in Sources */,
@@ -916,6 +984,8 @@
 				3F8EDBCA211073B9009F0ED1 /* ContestStandingsRealm.generated.swift in Sources */,
 				3F38EB4C210EE074006A5AAD /* ViewConstants.swift in Sources */,
 				3F38A12A210B1B40008E98C6 /* ParticipantType.swift in Sources */,
+				491A758E210ED02F00536CE1 /* ContestInfoViewController.swift in Sources */,
+				49DA2B3721101C7B001280F8 /* StandingsCellModel.swift in Sources */,
 				3F2D92AC210D761A00EC6380 /* UserAPI.swift in Sources */,
 				3F1ACA17211178CA00C86460 /* ThemeManager.swift in Sources */,
 				3F8EDBBE211070D4009F0ED1 /* SubmissionRealm.generated.swift in Sources */,
@@ -927,6 +997,7 @@
 				3F38A137210B1B40008E98C6 /* Comment.swift in Sources */,
 				3F8EDBC7211070D4009F0ED1 /* HackRealm.generated.swift in Sources */,
 				3F38A12F210B1B40008E98C6 /* RatingChange.swift in Sources */,
+				4946953A210EE586003C5ABE /* StatusCell.swift in Sources */,
 				3FF1C50721116FEE00B13FA3 /* PhaseType.swift in Sources */,
 				3F38A13B210B1B4C008E98C6 /* ContestAPI.swift in Sources */,
 				3F8EDBBB211070D4009F0ED1 /* BlogEntryRealm.generated.swift in Sources */,
@@ -1102,7 +1173,9 @@
 			baseConfigurationReference = 0444119585D9D8318123B73D /* Pods-CodeForces.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EA3GU7E828;
 				INFOPLIST_FILE = CodeForces/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1111,6 +1184,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.noveo.summerschool.CodeForces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1121,7 +1195,9 @@
 			baseConfigurationReference = F8BAF4937E39E44A272EFF45 /* Pods-CodeForces.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EA3GU7E828;
 				INFOPLIST_FILE = CodeForces/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1130,6 +1206,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.noveo.summerschool.CodeForces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

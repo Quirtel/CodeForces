@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MHF-OM-zRG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,16 +14,117 @@
         <scene sceneID="CyO-Qs-J2E">
             <objects>
                 <viewController storyboardIdentifier="ContestsViewController" id="MHF-OM-zRG" customClass="ContestsViewController" customModule="CodeForces" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="JKc-JS-9OB">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ContestsTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="g76-mL-bxo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="qDx-0J-Cci"/>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="MHF-OM-zRG" id="HcD-87-tv9"/>
+                            <outlet property="delegate" destination="MHF-OM-zRG" id="Tfq-cb-0Vm"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="g76-mL-bxo" id="cUA-OA-AnJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gx0-3H-14n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="799" y="-331"/>
+        </scene>
+        <!--Contest Info View Controller-->
+        <scene sceneID="oEg-cD-SQk">
+            <objects>
+                <viewController storyboardIdentifier="ContestInfoViewController" id="kNu-1Q-gI7" customClass="ContestInfoViewController" customModule="CodeForces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qUt-1r-qeO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f0P-Fz-Wvs">
+                                <rect key="frame" x="0.0" y="68" width="375" height="599"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="kNu-1Q-gI7" id="Qq6-Nd-vHP"/>
+                                    <outlet property="delegate" destination="kNu-1Q-gI7" id="syw-XE-ZHO"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R6q-Uh-rat">
+                                <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="r5c-W2-rPG">
+                                        <rect key="frame" x="10" y="10" width="355" height="29"/>
+                                        <segments>
+                                            <segment title="Задачи"/>
+                                            <segment title="Статус"/>
+                                            <segment title="Положение"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="segmentValueChanged:" destination="kNu-1Q-gI7" eventType="valueChanged" id="mdV-e2-jzr"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="r5c-W2-rPG" secondAttribute="trailing" constant="10" id="1K2-Vx-sXo"/>
+                                    <constraint firstAttribute="bottom" secondItem="r5c-W2-rPG" secondAttribute="bottom" constant="10" id="BEc-ap-cyF"/>
+                                    <constraint firstItem="r5c-W2-rPG" firstAttribute="leading" secondItem="R6q-Uh-rat" secondAttribute="leading" constant="10" id="FJO-jh-BWj"/>
+                                    <constraint firstItem="r5c-W2-rPG" firstAttribute="top" secondItem="R6q-Uh-rat" secondAttribute="top" constant="10" id="Y4z-Om-G7H"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="f0P-Fz-Wvs" firstAttribute="trailing" secondItem="Uqy-Rk-9y7" secondAttribute="trailing" id="7Np-J1-mQf"/>
+                            <constraint firstItem="f0P-Fz-Wvs" firstAttribute="bottom" secondItem="Uqy-Rk-9y7" secondAttribute="bottom" id="Kha-hh-TDE"/>
+                            <constraint firstItem="f0P-Fz-Wvs" firstAttribute="top" secondItem="R6q-Uh-rat" secondAttribute="bottom" id="QMz-7q-qkd"/>
+                            <constraint firstItem="R6q-Uh-rat" firstAttribute="top" secondItem="Uqy-Rk-9y7" secondAttribute="top" id="aGj-Jl-pX7"/>
+                            <constraint firstItem="R6q-Uh-rat" firstAttribute="trailing" secondItem="Uqy-Rk-9y7" secondAttribute="trailing" id="b1k-ea-hCE"/>
+                            <constraint firstItem="R6q-Uh-rat" firstAttribute="leading" secondItem="Uqy-Rk-9y7" secondAttribute="leading" id="j1H-mg-8mg"/>
+                            <constraint firstItem="f0P-Fz-Wvs" firstAttribute="leading" secondItem="Uqy-Rk-9y7" secondAttribute="leading" id="xnc-WS-5E8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Uqy-Rk-9y7"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8Po-5i-aDV"/>
+                    <connections>
+                        <outlet property="segmentIndicator" destination="r5c-W2-rPG" id="yaF-YI-hj2"/>
+                        <outlet property="segmentView" destination="R6q-Uh-rat" id="gkC-Px-cGc"/>
+                        <outlet property="tableView" destination="f0P-Fz-Wvs" id="EfH-Kz-Ic1"/>
+                        <outlet property="view" destination="qUt-1r-qeO" id="xv8-AQ-WnC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TvT-3Y-iKB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2160.8000000000002" y="-332.38380809595208"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="SNe-X7-In2">
+            <objects>
+                <viewController id="qrI-mx-j22" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LKj-Xl-Oq6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Yo-3D-MNb">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5Yo-3D-MNb" firstAttribute="leading" secondItem="LIn-RA-M2G" secondAttribute="leading" id="7th-S1-OXV"/>
+                            <constraint firstItem="5Yo-3D-MNb" firstAttribute="top" secondItem="LIn-RA-M2G" secondAttribute="top" id="OTg-JA-Uhh"/>
+                            <constraint firstItem="LIn-RA-M2G" firstAttribute="bottom" secondItem="5Yo-3D-MNb" secondAttribute="bottom" id="Rph-B6-xHL"/>
+                            <constraint firstItem="LIn-RA-M2G" firstAttribute="trailing" secondItem="5Yo-3D-MNb" secondAttribute="trailing" id="eKk-lp-6w6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LIn-RA-M2G"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="345-JT-qkg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="930" y="-312"/>
+=======
+            <point key="canvasLocation" x="3273" y="-331"/>
+>>>>>>> Contests
         </scene>
     </scenes>
 </document>
