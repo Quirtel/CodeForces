@@ -36,7 +36,8 @@
 "Contests_VC.Status_Cell.verdict.Memory_Limit_Exceeded" = "Memory limit exceeded";
 "Contests_VC.Status_Cell.Time_Consumption_Label" = " ms";
 "Contests_VC.Status_Cell.Memory_Consumption_Label" = " KB";
-
+"Contests_VC.Status_Cell.SearchResults" = "Search results";
+"Contests_VC.Status_Cell.Duration" = "Duration:";
 
 
 // TasksVC
