@@ -36,6 +36,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b7h-wF-J5a"/>
                     </view>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="FDb-I1-jDq" id="MIN-9W-SB5"/>
                     </connections>

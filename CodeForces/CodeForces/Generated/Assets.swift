@@ -44,19 +44,27 @@ internal struct ColorAsset {
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Asset {
+  internal static let books = ImageAsset(name: "books")
+  internal static let codeforcesLogoWithTelegram = ImageAsset(name: "codeforces-logo-with-telegram")
+  internal static let console = ImageAsset(name: "console")
   internal static let defaultCellBackgroundColor = ImageAsset(name: "defaultCellBackgroundColor")
   internal static let defaultCellBackgroundColorForLightTheme = ImageAsset(name: "defaultCellBackgroundColorForLightTheme")
   internal static let highlightCellBackgroundColor = ImageAsset(name: "highlightCellBackgroundColor")
   internal static let highlightCellBackgroundColorForLightTheme = ImageAsset(name: "highlightCellBackgroundColorForLightTheme")
+  internal static let settings = ImageAsset(name: "settings")
 
   // swiftlint:disable trailing_comma
   internal static let allColors: [ColorAsset] = [
   ]
   internal static let allImages: [ImageAsset] = [
+    books,
+    codeforcesLogoWithTelegram,
+    console,
     defaultCellBackgroundColor,
     defaultCellBackgroundColorForLightTheme,
     highlightCellBackgroundColor,
     highlightCellBackgroundColorForLightTheme,
+    settings,
   ]
   // swiftlint:enable trailing_comma
   @available(*, deprecated, renamed: "allImages")

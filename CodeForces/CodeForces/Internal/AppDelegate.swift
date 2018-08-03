@@ -35,6 +35,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, Contextual {
         let tabBarController = CustomTabBarController()
         tabBarController.setViewControllers([contestsNC, tasksNC, settingsNC], animated: false)
         
+        let contestsTab = tabBarController.tabBar.items?[0]
+        contestsTab?.image = UIImage(asset: Asset.console).withRenderingMode(.alwaysTemplate)
+        
+        let tasksTab = tabBarController.tabBar.items?[1]
+        tasksTab?.image = UIImage(asset: Asset.books).withRenderingMode(.alwaysTemplate)
+        
+        let settingsTab = tabBarController.tabBar.items?[2]
+        settingsTab?.image = UIImage(asset: Asset.settings).withRenderingMode(.alwaysTemplate)
+        
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = tabBarController
         self.window = window
