@@ -21,6 +21,18 @@ internal enum L10n {
     }
   }
 
+  internal enum ContestInfoVc {
+
+    internal enum SesegmentIndicator {
+      /// Standings
+      internal static let standings = L10n.tr("Localizable", "Contest_Info_VC.Sesegment_Indicator.standings")
+      /// Status
+      internal static let status = L10n.tr("Localizable", "Contest_Info_VC.Sesegment_Indicator.status")
+      ///  Tasks
+      internal static let tasks = L10n.tr("Localizable", "Contest_Info_VC.Sesegment_Indicator.tasks")
+    }
+  }
+
   internal enum ContestsVc {
     /// Tasks
     internal static let tasks = L10n.tr("Localizable", "Contests_VC.tasks")

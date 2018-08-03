@@ -4,6 +4,8 @@ private enum SegmentsNames: Int {
     case tasks = 0
     case status
     case standings
+    
+    
 }
 
 class ContestInfoViewController: UIViewController {
@@ -114,6 +116,10 @@ class ContestInfoViewController: UIViewController {
             refreshControl.tintColor = context.preferences.selectedTheme.spinnerColor
             segmentView.layer.borderColor = context.preferences.selectedTheme.backgroundColor.cgColor
             segmentIndicator.tintColor = context.preferences.selectedTheme.selectedControlColor
+            
+            segmentIndicator.setTitle(L10n.ContestInfoVc.SesegmentIndicator.tasks, forSegmentAt: SegmentsNames.tasks.rawValue)
+            segmentIndicator.setTitle(L10n.ContestInfoVc.SesegmentIndicator.status, forSegmentAt: SegmentsNames.status.rawValue)
+            segmentIndicator.setTitle(L10n.ContestInfoVc.SesegmentIndicator.standings, forSegmentAt: SegmentsNames.standings.rawValue)
         }
     }
     
