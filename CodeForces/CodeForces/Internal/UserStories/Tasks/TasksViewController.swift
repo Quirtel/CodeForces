@@ -273,6 +273,17 @@ extension TasksViewController: UITableViewDataSource {
 extension TasksViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = TaskCellModel(
+            contestId: String(data[indexPath.row].contestId), name: data[indexPath.row].name, tags: data[indexPath.row].tags, solvedCount: nil, index: data[indexPath.row].index, rejectedAttemptCount: nil, points: nil)
+        
+        
+        let nextVC =
+            StoryboardScene.ProblemViewController.problemViewController.instantiate()
+        
+        nextVC.configure(with: model)
+        
+        navigationController?.pushViewController(nextVC, animated: true)
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
