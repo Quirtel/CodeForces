@@ -37,13 +37,13 @@
         <!--Contest Info View Controller-->
         <scene sceneID="oEg-cD-SQk">
             <objects>
-                <viewController storyboardIdentifier="ContestInfoViewController" id="kNu-1Q-gI7" customClass="ContestInfoViewController" customModule="CodeForces" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContestInfoViewController" extendedLayoutIncludesOpaqueBars="YES" id="kNu-1Q-gI7" customClass="ContestInfoViewController" customModule="CodeForces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qUt-1r-qeO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f0P-Fz-Wvs">
-                                <rect key="frame" x="0.0" y="68" width="375" height="599"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -80,13 +80,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="f0P-Fz-Wvs" firstAttribute="trailing" secondItem="Uqy-Rk-9y7" secondAttribute="trailing" id="7Np-J1-mQf"/>
-                            <constraint firstItem="f0P-Fz-Wvs" firstAttribute="bottom" secondItem="Uqy-Rk-9y7" secondAttribute="bottom" id="Kha-hh-TDE"/>
-                            <constraint firstItem="f0P-Fz-Wvs" firstAttribute="top" secondItem="R6q-Uh-rat" secondAttribute="bottom" id="QMz-7q-qkd"/>
+                            <constraint firstItem="f0P-Fz-Wvs" firstAttribute="trailing" secondItem="qUt-1r-qeO" secondAttribute="trailing" id="7Np-J1-mQf"/>
+                            <constraint firstItem="f0P-Fz-Wvs" firstAttribute="bottom" secondItem="qUt-1r-qeO" secondAttribute="bottom" id="Kha-hh-TDE"/>
+                            <constraint firstItem="f0P-Fz-Wvs" firstAttribute="top" secondItem="qUt-1r-qeO" secondAttribute="top" id="WVF-4N-Bdn"/>
                             <constraint firstItem="R6q-Uh-rat" firstAttribute="top" secondItem="Uqy-Rk-9y7" secondAttribute="top" id="aGj-Jl-pX7"/>
                             <constraint firstItem="R6q-Uh-rat" firstAttribute="trailing" secondItem="Uqy-Rk-9y7" secondAttribute="trailing" id="b1k-ea-hCE"/>
                             <constraint firstItem="R6q-Uh-rat" firstAttribute="leading" secondItem="Uqy-Rk-9y7" secondAttribute="leading" id="j1H-mg-8mg"/>
-                            <constraint firstItem="f0P-Fz-Wvs" firstAttribute="leading" secondItem="Uqy-Rk-9y7" secondAttribute="leading" id="xnc-WS-5E8"/>
+                            <constraint firstItem="f0P-Fz-Wvs" firstAttribute="leading" secondItem="qUt-1r-qeO" secondAttribute="leading" id="xnc-WS-5E8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Uqy-Rk-9y7"/>
                     </view>

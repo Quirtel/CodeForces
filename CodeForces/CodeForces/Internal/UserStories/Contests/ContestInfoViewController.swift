@@ -60,26 +60,22 @@ class ContestInfoViewController: UIViewController {
         alertHandleError.addAction(UIAlertAction(title: "OK" , style: .default,
                                                  handler: { _ in}))
         
+        tableView.tableHeaderView = UIView()
         tableView.separatorStyle = .none
         tableView.tableFooterView = spinner
         tableView.tableFooterView?.isHidden = false
-        //tableView.refreshControl = refreshControl
         tableView.addSubview(refreshControl)
-        //extendedLayoutIncludesOpaqueBars = true
+        
+        tableView.contentInset = UIEdgeInsets(
+            top: segmentView.bounds.height, left: 0, bottom: 0, right: 0)
+        
+        tableView.scrollIndicatorInsets = UIEdgeInsets(
+            top: segmentView.bounds.height, left: 0, bottom: 0, right: 0)
         
         segmentView.layer.borderWidth = 1
         
-        navigationController?.navigationBar.isTranslucent = false
-        
-        
         if #available(iOS 11.0, *) {
             navigationItem.largeTitleDisplayMode = .never
-            navigationItem.searchController = searchController
-            navigationItem.searchController?.searchBar.delegate = self
-            navigationItem.hidesSearchBarWhenScrolling = true
-            //            navigationItem.searchController?.searchBar.showsCancelButton = true
-        } else {
-            // Fallback on earlier versions
         }
         
         setupSearchController()
@@ -334,13 +330,16 @@ class ContestInfoViewController: UIViewController {
         searchController.searchResultsUpdater = self
         
         if #available(iOS 11.0, *) {
+            navigationItem.searchController = searchController
+            navigationItem.searchController?.searchBar.delegate = self
+            navigationItem.hidesSearchBarWhenScrolling = true
             
         } else {
             tableView.tableHeaderView = searchController.searchBar
         }
         
         searchController.hidesNavigationBarDuringPresentation = false
-        searchController.definesPresentationContext = false
+        searchController.definesPresentationContext = true
     }
     
     
@@ -618,9 +617,10 @@ extension ContestInfoViewController: UITableViewDelegate {
             let nextVC =
                 StoryboardScene.ProblemViewController.problemViewController.instantiate()
             
+            navigationController?.pushViewController(nextVC, animated: true)
             nextVC.configure(with: model)
             
-            navigationController?.pushViewController(nextVC, animated: true)
+            
         default:
             break
         }
