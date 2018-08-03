@@ -35,6 +35,10 @@
 "Contests_VC.Status_Cell.verdict.Memory_Limit_Exceeded" = "Превышено ограничение памяти";
 "Contests_VC.Status_Cell.Time_Consumption_Label" = " мс";
 "Contests_VC.Status_Cell.Memory_Consumption_Label" = " KB";
+"Contest_Info_VC.Sesegment_Indicator.tasks" = " Задачи";
+"Contest_Info_VC.Sesegment_Indicator.status" = "Статус";
+"Contest_Info_VC.Sesegment_Indicator.standings" = "Положение";
+
 
 // TasksVC
 
