@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 extension Encodable {
     private func asDictionary() throws -> [String : Any] {
@@ -12,7 +13,11 @@ extension Encodable {
         return dictionary
     }
     
-    var dictionary: [String : Any] {
-        return (try? asDictionary()) ?? [:]
+    var dictionaryWithLocale: [String : Any] {
+        guard var dict = (try? asDictionary()) else {
+            return [:]
+        }
+        dict["lang"] = Locale.current.languageCode
+        return dict
     }
 }
