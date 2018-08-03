@@ -280,9 +280,9 @@ extension TasksViewController: UITableViewDelegate {
         let nextVC =
             StoryboardScene.ProblemViewController.problemViewController.instantiate()
         
-        nextVC.configure(with: model)
-        
         navigationController?.pushViewController(nextVC, animated: true)
+        
+        nextVC.configure(with: model)
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
