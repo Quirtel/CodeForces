@@ -13,7 +13,7 @@ extension Encodable {
         return dictionary
     }
     
-    var dictionaryWithLocale: [String : Any] {
+    var dictionary: [String : Any] {
         guard var dict = (try? asDictionary()) else {
             return [:]
         }
