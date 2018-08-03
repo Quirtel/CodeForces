@@ -51,6 +51,7 @@ internal enum Asset {
   internal static let defaultCellBackgroundColorForLightTheme = ImageAsset(name: "defaultCellBackgroundColorForLightTheme")
   internal static let highlightCellBackgroundColor = ImageAsset(name: "highlightCellBackgroundColor")
   internal static let highlightCellBackgroundColorForLightTheme = ImageAsset(name: "highlightCellBackgroundColorForLightTheme")
+  internal static let ifDoubleChevronLeftRight1031523 = ImageAsset(name: "if_DoubleChevronLeftRight_1031523")
   internal static let settings = ImageAsset(name: "settings")
 
   // swiftlint:disable trailing_comma
@@ -64,6 +65,7 @@ internal enum Asset {
     defaultCellBackgroundColorForLightTheme,
     highlightCellBackgroundColor,
     highlightCellBackgroundColorForLightTheme,
+    ifDoubleChevronLeftRight1031523,
     settings,
   ]
   // swiftlint:enable trailing_comma

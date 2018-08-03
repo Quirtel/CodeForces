@@ -9,6 +9,7 @@ class StandingsCell: UITableViewCell {
     @IBOutlet private weak var defaultCellBackground: UIImageView!
     
     private var participantIsTeam = false
+    var context: Context?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,7 +32,11 @@ class StandingsCell: UITableViewCell {
         rankNumberLabel.textColor = theme.cellTextColor
         
         if participantIsTeam {
-            participantNameLabel.textColor = UIColor.blue
+            if let context = self.context {
+                participantNameLabel.textColor = context.preferences.selectedTheme.selectedControlColor
+            } else {
+                participantNameLabel.textColor = UIColor.colorFromHexString("5bb3ff")
+            }
         }
         
         switch theme {

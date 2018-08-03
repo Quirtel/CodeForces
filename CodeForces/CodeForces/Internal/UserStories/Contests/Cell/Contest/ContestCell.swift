@@ -11,6 +11,7 @@ class ContestCell: UITableViewCell {
     @IBOutlet var remainingLabel: UILabel!
     @IBOutlet var durability: UILabel!
     @IBOutlet private weak var defaultCellBackground: UIImageView!
+    @IBOutlet var disclosureImageView: UIImageView!
     
     // TODO: Localize strings
     override func awakeFromNib() {
@@ -31,6 +32,7 @@ class ContestCell: UITableViewCell {
         endTime.textColor = theme.cellTextColor
         remainingLabel.textColor = theme.cellTextColor
         durability.textColor = theme.cellTitleColor
+        disclosureImageView.tintColor = theme.cellTintColor
         tintColor = theme.cellTintColor
         
         switch theme {

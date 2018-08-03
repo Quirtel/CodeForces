@@ -73,8 +73,6 @@ class ContestsViewController: UIViewController {
         }))
         
         tableView.separatorStyle = .none
-        tableView.tableFooterView = spinner
-        tableView.tableFooterView?.isHidden = false
         tableView.refreshControl = refreshControl
     }
     
@@ -172,7 +170,7 @@ extension ContestsViewController: UITableViewDataSource {
         
         switch sectionName {
         case .upcoming:
-            cell.accessoryType = .none
+            cell.disclosureImageView.isHidden = true
             cell.contestName.text = upcomingContests[indexPath.row].name
             let duration = TimeInterval(upcomingContests[indexPath.row].durationSeconds)
             let startTime = Date(timeIntervalSince1970:
@@ -201,7 +199,7 @@ extension ContestsViewController: UITableViewDataSource {
             }
             
         case .finished:
-            cell.accessoryType = .disclosureIndicator
+            cell.disclosureImageView.isHidden = false
             cell.contestName.text = finishedContests[indexPath.row].name
             
             let startTime = Date(timeIntervalSince1970:
