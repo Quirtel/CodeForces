@@ -43,6 +43,9 @@ class ContestInfoViewController: UIViewController {
     let alertHandleError = UIAlertController(
         title: L10n.Alert.Title.error,
         message: L10n.ContestsVc.AlertHandleError.message, preferredStyle: .alert)
+    let alertConnectionError = UIAlertController(
+        title: L10n.Alert.Title.error,
+        message: L10n.ContestsVc.AlertHandleError.message, preferredStyle: .alert)
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -625,6 +628,7 @@ extension ContestInfoViewController: UITableViewDataSource {
         case .standings:
             fetchStandings(offset: 1, count: 30, currentSearchQuery.split(separator: ",").map(String.init))
         }
+        tableView.reloadData()
     }
     
 }
