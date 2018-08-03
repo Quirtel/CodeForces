@@ -1,0 +1,6 @@
+framework module Pods_CodeForces {
+  umbrella header "Pods-CodeForces-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module Pods_CodeForcesTests {
+  umbrella header "Pods-CodeForcesTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

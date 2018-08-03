@@ -19,6 +19,3 @@ DerivedData
 *.hmap
 *.ipa
 
-
-Pods/
-Podfile.lock
