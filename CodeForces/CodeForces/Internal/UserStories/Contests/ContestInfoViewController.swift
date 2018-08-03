@@ -115,11 +115,6 @@ class ContestInfoViewController: UIViewController {
         return (searchController.searchBar.text?.isEmpty ?? true)
     }
     
-    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-        refresherPulled = true
-        segmentValueChanged(segmentIndicator)
-    }
-    
     func setupFormatters() {
         relativeTimeFormatter.doesRelativeDateFormatting = true
         relativeTimeFormatter.dateStyle = .medium
@@ -207,22 +202,22 @@ class ContestInfoViewController: UIViewController {
                     let indexPaths = Array(offset-1..<offset-1+list.count)
                         .map({ IndexPath(row: $0, section: 0) })
                     
-                    //                        if handle != nil || strongSelf.refresherPulled || strongSelf.currentDataType != .status  {
-                    //                            strongSelf.tableView.reloadData()
-                    //                        } else {
-                    //                            strongSelf.tableView.setContentOffset(
-                    //                                strongSelf.tableView.contentOffset, animated: true)
-                    //
-                    //                            strongSelf.tableView.beginUpdates()
-                    //                            strongSelf.tableView.insertRows(
-                    //                                at: indexPaths, with: .fade)
-                    //                            strongSelf.tableView.endUpdates()
-                    //                        }
-                    
+//                    if handle != nil || strongSelf.refresherPulled {
+//                        strongSelf.tableView.reloadData()
+//                    } else {
+//                        strongSelf.tableView.setContentOffset(
+//                            strongSelf.tableView.contentOffset, animated: true)
+//
+//                        strongSelf.tableView.beginUpdates()
+//                        strongSelf.tableView.insertRows(
+//                            at: indexPaths, with: .fade)
+//                        strongSelf.tableView.endUpdates()
+//                    }
+//
                     strongSelf.tableView.setContentOffset(
                         strongSelf.tableView.contentOffset, animated: true)
-                    
-                    
+
+
                     strongSelf.tableView.reloadData()
                     strongSelf.tableView.tableFooterView?.isHidden = true
                     
@@ -290,25 +285,25 @@ class ContestInfoViewController: UIViewController {
                     let indexPaths = Array(offset-1..<offset-1+list.rows.count)
                         .map({ IndexPath(row: $0, section: 0) })
                     
-                    //
-                    //                                                if handles != nil || strongSelf.refresherPulled || strongSelf.currentDataType != .standings {
-                    //                                                    strongSelf.tableView.reloadData()
-                    //                                                } else {
-                    //                                                    strongSelf.tableView.setContentOffset(
-                    //                                                        strongSelf.tableView.contentOffset, animated: true)
-                    //
-                    //                                                    strongSelf.tableView.beginUpdates()
-                    //                                                    strongSelf.tableView.insertRows(
-                    //                                                        at: indexPaths, with: .fade)
-                    //                                                    strongSelf.tableView.endUpdates()
-                    //                                                }
+                    
+//                    if handles != nil || strongSelf.refresherPulled {
+//                        strongSelf.tableView.reloadData()
+//                    } else {
+//                        strongSelf.tableView.setContentOffset(
+//                            strongSelf.tableView.contentOffset, animated: true)
+//
+//                        strongSelf.tableView.beginUpdates()
+//                        strongSelf.tableView.insertRows(
+//                            at: indexPaths, with: .fade)
+//                        strongSelf.tableView.endUpdates()
+//                    }
                     
                     strongSelf.tableView.setContentOffset(
                         strongSelf.tableView.contentOffset, animated: true)
-                    
+
                     strongSelf.tableView.tableFooterView?.isHidden = true
                     strongSelf.tableView.reloadData()
-
+                    
                     
                     if list.rows.count > 0 {
                         strongSelf.shouldFetchStandings = true
@@ -345,6 +340,68 @@ class ContestInfoViewController: UIViewController {
     
     // -MARK: Actions
     
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        refresherPulled = true
+        
+        let segIndex = SegmentsNames(rawValue: self.segmentIndicator.selectedSegmentIndex)!
+        tableView.tableFooterView = spinner
+        tableView.tableFooterView?.isHidden = false
+        tableView.reloadData()
+        
+        switch segIndex {
+        case .standings:
+            if !currentSearchQuery.isEmpty {
+                fetchStandings(offset: 1, count: 30, currentSearchQuery.split(separator: ",").map(String.init))
+                if filteredRanklistRows.count > 0 {
+                    tableView.scrollToRow(
+                        at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
+                }
+            } else {
+                fetchStandings(offset: 1, count: 30, currentSearchQuery.split(separator: ",").map(String.init))
+                if ranklistRows.count > 0 {
+                    tableView.scrollToRow(
+                        at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
+                }
+            }
+        case .status:
+            if !currentSearchQuery.isEmpty {
+                fetchStatus(offset: 1, count: 30, currentSearchQuery)
+                if filteredContestStatus.count > 0 {
+                    tableView.scrollToRow(
+                        at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
+                }
+            } else {
+                fetchStatus(offset: 1, count: 30, currentSearchQuery)
+                if contestStatus.count > 0 {
+                    tableView.scrollToRow(
+                        at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
+                }
+            }
+            
+        case .tasks:
+            refreshControl.endRefreshing()
+            if !currentSearchQuery.isEmpty {
+                filterRowsForSearchedText(currentSearchQuery)
+                
+                if filteredContestProblems.count > 0 {
+                    tableView.scrollToRow(
+                        at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
+                }
+            } else {
+                if contestProblems.count > 0 {
+                    tableView.scrollToRow(
+                        at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
+                }
+            }
+        }
+        tableView.tableFooterView?.isHidden = true
+    }
+    
+    
+    
+    //        segmentValueChanged(segmentIndicator)
+    
+    
     @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
         let segIndex = SegmentsNames(rawValue: self.segmentIndicator.selectedSegmentIndex)!
         tableView.tableFooterView = spinner
@@ -353,29 +410,27 @@ class ContestInfoViewController: UIViewController {
         
         switch segIndex {
         case .standings:
-            if (filteredRanklistRows.count == 0 && !searchBarIsEmpty()) || refresherPulled {
-                if refresherPulled {
-                    fetchStandings(offset: 1, count: 30, currentSearchQuery.split(separator: ",").map(String.init))
-                } else {
-                    fetchStandings(offset: filteredRanklistRows.count + 1, count: 30, currentSearchQuery.split(separator: ",").map(String.init))
-                }
-                
+            if !currentSearchQuery.isEmpty {
                 if filteredRanklistRows.count > 0 {
+                    fetchStandings(offset: filteredRanklistRows.count + 1, count: 30, currentSearchQuery.split(separator: ",").map(String.init))
                     tableView.scrollToRow(
                         at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
+                } else {
+                    fetchStandings(offset: 1, count: 30, currentSearchQuery.split(separator: ",").map(String.init))
                 }
-                
-            } else if ranklistRows.count >= 0 || refresherPulled {
-                fetchStandings(offset: ranklistRows.count + 1, count: 30, currentSearchQuery.split(separator: ",").map(String.init))
-                
+            } else {
                 if ranklistRows.count > 0 {
+                    fetchStandings(offset: ranklistRows.count + 1, count: 30, currentSearchQuery.split(separator: ",").map(String.init))
+                    
                     tableView.scrollToRow(
                         at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
+                } else {
+                    fetchStandings(offset: 1, count: 30, currentSearchQuery.split(separator: ",").map(String.init))
                 }
             }
         case .status:
-            if (filteredContestStatus.count == 0 && !searchBarIsEmpty()) || refresherPulled {
-                if refresherPulled {
+            if !currentSearchQuery.isEmpty {
+                if filteredContestStatus.count == 0 {
                     fetchStatus(offset: 1, count: 30, currentSearchQuery)
                 } else {
                     fetchStatus(offset: filteredContestStatus.count + 1, count: 30, currentSearchQuery)
@@ -385,8 +440,7 @@ class ContestInfoViewController: UIViewController {
                     tableView.scrollToRow(
                         at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
                 }
-                
-            } else if contestStatus.count >= 0 || refresherPulled {
+            } else if contestStatus.count >= 0 {
                 fetchStatus(offset: contestStatus.count + 1, count: 30, currentSearchQuery)
                 
                 if contestStatus.count > 0 {
@@ -396,14 +450,14 @@ class ContestInfoViewController: UIViewController {
             }
         case .tasks:
             refreshControl.endRefreshing()
-            if (filteredContestProblems.count == 0 && !searchBarIsEmpty()) || refresherPulled {
+            if (filteredContestProblems.count == 0 && !currentSearchQuery.isEmpty) {
                 filterRowsForSearchedText(currentSearchQuery)
                 
                 if filteredContestProblems.count > 0 {
                     tableView.scrollToRow(
                         at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
                 }
-            } else if contestProblems.count >= 0 || refresherPulled {
+            } else if contestProblems.count >= 0 {
                 if contestProblems.count > 0 {
                     tableView.scrollToRow(
                         at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
@@ -559,7 +613,8 @@ extension ContestInfoViewController: UITableViewDataSource {
                 return model.name.lowercased().contains(searchText.lowercased())
             })
         case .status:
-            let charset = CharacterSet.punctuationCharacters
+            var charset = CharacterSet.punctuationCharacters
+            charset.remove("_")
             
             if currentSearchQuery.lowercased().rangeOfCharacter(from: charset) == nil {
                 fetchStatus(offset: 1, count: 30, currentSearchQuery)
@@ -620,12 +675,9 @@ extension ContestInfoViewController: UITableViewDelegate {
             navigationController?.pushViewController(nextVC, animated: true)
             nextVC.configure(with: model)
             
-            
         default:
             break
         }
-        
-        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
