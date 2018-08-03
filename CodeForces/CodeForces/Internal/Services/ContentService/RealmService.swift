@@ -2,55 +2,92 @@ import Foundation
 import RealmSwift
 
 final class RealmService {
-    private let realm = try! Realm()
+    private let realmQueue = DispatchQueue(label: "RealmQueue")
     
-    func getContestList(withRequestParams: ContestListRequest) -> Result<[Contest]> {
-        let realmObjects = realm.objects(ContestRealm.self)
-            .filter{ $0.gym == withRequestParams.gym }
-        return Result.success(realmObjects.map{ $0.model })
+    func getContestList(
+        withRequestParams: ContestListRequest,
+        _ completion: @escaping (Result<[Contest]>) -> ()) {
+        realmQueue.async {
+            let realm = try! Realm()
+            let realmObjects = realm.objects(ContestRealm.self)
+                .filter{ $0.gym == withRequestParams.gym }
+            let objects = realmObjects.map{ $0.model }
+            var contests = [Contest]()
+            for obj in objects {
+                contests.append(obj)
+            }
+            DispatchQueue.main.async {
+                completion(Result.success(contests))
+            }
+        }
     }
     
-    func getProblemSetProblems() -> Result<ProblemSetProblems> {
-        if let problems = realm.objects(ProblemSetProblemsRealm.self).first?.model {
-            return Result.success(problems)
-        } else {
-            return Result.error(RealmErrors.realmNotFoundError)
+    func getProblemSetProblems(
+        _ completion: @escaping (Result<ProblemSetProblems>) -> ())  {
+        realmQueue.async {
+            let realm = try! Realm()
+            if let problems = realm.objects(ProblemSetProblemsRealm.self).first?.model {
+                DispatchQueue.main.async {
+                    completion(Result.success(problems))
+                }
+            } else {
+                DispatchQueue.main.async {
+                    completion(Result.error(RealmErrors.realmNotFoundError))
+                }
+            }
         }
     }
     
     func addContestList(
-            _ list: [Contest], withRequestParams: ContestListRequest) -> Result<[Contest]> {
-        do {
-            try realm.write {
-                for contest in list {
-                    let contestRealm = contest.persistenceObject
-                    contestRealm.gym = withRequestParams.gym
-                    realm.add(contestRealm, update: true)
+        _ list: [Contest], withRequestParams: ContestListRequest,
+        _ completion: @escaping (Result<[Contest]>) -> ()) {
+        realmQueue.async {
+            let realm = try! Realm()
+            do {
+                try realm.write {
+                    for contest in list {
+                        let contestRealm = contest.persistenceObject
+                        contestRealm.gym = withRequestParams.gym
+                        realm.add(contestRealm, update: true)
+                    }
+                }
+                DispatchQueue.main.async {
+                    completion(Result.success(list))
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(Result.error(RealmErrors.realmCannotSaveError))
                 }
             }
-            return Result.success(list)
-        } catch {
-            return Result.error(RealmErrors.realmCannotSaveError)
         }
     }
     
-    func addProblemSetProblems(_ problems: ProblemSetProblems) -> Result<ProblemSetProblems> {
-        do {
-            try realm.write {
-                let problemsRealm = problems.persistenceObject
-                problemsRealm.realmId = problemsRealm.getRealmId()
-                
-                for problemRealm in problemsRealm.problems {
-                    problemRealm.realmId = problemRealm.getRealmId()
+    func addProblemSetProblems(
+        _ problems: ProblemSetProblems,
+        _ completion: @escaping (Result<ProblemSetProblems>) -> ()) {
+        realmQueue.async {
+            let realm = try! Realm()
+            do {
+                try realm.write {
+                    let problemsRealm = problems.persistenceObject
+                    problemsRealm.realmId = problemsRealm.getRealmId()
+                    
+                    for problemRealm in problemsRealm.problems {
+                        problemRealm.realmId = problemRealm.getRealmId()
+                    }
+                    for problemStatisticRealm in problemsRealm.problemStatistics {
+                        problemStatisticRealm.realmId = problemStatisticRealm.getRealmId()
+                    }
+                    realm.add(problemsRealm, update: true)
                 }
-                for problemStatisticRealm in problemsRealm.problemStatistics {
-                    problemStatisticRealm.realmId = problemStatisticRealm.getRealmId()
+                DispatchQueue.main.async {
+                    completion(Result.success(problems))
                 }
-                realm.add(problemsRealm, update: true)
+            } catch {
+                DispatchQueue.main.async {
+                    completion(Result.error(RealmErrors.realmCannotSaveError))
+                }
             }
-            return Result.success(problems)
-        } catch {
-            return Result.error(RealmErrors.realmCannotSaveError)
         }
     }
 }

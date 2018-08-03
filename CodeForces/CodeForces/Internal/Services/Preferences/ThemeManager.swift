@@ -161,6 +161,26 @@ extension Theme {
             return .colorFromHexString("161c24")
         }
     }
+    
+    // Other
+    
+    var pointsColor: UIColor {
+        switch self {
+        case .light:
+            return .colorFromHexString("1d7f1d")
+        case .dark:
+            return .colorFromHexString("1d7f1d")
+        }
+    }
+    
+    var spinnerColor: UIColor {
+        switch self {
+        case .light:
+            return .colorFromHexString("289bff")
+        case .dark:
+            return .colorFromHexString("1d2a39")
+        }
+    }
 }
 
 

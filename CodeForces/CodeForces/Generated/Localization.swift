@@ -22,12 +22,54 @@ internal enum L10n {
   }
 
   internal enum ContestsVc {
+    /// Tasks
+    internal static let tasks = L10n.tr("Localizable", "Contests_VC.tasks")
     /// Contests
     internal static let title = L10n.tr("Localizable", "Contests_VC.title")
+    /// Users
+    internal static let users = L10n.tr("Localizable", "Contests_VC.users")
+
+    internal enum AlertHandleError {
+      /// Handle contains invalid characters
+      internal static let message = L10n.tr("Localizable", "Contests_VC.Alert_Handle_Error.message")
+    }
+
+    internal enum AlertResponseError {
+      /// Failed to get the contests. Please try again later
+      internal static let message = L10n.tr("Localizable", "Contests_VC.Alert_Response_Error.message")
+    }
 
     internal enum FinishedEventsSection {
       /// Finished contests
       internal static let title = L10n.tr("Localizable", "Contests_VC.Finished_Events_Section.title")
+    }
+
+    internal enum StatusCell {
+      ///  KB
+      internal static let memoryConsumptionLabel = L10n.tr("Localizable", "Contests_VC.Status_Cell.Memory_Consumption_Label")
+      ///  ms
+      internal static let timeConsumptionLabel = L10n.tr("Localizable", "Contests_VC.Status_Cell.Time_Consumption_Label")
+
+      internal enum Verdict {
+        /// Compilation error
+        internal static let compilationError = L10n.tr("Localizable", "Contests_VC.Status_Cell.verdict.Compilation_Error")
+        /// Memory limit exceeded
+        internal static let memoryLimitExceeded = L10n.tr("Localizable", "Contests_VC.Status_Cell.verdict.Memory_Limit_Exceeded")
+        /// OK
+        internal static let ok = L10n.tr("Localizable", "Contests_VC.Status_Cell.verdict.ok")
+        /// Rejected
+        internal static let rejected = L10n.tr("Localizable", "Contests_VC.Status_Cell.verdict.Rejected")
+        /// Runtime error
+        internal static let runtimeError = L10n.tr("Localizable", "Contests_VC.Status_Cell.verdict.Runtime_Error")
+        /// Security violated
+        internal static let securityViolated = L10n.tr("Localizable", "Contests_VC.Status_Cell.verdict.Security_Violated")
+        /// Testing
+        internal static let testing = L10n.tr("Localizable", "Contests_VC.Status_Cell.verdict.testing")
+        /// Time limit exceeded
+        internal static let timeLimitExceeded = L10n.tr("Localizable", "Contests_VC.Status_Cell.verdict.Time_Limit_Exceeded")
+        /// Wrong answer on test
+        internal static let wrongAnswer = L10n.tr("Localizable", "Contests_VC.Status_Cell.verdict.Wrong_Answer")
+      }
     }
 
     internal enum TableViewCell {
@@ -56,6 +98,32 @@ internal enum L10n {
     internal enum UpcomingEventsSection {
       /// Upcoming contests
       internal static let title = L10n.tr("Localizable", "Contests_VC.Upcoming_Events_Section.title")
+    }
+  }
+
+  internal enum Error {
+
+    internal enum Common {
+      /// Unknown error
+      internal static let message = L10n.tr("Localizable", "Error.Common.message")
+    }
+
+    internal enum Network {
+      /// Network error
+      internal static let message = L10n.tr("Localizable", "Error.Network.message")
+    }
+
+    internal enum Realm {
+
+      internal enum Cannotsave {
+        /// Database write error
+        internal static let message = L10n.tr("Localizable", "Error.Realm.CannotSave.message")
+      }
+
+      internal enum Notfound {
+        /// Database read error
+        internal static let message = L10n.tr("Localizable", "Error.Realm.NotFound.message")
+      }
     }
   }
 
@@ -96,6 +164,10 @@ internal enum L10n {
     internal static let title = L10n.tr("Localizable", "Tasks_VC.title")
 
     internal enum Cell {
+      /// Attempts
+      internal static let attempts = L10n.tr("Localizable", "Tasks_VC.cell.attempts")
+      /// Points
+      internal static let points = L10n.tr("Localizable", "Tasks_VC.cell.points")
 
       internal enum Header {
 

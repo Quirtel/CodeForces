@@ -2,25 +2,45 @@
   Localizable.strings
   CodeForces
 */
-
 // Common
 
 "Alert.title.error" = "Ошибка";
 "Alert.Action.ok" = "ОК";
+"Error.Network.message" = "Ошибка сети";
+"Error.Common.message" = "Неизвестная ошибка";
+"Error.Realm.NotFound.message" = "Ошибка чтения из базы данных";
+"Error.Realm.CannotSave.message" = "Ошибка сохранения в базу данных";
 
 // ContestsVC
 
 "Contests_VC.title" = "Соревнования";
+"Contests_VC.users" = "Пользователи";
+"Contests_VC.tasks" = "Задачи";
 "Contests_VC.Upcoming_Events_Section.title" = "Предстоящие или текущие соревнования";
 "Contests_VC.Finished_Events_Section.title" = "Прошедшие соревнования";
 "Contests_VC.Table_View_Cell.Contest_In_Progress.text" = "Соревнование идёт";
 "Contests_VC.Table_View_Cell.Pending_Test.text" = "Ожидание тестирования";
 "Contests_VC.Table_View_Cell.System_Testing.text" = "Системное тестирование";
 "Contests_VC.Table_View_Cell.Finished.text" = "Завершено";
+"Contests_VC.Alert_Response_Error.message" = "Не удалось получить соревнования. Повторите запрос позже";
+"Contests_VC.Alert_Handle_Error.message" = "Хэндл содержит недопустимые символы";
+"Contests_VC.Status_Cell.verdict.ok" = "Полное решение";
+"Contests_VC.Status_Cell.verdict.Compilation_Error" = "Ошибка компиляции";
+"Contests_VC.Status_Cell.verdict.Runtime_Error" = "Ошибка времени выполнения";
+"Contests_VC.Status_Cell.verdict.Wrong_Answer" = "Неправильный ответ на тесте ";
+"Contests_VC.Status_Cell.verdict.testing" = "Идёт тестирование";
+"Contests_VC.Status_Cell.verdict.Security_Violated" = "Нарушение правил";
+"Contests_VC.Status_Cell.verdict.Rejected" = "Отклонено";
+"Contests_VC.Status_Cell.verdict.Time_Limit_Exceeded" = "Превышено ограничение времени";
+"Contests_VC.Status_Cell.verdict.Memory_Limit_Exceeded" = "Превышено ограничение памяти";
+"Contests_VC.Status_Cell.Time_Consumption_Label" = " мс";
+"Contests_VC.Status_Cell.Memory_Consumption_Label" = " KB";
 
 // TasksVC
 
 "Tasks_VC.title" = "Задачи";
+"Tasks_VC.cell.points" = "очков";
+"Tasks_VC.cell.attempts" = "попыток";
 "Tasks_VC.cell.header.solved_count_label.text" = "Решили:";
 "Tasks_VC.SearchScope.title.tags" = "Теги";
 "Tasks_VC.SearchScope.title.name" = "Имена";

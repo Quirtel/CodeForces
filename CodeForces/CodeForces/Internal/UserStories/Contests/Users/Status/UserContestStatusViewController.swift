@@ -19,6 +19,25 @@ class UserContestStatusViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        
+        subscribeOnThemeChange()
+        applyTheme()
+    }
+    
+    private func subscribeOnThemeChange() {
+        NotificationCenter.default.addObserver(
+        forName: .preferencesChangeTheme, object: nil, queue: nil) { [weak self] _ in
+            self?.applyTheme()
+            self?.tableView.reloadData()
+        }
+    }
+    
+    private func applyTheme() {
+        if let context = self.context {
+            tableView.backgroundView = nil
+            tableView.backgroundColor = context.preferences.selectedTheme.backgroundColor
+            tableView.separatorStyle = .none
+        }
     }
     
     func configure(contestId: String, ranklistRow: RanklistRow, tasks: [Problem]) {
@@ -66,10 +85,10 @@ extension UserContestStatusViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "Пользователи"
+            return L10n.ContestsVc.users
         }
         if section == 1 {
-            return "Задачи"
+            return L10n.ContestsVc.tasks
         }
         
         return ""
@@ -83,7 +102,8 @@ extension UserContestStatusViewController: UITableViewDataSource {
         case .party:
             let cell = tableView.dequeueReusableCell(for: indexPath) as UserInfoCell
             
-            cell.configure(with: UserInfoCellModel((users?.members[indexPath.row].handle)!))
+            cell.configure(with: UserInfoCellModel((users?.members[indexPath.row].handle)!),
+                           theme: context?.preferences.selectedTheme ?? .light)
             
             return cell
         case .tasks:

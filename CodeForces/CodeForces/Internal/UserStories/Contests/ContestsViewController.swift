@@ -12,6 +12,7 @@ class ContestsViewController: UIViewController {
     @IBOutlet private var searchBar: UISearchBar!
     
     private var searchController = UISearchController(searchResultsController: nil)
+
     var context: Context?
     private var upcomingContests: [Contest] = []
     private var finishedContests: [Contest] = []
@@ -21,8 +22,8 @@ class ContestsViewController: UIViewController {
     
     let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     let alertResponseError = UIAlertController(
-        title: "Ошибка",
-        message: "Не удалось получить соревнования. Повторите запрос позже", preferredStyle: .alert)
+        title: L10n.Alert.Title.error,
+        message: L10n.ContestsVc.AlertResponseError.message, preferredStyle: .alert)
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -39,9 +40,27 @@ class ContestsViewController: UIViewController {
         setupTableView()
         setupSearchController()
         setupFormatters()
-        fetchContestList()
+        fetchContestList(force: false)
+        
+        subscribeOnThemeChange()
+        applyTheme()
     }
     
+    private func subscribeOnThemeChange() {
+        NotificationCenter.default.addObserver(
+        forName: .preferencesChangeTheme, object: nil, queue: nil) { [weak self] _ in
+            self?.applyTheme()
+            self?.tableView.reloadData()
+        }
+    }
+    
+    private func applyTheme() {
+        if let context = self.context {
+            tableView.backgroundView = nil
+            tableView.backgroundColor = context.preferences.selectedTheme.backgroundColor
+            spinner.color = context.preferences.selectedTheme.spinnerColor
+        }
+    }
     
     func setupTableView() {
         tableView.register(cellType: ContestCell.self)
@@ -85,12 +104,12 @@ class ContestsViewController: UIViewController {
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-        fetchContestList()
+        fetchContestList(force: true)
     }
     
-    func fetchContestList() {
+    func fetchContestList(force: Bool) {
         context?.contentService.fetchContestList(
-            withRequestParams: ContestListRequest(gym: false), force: true, { [weak self] contestList in
+            withRequestParams: ContestListRequest(gym: false), force: force, { [weak self] contestList in
                 guard let sself = self else { return }
                 switch contestList {
                 case .success(let list):
@@ -132,6 +151,7 @@ extension ContestsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath) as ContestCell
+        cell.configure(theme: context?.preferences.selectedTheme ?? .light)
         
         let sectionName = SectionsNames(rawValue: indexPath.section)!
         
@@ -146,7 +166,6 @@ extension ContestsViewController: UITableViewDataSource {
             cell.durationTime.text = formatter.string(from: duration)
             cell.endTime.isHidden = true
             cell.remainingLabel.isHidden = true
-            
             return cell
         }
         

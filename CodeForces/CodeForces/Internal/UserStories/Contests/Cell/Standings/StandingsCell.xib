@@ -18,9 +18,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="447" height="106.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TA7-aS-f6S">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TA7-aS-f6S">
                         <rect key="frame" x="5" y="5" width="437" height="96.5"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DPd-Uw-pP5">
+                                <rect key="frame" x="0.0" y="0.0" width="437" height="96.5"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95z-2p-hQU">
                                 <rect key="frame" x="362.5" y="26.5" width="54.5" height="21.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -44,18 +47,22 @@
                         <constraints>
                             <constraint firstItem="95z-2p-hQU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="at7-Mv-SEa" secondAttribute="trailing" constant="8" id="3wa-dz-bpr"/>
                             <constraint firstItem="at7-Mv-SEa" firstAttribute="baseline" secondItem="pQ3-1H-ABW" secondAttribute="baseline" id="A6D-ke-YMt"/>
+                            <constraint firstItem="DPd-Uw-pP5" firstAttribute="leading" secondItem="TA7-aS-f6S" secondAttribute="leading" id="A7E-mZ-fcV"/>
+                            <constraint firstItem="DPd-Uw-pP5" firstAttribute="top" secondItem="TA7-aS-f6S" secondAttribute="top" id="DV2-Rx-Vtd"/>
                             <constraint firstItem="pQ3-1H-ABW" firstAttribute="leading" secondItem="TA7-aS-f6S" secondAttribute="leading" constant="20" id="DY0-Dx-N3V"/>
                             <constraint firstItem="95z-2p-hQU" firstAttribute="baseline" secondItem="at7-Mv-SEa" secondAttribute="baseline" id="SdM-xo-ya2"/>
                             <constraint firstItem="pQ3-1H-ABW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="TA7-aS-f6S" secondAttribute="top" id="Vu6-35-JRc"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="pQ3-1H-ABW" secondAttribute="bottom" id="XNu-zd-sBs"/>
+                            <constraint firstAttribute="bottom" secondItem="DPd-Uw-pP5" secondAttribute="bottom" id="Y9y-Jw-tNh"/>
                             <constraint firstItem="at7-Mv-SEa" firstAttribute="top" secondItem="TA7-aS-f6S" secondAttribute="top" constant="20" id="eRh-9x-JUI"/>
+                            <constraint firstAttribute="trailing" secondItem="DPd-Uw-pP5" secondAttribute="trailing" id="hAK-Ic-939"/>
                             <constraint firstItem="at7-Mv-SEa" firstAttribute="leading" secondItem="pQ3-1H-ABW" secondAttribute="trailing" constant="13" id="ja6-zy-2d6"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="at7-Mv-SEa" secondAttribute="bottom" constant="20" id="ksP-Kp-sQ8"/>
                             <constraint firstAttribute="trailing" secondItem="95z-2p-hQU" secondAttribute="trailing" constant="20" id="xdQ-1r-DlS"/>
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.56589214744838179" green="1" blue="0.56165852459770771" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="TA7-aS-f6S" firstAttribute="top" secondItem="eoN-Az-jLh" secondAttribute="top" constant="5" id="dgb-3s-j3i"/>
                     <constraint firstAttribute="trailing" secondItem="TA7-aS-f6S" secondAttribute="trailing" constant="5" id="ikG-4f-LDJ"/>
@@ -63,7 +70,9 @@
                     <constraint firstItem="TA7-aS-f6S" firstAttribute="leading" secondItem="eoN-Az-jLh" secondAttribute="leading" constant="5" id="xwa-ax-KZc"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="defaultCellBackground" destination="DPd-Uw-pP5" id="AcU-ll-GgI"/>
                 <outlet property="participantNameLabel" destination="at7-Mv-SEa" id="DYr-tp-Z51"/>
                 <outlet property="pointsLabel" destination="95z-2p-hQU" id="2DC-tD-xMj"/>
                 <outlet property="rankNumberLabel" destination="pQ3-1H-ABW" id="gP0-Ae-Tpp"/>

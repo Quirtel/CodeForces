@@ -1,31 +1,29 @@
 import Foundation
 
 class ContentService {
-    private let dayTime = TimeInterval(exactly: 60*60*24)!
     private let networkService = NetworkService()
     private let realmService = RealmService()
-    
-    init() {
-        //force load data in case of day is gone from last download
+    private let preferences = Preferences()
+
+    func updateDatabaseIfNeeded() {
         let now = Date()
-        let preferences = Preferences()
         let diff = now.timeIntervalSince(preferences.lastUpdated)
-        
-        if diff > dayTime {
+        let timeToUpdate = preferences.selectedCacheTime.seconds
+        if diff > timeToUpdate {
             //need to update
             fetchProblemSetProblems(
-            withRequestParams: ProblemSetProblemsRequest(
-                tags: nil, problemsetName: nil), force: true) { [weak self] result in
-                if case .success(let problems) = result {
-                    _ = self?.realmService.addProblemSetProblems(problems)
-                }
+                withRequestParams: ProblemSetProblemsRequest(
+                    tags: nil, problemsetName: nil), force: true) { [weak self] result in
+                        if case .success(let problems) = result {
+                            self?.realmService.addProblemSetProblems(problems) { _ in }
+                        }
             }
             let gymFalseParams = ContestListRequest(gym: false)
             fetchContestList(
             withRequestParams: gymFalseParams, force: true) { [weak self] result in
                 if case .success(let contests) = result {
-                    _ = self?.realmService.addContestList(
-                        contests, withRequestParams: gymFalseParams)
+                    self?.realmService.addContestList(
+                    contests, withRequestParams: gymFalseParams) { _ in }
                 }
             }
             
@@ -33,45 +31,51 @@ class ContentService {
             fetchContestList(
             withRequestParams: gymTrueParams, force: true) { [weak self] result in
                 if case .success(let contests) = result {
-                    _ = self?.realmService.addContestList(
-                        contests, withRequestParams: gymTrueParams)
+                    self?.realmService.addContestList(
+                    contests, withRequestParams: gymTrueParams) { _ in }
                 }
             }
             preferences.lastUpdated = now
+            print("Database updated!")
+        } else {
+            print("Database already is up-to-date!")
         }
     }
     
     func fetchContestList(
         withRequestParams: ContestListRequest, force: Bool = false,
         _ completion: @escaping (Result<[Contest]>) -> ()) {
-        if force {
+        if force || preferences.selectedCacheTime == .never {
             networkService.fetchContestList(
             requestParams: withRequestParams) { [weak self] result in
                 if case .success(let list) = result {
-                    _ = self?.realmService.addContestList(
-                        list, withRequestParams: withRequestParams)
+                    self?.realmService.addContestList(
+                        list, withRequestParams: withRequestParams) { _ in }
                 }
                 completion(result)
             }
         } else {
-            completion(realmService.getContestList(withRequestParams: withRequestParams))
+            realmService.getContestList(withRequestParams: withRequestParams) { result in
+                completion(result)
+            }
         }
     }
     
     func fetchProblemSetProblems(
         withRequestParams: ProblemSetProblemsRequest, force: Bool = false,
         _ completion: @escaping (Result<ProblemSetProblems>) -> ()) {
-        if force {
+        if force || preferences.selectedCacheTime == .never {
             networkService.fetchProblemSetProblems(
             requestParams: withRequestParams) { [weak self] result in
                 if case .success(let problems) = result {
-                    _ = self?.realmService.addProblemSetProblems(
-                    problems)
+                    self?.realmService.addProblemSetProblems(problems) { _ in }
                 }
                 completion(result)
             }
         } else {
-            completion(realmService.getProblemSetProblems())
+            realmService.getProblemSetProblems() { result in
+                completion(result)
+            }
         }
     }
     
