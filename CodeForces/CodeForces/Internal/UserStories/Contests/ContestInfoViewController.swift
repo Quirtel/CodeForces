@@ -544,6 +544,7 @@ extension ContestInfoViewController: UITableViewDataSource {
             
             let model = StandingsCellModel(currentRanklistRow)
             standingsCell.configure(with: model, theme: context?.preferences.selectedTheme ?? .light)
+            standingsCell.context = context
             
             tableView.tableFooterView?.isHidden = true
             return standingsCell
