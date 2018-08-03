@@ -595,12 +595,32 @@ extension ContestInfoViewController: UITableViewDelegate {
             }
             
             let nextVC =
-                StoryboardScene.UserContestStatusViewController.initialScene.instantiate()
+                StoryboardScene.UserContestStatusViewController.userContestStatusViewController.instantiate()
             
             nextVC.configure(contestId: String(contestId), ranklistRow: currentStanding, tasks: tasks)
             nextVC.context = context
             
             self.navigationController?.pushViewController(nextVC, animated: true)
+            
+        case .tasks:
+            let currentTask: Problem
+            
+            if searchBarIsEmpty() {
+                currentTask = contestProblems[indexPath.row]
+            } else {
+                currentTask = filteredContestProblems[indexPath.row]
+            }
+            
+            let model = TaskCellModel(
+                contestId: String(contestId), name: currentTask.name, tags: currentTask.tags, solvedCount: nil, index: currentTask.index, rejectedAttemptCount: nil, points: nil)
+            
+            
+            let nextVC =
+                StoryboardScene.ProblemViewController.problemViewController.instantiate()
+            
+            nextVC.configure(with: model)
+            
+            navigationController?.pushViewController(nextVC, animated: true)
         default:
             break
         }

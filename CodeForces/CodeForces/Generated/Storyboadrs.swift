@@ -67,6 +67,11 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<UIViewController>(storyboard: LaunchScreen.self)
   }
+  internal enum ProblemViewController: StoryboardType {
+    internal static let storyboardName = "ProblemViewController"
+
+    internal static let problemViewController = SceneType<CodeForces.ProblemViewController>(storyboard: ProblemViewController.self, identifier: "ProblemViewController")
+  }
   internal enum Settings: StoryboardType {
     internal static let storyboardName = "Settings"
 
@@ -81,6 +86,8 @@ internal enum StoryboardScene {
     internal static let storyboardName = "UserContestStatusViewController"
 
     internal static let initialScene = InitialSceneType<CodeForces.UserContestStatusViewController>(storyboard: UserContestStatusViewController.self)
+
+    internal static let userContestStatusViewController = SceneType<CodeForces.UserContestStatusViewController>(storyboard: UserContestStatusViewController.self, identifier: "UserContestStatusViewController")
   }
 }
 
