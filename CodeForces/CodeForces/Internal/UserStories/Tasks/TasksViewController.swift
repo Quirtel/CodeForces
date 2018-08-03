@@ -116,6 +116,7 @@ class TasksViewController: UIViewController {
         if let context = self.context {
             tableView.backgroundView = nil
             tableView.backgroundColor = context.preferences.selectedTheme.backgroundColor
+            refreshControl.tintColor = context.preferences.selectedTheme.spinnerColor
         }
     }
 }
@@ -132,7 +133,8 @@ private extension TasksViewController {
         searchController.searchBar.scopeButtonTitles = [SearchScope.tags.title, SearchScope.names.title]
         searchController.hidesNavigationBarDuringPresentation = true
         searchController.dimsBackgroundDuringPresentation = false
-        
+        searchController.searchBar.tintColor = context?.preferences.selectedTheme.selectedControlColor
+
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         if #available(iOS 11.0, *) {

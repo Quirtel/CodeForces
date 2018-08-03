@@ -11,6 +11,7 @@ class ContestInfoViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var segmentIndicator: UISegmentedControl!
     @IBOutlet var segmentView: UIView!
+    @IBOutlet weak var segmentcontrol: UISegmentedControl!
     
     private var searchController = UISearchController(searchResultsController: nil)
     
@@ -49,7 +50,6 @@ class ContestInfoViewController: UIViewController {
         refreshControl.addTarget(self, action:
             #selector(self.handleRefresh(_:)),
                                  for: UIControlEvents.valueChanged)
-        refreshControl.tintColor = UIColor.red
         
         return refreshControl
     }()
@@ -111,7 +111,9 @@ class ContestInfoViewController: UIViewController {
             tableView.backgroundColor = context.preferences.selectedTheme.backgroundColor
             segmentView.backgroundColor = context.preferences.selectedTheme.backgroundColor
             spinner.color = context.preferences.selectedTheme.spinnerColor
+            refreshControl.tintColor = context.preferences.selectedTheme.spinnerColor
             segmentView.layer.borderColor = context.preferences.selectedTheme.backgroundColor.cgColor
+            segmentIndicator.tintColor = context.preferences.selectedTheme.selectedControlColor
         }
     }
     

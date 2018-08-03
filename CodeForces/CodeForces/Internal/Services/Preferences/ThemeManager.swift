@@ -176,9 +176,18 @@ extension Theme {
     var spinnerColor: UIColor {
         switch self {
         case .light:
-            return .colorFromHexString("289bff")
+            return .colorFromHexString("cbcacc")
         case .dark:
-            return .colorFromHexString("1d2a39")
+            return .colorFromHexString("cbcacc")
+        }
+    }
+    
+    var selectedControlColor: UIColor {
+        switch self {
+        case .light:
+            return .colorFromHexString("5bb3ff")
+        case .dark:
+            return .colorFromHexString("5bb3ff")
         }
     }
 }
@@ -199,6 +208,7 @@ class ThemeManager {
         UITabBar.appearance().barTintColor = theme.tabBarBarTintColor
         
         UITableViewCell.appearance().tintColor = theme.cellTintColor
+        
     }
 }
 
