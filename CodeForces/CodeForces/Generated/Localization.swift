@@ -57,8 +57,12 @@ internal enum L10n {
     }
 
     internal enum StatusCell {
+      /// Duration:
+      internal static let duration = L10n.tr("Localizable", "Contests_VC.Status_Cell.Duration")
       ///  KB
       internal static let memoryConsumptionLabel = L10n.tr("Localizable", "Contests_VC.Status_Cell.Memory_Consumption_Label")
+      /// Search results
+      internal static let searchResults = L10n.tr("Localizable", "Contests_VC.Status_Cell.SearchResults")
       ///  ms
       internal static let timeConsumptionLabel = L10n.tr("Localizable", "Contests_VC.Status_Cell.Time_Consumption_Label")
 

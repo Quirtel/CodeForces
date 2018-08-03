@@ -163,6 +163,7 @@ extension ContestsViewController: UITableViewDataSource {
             let duration = TimeInterval(filteredContests[indexPath.row].durationSeconds)
             
             cell.status.text = relativeTimeFormatter.string(from: startTime)
+            cell.durability.text = L10n.ContestsVc.StatusCell.duration
             cell.durationTime.text = formatter.string(from: duration)
             cell.endTime.isHidden = true
             cell.remainingLabel.isHidden = true
@@ -181,6 +182,7 @@ extension ContestsViewController: UITableViewDataSource {
                 TimeInterval(upcomingContests[indexPath.row].startTimeSeconds! + upcomingContests[indexPath.row].durationSeconds))
             
             cell.durationTime.text = formatter.string(from: duration)
+            cell.durability.text = L10n.ContestsVc.StatusCell.duration
             
             switch upcomingContests[indexPath.row].phase {
             case .coding:
@@ -209,6 +211,7 @@ extension ContestsViewController: UITableViewDataSource {
             
             cell.status.text = relativeTimeFormatter.string(from: startTime)
             cell.durationTime.text = formatter.string(from: duration)
+            cell.durability.text = L10n.ContestsVc.StatusCell.duration
             cell.endTime.isHidden = true
             cell.remainingLabel.isHidden = true
         }
@@ -219,7 +222,7 @@ extension ContestsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         if searchController.isActive && searchController.searchBar.text != "" {
-            return "Результаты поиска"
+            return L10n.ContestsVc.StatusCell.searchResults
         }
         
         let sectionName = SectionsNames(rawValue: section)!
