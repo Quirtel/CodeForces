@@ -4,8 +4,6 @@ private enum SegmentsNames: Int {
     case tasks = 0
     case status
     case standings
-    
-    
 }
 
 class ContestInfoViewController: UIViewController {
@@ -153,14 +151,17 @@ class ContestInfoViewController: UIViewController {
                 case .success(let list):
                     strongSelf.contestProblems = list.problems
                     
-                    strongSelf.tableView.setContentOffset(
-                        strongSelf.tableView.contentOffset, animated: true)
+                    strongSelf.tableView.reloadData()
+                    strongSelf.tableView.layoutIfNeeded()
                     
+                    strongSelf.currentDataType = .tasks
                     strongSelf.refresherPulled = false
                     strongSelf.refreshControl.endRefreshing()
                     
-                    strongSelf.tableView.reloadData()
+                    strongSelf.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
+                    
                     strongSelf.tableView.tableFooterView?.isHidden = true
+                    
                 case .error(let error):
                     print(error)
                 }
@@ -197,7 +198,7 @@ class ContestInfoViewController: UIViewController {
                 switch result {
                 case .success(let list):
                     
-                    if let handle = handleToSearch {
+                    if handleToSearch != nil {
                         if strongSelf.refresherPulled {
                             strongSelf.filteredContestStatus.removeAll()
                         }
@@ -210,34 +211,40 @@ class ContestInfoViewController: UIViewController {
                         strongSelf.contestStatus.append(contentsOf: list.compactMap({ $0 }))
                     }
                     
-                    let indexPaths = Array(offset-1..<offset-1+list.count)
-                        .map({ IndexPath(row: $0, section: 0) })
+                    //                    let indexPaths = Array(offset-1..<offset-1+list.count)
+                    //                        .map({ IndexPath(row: $0, section: 0) })
                     
-//                    if handle != nil || strongSelf.refresherPulled {
-//                        strongSelf.tableView.reloadData()
-//                    } else {
-//                        strongSelf.tableView.setContentOffset(
-//                            strongSelf.tableView.contentOffset, animated: true)
-//
-//                        strongSelf.tableView.beginUpdates()
-//                        strongSelf.tableView.insertRows(
-//                            at: indexPaths, with: .fade)
-//                        strongSelf.tableView.endUpdates()
-//                    }
-//
-                    strongSelf.tableView.setContentOffset(
-                        strongSelf.tableView.contentOffset, animated: true)
-
-
+                    //                    if handle != nil || strongSelf.refresherPulled {
+                    //                        strongSelf.tableView.reloadData()
+                    //                    } else {
+                    //                        strongSelf.tableView.setContentOffset(
+                    //                            strongSelf.tableView.contentOffset, animated: true)
+                    //
+                    //                        strongSelf.tableView.beginUpdates()
+                    //                        strongSelf.tableView.insertRows(
+                    //                            at: indexPaths, with: .fade)
+                    //                        strongSelf.tableView.endUpdates()
+                    //                    }
+                    //
+                    
                     strongSelf.tableView.reloadData()
+                    strongSelf.tableView.layoutIfNeeded()
+                    
+                    
+                    strongSelf.currentDataType = .status
+                    strongSelf.refresherPulled = false
+                    strongSelf.refreshControl.endRefreshing()
+                    
+                    strongSelf.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
+                    
                     strongSelf.tableView.tableFooterView?.isHidden = true
                     
                     if list.count > 0 {
                         strongSelf.shouldFetchStatus = true
                     }
-                    strongSelf.currentDataType = .status
-                    strongSelf.refresherPulled = false
-                    strongSelf.refreshControl.endRefreshing()
+                    
+                    
+                    
                 case .error(let error):
                     print(error)
                     strongSelf.tableView.tableFooterView?.isHidden = true
@@ -277,7 +284,7 @@ class ContestInfoViewController: UIViewController {
                 
                 switch result {
                 case .success(let list):
-                    if let handles = handlesArrayToSearch {
+                    if handlesArrayToSearch != nil {
                         if strongSelf.refresherPulled {
                             strongSelf.filteredRanklistRows.removeAll()
                         }
@@ -292,37 +299,40 @@ class ContestInfoViewController: UIViewController {
                         
                         strongSelf.ranklistRows.append(contentsOf: list.rows)
                     }
+                    //
+                    //                    let indexPaths = Array(offset-1..<offset-1+list.rows.count)
+                    //                        .map({ IndexPath(row: $0, section: 0) })
+                    //
                     
-                    let indexPaths = Array(offset-1..<offset-1+list.rows.count)
-                        .map({ IndexPath(row: $0, section: 0) })
+                    //                    if handles != nil || strongSelf.refresherPulled {
+                    //                        strongSelf.tableView.reloadData()
+                    //                    } else {
+                    //                        strongSelf.tableView.setContentOffset(
+                    //                            strongSelf.tableView.contentOffset, animated: true)
+                    //
+                    //                        strongSelf.tableView.beginUpdates()
+                    //                        strongSelf.tableView.insertRows(
+                    //                            at: indexPaths, with: .fade)
+                    //                        strongSelf.tableView.endUpdates()
+                    //                    }
                     
-                    
-//                    if handles != nil || strongSelf.refresherPulled {
-//                        strongSelf.tableView.reloadData()
-//                    } else {
-//                        strongSelf.tableView.setContentOffset(
-//                            strongSelf.tableView.contentOffset, animated: true)
-//
-//                        strongSelf.tableView.beginUpdates()
-//                        strongSelf.tableView.insertRows(
-//                            at: indexPaths, with: .fade)
-//                        strongSelf.tableView.endUpdates()
-//                    }
-                    
-                    strongSelf.tableView.setContentOffset(
-                        strongSelf.tableView.contentOffset, animated: true)
-
-                    strongSelf.tableView.tableFooterView?.isHidden = true
                     strongSelf.tableView.reloadData()
+                    strongSelf.tableView.layoutIfNeeded()
                     
-                    
-                    if list.rows.count > 0 {
-                        strongSelf.shouldFetchStandings = true
-                    }
                     
                     strongSelf.currentDataType = .standings
                     strongSelf.refresherPulled = false
                     strongSelf.refreshControl.endRefreshing()
+                    
+                    strongSelf.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
+                    
+                    strongSelf.tableView.tableFooterView?.isHidden = true
+                    if list.rows.count > 0 {
+                        strongSelf.shouldFetchStandings = true
+                    }
+                    
+                    
+                    
                 case .error(let error):
                     print(error)
                     strongSelf.tableView.tableFooterView?.isHidden = true
@@ -376,7 +386,9 @@ class ContestInfoViewController: UIViewController {
             }
         case .status:
             if !currentSearchQuery.isEmpty {
-                fetchStatus(offset: 1, count: 30, currentSearchQuery)
+                DispatchQueue.main.async {
+                    self.fetchStatus(offset: 1, count: 30, self.currentSearchQuery)
+                }
                 if filteredContestStatus.count > 0 {
                     tableView.scrollToRow(
                         at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)

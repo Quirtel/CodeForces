@@ -14,9 +14,6 @@ struct StatusCellModel {
     
     init(contestId: Int, submission: Submission, formatterRef: DateFormatter) {
         
-        let taskName = String(contestId) + submission.problem.index +
-            " - " + submission.problem.name
-        
         if let teamName = submission.author.teamName {
             self.participantName = teamName
             participantIsTeam = true

@@ -139,6 +139,7 @@ private extension TasksViewController {
         searchController.searchResultsUpdater = self
         if #available(iOS 11.0, *) {
             navigationItem.searchController = searchController
+            navigationItem.hidesSearchBarWhenScrolling = false
         } else {
             tableView.tableHeaderView = searchController.searchBar
         }

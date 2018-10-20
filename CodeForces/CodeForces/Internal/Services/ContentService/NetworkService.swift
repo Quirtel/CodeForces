@@ -43,7 +43,7 @@ final class NetworkService {
                             NetworkErrors.badResponseCode(code: moyaResponse.statusCode)))
                     }
                 }
-            case .failure(let error):
+            case .failure(_):
                 DispatchQueue.main.async {
                     completion(Result.error(NetworkErrors.connectionError))
                 }

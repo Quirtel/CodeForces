@@ -79,10 +79,11 @@ class ContestsViewController: UIViewController {
     func setupSearchController() {
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.hidesNavigationBarDuringPresentation = false
         
         if #available(iOS 11.0, *) {
             navigationItem.searchController = searchController
+            navigationItem.hidesSearchBarWhenScrolling = false;
         } else {
             tableView.tableHeaderView = searchController.searchBar
         }

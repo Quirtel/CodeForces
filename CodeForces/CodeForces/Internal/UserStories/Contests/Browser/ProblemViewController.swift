@@ -10,7 +10,7 @@ class ProblemViewController: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let margins = view.layoutMarginsGuide
+        _ = view.layoutMarginsGuide
         webView.navigationDelegate = self
         webView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(webView)
@@ -18,13 +18,23 @@ class ProblemViewController: UIViewController, WKNavigationDelegate {
         webView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         webView.topAnchor.constraint(equalTo:  view.topAnchor).isActive = true
         webView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        extendedLayoutIncludesOpaqueBars = true
+        
+        
+        if #available(iOS 11.0, *) {
+            navigationItem.hidesSearchBarWhenScrolling = true
+            navigationItem.largeTitleDisplayMode = .never
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     func configure(with model: TaskCellModel) {
         backgroundTasks.async {
             let url = URL(string: "https://www.codeforces.com/contest/\(model.contestId)/problem/\(model.index)?mobile=true")!
             
-            let request = URLRequest(url: url)
+            _ = URLRequest(url: url)
             
             do {
                 let html = try String(contentsOf: url, encoding: .utf8)
